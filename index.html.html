@@ -1,0 +1,703 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>LogoBoss Web AI — Websites, Automation & AI Assistants</title><style>
+:root{--bg:#08090b;--card:#111318;--gold:#d8ad55;--txt:#f7f5ef;--muted:#aaa;--line:#2b2d33}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at 50% -10%,#29251b,#0d0e12 34%,#08090b 65%);color:var(--txt);font-family:Arial,sans-serif}.wrap{max-width:1180px;margin:auto;padding:0 20px}header{position:sticky;top:0;z-index:20;background:#08090be8;border-bottom:1px solid var(--line);backdrop-filter:blur(14px)}nav{height:70px;display:flex;align-items:center;justify-content:space-between;gap:10px}.logo{font-size:21px;font-weight:900;letter-spacing:1.5px}.logo b{color:var(--gold)}button{cursor:pointer;border:1px solid #55472b;border-radius:11px;padding:11px 14px;background:#17140d;color:#f7d98e;font-weight:800}.right{display:flex;gap:8px;align-items:center}.langs{display:flex;gap:5px}.langs button.active{background:var(--gold);color:#111}.count{background:var(--gold);color:#111;border-radius:99px;padding:2px 6px;font-size:11px}.hero{text-align:center;padding:88px 0 54px}.eyebrow{color:var(--gold);font-weight:900;letter-spacing:2px}.hero h1{font-size:clamp(42px,8vw,82px);line-height:.98;max-width:950px;margin:18px auto}.hero p{color:#c4c4c7;font-size:19px;line-height:1.65;max-width:800px;margin:20px auto}.primary,.ghost{display:inline-block;text-decoration:none;padding:15px 22px;border-radius:12px;font-weight:900;margin:7px}.primary{background:var(--gold);color:#111}.ghost{color:#f4d488;border:1px solid #55472b}section{padding:55px 0}.title{text-align:center;font-size:38px;margin:0 0 10px}.sub{text-align:center;color:var(--muted);max-width:800px;margin:0 auto 32px;line-height:1.6}.promo,.pkg{background:linear-gradient(180deg,#15171d,#0e1014);border:1px solid var(--line);border-radius:22px;overflow:hidden}.promo video{width:100%;display:block;aspect-ratio:16/9;background:#000}.packages{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.pkg{padding:20px;display:flex;flex-direction:column}.pkg.best{border-color:var(--gold);box-shadow:0 0 40px #d8ad5520;transform:translateY(-7px)}.badge{align-self:flex-start;background:#352b17;color:#ffd77d;border-radius:8px;padding:6px 9px;font-size:12px;font-weight:900}.pkg h3{font-size:27px;margin:15px 0 3px}.price{font-size:42px;font-weight:900;color:var(--gold);margin:10px 0}.pkg p{color:#bcbcc0;line-height:1.55}.pkg ul{padding-left:20px;line-height:1.8;color:#ddd}.pkg video{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:13px;background:#000}.actions{margin-top:auto;display:grid;gap:8px}.services{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.service{background:#111318;border:1px solid var(--line);border-radius:14px;padding:18px;display:flex;justify-content:space-between}.service b{color:var(--gold)}.pay{background:linear-gradient(135deg,#201a0e,#111319);border:1px solid #66542d;border-radius:24px;padding:38px;text-align:center}.pay h2{color:#f2cc74;font-size:clamp(27px,5vw,46px);margin:0 0 14px}.pay p{font-size:18px;line-height:1.65}.drawer{position:fixed;inset:0 0 0 auto;width:min(430px,100%);background:#0e1014;border-left:1px solid var(--line);z-index:50;padding:22px;transform:translateX(105%);transition:.25s;overflow:auto}.drawer.open{transform:none}.close{float:right}.cartitem{padding:14px;border:1px solid var(--line);border-radius:12px;margin:10px 0;display:flex;justify-content:space-between}.total{font-size:24px;color:var(--gold);font-weight:900;margin:18px 0}.form input,.form textarea{width:100%;margin:6px 0;padding:13px;border-radius:10px;border:1px solid #34363e;background:#15171c;color:white}.form textarea{min-height:90px}.notice{font-size:12px;color:#999;line-height:1.5}footer{text-align:center;color:#777;padding:38px;border-top:1px solid #1f2126}@media(max-width:850px){.packages,.services{grid-template-columns:1fr}.pkg.best{transform:none}.hero{padding-top:55px}.logo{font-size:17px}.title{font-size:31px}.langs button{padding:9px}}
+.compare{overflow:auto;border:1px solid var(--line);border-radius:22px;background:#0e1014}.compare table{width:100%;min-width:700px;border-collapse:collapse}.compare th,.compare td{padding:14px;border-bottom:1px solid #262930;text-align:center}.compare th:first-child,.compare td:first-child{text-align:left}.compare th,.yes{color:var(--gold);font-weight:900}.builder{border:1px solid #66542d;border-radius:24px;padding:28px;background:#111318}.builder-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.pick{display:flex;gap:10px;padding:14px;border:1px solid var(--line);border-radius:12px}.pick label{flex:1}.build-total{font-size:32px;color:var(--gold);font-weight:900;margin:20px 0}@media(max-width:850px){.builder-grid{grid-template-columns:1fr}}.progrid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.procard{background:#111318;border:1px solid var(--line);border-radius:18px;padding:22px}.procard b{color:var(--gold)}.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.step{background:#111318;border:1px solid var(--line);border-radius:18px;padding:22px}.stepnum{font-size:28px;color:var(--gold);font-weight:900}.roi{max-width:760px;margin:auto;background:#111318;border:1px solid #66542d;border-radius:24px;padding:28px}.roi input{width:100%;padding:13px;margin:7px 0 15px;border-radius:10px;border:1px solid #34363e;background:#15171c;color:#fff}.roiout{font-size:30px;color:var(--gold);font-weight:900}.integrations{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}.integration{padding:14px 18px;border:1px solid var(--line);border-radius:99px;background:#111318;font-weight:800}.faq{max-width:850px;margin:auto}.faq details{background:#111318;border:1px solid var(--line);border-radius:14px;padding:16px;margin:10px 0}.faq summary{cursor:pointer;font-weight:800;color:#f2cc74}.chatfloat{position:fixed;right:18px;bottom:18px;z-index:60;background:var(--gold);color:#111;border:0;border-radius:99px;padding:15px 19px;font-weight:900;box-shadow:0 8px 30px #0008}.chatbox{display:none;position:fixed;right:18px;bottom:78px;width:min(370px,calc(100vw - 24px));height:500px;max-height:70vh;z-index:59;background:#0e1014;border:1px solid #66542d;border-radius:20px;box-shadow:0 18px 60px #000b;overflow:hidden}.chatbox.open{display:flex;flex-direction:column}.chathead{padding:14px 16px;background:#17140d;border-bottom:1px solid #55472b;display:flex;justify-content:space-between;align-items:center;font-weight:900;color:#f2cc74}.chatmsgs{flex:1;overflow:auto;padding:14px}.bubble{padding:10px 12px;border-radius:13px;margin:8px 0;line-height:1.45}.bot{background:#181b21;margin-right:35px}.user{background:#332b19;margin-left:35px}.chatinput{display:flex;gap:7px;padding:10px;border-top:1px solid #292c32}.chatinput input{flex:1;min-width:0;padding:12px;border:1px solid #34363e;border-radius:10px;background:#15171c;color:#fff}.chatinput button{padding:10px 13px}@media(max-width:850px){.progrid,.steps{grid-template-columns:1fr}.chatfloat{right:12px;bottom:12px}}.procard .secondary{display:inline-block;margin-top:10px;text-decoration:none}.procard:hover{transform:translateY(-4px);border-color:#66542d;transition:.2s}.social-links{display:flex;align-items:center;gap:7px}.social-links a{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border:1px solid rgba(212,175,55,.45);border-radius:50%;color:#d4af37;text-decoration:none;font-size:11px;font-weight:800;letter-spacing:.2px;transition:.2s}.social-links a:hover{background:#d4af37;color:#090909;transform:translateY(-1px)}@media(max-width:640px){.social-links{gap:4px}.social-links a{width:30px;height:30px;font-size:10px}}</style><style>.sales-section{max-width:1180px;margin:auto;padding:70px 22px}.sales-title{text-align:center;font-size:clamp(30px,5vw,48px);margin:0 0 12px}.sales-sub{text-align:center;color:#a9abb2;max-width:760px;margin:0 auto 34px}.sales-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.sales-card{background:linear-gradient(145deg,#15171c,#0e0f12);border:1px solid #30323a;border-radius:20px;padding:24px}.sales-card b{color:#e7bf65}.portfolio-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.portfolio-card{display:block;text-decoration:none;color:#fff;background:#121419;border:1px solid #30323a;border-radius:18px;padding:22px;transition:.2s}.portfolio-card:hover{transform:translateY(-4px);border-color:#8a713c}.portfolio-card span{color:#e7bf65}.compare-ba{display:grid;grid-template-columns:1fr 1fr;gap:18px}.ba{border-radius:20px;padding:28px;border:1px solid #30323a;background:#121419}.ba.after{border-color:#756032;background:linear-gradient(145deg,#19170f,#111318)}.quote-form{max-width:780px;margin:auto;background:#121419;border:1px solid #403a2d;border-radius:22px;padding:26px}.quote-form input,.quote-form select,.quote-form textarea{width:100%;padding:13px;margin:7px 0 13px;border-radius:9px;border:1px solid #3a3d45;background:#191b20;color:#fff}.quote-form textarea{min-height:110px}.final-cta{text-align:center;margin:60px auto;max-width:1100px;padding:55px 25px;border-radius:28px;border:1px solid #69562e;background:radial-gradient(circle at top,#2a2415,#101114 60%)}.trust-note{font-size:13px;color:#90939a;text-align:center;max-width:900px;margin:25px auto}.legal-links{text-align:center;padding:20px}.legal-links a{color:#d7b35e;margin:0 8px}@media(max-width:800px){.sales-grid,.portfolio-grid,.compare-ba{grid-template-columns:1fr}}</style><style id="premium-v2">
+header{position:sticky!important;top:0;z-index:80!important;background:rgba(7,7,8,.82)!important;backdrop-filter:blur(18px);border-bottom:1px solid rgba(215,179,94,.14)}
+.logo{display:flex;align-items:center;gap:11px;letter-spacing:.08em}.brandmark{width:42px;height:42px;display:inline-flex;align-items:center;justify-content:center;position:relative;border:1px solid rgba(224,190,103,.55);border-radius:13px;background:linear-gradient(145deg,#1b1710,#080808);box-shadow:inset 0 0 18px rgba(215,179,94,.09),0 0 22px rgba(215,179,94,.08)}.brandmark:after{content:"";position:absolute;inset:4px;border:1px solid rgba(215,179,94,.2);border-radius:9px}.brandmark i{font-style:normal;font-family:Georgia,serif;font-weight:700;font-size:17px;color:#e5c875;line-height:1}.brandmark i+ i{margin-left:-3px;margin-top:9px}.brandmark.small{width:36px;height:36px}.menu3{min-width:46px;font-size:21px;letter-spacing:2px;border:1px solid rgba(215,179,94,.35)!important;background:#111!important;color:#e1c36e!important;border-radius:12px!important;cursor:pointer}
+.navshade{position:fixed;inset:0;background:rgba(0,0,0,.62);backdrop-filter:blur(5px);z-index:110;opacity:0;pointer-events:none;transition:.28s}.navshade.open{opacity:1;pointer-events:auto}.navdrawer{position:fixed;right:0;top:0;height:100vh;width:min(410px,92vw);z-index:120;background:linear-gradient(160deg,#12100c 0%,#080809 42%,#0b0b0d 100%);border-left:1px solid rgba(215,179,94,.28);box-shadow:-30px 0 80px rgba(0,0,0,.5);padding:26px;transform:translateX(105%);transition:.32s cubic-bezier(.2,.8,.2,1);overflow:auto}.navdrawer.open{transform:none}.drawer-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:38px}.drawer-close{font-size:30px;background:none!important;border:0!important;color:#ddd!important;cursor:pointer}.drawer-kicker{font-size:11px;letter-spacing:.22em;color:#a98c49;margin-bottom:12px}.navdrawer>a{display:flex;justify-content:space-between;align-items:center;padding:17px 4px;border-bottom:1px solid rgba(255,255,255,.08);color:#f4f1e8;text-decoration:none;font-size:16px}.navdrawer>a:hover{color:#e1c36e;padding-left:8px}.navdrawer>a span{font-size:10px;color:#776846}.drawer-lang{display:flex;gap:10px;margin-top:26px}.drawer-lang button{flex:1;background:#151515;color:#eee;border:1px solid #302b20;border-radius:10px;padding:11px;cursor:pointer}
+.hero{position:relative;overflow:hidden;isolation:isolate;padding-top:92px!important;padding-bottom:82px!important}.hero>*:not(.hero-orb):not(.hero-grid){position:relative;z-index:2}.hero-grid{position:absolute;z-index:-2;inset:0;background-image:linear-gradient(rgba(215,179,94,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(215,179,94,.045) 1px,transparent 1px);background-size:54px 54px;mask-image:linear-gradient(to bottom,black,transparent 90%)}.hero-orb{position:absolute;z-index:-1;border-radius:50%;filter:blur(2px);pointer-events:none}.orb1{width:420px;height:420px;right:-100px;top:-130px;background:radial-gradient(circle,rgba(203,158,55,.2),rgba(203,158,55,0) 70%)}.orb2{width:320px;height:320px;left:-160px;bottom:-120px;background:radial-gradient(circle,rgba(138,104,32,.12),transparent 70%)}.hero-brandmark{float:right;margin:5px 2% 20px 45px}.hero-mark{width:128px;height:128px;border-radius:32px;transform:rotate(-4deg);box-shadow:inset 0 0 40px rgba(215,179,94,.1),0 24px 70px rgba(0,0,0,.35),0 0 45px rgba(215,179,94,.12)}.hero-mark i{font-size:50px}.hero h1{max-width:850px!important;font-size:clamp(42px,6vw,78px)!important;line-height:.98!important;letter-spacing:-.045em!important}.hero p{max-width:760px!important;font-size:clamp(17px,2vw,21px)!important}.hero-pills{display:flex;gap:8px;flex-wrap:wrap;margin-top:22px}.hero-pills span{font-size:12px;letter-spacing:.08em;text-transform:uppercase;padding:8px 12px;border:1px solid rgba(215,179,94,.2);border-radius:999px;background:rgba(215,179,94,.055);color:#cdb878}.demo-quick{margin-left:8px}
+section{scroll-margin-top:88px}.pkg,.sales-card,.portfolio-card,.builder,.compare{transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease}.pkg:hover,.sales-card:hover,.portfolio-card:hover{transform:translateY(-4px);border-color:rgba(215,179,94,.45)!important;box-shadow:0 18px 55px rgba(0,0,0,.24)}.pkg video{border-radius:12px;background:#050505}.final-cta{background:radial-gradient(circle at 80% 20%,rgba(215,179,94,.16),transparent 35%),linear-gradient(135deg,#15120c,#080808)!important;border:1px solid rgba(215,179,94,.3)!important;box-shadow:0 25px 70px rgba(0,0,0,.3)}
+@media(max-width:720px){.hero-brandmark{float:none;margin:0 0 28px}.hero-mark{width:88px;height:88px;border-radius:24px}.hero-mark i{font-size:34px}.langs{display:none!important}.hero{padding-top:55px!important}.demo-quick{margin-left:0;margin-top:8px}.menu3{display:inline-block}}
+</style><style id="nebula-ambient">
+:root{--glow-gold:rgba(220,174,72,.18);--glow-amber:rgba(153,91,28,.13);--glow-blue:rgba(73,91,130,.09)}
+body{background:#070708!important;background-image:radial-gradient(circle at 18% 8%,rgba(218,167,60,.08),transparent 25%),radial-gradient(circle at 82% 18%,rgba(99,75,32,.08),transparent 26%),linear-gradient(#070708,#09090b 55%,#070708)!important}
+main{overflow:hidden}
+.hero{min-height:680px;display:flex;flex-direction:column;justify-content:center}
+.hero:before{content:"";position:absolute;width:760px;height:420px;left:50%;top:48%;transform:translate(-50%,-50%) rotate(-8deg);background:radial-gradient(ellipse,rgba(232,184,80,.18) 0%,rgba(159,97,31,.09) 32%,transparent 70%);filter:blur(26px);z-index:-2;animation:ambientBreath 8s ease-in-out infinite alternate}
+.hero:after{content:"";position:absolute;width:520px;height:520px;right:-260px;bottom:-260px;border-radius:50%;background:radial-gradient(circle,rgba(230,184,79,.12),transparent 68%);filter:blur(15px);z-index:-2}
+.hero-grid{opacity:.48;background-size:64px 64px!important;transform:perspective(650px) rotateX(58deg) scale(1.35);transform-origin:center bottom;bottom:-130px!important;top:auto!important;height:480px}
+.hero h1{text-shadow:0 4px 38px rgba(0,0,0,.7)}
+.hero .eyebrow{display:inline-flex;width:max-content;padding:8px 13px;border:1px solid rgba(222,184,95,.18);border-radius:999px;background:rgba(255,255,255,.025);backdrop-filter:blur(10px);box-shadow:inset 0 1px rgba(255,255,255,.04)}
+main>section{position:relative;isolation:isolate}
+main>section:nth-of-type(odd):before,main>section:nth-of-type(even):after{content:"";position:absolute;pointer-events:none;z-index:-2;width:620px;height:620px;border-radius:50%;filter:blur(18px)}
+main>section:nth-of-type(odd):before{left:-390px;top:5%;background:radial-gradient(circle,var(--glow-gold),transparent 67%)}
+main>section:nth-of-type(even):after{right:-390px;top:12%;background:radial-gradient(circle,var(--glow-blue),transparent 68%)}
+#packages:before{width:900px!important;height:500px!important;left:50%!important;top:5%!important;transform:translateX(-50%);background:radial-gradient(ellipse,rgba(217,169,66,.12),transparent 68%)!important}
+#portfolio:before{content:"";position:absolute;inset:8% 8%;z-index:-3;background:radial-gradient(circle at 30% 40%,rgba(191,139,49,.1),transparent 34%),radial-gradient(circle at 75% 55%,rgba(80,91,122,.08),transparent 30%);filter:blur(22px)}
+.pkg,.sales-card,.portfolio-card,.builder,.compare,.quote-form,.trust-note{background:linear-gradient(145deg,rgba(24,23,22,.78),rgba(10,10,11,.88))!important;backdrop-filter:blur(18px);border:1px solid rgba(255,255,255,.075)!important;box-shadow:inset 0 1px rgba(255,255,255,.035),0 22px 70px rgba(0,0,0,.2)}
+.pkg.best{border-color:rgba(222,181,83,.42)!important;box-shadow:inset 0 1px rgba(255,255,255,.04),0 0 0 1px rgba(222,181,83,.08),0 25px 80px rgba(0,0,0,.32),0 0 65px rgba(195,140,38,.07)!important}
+.pkg:before,.sales-card:before,.portfolio-card:before{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;background:linear-gradient(120deg,rgba(255,255,255,.035),transparent 30%,transparent 70%,rgba(215,179,94,.025))}
+.pkg,.sales-card,.portfolio-card{position:relative;overflow:hidden}
+.title{letter-spacing:-.035em}.sub{max-width:780px}
+.primary{box-shadow:0 10px 35px rgba(210,160,54,.13),inset 0 1px rgba(255,255,255,.2)}
+.promo{position:relative;border-radius:20px;padding:1px;background:linear-gradient(120deg,rgba(215,179,94,.45),rgba(255,255,255,.05),rgba(215,179,94,.16));box-shadow:0 30px 90px rgba(0,0,0,.4),0 0 60px rgba(192,137,39,.07)}.promo video{border-radius:19px!important;display:block}
+.final-cta:before{content:"";position:absolute;width:420px;height:260px;left:50%;top:50%;transform:translate(-50%,-50%);background:radial-gradient(ellipse,rgba(227,179,73,.16),transparent 68%);filter:blur(20px);z-index:-1}.final-cta{position:relative;overflow:hidden;isolation:isolate}
+@keyframes ambientBreath{0%{opacity:.65;transform:translate(-52%,-50%) rotate(-9deg) scale(.96)}100%{opacity:1;transform:translate(-48%,-47%) rotate(-5deg) scale(1.07)}}
+@media(prefers-reduced-motion:reduce){.hero:before{animation:none}}
+@media(max-width:720px){.hero{min-height:590px}.hero:before{width:520px;height:380px}.hero-grid{height:360px;bottom:-90px!important}.pkg,.sales-card,.portfolio-card{backdrop-filter:blur(12px)}}
+</style><style id="compact-header-fix">
+nav{min-height:58px!important}.nav-left{display:flex;align-items:center;gap:13px}.menu3{order:-1;width:40px!important;min-width:40px!important;height:40px;padding:0!important;display:flex!important;flex-direction:column;align-items:center;justify-content:center;gap:4px}.menu3 span{display:block;width:17px;height:1.5px;border-radius:4px;background:#e2c46e}.logo{gap:8px!important;font-size:14px!important}.brandmark{width:30px!important;height:30px!important;border-radius:9px!important}.brandmark:after{inset:3px!important;border-radius:6px!important}.brandmark i{font-size:12px!important}.langs{display:flex!important;gap:5px!important}.langs button{min-width:38px!important;padding:7px 9px!important;font-size:11px!important;border-radius:8px!important}.cart-compact{padding:8px 10px!important;font-size:12px!important}.hero{min-height:auto!important;padding-top:58px!important;padding-bottom:58px!important}.hero h1{font-size:clamp(36px,5vw,64px)!important;max-width:780px!important}.hero p{font-size:clamp(15px,1.7vw,19px)!important;max-width:700px!important}.hero:before{width:620px!important;height:330px!important}.hero-grid{height:320px!important}.hero-pills{margin-top:16px!important}
+@media(max-width:720px){nav{min-height:54px!important}.logo>span:last-child{font-size:12px}.brandmark{width:27px!important;height:27px!important}.menu3{width:37px!important;min-width:37px!important;height:37px}.langs{display:flex!important}.langs button{min-width:34px!important;padding:6px 7px!important}.cart-compact #cartLabel{display:none}.hero{padding-top:42px!important;padding-bottom:45px!important}.hero h1{font-size:clamp(34px,11vw,49px)!important}.hero .eyebrow{font-size:10px!important}.hero-pills{gap:5px}.hero-pills span{font-size:10px;padding:6px 9px}}
+</style><style id="hero-cta-small">
+.hero>a.primary,.hero>a.ghost{display:flex!important;width:max-content!important;min-width:0!important;max-width:230px!important;margin:7px 0 0!important;padding:10px 15px!important;font-size:12px!important;line-height:1.2!important;border-radius:9px!important;align-items:center;justify-content:center}
+.hero>a.primary{margin-top:20px!important}.hero>a.demo-quick{margin-left:0!important}
+@media(max-width:720px){.hero>a.primary,.hero>a.ghost{padding:9px 13px!important;font-size:11px!important;max-width:210px!important}}
+</style><style id="hero-center-fix">
+.hero{text-align:center!important;align-items:center!important}
+.hero .eyebrow{margin-left:auto!important;margin-right:auto!important}
+.hero>a.primary,.hero>a.ghost{margin-left:auto!important;margin-right:auto!important}
+.hero>a.demo-quick{margin-left:auto!important}
+.hero-pills{justify-content:center!important}
+.hero h1,.hero p{margin-left:auto!important;margin-right:auto!important}
+</style><style id="official-logo-branding">
+.official-logo{display:block;object-fit:contain;border-radius:10px}
+header .official-logo{width:34px;height:34px}
+.hero .official-logo{width:96px;height:96px;border-radius:22px;filter:drop-shadow(0 10px 26px rgba(215,179,94,.22))}
+footer .official-logo{width:54px;height:54px;margin:0 auto 12px}
+@media(max-width:720px){header .official-logo{width:30px;height:30px}.hero .official-logo{width:78px;height:78px}}
+ header .header-new-logo{border-radius:50%!important;object-fit:cover!important;box-shadow:0 0 12px rgba(215,179,94,.38)} </style><style>.social-links a{display:inline-flex!important;align-items:center;justify-content:center}.social-links a svg{width:20px;height:20px;display:block}</style><style id="logoboss-blue-ai-theme">
+:root{--bg:#050817!important;--card:#0b132b!important;--gold:#54d2ff!important;--txt:#f7fbff!important;--muted:#9dabca!important;--line:rgba(100,155,255,.18)!important;--cyan:#35d0ff;--blue:#397fff;--violet:#8d5cff;--deep:#050817}
+html{background:#050817}body{background:radial-gradient(circle at 12% 5%,rgba(53,208,255,.13),transparent 28%),radial-gradient(circle at 88% 12%,rgba(141,92,255,.17),transparent 30%),radial-gradient(circle at 48% 55%,rgba(57,127,255,.07),transparent 32%),linear-gradient(180deg,#050817 0%,#071026 46%,#040714 100%)!important;color:#f7fbff!important}
+body:before{content:"";position:fixed;inset:0;z-index:-6;pointer-events:none;opacity:.24;background-image:linear-gradient(rgba(81,151,255,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(81,151,255,.045) 1px,transparent 1px);background-size:58px 58px;mask-image:linear-gradient(to bottom,#000,transparent 76%)}
+header{background:rgba(5,9,25,.82)!important;border-bottom:1px solid rgba(86,155,255,.16)!important;backdrop-filter:blur(18px)!important;box-shadow:0 10px 40px rgba(0,0,0,.22)}nav{height:68px!important}.logo{color:#fff!important;font-weight:900!important;letter-spacing:.01em!important}.logo b,.brand-gradient{background:linear-gradient(90deg,#44d9ff 0%,#3f8cff 45%,#a05cff 100%);-webkit-background-clip:text;background-clip:text;color:transparent!important}.official-logo{border-radius:10px!important;box-shadow:0 0 0 1px rgba(76,178,255,.20),0 0 24px rgba(88,104,255,.24)!important}
+.menu3{border:1px solid rgba(78,171,255,.27)!important;background:linear-gradient(145deg,rgba(18,35,73,.94),rgba(8,14,34,.94))!important;color:#b8edff!important;box-shadow:0 8px 28px rgba(0,0,0,.24)!important}.menu3 span{background:linear-gradient(90deg,#53dcff,#8d63ff)!important}.social-links a{border-color:rgba(83,175,255,.28)!important;color:#7ee0ff!important;background:rgba(11,23,51,.42)!important}.social-links a:hover{background:linear-gradient(135deg,#32cfff,#7d5fff)!important;color:#fff!important}.langs button,.drawer-lang button,.cart-compact{border-color:rgba(91,157,255,.24)!important;background:rgba(11,22,49,.80)!important;color:#dcecff!important}.langs button.active{background:linear-gradient(135deg,#2dccff,#7f61ff)!important;color:#fff!important;border-color:transparent!important}.count{background:linear-gradient(135deg,#3ad5ff,#925cff)!important;color:#fff!important}
+.navshade{background:rgba(1,4,14,.74)!important}.navdrawer{background:radial-gradient(circle at 80% 8%,rgba(137,91,255,.18),transparent 28%),linear-gradient(160deg,#0b1531 0%,#050919 55%,#070c1d 100%)!important;border-left:1px solid rgba(80,158,255,.24)!important}.navdrawer>a{color:#edf6ff!important;border-bottom-color:rgba(110,157,255,.11)!important}.navdrawer>a:hover{color:#70ddff!important}.navdrawer>a span,.drawer-kicker{color:#7aa9ff!important}
+.hero{position:relative;overflow:hidden;isolation:isolate;min-height:650px!important;padding-top:78px!important;padding-bottom:84px!important;text-align:left!important}.hero:before{content:"";position:absolute;width:820px;height:560px;left:62%;top:46%;transform:translate(-50%,-50%);background:radial-gradient(ellipse,rgba(56,208,255,.20),rgba(61,120,255,.13) 34%,rgba(141,91,255,.10) 50%,transparent 72%);filter:blur(25px);z-index:-2;animation:aiBreath 9s ease-in-out infinite alternate}.hero:after{content:"";position:absolute;width:600px;height:600px;right:-290px;bottom:-330px;border-radius:50%;background:radial-gradient(circle,rgba(139,91,255,.18),rgba(53,207,255,.04) 42%,transparent 68%);z-index:-2}.hero-grid{position:absolute;z-index:-3;inset:auto 0 -160px;height:510px;opacity:.60;background-image:linear-gradient(rgba(83,153,255,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(83,153,255,.06) 1px,transparent 1px);background-size:62px 62px;transform:perspective(700px) rotateX(58deg) scale(1.35);transform-origin:center bottom}.hero-layout{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(420px,.95fr);gap:54px;align-items:center}.hero-copy{position:relative;z-index:3}.hero .eyebrow{display:inline-flex;width:max-content;padding:8px 13px;color:#78e1ff!important;letter-spacing:.17em!important;border:1px solid rgba(78,185,255,.25)!important;border-radius:999px;background:linear-gradient(90deg,rgba(46,200,255,.08),rgba(132,89,255,.08))!important}.hero h1{max-width:780px!important;margin:18px 0!important;font-size:clamp(48px,6.6vw,82px)!important;line-height:.96!important;letter-spacing:-.055em!important;text-shadow:0 12px 50px rgba(0,0,0,.43)!important}.hero p{max-width:700px!important;margin:20px 0!important;color:#c6d5ef!important;font-size:clamp(17px,2vw,21px)!important;line-height:1.65!important}.hero-actions{display:flex;gap:8px;flex-wrap:wrap;align-items:center}.primary,.ghost{transition:.2s ease}.primary{background:linear-gradient(135deg,#2fd0ff 0%,#397fff 48%,#8d5cff 100%)!important;color:#fff!important;border:1px solid rgba(125,200,255,.28)!important;box-shadow:0 12px 36px rgba(52,124,255,.27),0 0 35px rgba(130,88,255,.13),inset 0 1px rgba(255,255,255,.22)!important}.primary:hover{filter:brightness(1.08);transform:translateY(-2px)}.ghost{color:#dcefff!important;border:1px solid rgba(95,158,255,.28)!important;background:rgba(8,17,40,.47)!important}.ghost:hover{border-color:rgba(74,204,255,.56)!important;background:rgba(18,43,89,.52)!important}.hero-pills{display:flex;gap:8px;flex-wrap:wrap;margin-top:20px!important}.hero-pills span{font-size:12px!important;letter-spacing:.08em!important;text-transform:uppercase;padding:8px 12px;border:1px solid rgba(89,160,255,.20)!important;border-radius:999px;background:linear-gradient(135deg,rgba(42,190,255,.065),rgba(116,86,255,.065))!important;color:#c9ecff!important}#trust{margin-top:24px!important;color:#8da4cc!important;font-size:13px}
+.ai-visual{position:relative;min-height:490px;z-index:2}.visual-glow{position:absolute;width:470px;height:470px;left:50%;top:47%;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(circle,rgba(48,203,255,.19),rgba(76,93,255,.12) 40%,rgba(142,90,255,.10) 55%,transparent 72%);filter:blur(16px)}.visual-window{position:absolute;left:4%;right:5%;top:70px;min-height:320px;border:1px solid rgba(105,169,255,.24);border-radius:25px;background:linear-gradient(145deg,rgba(13,27,61,.95),rgba(6,12,30,.96));box-shadow:0 34px 90px rgba(0,0,0,.40),0 0 60px rgba(62,117,255,.10),inset 0 1px rgba(255,255,255,.05);overflow:hidden;transform:perspective(900px) rotateY(-5deg) rotateX(2deg)}.visual-top{height:48px;display:flex;align-items:center;gap:7px;padding:0 16px;border-bottom:1px solid rgba(102,153,255,.13);background:rgba(5,11,27,.65);color:#a8b8d8;font-size:11px}.visual-top>span{width:7px;height:7px;border-radius:50%;background:#4dd8ff}.visual-top>span:nth-child(2){background:#637fff}.visual-top>span:nth-child(3){background:#9a5dff}.visual-top b{margin-left:auto;color:#e8f6ff}.visual-body{padding:44px 40px 32px}.visual-body small{color:#62dafe;letter-spacing:.16em;font-weight:800}.visual-body strong{display:block;font-size:36px;line-height:1.06;margin:11px 0;color:#fff;letter-spacing:-.04em}.visual-body strong em{font-style:normal;background:linear-gradient(90deg,#4fdcff,#4d8dff,#a15cff);-webkit-background-clip:text;background-clip:text;color:transparent}.visual-body p{font-size:13px!important;line-height:1.55!important;color:#98acd0!important;margin:0 0 19px!important;max-width:360px!important}.visual-btn{display:inline-flex;padding:10px 14px;border-radius:9px;background:linear-gradient(135deg,#31cbff,#775fff);color:#fff;font-size:12px;font-weight:900}.visual-stats{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid rgba(100,153,255,.12);background:rgba(4,10,26,.54)}.visual-stats div{padding:15px;text-align:center;border-right:1px solid rgba(100,153,255,.10)}.visual-stats div:last-child{border-right:0}.visual-stats b{display:block;color:#73dfff;font-size:15px}.visual-stats small{color:#7184a9;font-size:10px}.float-card{position:absolute;display:flex;align-items:center;gap:10px;padding:12px 13px;border:1px solid rgba(107,172,255,.25);border-radius:15px;background:linear-gradient(145deg,rgba(16,34,73,.92),rgba(8,14,34,.94));backdrop-filter:blur(14px);box-shadow:0 18px 50px rgba(0,0,0,.30);color:#fff}.float-card b{display:block;font-size:12px}.float-card small{display:block;margin-top:3px;color:#90a5cc;font-size:10px}.float-card>span{margin-left:auto;color:#5bddff}.fc-icon{width:34px;height:34px;border-radius:10px;display:grid;place-items:center;font-weight:900;font-size:11px;background:linear-gradient(145deg,rgba(50,207,255,.18),rgba(132,91,255,.22));color:#8ce8ff;border:1px solid rgba(105,177,255,.20)}.booking-card{left:-10px;top:25px;width:205px}.assistant-card{right:-16px;top:18px;width:210px}.automation-card{right:-4px;bottom:8px;width:205px}
+section{scroll-margin-top:86px}main>section{position:relative;isolation:isolate}main>section:nth-of-type(odd):before,main>section:nth-of-type(even):after{content:"";position:absolute;pointer-events:none;z-index:-2;width:620px;height:620px;border-radius:50%;filter:blur(18px)}main>section:nth-of-type(odd):before{left:-390px;top:5%;background:radial-gradient(circle,rgba(53,204,255,.10),transparent 67%)}main>section:nth-of-type(even):after{right:-390px;top:12%;background:radial-gradient(circle,rgba(137,91,255,.10),transparent 68%)}#packages:before{width:900px!important;height:500px!important;left:50%!important;top:5%!important;transform:translateX(-50%);background:radial-gradient(ellipse,rgba(62,132,255,.15),rgba(132,88,255,.06) 45%,transparent 69%)!important}#portfolio:before{content:"";position:absolute;inset:8% 8%;z-index:-3;background:radial-gradient(circle at 30% 40%,rgba(47,201,255,.10),transparent 34%),radial-gradient(circle at 75% 55%,rgba(134,91,255,.10),transparent 30%);filter:blur(22px)}
+.title,.sales-title{color:#f8fbff!important;letter-spacing:-.035em!important}.sub,.sales-sub,.pkg p,.procard p,.step p,.ba p,.trust-note{color:#9eacd0!important}.title:after,.sales-title:after{content:"";display:block;width:72px;height:3px;margin:14px auto 0;border-radius:99px;background:linear-gradient(90deg,#30cbff,#8c5cff);box-shadow:0 0 18px rgba(75,166,255,.26)}
+.pkg,.sales-card,.portfolio-card,.builder,.compare,.quote-form,.roi,.step,.procard,.ba,.faq details,.service,.promo{background:linear-gradient(145deg,rgba(14,26,59,.82),rgba(6,11,29,.94))!important;border:1px solid rgba(102,154,255,.16)!important;box-shadow:inset 0 1px rgba(255,255,255,.035),0 20px 60px rgba(0,0,0,.22)!important;backdrop-filter:blur(16px)}.pkg,.sales-card,.portfolio-card,.procard{position:relative;overflow:hidden}.pkg:hover,.sales-card:hover,.portfolio-card:hover,.procard:hover{transform:translateY(-4px)!important;border-color:rgba(73,196,255,.43)!important;box-shadow:0 22px 70px rgba(0,0,0,.29),0 0 34px rgba(66,132,255,.09)!important}.pkg.best{border-color:rgba(112,111,255,.56)!important;box-shadow:0 0 0 1px rgba(68,200,255,.07),0 25px 78px rgba(0,0,0,.31),0 0 65px rgba(106,84,255,.14)!important}.badge{background:linear-gradient(135deg,rgba(42,198,255,.17),rgba(134,91,255,.18))!important;color:#bdeeff!important;border:1px solid rgba(86,170,255,.23)!important}.price,.yes,.stepnum,.sales-card b,.portfolio-card span,.procard b,.compare th,.roiout,.service b,.build-total{color:#65dafe!important}.pkg video,.promo video{border:1px solid rgba(100,155,255,.12)!important;box-shadow:0 18px 50px rgba(0,0,0,.26)!important}.compare th,.compare td{border-bottom-color:rgba(107,149,231,.12)!important}.builder .pick{background:rgba(13,24,53,.72)!important;border-color:rgba(103,149,255,.16)!important}.builder input[type="checkbox"]{accent-color:#5a86ff}.roi input,.form input,.form textarea,.quote-form input,.quote-form select,.quote-form textarea,.chatinput input{background:#08132d!important;border-color:rgba(103,154,255,.24)!important;color:#fff!important}.integration{background:linear-gradient(145deg,rgba(12,24,53,.88),rgba(7,12,29,.94))!important;border-color:rgba(98,153,255,.18)!important;color:#dcecff!important}
+.pay{background:radial-gradient(circle at 15% 20%,rgba(54,200,255,.12),transparent 30%),radial-gradient(circle at 85% 80%,rgba(134,91,255,.12),transparent 32%),linear-gradient(135deg,#0b1735,#070c20)!important;border:1px solid rgba(86,159,255,.24)!important}.pay h2{color:#77ddff!important}.final-cta{background:radial-gradient(circle at 15% 20%,rgba(54,201,255,.17),transparent 28%),radial-gradient(circle at 85% 25%,rgba(136,88,255,.19),transparent 30%),linear-gradient(135deg,#0c1837,#070b1c 62%,#0a1027)!important;border:1px solid rgba(89,158,255,.28)!important}.final-cta small{color:#6fdbff!important}.ba.after{border-color:rgba(83,194,255,.30)!important;background:linear-gradient(145deg,rgba(13,31,66,.92),rgba(7,12,28,.96))!important}.faq summary{color:#7bdcff!important}.legal-links a{color:#73d9ff!important}
+.drawer{background:linear-gradient(160deg,#0b1632,#060b1d)!important;border-left-color:rgba(89,156,255,.25)!important}.cartitem{border-color:rgba(99,154,255,.18)!important;background:rgba(13,25,55,.55)!important}.total{color:#66d8ff!important}.chatfloat{background:linear-gradient(135deg,#29c9ff,#487bff 52%,#8b5cff)!important;color:#fff!important}.chatbox{background:linear-gradient(160deg,#0b1632,#060b1d)!important;border-color:rgba(92,161,255,.28)!important}.chathead{background:linear-gradient(90deg,rgba(20,45,89,.96),rgba(31,25,76,.96))!important;color:#8ce2ff!important}.bot{background:#0e1b39!important}.user{background:linear-gradient(135deg,#153b70,#3a2c77)!important}
+footer{color:#8294ba!important;border-top:1px solid rgba(94,148,255,.14)!important;background:linear-gradient(180deg,rgba(6,10,24,0),rgba(4,7,18,.72))!important;line-height:1.8}footer span{color:#71d9ff}
+@keyframes aiBreath{0%{opacity:.72;transform:translate(-53%,-50%) scale(.96)}100%{opacity:1;transform:translate(-48%,-47%) scale(1.06)}}@media(prefers-reduced-motion:reduce){.hero:before{animation:none}}@media(max-width:980px){.hero-layout{grid-template-columns:1fr;gap:24px}.hero{text-align:center!important}.hero .eyebrow{margin-left:auto;margin-right:auto}.hero p{margin-left:auto!important;margin-right:auto!important}.hero-actions,.hero-pills{justify-content:center}.ai-visual{min-height:430px;max-width:620px;width:100%;margin:auto}.booking-card{left:0}.assistant-card{right:0}}@media(max-width:700px){.hero{min-height:auto!important;padding-top:54px!important;padding-bottom:54px!important}.hero h1{font-size:clamp(40px,12vw,60px)!important}.hero p{font-size:16px!important}.primary,.ghost{width:100%;margin:4px 0!important;text-align:center}.ai-visual{min-height:380px}.visual-window{left:2%;right:2%;top:62px}.visual-body{padding:37px 24px 26px}.visual-body strong{font-size:30px}.booking-card{top:10px;width:185px}.assistant-card{top:10px;width:190px}.automation-card{right:4px;bottom:-4px}.social-links{display:none!important}}@media(max-width:470px){.ai-visual{min-height:350px}.visual-window{top:70px}.visual-body{padding:34px 20px 22px}.visual-body strong{font-size:27px}.visual-stats div{padding:11px 6px}.booking-card{left:0;top:8px;width:166px}.assistant-card{right:0;top:8px;width:172px}.float-card{padding:9px}.fc-icon{width:30px;height:30px}.float-card small{font-size:9px}.automation-card{width:178px;bottom:-8px}}
+</style><style id="logoboss-slider-theme">
+.lb-slider{position:relative;width:100%;overflow:hidden;border-radius:18px;border:1px solid rgba(89,174,255,.24);background:#070d20;box-shadow:0 18px 55px rgba(0,0,0,.3),0 0 32px rgba(66,130,255,.08);touch-action:pan-y}
+.lb-track{display:flex;width:100%;transition:transform .42s cubic-bezier(.22,.7,.25,1);will-change:transform}
+.lb-track img{display:block;min-width:100%;width:100%;height:330px;object-fit:contain;background:radial-gradient(circle at 50% 40%,rgba(55,119,255,.12),transparent 55%),#050a19}
+.lb-slider-main{max-width:980px;margin:0 auto}.lb-slider-main .lb-track img{height:min(68vw,620px)}
+.lb-prev,.lb-next{position:absolute;z-index:3;top:50%;transform:translateY(-50%);width:46px;height:46px;border:1px solid rgba(112,205,255,.34)!important;border-radius:50%;background:rgba(5,12,31,.82)!important;color:#fff!important;font-size:34px!important;line-height:1!important;display:grid;place-items:center;cursor:pointer;backdrop-filter:blur(12px);box-shadow:0 8px 28px rgba(0,0,0,.32),0 0 22px rgba(80,135,255,.12);padding:0!important}
+.lb-prev{left:12px}.lb-next{right:12px}.lb-prev:hover,.lb-next:hover{background:linear-gradient(135deg,#2fcaff,#785fff)!important;border-color:transparent!important}
+.lb-counter{position:absolute;z-index:3;right:14px;bottom:12px;padding:6px 10px;border-radius:999px;background:rgba(4,10,27,.78);border:1px solid rgba(100,177,255,.2);color:#d9eeff;font-size:11px;font-weight:800;backdrop-filter:blur(10px)}
+.pkg .lb-slider{margin:14px 0 18px}.pkg .lb-track img{height:300px}
+@media(max-width:700px){.lb-track img,.pkg .lb-track img{height:290px}.lb-slider-main .lb-track img{height:410px}.lb-prev,.lb-next{width:40px;height:40px;font-size:30px}.lb-prev{left:8px}.lb-next{right:8px}}
+@media(max-width:430px){.lb-track img,.pkg .lb-track img{height:255px}.lb-slider-main .lb-track img{height:360px}}
+</style><style id="lb-feature-gallery-v3">
+.lb-slider{border-radius:22px!important;background:#071229!important;overflow:hidden!important}
+.lb-track{display:flex!important;align-items:stretch!important}
+.lb-feature-slide{position:relative;flex:0 0 100%;min-width:100%;height:340px;overflow:hidden;isolation:isolate;display:flex;align-items:center;background:radial-gradient(ellipse at 84% 19%,rgba(147,83,255,.32),transparent 42%),radial-gradient(ellipse at 17% 85%,rgba(0,203,255,.23),transparent 48%),linear-gradient(125deg,#04091c,#0a1b43 60%,#150c35);color:#fff}
+.lb-feature-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(94,178,255,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(94,178,255,.06) 1px,transparent 1px);background-size:38px 38px;mask-image:linear-gradient(90deg,transparent,#000)}
+.lb-feature-orb{position:absolute;right:-15%;top:-42%;width:65%;aspect-ratio:1;border-radius:36%;border:1px solid rgba(86,204,255,.25);transform:rotate(35deg);box-shadow:0 0 85px rgba(61,131,255,.13),inset 0 0 70px rgba(127,78,255,.16)}
+.lb-feature-copy{z-index:2;position:relative;width:69%;padding:24px clamp(48px,6vw,80px);display:flex;flex-direction:column;align-items:flex-start;gap:11px}
+.lb-feature-kicker{font-size:12px;letter-spacing:.2em;font-weight:900;color:#f7fbff}.lb-feature-kicker b{color:#59dbff}
+.lb-feature-icon{display:grid;place-items:center;width:68px;height:68px;border-radius:20px;background:linear-gradient(135deg,rgba(36,171,255,.18),rgba(139,80,255,.24));border:1px solid rgba(91,205,255,.43);box-shadow:0 0 36px rgba(41,138,255,.18);font-size:42px;color:#76e9ff}
+.lb-feature-title{font-size:clamp(24px,3.2vw,43px)!important;line-height:1.1!important;color:#fff!important;letter-spacing:-.035em!important;margin:5px 0 0!important;font-weight:900!important}
+.lb-feature-description{font-size:clamp(13px,1.4vw,18px)!important;line-height:1.5!important;color:#c9dafa!important;margin:0!important;max-width:540px}
+.lb-feature-signature{font-size:10px;letter-spacing:.18em;color:#72dcff;font-weight:800;margin-top:8px}
+.lb-feature-glass{position:absolute;right:8%;top:22%;width:24%;height:56%;border-radius:20px;transform:perspective(600px) rotateY(-11deg) rotateZ(4deg);border:1px solid rgba(104,197,255,.34);background:linear-gradient(145deg,rgba(20,55,110,.72),rgba(15,16,59,.8));box-shadow:0 25px 75px rgba(0,0,0,.36),0 0 45px rgba(64,151,255,.14);padding:15px;display:flex;flex-direction:column;gap:15px}
+.lb-feature-dots{display:flex;gap:5px}.lb-feature-dots i{width:7px;height:7px;border-radius:50%;background:#47d5ff}.lb-feature-dots i:nth-child(2){background:#648bff}.lb-feature-dots i:nth-child(3){background:#a76aff}
+.lb-feature-lines{display:grid;gap:9px}.lb-feature-lines i{display:block;height:10px;border-radius:5px;background:linear-gradient(90deg,rgba(72,206,255,.65),rgba(136,95,255,.16))}.lb-feature-lines i:nth-child(2){width:70%}.lb-feature-lines i:nth-child(3){width:87%}.lb-feature-lines i:nth-child(4){width:54%}
+.lb-feature-bars{margin-top:auto;height:35%;display:flex;align-items:flex-end;gap:8px}.lb-feature-bars i{flex:1;height:38%;border-radius:5px 5px 0 0;background:linear-gradient(#50ddff,#5b5cf5)}.lb-feature-bars i:nth-child(2){height:70%}.lb-feature-bars i:nth-child(3){height:53%}.lb-feature-bars i:nth-child(4){height:90%}.lb-feature-bars i:nth-child(5){height:78%}
+.lb-slider-main .lb-feature-slide{height:clamp(330px,47vw,540px)}
+.pkg .lb-feature-slide{height:300px}.pkg .lb-feature-copy{width:100%;padding:22px 45px;gap:8px}.pkg .lb-feature-glass{opacity:.20;right:-5%;width:45%}.pkg .lb-feature-icon{width:54px;height:54px;font-size:30px}.pkg .lb-feature-title{font-size:clamp(20px,2vw,27px)!important}.pkg .lb-feature-description{font-size:13px!important}
+.lb-prev,.lb-next{z-index:6!important}.lb-counter{z-index:6!important}
+@media(max-width:650px){.lb-slider-main .lb-feature-slide{height:390px}.lb-feature-copy{width:100%;padding:25px 47px;gap:10px}.lb-feature-glass{opacity:.14;right:-10%;width:55%}.lb-feature-title{font-size:clamp(23px,6vw,33px)!important}.lb-feature-description{font-size:14px!important}.pkg .lb-feature-slide{height:285px}.pkg .lb-feature-copy{padding:20px 43px}}
+@media(max-width:430px){.lb-slider-main .lb-feature-slide{height:355px}.pkg .lb-feature-slide{height:265px}.pkg .lb-feature-title{font-size:21px!important}.pkg .lb-feature-description{font-size:12px!important}}
+@media(prefers-reduced-motion:reduce){.lb-track{transition:none!important}}
+</style></head><body>
+<header><div class="wrap"><nav><div class="nav-left"><button class="menu3" onclick="toggleNavDrawer()" aria-label="Menu"><span></span><span></span><span></span></button><div class="logo"><img class="official-logo" src="./logo-boss.svg" alt="LogoBoss Web AI"><span>LogoBoss <b>Web AI</b></span></div></div><div class="right"><div class="social-links" aria-label="Social media"><a href="https://www.facebook.com/share/19bS4pD3xE/?mibextid=wwXIfr" target="_blank" rel="noopener" aria-label="Facebook" title="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.438H7.078v-3.489h3.047V9.413c0-3.025 1.792-4.697 4.533-4.697 1.312 0 2.686.236 2.686.236v2.974h-1.513c-1.49 0-1.956.931-1.956 1.887v2.26h3.328l-.532 3.489h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/></svg></a><a href="https://www.instagram.com/logoboss02?stkn=emk5bjZ5aDR5YzYx&amp;utm_source=qr" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm10.5 1.5a1 1 0 1 1 0 2 1 1 0 0 1 0-2zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6z"/></svg></a><a href="https://www.tiktok.com/@logoboss.web.ai.s?_r=1&amp;_t=ZG-9AMDOc5LPcX" target="_blank" rel="noopener" aria-label="TikTok" title="TikTok"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M14 3h3.1c.4 2 1.6 3.5 3.9 4v3.1c-1.5 0-2.9-.5-4-1.3V15a6 6 0 1 1-6-6h.8v3.2a3 3 0 1 0 2.2 2.9V3z"/></svg></a></div><div class="langs"><button id="deBtn" onclick="setLang('de')">DE</button><button id="enBtn" onclick="setLang('en')">EN</button></div><button class="cart-compact" onclick="toggleCart()">🛒 <span id="cartLabel">Cart</span> <span class="count" id="count">0</span></button></div></nav></div></header><div class="navshade" id="navShade" onclick="toggleNavDrawer(false)"></div><aside class="navdrawer" id="navDrawer"><div class="drawer-head"><div class="logo"><img class="official-logo" src="./logo-boss.svg" alt="LogoBoss Web AI"><span>LogoBoss <b>Web AI</b></span></div><button class="drawer-close" onclick="toggleNavDrawer(false)">×</button></div><p class="drawer-kicker" id="navKicker">SCHNELLNAVIGATION</p><a href="#" onclick="toggleNavDrawer(false);window.scrollTo({top:0,behavior:'smooth'});return false">Startseite <span>00</span></a><a href="#packages" onclick="toggleNavDrawer(false)">Pakete / Packages <span>01</span></a><a href="#portfolio" onclick="toggleNavDrawer(false)">Demos / Beispiele <span>02</span></a><a href="#services" onclick="toggleNavDrawer(false)">Leistungen / Services <span>03</span></a><a href="#builder" onclick="toggleNavDrawer(false)">Eigenes Paket / Build yours <span>04</span></a><a href="#compare" onclick="toggleNavDrawer(false)">Pakete vergleichen <span>05</span></a><a href="#faq" onclick="toggleNavDrawer(false)">FAQ <span>06</span></a><a href="#custom-project" onclick="toggleNavDrawer(false)">Angebot anfragen / Quote <span>07</span></a><div class="drawer-lang"><button onclick="setLang('de');toggleNavDrawer(false)">🇩🇪 Deutsch</button><button onclick="setLang('en');toggleNavDrawer(false)">🇬🇧 English</button></div></aside>
+<main><div class="wrap hero">
+<div class="hero-orb orb1"></div><div class="hero-orb orb2"></div><div class="hero-grid"></div>
+<div class="hero-layout">
+  <div class="hero-copy">
+    <div class="eyebrow" id="heroEyebrow">WEB · AUTOMATION · AI</div>
+    <h1 id="heroTitle"></h1>
+    <p id="heroText"></p>
+    <div class="hero-actions"><a class="primary" href="#packages" id="viewPackages"></a><a class="ghost" href="#services" id="allServices"></a><a class="ghost demo-quick" href="#portfolio" id="demoQuick">Demo ansehen</a></div>
+    <div class="hero-pills"><span>Websites</span><span>Online Booking</span><span>AI Assistants</span><span>Automation</span></div>
+    <div id="trust"></div>
+  </div>
+  <div class="ai-visual" aria-hidden="true">
+    <div class="visual-glow"></div>
+    <div class="visual-window">
+      <div class="visual-top"><span></span><span></span><span></span><b>LogoBoss Web AI</b></div>
+      <div class="visual-body">
+        <small>YOUR BUSINESS, ONLINE</small>
+        <strong>Modern website.<br><em>Built to convert.</em></strong>
+        <p>Fast design, clear services and smarter customer journeys.</p>
+        <div class="visual-btn">Get Started →</div>
+      </div>
+      <div class="visual-stats"><div><b>24/7</b><small>AI support</small></div><div><b>Fast</b><small>Booking flow</small></div><div><b>Smart</b><small>Automation</small></div></div>
+    </div>
+    <div class="float-card booking-card"><div class="fc-icon">▣</div><div><b>Online Booking</b><small>Appointments 24/7</small></div><span>✓</span></div>
+    <div class="float-card assistant-card"><div class="fc-icon">AI</div><div><b>AI Assistant</b><small>Answers & captures leads</small></div><span>●</span></div>
+    <div class="float-card automation-card"><div class="fc-icon">↗</div><div><b>Automation</b><small>Save time. Grow faster.</small></div></div>
+  </div>
+</div>
+</div>
+<section><div class="wrap"><h2 class="title" id="howTitle"></h2><p class="sub" id="howText"></p><div class="promo"><div class="lb-slider lb-slider-main" data-slider><div class="lb-track"><article class="lb-feature-slide" data-feature="0" aria-label="Digital Solutions">
+      <div class="lb-feature-orb"></div><div class="lb-feature-grid"></div>
+      <div class="lb-feature-copy"><span class="lb-feature-kicker">LOGOBOSS <b>WEB AI</b></span>
+        <div class="lb-feature-icon" aria-hidden="true">✦</div>
+        <h3 class="lb-feature-title">Digitale Lösungen</h3>
+        <p class="lb-feature-description">Websites, Buchungen und smarte Automatisierung.</p>
+        <span class="lb-feature-signature">WEB · AUTOMATION · AI</span>
+      </div><div class="lb-feature-glass" aria-hidden="true"><div class="lb-feature-dots"><i></i><i></i><i></i></div><div class="lb-feature-lines"><i></i><i></i><i></i><i></i></div><div class="lb-feature-bars"><i></i><i></i><i></i><i></i><i></i></div></div>
+    </article><article class="lb-feature-slide" data-feature="1" aria-label="Professional Websites">
+      <div class="lb-feature-orb"></div><div class="lb-feature-grid"></div>
+      <div class="lb-feature-copy"><span class="lb-feature-kicker">LOGOBOSS <b>WEB AI</b></span>
+        <div class="lb-feature-icon" aria-hidden="true">▣</div>
+        <h3 class="lb-feature-title">Professionelle Websites</h3>
+        <p class="lb-feature-description">Ein moderner Online-Auftritt für Ihr Unternehmen.</p>
+        <span class="lb-feature-signature">WEB · AUTOMATION · AI</span>
+      </div><div class="lb-feature-glass" aria-hidden="true"><div class="lb-feature-dots"><i></i><i></i><i></i></div><div class="lb-feature-lines"><i></i><i></i><i></i><i></i></div><div class="lb-feature-bars"><i></i><i></i><i></i><i></i><i></i></div></div>
+    </article><article class="lb-feature-slide" data-feature="2" aria-label="Online Booking">
+      <div class="lb-feature-orb"></div><div class="lb-feature-grid"></div>
+      <div class="lb-feature-copy"><span class="lb-feature-kicker">LOGOBOSS <b>WEB AI</b></span>
+        <div class="lb-feature-icon" aria-hidden="true">▦</div>
+        <h3 class="lb-feature-title">Online-Terminbuchung</h3>
+        <p class="lb-feature-description">Terminanfragen direkt über Ihre Website.</p>
+        <span class="lb-feature-signature">WEB · AUTOMATION · AI</span>
+      </div><div class="lb-feature-glass" aria-hidden="true"><div class="lb-feature-dots"><i></i><i></i><i></i></div><div class="lb-feature-lines"><i></i><i></i><i></i><i></i></div><div class="lb-feature-bars"><i></i><i></i><i></i><i></i><i></i></div></div>
+    </article><article class="lb-feature-slide" data-feature="3" aria-label="AI Phone Assistant">
+      <div class="lb-feature-orb"></div><div class="lb-feature-grid"></div>
+      <div class="lb-feature-copy"><span class="lb-feature-kicker">LOGOBOSS <b>WEB AI</b></span>
+        <div class="lb-feature-icon" aria-hidden="true">◉</div>
+        <h3 class="lb-feature-title">KI-Telefonassistent</h3>
+        <p class="lb-feature-description">Anrufe und Kundenwünsche effizient erfassen.</p>
+        <span class="lb-feature-signature">WEB · AUTOMATION · AI</span>
+      </div><div class="lb-feature-glass" aria-hidden="true"><div class="lb-feature-dots"><i></i><i></i><i></i></div><div class="lb-feature-lines"><i></i><i></i><i></i><i></i></div><div class="lb-feature-bars"><i></i><i></i><i></i><i></i><i></i></div></div>
+    </article><article class="lb-feature-slide" data-feature="4" aria-label="AI Chat Assistant">
+      <div class="lb-feature-orb"></div><div class="lb-feature-grid"></div>
+      <div class="lb-feature-copy"><span class="lb-feature-kicker">LOGOBOSS <b>WEB AI</b></span>
+        <div class="lb-feature-icon" aria-hidden="true">◎</div>
+        <h3 class="lb-feature-title">KI-Chatassistent</h3>
+        <p class="lb-feature-description">Antworten auf häufige Fragen rund um die Uhr.</p>
+        <span class="lb-feature-signature">WEB · AUTOMATION · AI</span>
+      </div><div class="lb-feature-glass" aria-hidden="true"><div class="lb-feature-dots"><i></i><i></i><i></i></div><div class="lb-feature-lines"><i></i><i></i><i></i><i></i></div><div class="lb-feature-bars"><i></i><i></i><i></i><i></i><i></i></div></div>
+    </article><article class="lb-feature-slide" data-feature="5" aria-label="Email Notifications">
+      <div class="lb-feature-orb"></div><div class="lb-feature-grid"></div>
+      <div class="lb-feature-copy"><span class="lb-feature-kicker">LOGOBOSS <b>WEB AI</b></span>
+        <div class="lb-feature-icon" aria-hidden="true">✉</div>
+        <h3 class="lb-feature-title">E-Mail-Benachrichtigungen</h3>
+        <p class="lb-feature-description">Informationen zu neuen Anfragen erhalten.</p>
+        <span class="lb-feature-signature">WEB · AUTOMATION · AI</span>
+      </div><div class="lb-feature-glass" aria-hidden="true"><div class="lb-feature-dots"><i></i><i></i><i></i></div><div class="lb-feature-lines"><i></i><i></i><i></i><i></i></div><div class="lb-feature-bars"><i></i><i></i><i></i><i></i><i></i></div></div>
+    </article><article class="lb-feature-slide" data-feature="6" aria-label="For Every Industry">
+      <div class="lb-feature-orb"></div><div class="lb-feature-grid"></div>
+      <div class="lb-feature-copy"><span class="lb-feature-kicker">LOGOBOSS <b>WEB AI</b></span>
+        <div class="lb-feature-icon" aria-hidden="true">⌘</div>
+        <h3 class="lb-feature-title">Für jede Branche</h3>
+        <p class="lb-feature-description">Für Salons, Restaurants, Werkstätten und mehr.</p>
+        <span class="lb-feature-signature">WEB · AUTOMATION · AI</span>
+      </div><div class="lb-feature-glass" aria-hidden="true"><div class="lb-feature-dots"><i></i><i></i><i></i></div><div class="lb-feature-lines"><i></i><i></i><i></i><i></i></div><div class="lb-feature-bars"><i></i><i></i><i></i><i></i><i></i></div></div>
+    </article><article class="lb-feature-slide" data-feature="7" aria-label="Works on All Devices">
+      <div class="lb-feature-orb"></div><div class="lb-feature-grid"></div>
+      <div class="lb-feature-copy"><span class="lb-feature-kicker">LOGOBOSS <b>WEB AI</b></span>
+        <div class="lb-feature-icon" aria-hidden="true">▤</div>
+        <h3 class="lb-feature-title">Auf allen Geräten</h3>
+        <p class="lb-feature-description">Optimiert für Mobilgeräte, Tablets und Desktop.</p>
+        <span class="lb-feature-signature">WEB · AUTOMATION · AI</span>
+      </div><div class="lb-feature-glass" aria-hidden="true"><div class="lb-feature-dots"><i></i><i></i><i></i></div><div class="lb-feature-lines"><i></i><i></i><i></i><i></i></div><div class="lb-feature-bars"><i></i><i></i><i></i><i></i><i></i></div></div>
+    </article><article class="lb-feature-slide" data-feature="8" aria-label="Custom Design">
+      <div class="lb-feature-orb"></div><div class="lb-feature-grid"></div>
+      <div class="lb-feature-copy"><span class="lb-feature-kicker">LOGOBOSS <b>WEB AI</b></span>
+        <div class="lb-feature-icon" aria-hidden="true">◇</div>
+        <h3 class="lb-feature-title">Individuelles Design</h3>
+        <p class="lb-feature-description">Farben und Layout passend zu Ihrer Marke.</p>
+        <span class="lb-feature-signature">WEB · AUTOMATION · AI</span>
+      </div><div class="lb-feature-glass" aria-hidden="true"><div class="lb-feature-dots"><i></i><i></i><i></i></div><div class="lb-feature-lines"><i></i><i></i><i></i><i></i></div><div class="lb-feature-bars"><i></i><i></i><i></i><i></i><i></i></div></div>
+    </article><article class="lb-feature-slide" data-feature="9" aria-label="Customer Inquiries">
+      <div class="lb-feature-orb"></div><div class="lb-feature-grid"></div>
+      <div class="lb-feature-copy"><span class="lb-feature-kicker">LOGOBOSS <b>WEB AI</b></span>
+        <div class="lb-feature-icon" aria-hidden="true">↗</div>
+        <h3 class="lb-feature-title">Kundenanfragen</h3>
+        <p class="lb-feature-description">Machen Sie den ersten Kontakt besonders einfach.</p>
+        <span class="lb-feature-signature">WEB · AUTOMATION · AI</span>
+      </div><div class="lb-feature-glass" aria-hidden="true"><div class="lb-feature-dots"><i></i><i></i><i></i></div><div class="lb-feature-lines"><i></i><i></i><i></i><i></i></div><div class="lb-feature-bars"><i></i><i></i><i></i><i></i><i></i></div></div>
+    </article><article class="lb-feature-slide" data-feature="10" aria-label="Save Time">
+      <div class="lb-feature-orb"></div><div class="lb-feature-grid"></div>
+      <div class="lb-feature-copy"><span class="lb-feature-kicker">LOGOBOSS <b>WEB AI</b></span>
+        <div class="lb-feature-icon" aria-hidden="true">◷</div>
+        <h3 class="lb-feature-title">Zeit sparen</h3>
+        <p class="lb-feature-description">Weniger Routineaufgaben, mehr Zeit fürs Geschäft.</p>
+        <span class="lb-feature-signature">WEB · AUTOMATION · AI</span>
+      </div><div class="lb-feature-glass" aria-hidden="true"><div class="lb-feature-dots"><i></i><i></i><i></i></div><div class="lb-feature-lines"><i></i><i></i><i></i><i></i></div><div class="lb-feature-bars"><i></i><i></i><i></i><i></i><i></i></div></div>
+    </article><article class="lb-feature-slide" data-feature="11" aria-label="Secure Workflows">
+      <div class="lb-feature-orb"></div><div class="lb-feature-grid"></div>
+      <div class="lb-feature-copy"><span class="lb-feature-kicker">LOGOBOSS <b>WEB AI</b></span>
+        <div class="lb-feature-icon" aria-hidden="true">⬡</div>
+        <h3 class="lb-feature-title">Sichere Abläufe</h3>
+        <p class="lb-feature-description">Sorgfältig entwickelte digitale Prozesse.</p>
+        <span class="lb-feature-signature">WEB · AUTOMATION · AI</span>
+      </div><div class="lb-feature-glass" aria-hidden="true"><div class="lb-feature-dots"><i></i><i></i><i></i></div><div class="lb-feature-lines"><i></i><i></i><i></i><i></i></div><div class="lb-feature-bars"><i></i><i></i><i></i><i></i><i></i></div></div>
+    </article><article class="lb-feature-slide" data-feature="12" aria-label="Appointment Management">
+      <div class="lb-feature-orb"></div><div class="lb-feature-grid"></div>
+      <div class="lb-feature-copy"><span class="lb-feature-kicker">LOGOBOSS <b>WEB AI</b></span>
+        <div class="lb-feature-icon" aria-hidden="true">▦</div>
+        <h3 class="lb-feature-title">Terminverwaltung</h3>
+        <p class="lb-feature-description">Anfragen und Termine übersichtlich organisieren.</p>
+        <span class="lb-feature-signature">WEB · AUTOMATION · AI</span>
+      </div><div class="lb-feature-glass" aria-hidden="true"><div class="lb-feature-dots"><i></i><i></i><i></i></div><div class="lb-feature-lines"><i></i><i></i><i></i><i></i></div><div class="lb-feature-bars"><i></i><i></i><i></i><i></i><i></i></div></div>
+    </article><article class="lb-feature-slide" data-feature="13" aria-label="SEO Foundations">
+      <div class="lb-feature-orb"></div><div class="lb-feature-grid"></div>
+      <div class="lb-feature-copy"><span class="lb-feature-kicker">LOGOBOSS <b>WEB AI</b></span>
+        <div class="lb-feature-icon" aria-hidden="true">⌕</div>
+        <h3 class="lb-feature-title">SEO-Grundlagen</h3>
+        <p class="lb-feature-description">Technische Grundlagen für gute Auffindbarkeit.</p>
+        <span class="lb-feature-signature">WEB · AUTOMATION · AI</span>
+      </div><div class="lb-feature-glass" aria-hidden="true"><div class="lb-feature-dots"><i></i><i></i><i></i></div><div class="lb-feature-lines"><i></i><i></i><i></i><i></i></div><div class="lb-feature-bars"><i></i><i></i><i></i><i></i><i></i></div></div>
+    </article><article class="lb-feature-slide" data-feature="14" aria-label="Our Packages">
+      <div class="lb-feature-orb"></div><div class="lb-feature-grid"></div>
+      <div class="lb-feature-copy"><span class="lb-feature-kicker">LOGOBOSS <b>WEB AI</b></span>
+        <div class="lb-feature-icon" aria-hidden="true">◈</div>
+        <h3 class="lb-feature-title">Unsere Pakete</h3>
+        <p class="lb-feature-description">START, BUSINESS AI und PRO AI entdecken.</p>
+        <span class="lb-feature-signature">WEB · AUTOMATION · AI</span>
+      </div><div class="lb-feature-glass" aria-hidden="true"><div class="lb-feature-dots"><i></i><i></i><i></i></div><div class="lb-feature-lines"><i></i><i></i><i></i><i></i></div><div class="lb-feature-bars"><i></i><i></i><i></i><i></i><i></i></div></div>
+    </article><article class="lb-feature-slide" data-feature="15" aria-label="Easy Setup">
+      <div class="lb-feature-orb"></div><div class="lb-feature-grid"></div>
+      <div class="lb-feature-copy"><span class="lb-feature-kicker">LOGOBOSS <b>WEB AI</b></span>
+        <div class="lb-feature-icon" aria-hidden="true">➤</div>
+        <h3 class="lb-feature-title">Einfacher Start</h3>
+        <p class="lb-feature-description">Schritt für Schritt zum digitalen Auftritt.</p>
+        <span class="lb-feature-signature">WEB · AUTOMATION · AI</span>
+      </div><div class="lb-feature-glass" aria-hidden="true"><div class="lb-feature-dots"><i></i><i></i><i></i></div><div class="lb-feature-lines"><i></i><i></i><i></i><i></i></div><div class="lb-feature-bars"><i></i><i></i><i></i><i></i><i></i></div></div>
+    </article><article class="lb-feature-slide" data-feature="16" aria-label="Get in Touch">
+      <div class="lb-feature-orb"></div><div class="lb-feature-grid"></div>
+      <div class="lb-feature-copy"><span class="lb-feature-kicker">LOGOBOSS <b>WEB AI</b></span>
+        <div class="lb-feature-icon" aria-hidden="true">✉</div>
+        <h3 class="lb-feature-title">Kontakt aufnehmen</h3>
+        <p class="lb-feature-description">Erzählen Sie uns von Ihrem Projekt.</p>
+        <span class="lb-feature-signature">WEB · AUTOMATION · AI</span>
+      </div><div class="lb-feature-glass" aria-hidden="true"><div class="lb-feature-dots"><i></i><i></i><i></i></div><div class="lb-feature-lines"><i></i><i></i><i></i><i></i></div><div class="lb-feature-bars"><i></i><i></i><i></i><i></i><i></i></div></div>
+    </article></div><button class="lb-prev" type="button" aria-label="Previous image">‹</button><button class="lb-next" type="button" aria-label="Next image">›</button><div class="lb-counter"><span>1</span> / 17</div></div></div></div></section>
+<section id="packages"><div class="wrap"><h2 class="title" id="chooseTitle"></h2><p class="sub" id="chooseText"></p><div class="packages">
+<article class="pkg"><span class="badge">START</span><h3 id="p1title"></h3><div class="price">€149</div><div class="lb-slider " data-slider><div class="lb-track"><article class="lb-feature-slide" data-feature="0" aria-label="Digital Solutions">
+      <div class="lb-feature-orb"></div><div class="lb-feature-grid"></div>
+      <div class="lb-feature-copy"><span class="lb-feature-kicker">LOGOBOSS <b>WEB AI</b></span>
+        <div class="lb-feature-icon" aria-hidden="true">✦</div>
+        <h3 class="lb-feature-title">Digitale Lösungen</h3>
+        <p class="lb-feature-description">Websites, Buchungen und smarte Automatisierung.</p>
+        <span class="lb-feature-signature">WEB · AUTOMATION · AI</span>
+      </div><div class="lb-feature-glass" aria-hidden="true"><div class="lb-feature-dots"><i></i><i></i><i></i></div><div class="lb-feature-lines"><i></i><i></i><i></i><i></i></div><div class="lb-feature-bars"><i></i><i></i><i></i><i></i><i></i></div></div>
+    </article><article class="lb-feature-slide" data-feature="4" aria-label="AI Chat Assistant">
+      <div class="lb-feature-orb"></div><div class="lb-feature-grid"></div>
+      <div class="lb-feature-copy"><span class="lb-feature-kicker">LOGOBOSS <b>WEB AI</b></span>
+        <div class="lb-feature-icon" aria-hidden="true">◎</div>
+        <h3 class="lb-feature-title">KI-Chatassistent</h3>
+        <p class="lb-feature-description">Antworten auf häufige Fragen rund um die Uhr.</p>
+        <span class="lb-feature-signature">WEB · AUTOMATION · AI</span>
+      </div><div class="lb-feature-glass" aria-hidden="true"><div class="lb-feature-dots"><i></i><i></i><i></i></div><div class="lb-feature-lines"><i></i><i></i><i></i><i></i></div><div class="lb-feature-bars"><i></i><i></i><i></i><i></i><i></i></div></div>
+    </article><article class="lb-feature-slide" data-feature="5" aria-label="Email Notifications">
+      <div class="lb-feature-orb"></div><div class="lb-feature-grid"></div>
+      <div class="lb-feature-copy"><span class="lb-feature-kicker">LOGOBOSS <b>WEB AI</b></span>
+        <div class="lb-feature-icon" aria-hidden="true">✉</div>
+        <h3 class="lb-feature-title">E-Mail-Benachrichtigungen</h3>
+        <p class="lb-feature-description">Informationen zu neuen Anfragen erhalten.</p>
+        <span class="lb-feature-signature">WEB · AUTOMATION · AI</span>
+      </div><div class="lb-feature-glass" aria-hidden="true"><div class="lb-feature-dots"><i></i><i></i><i></i></div><div class="lb-feature-lines"><i></i><i></i><i></i><i></i></div><div class="lb-feature-bars"><i></i><i></i><i></i><i></i><i></i></div></div>
+    </article><article class="lb-feature-slide" data-feature="7" aria-label="Works on All Devices">
+      <div class="lb-feature-orb"></div><div class="lb-feature-grid"></div>
+      <div class="lb-feature-copy"><span class="lb-feature-kicker">LOGOBOSS <b>WEB AI</b></span>
+        <div class="lb-feature-icon" aria-hidden="true">▤</div>
+        <h3 class="lb-feature-title">Auf allen Geräten</h3>
+        <p class="lb-feature-description">Optimiert für Mobilgeräte, Tablets und Desktop.</p>
+        <span class="lb-feature-signature">WEB · AUTOMATION · AI</span>
+      </div><div class="lb-feature-glass" aria-hidden="true"><div class="lb-feature-dots"><i></i><i></i><i></i></div><div class="lb-feature-lines"><i></i><i></i><i></i><i></i></div><div class="lb-feature-bars"><i></i><i></i><i></i><i></i><i></i></div></div>
+    </article><article class="lb-feature-slide" data-feature="11" aria-label="Secure Workflows">
+      <div class="lb-feature-orb"></div><div class="lb-feature-grid"></div>
+      <div class="lb-feature-copy"><span class="lb-feature-kicker">LOGOBOSS <b>WEB AI</b></span>
+        <div class="lb-feature-icon" aria-hidden="true">⬡</div>
+        <h3 class="lb-feature-title">Sichere Abläufe</h3>
+        <p class="lb-feature-description">Sorgfältig entwickelte digitale Prozesse.</p>
+        <span class="lb-feature-signature">WEB · AUTOMATION · AI</span>
+      </div><div class="lb-feature-glass" aria-hidden="true"><div class="lb-feature-dots"><i></i><i></i><i></i></div><div class="lb-feature-lines"><i></i><i></i><i></i><i></i></div><div class="lb-feature-bars"><i></i><i></i><i></i><i></i><i></i></div></div>
+    </article><article class="lb-feature-slide" data-feature="12" aria-label="Appointment Management">
+      <div class="lb-feature-orb"></div><div class="lb-feature-grid"></div>
+      <div class="lb-feature-copy"><span class="lb-feature-kicker">LOGOBOSS <b>WEB AI</b></span>
+        <div class="lb-feature-icon" aria-hidden="true">▦</div>
+        <h3 class="lb-feature-title">Terminverwaltung</h3>
+        <p class="lb-feature-description">Anfragen und Termine übersichtlich organisieren.</p>
+        <span class="lb-feature-signature">WEB · AUTOMATION · AI</span>
+      </div><div class="lb-feature-glass" aria-hidden="true"><div class="lb-feature-dots"><i></i><i></i><i></i></div><div class="lb-feature-lines"><i></i><i></i><i></i><i></i></div><div class="lb-feature-bars"><i></i><i></i><i></i><i></i><i></i></div></div>
+    </article><article class="lb-feature-slide" data-feature="13" aria-label="SEO Foundations">
+      <div class="lb-feature-orb"></div><div class="lb-feature-grid"></div>
+      <div class="lb-feature-copy"><span class="lb-feature-kicker">LOGOBOSS <b>WEB AI</b></span>
+        <div class="lb-feature-icon" aria-hidden="true">⌕</div>
+        <h3 class="lb-feature-title">SEO-Grundlagen</h3>
+        <p class="lb-feature-description">Technische Grundlagen für gute Auffindbarkeit.</p>
+        <span class="lb-feature-signature">WEB · AUTOMATION · AI</span>
+      </div><div class="lb-feature-glass" aria-hidden="true"><div class="lb-feature-dots"><i></i><i></i><i></i></div><div class="lb-feature-lines"><i></i><i></i><i></i><i></i></div><div class="lb-feature-bars"><i></i><i></i><i></i><i></i><i></i></div></div>
+    </article><article class="lb-feature-slide" data-feature="16" aria-label="Get in Touch">
+      <div class="lb-feature-orb"></div><div class="lb-feature-grid"></div>
+      <div class="lb-feature-copy"><span class="lb-feature-kicker">LOGOBOSS <b>WEB AI</b></span>
+        <div class="lb-feature-icon" aria-hidden="true">✉</div>
+        <h3 class="lb-feature-title">Kontakt aufnehmen</h3>
+        <p class="lb-feature-description">Erzählen Sie uns von Ihrem Projekt.</p>
+        <span class="lb-feature-signature">WEB · AUTOMATION · AI</span>
+      </div><div class="lb-feature-glass" aria-hidden="true"><div class="lb-feature-dots"><i></i><i></i><i></i></div><div class="lb-feature-lines"><i></i><i></i><i></i><i></i></div><div class="lb-feature-bars"><i></i><i></i><i></i><i></i><i></i></div></div>
+    </article></div><button class="lb-prev" type="button" aria-label="Previous image">‹</button><button class="lb-next" type="button" aria-label="Next image">›</button><div class="lb-counter"><span>1</span> / 8</div></div><p id="p1text"></p><ul id="p1list"></ul><div class="actions"><button onclick="add('START',149)" class="addBtn"></button><button onclick="buyNow('START',149)" class="orderBtn"></button></div></article>
+<article class="pkg best"><span class="badge" id="best"></span><h3>BUSINESS AI</h3><div class="price">€299</div><div class="lb-slider " data-slider><div class="lb-track"><article class="lb-feature-slide" data-feature="0" aria-label="Digital Solutions">
+      <div class="lb-feature-orb"></div><div class="lb-feature-grid"></div>
+      <div class="lb-feature-copy"><span class="lb-feature-kicker">LOGOBOSS <b>WEB AI</b></span>
+        <div class="lb-feature-icon" aria-hidden="true">✦</div>
+        <h3 class="lb-feature-title">Digitale Lösungen</h3>
+        <p class="lb-feature-description">Websites, Buchungen und smarte Automatisierung.</p>
+        <span class="lb-feature-signature">WEB · AUTOMATION · AI</span>
+      </div><div class="lb-feature-glass" aria-hidden="true"><div class="lb-feature-dots"><i></i><i></i><i></i></div><div class="lb-feature-lines"><i></i><i></i><i></i><i></i></div><div class="lb-feature-bars"><i></i><i></i><i></i><i></i><i></i></div></div>
+    </article><article class="lb-feature-slide" data-feature="1" aria-label="Professional Websites">
+      <div class="lb-feature-orb"></div><div class="lb-feature-grid"></div>
+      <div class="lb-feature-copy"><span class="lb-feature-kicker">LOGOBOSS <b>WEB AI</b></span>
+        <div class="lb-feature-icon" aria-hidden="true">▣</div>
+        <h3 class="lb-feature-title">Professionelle Websites</h3>
+        <p class="lb-feature-description">Ein moderner Online-Auftritt für Ihr Unternehmen.</p>
+        <span class="lb-feature-signature">WEB · AUTOMATION · AI</span>
+      </div><div class="lb-feature-glass" aria-hidden="true"><div class="lb-feature-dots"><i></i><i></i><i></i></div><div class="lb-feature-lines"><i></i><i></i><i></i><i></i></div><div class="lb-feature-bars"><i></i><i></i><i></i><i></i><i></i></div></div>
+    </article><article class="lb-feature-slide" data-feature="2" aria-label="Online Booking">
+      <div class="lb-feature-orb"></div><div class="lb-feature-grid"></div>
+      <div class="lb-feature-copy"><span class="lb-feature-kicker">LOGOBOSS <b>WEB AI</b></span>
+        <div class="lb-feature-icon" aria-hidden="true">▦</div>
+        <h3 class="lb-feature-title">Online-Terminbuchung</h3>
+        <p class="lb-feature-description">Terminanfragen direkt über Ihre Website.</p>
+        <span class="lb-feature-signature">WEB · AUTOMATION · AI</span>
+      </div><div class="lb-feature-glass" aria-hidden="true"><div class="lb-feature-dots"><i></i><i></i><i></i></div><div class="lb-feature-lines"><i></i><i></i><i></i><i></i></div><div class="lb-feature-bars"><i></i><i></i><i></i><i></i><i></i></div></div>
+    </article><article class="lb-feature-slide" data-feature="3" aria-label="AI Phone Assistant">
+      <div class="lb-feature-orb"></div><div class="lb-feature-grid"></div>
+      <div class="lb-feature-copy"><span class="lb-feature-kicker">LOGOBOSS <b>WEB AI</b></span>
+        <div class="lb-feature-icon" aria-hidden="true">◉</div>
+        <h3 class="lb-feature-title">KI-Telefonassistent</h3>
+        <p class="lb-feature-description">Anrufe und Kundenwünsche effizient erfassen.</p>
+        <span class="lb-feature-signature">WEB · AUTOMATION · AI</span>
+      </div><div class="lb-feature-glass" aria-hidden="true"><div class="lb-feature-dots"><i></i><i></i><i></i></div><div class="lb-feature-lines"><i></i><i></i><i></i><i></i></div><div class="lb-feature-bars"><i></i><i></i><i></i><i></i><i></i></div></div>
+    </article><article class="lb-feature-slide" data-feature="4" aria-label="AI Chat Assistant">
+      <div class="lb-feature-orb"></div><div class="lb-feature-grid"></div>
+      <div class="lb-feature-copy"><span class="lb-feature-kicker">LOGOBOSS <b>WEB AI</b></span>
+        <div class="lb-feature-icon" aria-hidden="true">◎</div>
+        <h3 class="lb-feature-title">KI-Chatassistent</h3>
+        <p class="lb-feature-description">Antworten auf häufige Fragen rund um die Uhr.</p>
+        <span class="lb-feature-signature">WEB · AUTOMATION · AI</span>
+      </div><div class="lb-feature-glass" aria-hidden="true"><div class="lb-feature-dots"><i></i><i></i><i></i></div><div class="lb-feature-lines"><i></i><i></i><i></i><i></i></div><div class="lb-feature-bars"><i></i><i></i><i></i><i></i><i></i></div></div>
+    </article><article class="lb-feature-slide" data-feature="5" aria-label="Email Notifications">
+      <div class="lb-feature-orb"></div><div class="lb-feature-grid"></div>
+      <div class="lb-feature-copy"><span class="lb-feature-kicker">LOGOBOSS <b>WEB AI</b></span>
+        <div class="lb-feature-icon" aria-hidden="true">✉</div>
+        <h3 class="lb-feature-title">E-Mail-Benachrichtigungen</h3>
+        <p class="lb-feature-description">Informationen zu neuen Anfragen erhalten.</p>
+        <span class="lb-feature-signature">WEB · AUTOMATION · AI</span>
+      </div><div class="lb-feature-glass" aria-hidden="true"><div class="lb-feature-dots"><i></i><i></i><i></i></div><div class="lb-feature-lines"><i></i><i></i><i></i><i></i></div><div class="lb-feature-bars"><i></i><i></i><i></i><i></i><i></i></div></div>
+    </article><article class="lb-feature-slide" data-feature="7" aria-label="Works on All Devices">
+      <div class="lb-feature-orb"></div><div class="lb-feature-grid"></div>
+      <div class="lb-feature-copy"><span class="lb-feature-kicker">LOGOBOSS <b>WEB AI</b></span>
+        <div class="lb-feature-icon" aria-hidden="true">▤</div>
+        <h3 class="lb-feature-title">Auf allen Geräten</h3>
+        <p class="lb-feature-description">Optimiert für Mobilgeräte, Tablets und Desktop.</p>
+        <span class="lb-feature-signature">WEB · AUTOMATION · AI</span>
+      </div><div class="lb-feature-glass" aria-hidden="true"><div class="lb-feature-dots"><i></i><i></i><i></i></div><div class="lb-feature-lines"><i></i><i></i><i></i><i></i></div><div class="lb-feature-bars"><i></i><i></i><i></i><i></i><i></i></div></div>
+    </article><article class="lb-feature-slide" data-feature="9" aria-label="Customer Inquiries">
+      <div class="lb-feature-orb"></div><div class="lb-feature-grid"></div>
+      <div class="lb-feature-copy"><span class="lb-feature-kicker">LOGOBOSS <b>WEB AI</b></span>
+        <div class="lb-feature-icon" aria-hidden="true">↗</div>
+        <h3 class="lb-feature-title">Kundenanfragen</h3>
+        <p class="lb-feature-description">Machen Sie den ersten Kontakt besonders einfach.</p>
+        <span class="lb-feature-signature">WEB · AUTOMATION · AI</span>
+      </div><div class="lb-feature-glass" aria-hidden="true"><div class="lb-feature-dots"><i></i><i></i><i></i></div><div class="lb-feature-lines"><i></i><i></i><i></i><i></i></div><div class="lb-feature-bars"><i></i><i></i><i></i><i></i><i></i></div></div>
+    </article><article class="lb-feature-slide" data-feature="11" aria-label="Secure Workflows">
+      <div class="lb-feature-orb"></div><div class="lb-feature-grid"></div>
+      <div class="lb-feature-copy"><span class="lb-feature-kicker">LOGOBOSS <b>WEB AI</b></span>
+        <div class="lb-feature-icon" aria-hidden="true">⬡</div>
+        <h3 class="lb-feature-title">Sichere Abläufe</h3>
+        <p class="lb-feature-description">Sorgfältig entwickelte digitale Prozesse.</p>
+        <span class="lb-feature-signature">WEB · AUTOMATION · AI</span>
+      </div><div class="lb-feature-glass" aria-hidden="true"><div class="lb-feature-dots"><i></i><i></i><i></i></div><div class="lb-feature-lines"><i></i><i></i><i></i><i></i></div><div class="lb-feature-bars"><i></i><i></i><i></i><i></i><i></i></div></div>
+    </article><article class="lb-feature-slide" data-feature="12" aria-label="Appointment Management">
+      <div class="lb-feature-orb"></div><div class="lb-feature-grid"></div>
+      <div class="lb-feature-copy"><span class="lb-feature-kicker">LOGOBOSS <b>WEB AI</b></span>
+        <div class="lb-feature-icon" aria-hidden="true">▦</div>
+        <h3 class="lb-feature-title">Terminverwaltung</h3>
+        <p class="lb-feature-description">Anfragen und Termine übersichtlich organisieren.</p>
+        <span class="lb-feature-signature">WEB · AUTOMATION · AI</span>
+      </div><div class="lb-feature-glass" aria-hidden="true"><div class="lb-feature-dots"><i></i><i></i><i></i></div><div class="lb-feature-lines"><i></i><i></i><i></i><i></i></div><div class="lb-feature-bars"><i></i><i></i><i></i><i></i><i></i></div></div>
+    </article><article class="lb-feature-slide" data-feature="13" aria-label="SEO Foundations">
+      <div class="lb-feature-orb"></div><div class="lb-feature-grid"></div>
+      <div class="lb-feature-copy"><span class="lb-feature-kicker">LOGOBOSS <b>WEB AI</b></span>
+        <div class="lb-feature-icon" aria-hidden="true">⌕</div>
+        <h3 class="lb-feature-title">SEO-Grundlagen</h3>
+        <p class="lb-feature-description">Technische Grundlagen für gute Auffindbarkeit.</p>
+        <span class="lb-feature-signature">WEB · AUTOMATION · AI</span>
+      </div><div class="lb-feature-glass" aria-hidden="true"><div class="lb-feature-dots"><i></i><i></i><i></i></div><div class="lb-feature-lines"><i></i><i></i><i></i><i></i></div><div class="lb-feature-bars"><i></i><i></i><i></i><i></i><i></i></div></div>
+    </article><article class="lb-feature-slide" data-feature="14" aria-label="Our Packages">
+      <div class="lb-feature-orb"></div><div class="lb-feature-grid"></div>
+      <div class="lb-feature-copy"><span class="lb-feature-kicker">LOGOBOSS <b>WEB AI</b></span>
+        <div class="lb-feature-icon" aria-hidden="true">◈</div>
+        <h3 class="lb-feature-title">Unsere Pakete</h3>
+        <p class="lb-feature-description">START, BUSINESS AI und PRO AI entdecken.</p>
+        <span class="lb-feature-signature">WEB · AUTOMATION · AI</span>
+      </div><div class="lb-feature-glass" aria-hidden="true"><div class="lb-feature-dots"><i></i><i></i><i></i></div><div class="lb-feature-lines"><i></i><i></i><i></i><i></i></div><div class="lb-feature-bars"><i></i><i></i><i></i><i></i><i></i></div></div>
+    </article><article class="lb-feature-slide" data-feature="16" aria-label="Get in Touch">
+      <div class="lb-feature-orb"></div><div class="lb-feature-grid"></div>
+      <div class="lb-feature-copy"><span class="lb-feature-kicker">LOGOBOSS <b>WEB AI</b></span>
+        <div class="lb-feature-icon" aria-hidden="true">✉</div>
+        <h3 class="lb-feature-title">Kontakt aufnehmen</h3>
+        <p class="lb-feature-description">Erzählen Sie uns von Ihrem Projekt.</p>
+        <span class="lb-feature-signature">WEB · AUTOMATION · AI</span>
+      </div><div class="lb-feature-glass" aria-hidden="true"><div class="lb-feature-dots"><i></i><i></i><i></i></div><div class="lb-feature-lines"><i></i><i></i><i></i><i></i></div><div class="lb-feature-bars"><i></i><i></i><i></i><i></i><i></i></div></div>
+    </article></div><button class="lb-prev" type="button" aria-label="Previous image">‹</button><button class="lb-next" type="button" aria-label="Next image">›</button><div class="lb-counter"><span>1</span> / 13</div></div><p id="p2text"></p><ul id="p2list"></ul><div class="actions"><button onclick="add('BUSINESS AI',299)" class="addBtn"></button><button onclick="buyNow('BUSINESS AI',299)" class="orderBtn"></button></div></article>
+<article class="pkg"><span class="badge">AI PRO</span><h3 id="p3title"></h3><div class="price">€499</div><div class="lb-slider " data-slider><div class="lb-track"><article class="lb-feature-slide" data-feature="0" aria-label="Digital Solutions">
+      <div class="lb-feature-orb"></div><div class="lb-feature-grid"></div>
+      <div class="lb-feature-copy"><span class="lb-feature-kicker">LOGOBOSS <b>WEB AI</b></span>
+        <div class="lb-feature-icon" aria-hidden="true">✦</div>
+        <h3 class="lb-feature-title">Digitale Lösungen</h3>
+        <p class="lb-feature-description">Websites, Buchungen und smarte Automatisierung.</p>
+        <span class="lb-feature-signature">WEB · AUTOMATION · AI</span>
+      </div><div class="lb-feature-glass" aria-hidden="true"><div class="lb-feature-dots"><i></i><i></i><i></i></div><div class="lb-feature-lines"><i></i><i></i><i></i><i></i></div><div class="lb-feature-bars"><i></i><i></i><i></i><i></i><i></i></div></div>
+    </article><article class="lb-feature-slide" data-feature="1" aria-label="Professional Websites">
+      <div class="lb-feature-orb"></div><div class="lb-feature-grid"></div>
+      <div class="lb-feature-copy"><span class="lb-feature-kicker">LOGOBOSS <b>WEB AI</b></span>
+        <div class="lb-feature-icon" aria-hidden="true">▣</div>
+        <h3 class="lb-feature-title">Professionelle Websites</h3>
+        <p class="lb-feature-description">Ein moderner Online-Auftritt für Ihr Unternehmen.</p>
+        <span class="lb-feature-signature">WEB · AUTOMATION · AI</span>
+      </div><div class="lb-feature-glass" aria-hidden="true"><div class="lb-feature-dots"><i></i><i></i><i></i></div><div class="lb-feature-lines"><i></i><i></i><i></i><i></i></div><div class="lb-feature-bars"><i></i><i></i><i></i><i></i><i></i></div></div>
+    </article><article class="lb-feature-slide" data-feature="2" aria-label="Online Booking">
+      <div class="lb-feature-orb"></div><div class="lb-feature-grid"></div>
+      <div class="lb-feature-copy"><span class="lb-feature-kicker">LOGOBOSS <b>WEB AI</b></span>
+        <div class="lb-feature-icon" aria-hidden="true">▦</div>
+        <h3 class="lb-feature-title">Online-Terminbuchung</h3>
+        <p class="lb-feature-description">Terminanfragen direkt über Ihre Website.</p>
+        <span class="lb-feature-signature">WEB · AUTOMATION · AI</span>
+      </div><div class="lb-feature-glass" aria-hidden="true"><div class="lb-feature-dots"><i></i><i></i><i></i></div><div class="lb-feature-lines"><i></i><i></i><i></i><i></i></div><div class="lb-feature-bars"><i></i><i></i><i></i><i></i><i></i></div></div>
+    </article><article class="lb-feature-slide" data-feature="3" aria-label="AI Phone Assistant">
+      <div class="lb-feature-orb"></div><div class="lb-feature-grid"></div>
+      <div class="lb-feature-copy"><span class="lb-feature-kicker">LOGOBOSS <b>WEB AI</b></span>
+        <div class="lb-feature-icon" aria-hidden="true">◉</div>
+        <h3 class="lb-feature-title">KI-Telefonassistent</h3>
+        <p class="lb-feature-description">Anrufe und Kundenwünsche effizient erfassen.</p>
+        <span class="lb-feature-signature">WEB · AUTOMATION · AI</span>
+      </div><div class="lb-feature-glass" aria-hidden="true"><div class="lb-feature-dots"><i></i><i></i><i></i></div><div class="lb-feature-lines"><i></i><i></i><i></i><i></i></div><div class="lb-feature-bars"><i></i><i></i><i></i><i></i><i></i></div></div>
+    </article><article class="lb-feature-slide" data-feature="4" aria-label="AI Chat Assistant">
+      <div class="lb-feature-orb"></div><div class="lb-feature-grid"></div>
+      <div class="lb-feature-copy"><span class="lb-feature-kicker">LOGOBOSS <b>WEB AI</b></span>
+        <div class="lb-feature-icon" aria-hidden="true">◎</div>
+        <h3 class="lb-feature-title">KI-Chatassistent</h3>
+        <p class="lb-feature-description">Antworten auf häufige Fragen rund um die Uhr.</p>
+        <span class="lb-feature-signature">WEB · AUTOMATION · AI</span>
+      </div><div class="lb-feature-glass" aria-hidden="true"><div class="lb-feature-dots"><i></i><i></i><i></i></div><div class="lb-feature-lines"><i></i><i></i><i></i><i></i></div><div class="lb-feature-bars"><i></i><i></i><i></i><i></i><i></i></div></div>
+    </article><article class="lb-feature-slide" data-feature="5" aria-label="Email Notifications">
+      <div class="lb-feature-orb"></div><div class="lb-feature-grid"></div>
+      <div class="lb-feature-copy"><span class="lb-feature-kicker">LOGOBOSS <b>WEB AI</b></span>
+        <div class="lb-feature-icon" aria-hidden="true">✉</div>
+        <h3 class="lb-feature-title">E-Mail-Benachrichtigungen</h3>
+        <p class="lb-feature-description">Informationen zu neuen Anfragen erhalten.</p>
+        <span class="lb-feature-signature">WEB · AUTOMATION · AI</span>
+      </div><div class="lb-feature-glass" aria-hidden="true"><div class="lb-feature-dots"><i></i><i></i><i></i></div><div class="lb-feature-lines"><i></i><i></i><i></i><i></i></div><div class="lb-feature-bars"><i></i><i></i><i></i><i></i><i></i></div></div>
+    </article><article class="lb-feature-slide" data-feature="6" aria-label="For Every Industry">
+      <div class="lb-feature-orb"></div><div class="lb-feature-grid"></div>
+      <div class="lb-feature-copy"><span class="lb-feature-kicker">LOGOBOSS <b>WEB AI</b></span>
+        <div class="lb-feature-icon" aria-hidden="true">⌘</div>
+        <h3 class="lb-feature-title">Für jede Branche</h3>
+        <p class="lb-feature-description">Für Salons, Restaurants, Werkstätten und mehr.</p>
+        <span class="lb-feature-signature">WEB · AUTOMATION · AI</span>
+      </div><div class="lb-feature-glass" aria-hidden="true"><div class="lb-feature-dots"><i></i><i></i><i></i></div><div class="lb-feature-lines"><i></i><i></i><i></i><i></i></div><div class="lb-feature-bars"><i></i><i></i><i></i><i></i><i></i></div></div>
+    </article><article class="lb-feature-slide" data-feature="7" aria-label="Works on All Devices">
+      <div class="lb-feature-orb"></div><div class="lb-feature-grid"></div>
+      <div class="lb-feature-copy"><span class="lb-feature-kicker">LOGOBOSS <b>WEB AI</b></span>
+        <div class="lb-feature-icon" aria-hidden="true">▤</div>
+        <h3 class="lb-feature-title">Auf allen Geräten</h3>
+        <p class="lb-feature-description">Optimiert für Mobilgeräte, Tablets und Desktop.</p>
+        <span class="lb-feature-signature">WEB · AUTOMATION · AI</span>
+      </div><div class="lb-feature-glass" aria-hidden="true"><div class="lb-feature-dots"><i></i><i></i><i></i></div><div class="lb-feature-lines"><i></i><i></i><i></i><i></i></div><div class="lb-feature-bars"><i></i><i></i><i></i><i></i><i></i></div></div>
+    </article><article class="lb-feature-slide" data-feature="8" aria-label="Custom Design">
+      <div class="lb-feature-orb"></div><div class="lb-feature-grid"></div>
+      <div class="lb-feature-copy"><span class="lb-feature-kicker">LOGOBOSS <b>WEB AI</b></span>
+        <div class="lb-feature-icon" aria-hidden="true">◇</div>
+        <h3 class="lb-feature-title">Individuelles Design</h3>
+        <p class="lb-feature-description">Farben und Layout passend zu Ihrer Marke.</p>
+        <span class="lb-feature-signature">WEB · AUTOMATION · AI</span>
+      </div><div class="lb-feature-glass" aria-hidden="true"><div class="lb-feature-dots"><i></i><i></i><i></i></div><div class="lb-feature-lines"><i></i><i></i><i></i><i></i></div><div class="lb-feature-bars"><i></i><i></i><i></i><i></i><i></i></div></div>
+    </article><article class="lb-feature-slide" data-feature="9" aria-label="Customer Inquiries">
+      <div class="lb-feature-orb"></div><div class="lb-feature-grid"></div>
+      <div class="lb-feature-copy"><span class="lb-feature-kicker">LOGOBOSS <b>WEB AI</b></span>
+        <div class="lb-feature-icon" aria-hidden="true">↗</div>
+        <h3 class="lb-feature-title">Kundenanfragen</h3>
+        <p class="lb-feature-description">Machen Sie den ersten Kontakt besonders einfach.</p>
+        <span class="lb-feature-signature">WEB · AUTOMATION · AI</span>
+      </div><div class="lb-feature-glass" aria-hidden="true"><div class="lb-feature-dots"><i></i><i></i><i></i></div><div class="lb-feature-lines"><i></i><i></i><i></i><i></i></div><div class="lb-feature-bars"><i></i><i></i><i></i><i></i><i></i></div></div>
+    </article><article class="lb-feature-slide" data-feature="10" aria-label="Save Time">
+      <div class="lb-feature-orb"></div><div class="lb-feature-grid"></div>
+      <div class="lb-feature-copy"><span class="lb-feature-kicker">LOGOBOSS <b>WEB AI</b></span>
+        <div class="lb-feature-icon" aria-hidden="true">◷</div>
+        <h3 class="lb-feature-title">Zeit sparen</h3>
+        <p class="lb-feature-description">Weniger Routineaufgaben, mehr Zeit fürs Geschäft.</p>
+        <span class="lb-feature-signature">WEB · AUTOMATION · AI</span>
+      </div><div class="lb-feature-glass" aria-hidden="true"><div class="lb-feature-dots"><i></i><i></i><i></i></div><div class="lb-feature-lines"><i></i><i></i><i></i><i></i></div><div class="lb-feature-bars"><i></i><i></i><i></i><i></i><i></i></div></div>
+    </article><article class="lb-feature-slide" data-feature="11" aria-label="Secure Workflows">
+      <div class="lb-feature-orb"></div><div class="lb-feature-grid"></div>
+      <div class="lb-feature-copy"><span class="lb-feature-kicker">LOGOBOSS <b>WEB AI</b></span>
+        <div class="lb-feature-icon" aria-hidden="true">⬡</div>
+        <h3 class="lb-feature-title">Sichere Abläufe</h3>
+        <p class="lb-feature-description">Sorgfältig entwickelte digitale Prozesse.</p>
+        <span class="lb-feature-signature">WEB · AUTOMATION · AI</span>
+      </div><div class="lb-feature-glass" aria-hidden="true"><div class="lb-feature-dots"><i></i><i></i><i></i></div><div class="lb-feature-lines"><i></i><i></i><i></i><i></i></div><div class="lb-feature-bars"><i></i><i></i><i></i><i></i><i></i></div></div>
+    </article><article class="lb-feature-slide" data-feature="12" aria-label="Appointment Management">
+      <div class="lb-feature-orb"></div><div class="lb-feature-grid"></div>
+      <div class="lb-feature-copy"><span class="lb-feature-kicker">LOGOBOSS <b>WEB AI</b></span>
+        <div class="lb-feature-icon" aria-hidden="true">▦</div>
+        <h3 class="lb-feature-title">Terminverwaltung</h3>
+        <p class="lb-feature-description">Anfragen und Termine übersichtlich organisieren.</p>
+        <span class="lb-feature-signature">WEB · AUTOMATION · AI</span>
+      </div><div class="lb-feature-glass" aria-hidden="true"><div class="lb-feature-dots"><i></i><i></i><i></i></div><div class="lb-feature-lines"><i></i><i></i><i></i><i></i></div><div class="lb-feature-bars"><i></i><i></i><i></i><i></i><i></i></div></div>
+    </article><article class="lb-feature-slide" data-feature="13" aria-label="SEO Foundations">
+      <div class="lb-feature-orb"></div><div class="lb-feature-grid"></div>
+      <div class="lb-feature-copy"><span class="lb-feature-kicker">LOGOBOSS <b>WEB AI</b></span>
+        <div class="lb-feature-icon" aria-hidden="true">⌕</div>
+        <h3 class="lb-feature-title">SEO-Grundlagen</h3>
+        <p class="lb-feature-description">Technische Grundlagen für gute Auffindbarkeit.</p>
+        <span class="lb-feature-signature">WEB · AUTOMATION · AI</span>
+      </div><div class="lb-feature-glass" aria-hidden="true"><div class="lb-feature-dots"><i></i><i></i><i></i></div><div class="lb-feature-lines"><i></i><i></i><i></i><i></i></div><div class="lb-feature-bars"><i></i><i></i><i></i><i></i><i></i></div></div>
+    </article><article class="lb-feature-slide" data-feature="14" aria-label="Our Packages">
+      <div class="lb-feature-orb"></div><div class="lb-feature-grid"></div>
+      <div class="lb-feature-copy"><span class="lb-feature-kicker">LOGOBOSS <b>WEB AI</b></span>
+        <div class="lb-feature-icon" aria-hidden="true">◈</div>
+        <h3 class="lb-feature-title">Unsere Pakete</h3>
+        <p class="lb-feature-description">START, BUSINESS AI und PRO AI entdecken.</p>
+        <span class="lb-feature-signature">WEB · AUTOMATION · AI</span>
+      </div><div class="lb-feature-glass" aria-hidden="true"><div class="lb-feature-dots"><i></i><i></i><i></i></div><div class="lb-feature-lines"><i></i><i></i><i></i><i></i></div><div class="lb-feature-bars"><i></i><i></i><i></i><i></i><i></i></div></div>
+    </article><article class="lb-feature-slide" data-feature="15" aria-label="Easy Setup">
+      <div class="lb-feature-orb"></div><div class="lb-feature-grid"></div>
+      <div class="lb-feature-copy"><span class="lb-feature-kicker">LOGOBOSS <b>WEB AI</b></span>
+        <div class="lb-feature-icon" aria-hidden="true">➤</div>
+        <h3 class="lb-feature-title">Einfacher Start</h3>
+        <p class="lb-feature-description">Schritt für Schritt zum digitalen Auftritt.</p>
+        <span class="lb-feature-signature">WEB · AUTOMATION · AI</span>
+      </div><div class="lb-feature-glass" aria-hidden="true"><div class="lb-feature-dots"><i></i><i></i><i></i></div><div class="lb-feature-lines"><i></i><i></i><i></i><i></i></div><div class="lb-feature-bars"><i></i><i></i><i></i><i></i><i></i></div></div>
+    </article><article class="lb-feature-slide" data-feature="16" aria-label="Get in Touch">
+      <div class="lb-feature-orb"></div><div class="lb-feature-grid"></div>
+      <div class="lb-feature-copy"><span class="lb-feature-kicker">LOGOBOSS <b>WEB AI</b></span>
+        <div class="lb-feature-icon" aria-hidden="true">✉</div>
+        <h3 class="lb-feature-title">Kontakt aufnehmen</h3>
+        <p class="lb-feature-description">Erzählen Sie uns von Ihrem Projekt.</p>
+        <span class="lb-feature-signature">WEB · AUTOMATION · AI</span>
+      </div><div class="lb-feature-glass" aria-hidden="true"><div class="lb-feature-dots"><i></i><i></i><i></i></div><div class="lb-feature-lines"><i></i><i></i><i></i><i></i></div><div class="lb-feature-bars"><i></i><i></i><i></i><i></i><i></i></div></div>
+    </article></div><button class="lb-prev" type="button" aria-label="Previous image">‹</button><button class="lb-next" type="button" aria-label="Next image">›</button><div class="lb-counter"><span>1</span> / 17</div></div><p id="p3text"></p><ul id="p3list"></ul><div class="actions"><button onclick="add('AI PRO',499)" class="addBtn"></button><button onclick="buyNow('AI PRO',499)" class="orderBtn"></button></div><p class="notice" id="phoneNotice"></p></article></div></div></section>
+<section id="compare"><div class="wrap"><h2 class="title">Compare packages / Pakete vergleichen</h2><p class="sub">Choose the right level of automation · Wählen Sie die passende Automatisierung.</p><div class="compare"><table><tr><th>Feature / Funktion</th><th>START<br>€149</th><th>BUSINESS AI<br>€299</th><th>AI PRO<br>€499</th></tr><tr><td>Professional website</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td></tr><tr><td>Mobile optimized</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td></tr><tr><td>Online booking</td><td>—</td><td class="yes">✓</td><td class="yes">✓</td></tr><tr><td>AI Chat Assistant</td><td>—</td><td class="yes">✓</td><td class="yes">✓</td></tr><tr><td>Lead capture</td><td>—</td><td class="yes">✓</td><td class="yes">✓</td></tr><tr><td>Review automation</td><td>—</td><td class="yes">✓</td><td class="yes">✓</td></tr><tr><td>Client dashboard</td><td>—</td><td class="yes">✓</td><td class="yes">✓</td></tr><tr><td>AI Email Assistant</td><td>—</td><td>—</td><td class="yes">✓</td></tr><tr><td>AI Phone setup</td><td>—</td><td>—</td><td class="yes">✓</td></tr><tr><td>Advanced automation</td><td>—</td><td>—</td><td class="yes">✓</td></tr></table></div></div></section><section id="builder"><div class="wrap"><div class="builder"><h2 class="title">Build your own package / Eigenes Paket</h2><p class="sub">Select only the services you need. · Wählen Sie nur die Leistungen, die Sie brauchen.</p><div class="builder-grid" id="builderGrid"></div><div class="build-total">Total / Gesamt: €<span id="builderTotal">0</span></div><button class="primary" onclick="addCustom()">🛒 Add selection / Auswahl hinzufügen</button></div></div></section><section id="services"><div class="wrap"><h2 class="title" id="servicesTitle"></h2><p class="sub" id="servicesText"></p><div class="services" id="serviceGrid"></div></div></section>
+<section><div class="wrap"><div class="pay"><h2 id="payTitle"></h2><p id="payText"></p></div></div></section><section id="how-pro" data-i18n-block="how"><div class="wrap"><h2 class="title">How it works · So funktioniert es</h2><p class="sub">From idea to a working digital system in four clear steps.</p><div class="steps"><div class="step"><div class="stepnum">01</div><h3>Tell us about your business</h3><p>Services, goals and what you want to automate.</p></div><div class="step"><div class="stepnum">02</div><h3>We build your system</h3><p>Website, booking and selected AI tools.</p></div><div class="step"><div class="stepnum">03</div><h3>Review & launch</h3><p>We prepare the solution and agree the final details.</p></div><div class="step"><div class="stepnum">04</div><h3>Grow & automate</h3><p>Add more automation as your business grows.</p></div></div></div></section>
+
+<section id="roi"><div class="wrap"><h2 class="title">Opportunity calculator · Potenzial-Rechner</h2><p class="sub">Estimate the value of inquiries or calls that may currently be missed. This is an estimate, not a guaranteed result.</p><div class="roi"><label>Missed inquiries per month / Verpasste Anfragen pro Monat</label><input id="missed" type="number" min="0" value="10" oninput="roiCalc()"><label>Average customer value / Durchschnittlicher Kundenwert (€)</label><input id="value" type="number" min="0" value="80" oninput="roiCalc()"><label>Estimated conversion rate / Geschätzte Abschlussrate (%)</label><input id="rate" type="number" min="0" max="100" value="40" oninput="roiCalc()"><div>Estimated opportunity / Geschätztes Potenzial</div><div class="roiout">€<span id="roiOut">320</span> / month</div></div></div></section>
+<section id="integrations"><div class="wrap"><h2 class="title">Built to connect · Für Integrationen vorbereitet</h2><p class="sub">Depending on the selected package and connected accounts, LogoBoss Web AI can work with business tools and automation services.</p><div class="integrations"><span class="integration">📧 Email</span><span class="integration">📅 Calendar</span><span class="integration">💬 AI Chat</span><span class="integration">📞 Phone*</span><span class="integration">💬 SMS*</span><span class="integration">⭐ Reviews</span><span class="integration">🔗 Webhooks / API</span><span class="integration">📊 Dashboard</span></div><p class="notice" style="text-align:center;margin-top:16px">*Phone, SMS and third-party provider usage may have separate provider costs.</p></div></section>
+
+<button class="chatfloat" onclick="toggleMiniChat()">✦ Try AI Demo</button><div class="chatbox" id="miniChat"><div class="chathead"><span>✦ LogoBoss Web AI AI</span><button onclick="toggleMiniChat()">✕</button></div><div class="chatmsgs" id="miniMsgs"><div class="bubble bot">Hi! Ask me about LogoBoss Web AI packages, prices, websites, booking or automation.</div></div><div class="chatinput"><input id="miniInput" placeholder="Type your message..." onkeydown="if(event.key==='Enter')miniSend()"><button onclick="miniSend()">Send</button></div></div></main>
+<aside class="drawer" id="drawer"><button class="close" onclick="toggleCart()">✕</button><h2 id="drawerTitle"></h2><div id="items"></div><div class="total" id="total"></div><form class="form" id="orderForm" method="POST" action="https://ppmefffjhqpmrjnlewoq.supabase.co/functions/v1/submit-order"><h3 id="detailsTitle"></h3><input id="name" name="customer_name" required><input id="company" name="company_name"><input id="email" name="email" type="email" required><input id="phone" name="phone_whatsapp"><input id="country" name="country"><textarea id="note" name="note"></textarea><input type="hidden" id="packageField" name="package_name"><input type="hidden" id="totalField" name="total_eur"><input type="hidden" id="languageField" name="language" value="en"><button id="sendBtn" type="submit" style="width:100%;background:var(--gold);color:#111">Send order request</button><p class="notice" id="formNotice"></p></form></aside>
+<section class="sales-section" id="why"><h2 class="sales-title">Why LogoBoss Web AI?</h2><p class="sales-sub">Professional digital systems without the complexity of a traditional agency. Start small and expand when your business needs more.</p><div class="sales-grid"><div class="sales-card"><b>From €99</b><h3>A clear starting point</h3><p>Choose a package or build a custom solution around your needs.</p></div><div class="sales-card"><b>Built around your business</b><h3>Not one template for everyone</h3><p>Layout, colors, sections, booking and functions are discussed and adapted with you.</p></div><div class="sales-card"><b>Website + workflow</b><h3>More than a homepage</h3><p>Booking, inquiries, AI-ready integrations and automation options can work together.</p></div></div></section>
+<section class="sales-section" id="portfolio" data-i18n-block="portfolio"><h2 class="sales-title">See what we can build</h2><p class="sales-sub">Open a live industry example. Each demo shows a different direction — your final website is customized after consultation.</p><div class="portfolio-grid"><a class="portfolio-card" href="demo-salon.html"><b>Hair & Beauty</b><p>Booking, services and client experience.</p><span>Open live demo →</span></a><a class="portfolio-card" href="demo-restaurant.html"><b>Restaurant</b><p>Menu, reservations and guest inquiries.</p><span>Open live demo →</span></a><a class="portfolio-card" href="demo-auto.html"><b>Auto Service</b><p>Service requests and appointments.</p><span>Open live demo →</span></a><a class="portfolio-card" href="demo-dentist.html"><b>Dental</b><p>Patient requests and appointments.</p><span>Open live demo →</span></a><a class="portfolio-card" href="demo-cleaning.html"><b>Cleaning</b><p>Quote requests and recurring services.</p><span>Open live demo →</span></a><a class="portfolio-card" href="demo-construction.html"><b>Construction</b><p>Projects, inquiries and site visits.</p><span>Open live demo →</span></a><a class="portfolio-card" href="demo-realestate.html"><b>Real Estate</b><p>Listings, viewings and lead capture.</p><span>Open live demo →</span></a><a class="portfolio-card" href="demo-hotel.html"><b>Hotel</b><p>Rooms, stay requests and guest support.</p><span>Open live demo →</span></a></div></section>
+<section class="sales-section"><h2 class="sales-title">What you can get</h2><p class="sales-sub">The exact scope depends on the selected package and our agreement.</p><div class="sales-grid"><div class="sales-card"><b>01 · Website</b><p>Responsive design, service presentation, contact sections and your brand style.</p></div><div class="sales-card"><b>02 · Booking & leads</b><p>Appointment or inquiry flows designed around how your customers contact you.</p></div><div class="sales-card"><b>03 · AI & automation</b><p>AI-ready chat, workflow planning and external integrations where included and technically available.</p></div><div class="sales-card"><b>04 · Mobile experience</b><p>A layout designed to work clearly on phones, tablets and desktop.</p></div><div class="sales-card"><b>05 · Custom sections</b><p>Portfolio, menu, treatments, listings, reviews, FAQs or other business-specific sections.</p></div><div class="sales-card"><b>06 · Expansion</b><p>Start with what you need now and discuss additional functions later.</p></div></div></section>
+<section class="sales-section"><h2 class="sales-title">Before → After</h2><div class="compare-ba"><div class="ba"><h3>Before</h3><p>✕ Customers must call for basic information</p><p>✕ No simple online appointment request</p><p>✕ Leads can be scattered across channels</p><p>✕ Website may not clearly explain services</p></div><div class="ba after"><h3>With a LogoBoss Web AI setup</h3><p>✓ Clear professional website</p><p>✓ Booking or inquiry flow</p><p>✓ Structured lead capture</p><p>✓ AI-ready and automation options</p></div></div></section>
+<section class="sales-section" id="custom-project" data-i18n-block="custom"><h2 class="sales-title">Need something different?</h2><p class="sales-sub">Tell us what you want. We can discuss a custom project instead of forcing your business into a fixed package.</p><form class="quote-form" action="https://ppmefffjhqpmrjnlewoq.supabase.co/functions/v1/submit-order" method="POST" onsubmit="return prepareCustomQuote(this)"><input type="hidden" name="package_name" value="CUSTOM PROJECT"><input type="hidden" name="total_eur" value="0"><input type="hidden" name="language" value="EN"><label>Business / name</label><input name="customer_name" required placeholder="Your name or business"><label>Contact</label><input name="email" required placeholder="Email or phone"><label>Business type</label><input id="customBusinessType" placeholder="Salon, restaurant, construction..."><label>What would you like?</label><textarea id="customRequest" required placeholder="Tell us about the website, booking, AI or automation you have in mind..."></textarea><input type="hidden" name="message" id="customCombinedMessage"><button type="submit">Request a custom quote</button><p style="color:#999;font-size:13px">No online payment. We review your request and contact you to discuss the project.</p></form></section>
+<section class="final-cta"><small style="color:#e7bf65;font-weight:bold">LET'S BUILD AROUND YOUR BUSINESS</small><h2 style="font-size:clamp(34px,6vw,58px);margin:12px 0">Tell us about your business.<br>We'll show you what we can build.</h2><p style="color:#aaa">Design, functions and integrations are agreed with you before the final setup.</p><a href="#custom-project" class="primary">Start your project</a></section>
+<section id="faq"><div class="wrap"><h2 class="title">Frequently asked questions · Häufige Fragen</h2><div class="faq"><details><summary>How long does setup take? / Wie lange dauert die Einrichtung?</summary><p>The delivery time depends on the selected package, content and integrations. We confirm the scope and timeline before work begins.</p></details><details><summary>Do I have to pay online?</summary><p>No. Your website request is sent first. LogoBoss Web AI contacts you to confirm the order and delivery details.</p></details><details><summary>Can I upgrade later?</summary><p>Yes. You can start with a smaller package and add individual services or upgrade later.</p></details><details><summary>Does it work in German and English?</summary><p>Yes. The LogoBoss Web AI offer supports German and English customer-facing experiences where configured.</p></details><details><summary>Are there additional AI or phone costs?</summary><p>External AI providers, phone numbers, calls and SMS can have separate usage charges depending on the provider.</p></details><details><summary>Can the system be adapted to my business?</summary><p>Yes. Services, booking flows, content and automations can be configured around the business requirements.</p></details></div></div></section>
+<section class="sales-section" style="padding-top:20px"><h2 class="sales-title" style="font-size:30px">Clear & transparent</h2><p class="sales-sub">Demo pages are examples, not promises that every feature is included in every package. Final scope, design, third-party services and integrations depend on the selected package, technical feasibility and our agreement. External AI, phone, SMS, domain or other provider usage may involve separate charges.</p><div class="legal-links"><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a></div><p class="trust-note">No online payment is required through this website. After a request, LogoBoss Web AI contacts the customer to discuss the project.</p></section><footer>© 2026 LogoBoss Web AI · Websites · Automation · AI Assistants<br><span>logobossweb-ai.eu</span></footer>
+<script>
+const T={en:{heroTitle:'Grow Your Business with <span class="brand-gradient">AI</span>',heroText:'Modern websites, online booking, AI assistants and smart automation — built to save time, capture more leads and help your business grow.',view:'View packages',all:'All services',trust:'Internationaler Service · Deutsch & Englisch · Bestellung ohne Online-Zahlung',how:'See how LogoBoss Web AI works',howText:'One modern system connecting your website, appointments, customer communication and automation.',choose:'Choose your package',chooseText:'From a professional online presence to a complete AI business system.',p1:'Digital Starter',p1t:'For businesses that want a professional online presence and an easy way to receive appointment requests.',p1l:['Modern responsive website','Services and prices','Contact form and location','Appointment request'],best:'⭐ BEST VALUE',p2t:'Your website becomes a system that works for you and automates everyday inquiries and bookings.',p2l:['Everything in START','Online booking calendar','AI chatbot 24/7','Automatic booking confirmations','Booking overview','Automatic review requests'],p3:'Complete AI System',p3t:'For businesses that want maximum automation of customer communication, appointments, inquiries and lead follow-up.',p3l:['Everything in BUSINESS AI','AI phone receptionist 24/7','AI Email Assistant','Lead system','Follow-up automation','Central dashboard'],phone:'Phone number, call, SMS and third-party AI usage costs may be billed separately.',services:'Individual services',servicesText:'Only need one feature? You can request services separately.',sv:[['Website','€99'],['Online booking','€79'],['AI chatbot','€79'],['AI Email Assistant','€79'],['Review automation','€49'],['AI phone setup','€149'],['Advanced automation','from €99']],pay:'PAYMENT IS MADE WHEN YOU RECEIVE YOUR SELECTED PACKAGE',payText:'No online payment is required when ordering. Choose a package and submit your request. <strong>LogoBoss Web AI administration will contact you shortly</strong> to confirm the order and discuss the details, development and delivery of your package.',cart:'Cart',yourCart:'Your cart',details:'Order details',fields:['Full name *','Company name','Email *','Phone / WhatsApp','Country','Tell us what you need for your business'],send:'Send order request',form:'No online payment is processed. LogoBoss Web AI administration will contact you about your request.',add:'🛒 Add to cart',order:'Order package',empty:'Your cart is empty.',total:'Total',select:'Please select a package.',required:'Please enter your name and email.'},
+de:{heroTitle:'Bringen Sie Ihr Business mit <span class="brand-gradient">KI</span> nach vorn',heroText:'Moderne Websites, Online-Terminbuchung, KI-Assistenten und smarte Automatisierung — entwickelt, um Zeit zu sparen, mehr Anfragen zu gewinnen und Ihr Unternehmen wachsen zu lassen.',view:'Pakete ansehen',all:'Alle Leistungen',trust:'🌍 Internationaler Service · Deutsch & Englisch · Keine Online-Zahlung bei der Bestellung',how:'So funktioniert LogoBoss Web AI',howText:'Ein modernes System verbindet Ihre Website, Termine, Kundenkommunikation und Automatisierung.',choose:'Wählen Sie Ihr Paket',chooseText:'Vom professionellen Online-Auftritt bis zum kompletten KI-System für Ihr Unternehmen.',p1:'Digitaler Start',p1t:'Für Unternehmen, die professionell online auftreten und Terminanfragen einfach digital erhalten möchten.',p1l:['Moderne responsive Website','Leistungen und Preise','Kontaktformular und Standort','Terminanfrage'],best:'⭐ BESTES PREIS-LEISTUNGS-VERHÄLTNIS',p2t:'Ihre Website wird zu einem System, das für Sie arbeitet und tägliche Anfragen und Buchungen automatisiert.',p2l:['Alles aus START','Online-Terminbuchung','KI-Chatbot 24/7','Automatische Terminbestätigungen','Buchungsübersicht','Automatische Bewertungsanfragen'],p3:'Komplettes KI-System',p3t:'Für Unternehmen, die Kundenkommunikation, Termine, Anfragen und Lead-Nachverfolgung maximal automatisieren möchten.',p3l:['Alles aus BUSINESS AI','KI-Telefonassistent 24/7','KI-E-Mail-Assistent','Lead-System','Follow-up-Automatisierung','Zentrale Übersicht'],phone:'Kosten für Telefonnummer, Anrufe, SMS und externe KI-Anbieter können separat anfallen.',services:'Einzelleistungen',servicesText:'Sie benötigen nur eine Funktion? Leistungen können auch einzeln angefragt werden.',sv:[['Website','€99'],['Online-Terminbuchung','€79'],['KI-Chatbot','€79'],['KI-E-Mail-Assistent','€79'],['Bewertungs-Automatisierung','€49'],['KI-Telefonie Einrichtung','€149'],['Erweiterte Automatisierung','ab €99']],pay:'ZAHLUNG ERFOLGT BEI ÜBERGABE DES AUSGEWÄHLTEN PAKETS',payText:'Bei der Bestellung ist keine Online-Zahlung erforderlich. Wählen Sie ein Paket und senden Sie Ihre Anfrage. <strong>Die LogoBoss Web AI Administration wird sich in Kürze bei Ihnen melden</strong>, um die Bestellung zu bestätigen und Details, Umsetzung und Übergabe zu besprechen.',cart:'Warenkorb',yourCart:'Ihr Warenkorb',details:'Bestelldaten',fields:['Vor- und Nachname *','Firmenname','E-Mail *','Telefon / WhatsApp','Land','Was benötigen Sie für Ihr Unternehmen?'],send:'Bestellanfrage senden',form:'Es erfolgt keine Online-Zahlung. Die LogoBoss Web AI Administration wird Sie zu Ihrer Anfrage kontaktieren.',add:'🛒 In den Warenkorb',order:'Paket bestellen',empty:'Ihr Warenkorb ist leer.',total:'Gesamt',select:'Bitte wählen Sie ein Paket.',required:'Bitte geben Sie Ihren Namen und Ihre E-Mail-Adresse ein.'}};
+let lang=localStorage.getItem('lb_lang')||'de',cart=JSON.parse(localStorage.getItem('lb_cart')||'[]');function setLang(l){lang=l;localStorage.setItem('lb_lang',l);apply()}function apply(){let t=T[lang];document.documentElement.lang=lang;enBtn.classList.toggle('active',lang==='en');deBtn.classList.toggle('active',lang==='de');heroTitle.innerHTML=t.heroTitle;heroText.textContent=t.heroText;viewPackages.textContent=t.view;allServices.textContent=t.all;trust.textContent=t.trust;howTitle.textContent=t.how;howText.textContent=t.howText;chooseTitle.textContent=t.choose;chooseText.textContent=t.chooseText;p1title.textContent=t.p1;p1text.textContent=t.p1t;p1list.innerHTML=t.p1l.map(x=>'<li>'+x+'</li>').join('');best.textContent=t.best;p2text.textContent=t.p2t;p2list.innerHTML=t.p2l.map(x=>'<li>'+x+'</li>').join('');p3title.textContent=t.p3;p3text.textContent=t.p3t;p3list.innerHTML=t.p3l.map(x=>'<li>'+x+'</li>').join('');phoneNotice.textContent=t.phone;servicesTitle.textContent=t.services;servicesText.textContent=t.servicesText;serviceGrid.innerHTML=t.sv.map(x=>'<div class="service"><span>'+x[0]+'</span><b>'+x[1]+'</b></div>').join('');payTitle.textContent=t.pay;payText.innerHTML=t.payText;cartLabel.textContent=t.cart;drawerTitle.textContent=t.yourCart;detailsTitle.textContent=t.details;[name,company,email,phone,country,note].forEach((e,i)=>e.placeholder=t.fields[i]);sendBtn.textContent=t.send;document.getElementById('languageField').value=lang;formNotice.textContent=t.form;document.querySelectorAll('.addBtn').forEach(x=>x.textContent=t.add);document.querySelectorAll('.orderBtn').forEach(x=>x.textContent=t.order);render()}
+function save(){localStorage.setItem('lb_cart',JSON.stringify(cart));render()}function add(n,p){if(!cart.some(x=>x.n===n))cart.push({n,p});save();drawer.classList.add('open')}function buyNow(n,p){cart=[{n,p}];save();drawer.classList.add('open')}function removeI(i){cart.splice(i,1);save()}function render(){let t=T[lang];document.getElementById('packageField').value=cart.map(x=>x.n).join(', ');document.getElementById('totalField').value=cart.reduce((a,x)=>a+x.p,0);document.getElementById('languageField').value=lang;count.textContent=cart.length;items.innerHTML=cart.length?cart.map((x,i)=>'<div class="cartitem"><span><b>'+x.n+'</b><br>€'+x.p+'</span><button onclick="removeI('+i+')">✕</button></div>').join(''):'<p>'+t.empty+'</p>';total.textContent=t.total+': €'+cart.reduce((a,x)=>a+x.p,0)}function toggleCart(){drawer.classList.toggle('open')}async function order(){
+ const t=T[lang], nameEl=document.getElementById('name'), companyEl=document.getElementById('company'), emailEl=document.getElementById('email'), phoneEl=document.getElementById('phone'), countryEl=document.getElementById('country'), noteEl=document.getElementById('note'), btn=document.getElementById('sendBtn'), msg=document.getElementById('formNotice');
+ const n=nameEl.value.trim(), e=emailEl.value.trim();
+ if(!cart.length){alert(t.select);return}
+ if(!n||!e){alert(t.required);return}
+ const sum=cart.reduce((a,x)=>a+x.p,0);
+ btn.disabled=true; btn.textContent=lang==='de'?'Wird gesendet...':'Sending...';
+ const payload={customer_name:n,company_name:companyEl.value.trim()||null,email:e,phone_whatsapp:phoneEl.value.trim()||null,country:countryEl.value.trim()||null,package_name:cart.map(x=>x.n).join(', '),total_eur:sum,note:noteEl.value.trim()||null,language:lang,status:'new'};
+ try{
+  const res=await fetch('https://ppmefffjhqpmrjnlewoq.supabase.co/functions/v1/submit-order',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});
+  const data=await res.json().catch(()=>({}));
+  if(!res.ok||data.success!==true) throw new Error(data.error||'Order failed');
+  msg.innerHTML=lang==='de'?'<strong style="color:#d8ad55">✓ Bestellung erhalten!</strong> Ihre Anfrage wurde gespeichert. Die LogoBoss Web AI Administration meldet sich in Kürze. Keine Zahlung ist jetzt erforderlich.':'<strong style="color:#d8ad55">✓ Order received!</strong> Your request has been saved. LogoBoss Web AI administration will contact you shortly. No payment is required now.';
+  cart=[];save();[nameEl,companyEl,emailEl,phoneEl,countryEl,noteEl].forEach(x=>x.value='');
+ }catch(err){
+  console.error(err); msg.textContent=lang==='de'?'Senden fehlgeschlagen. Bitte versuchen Sie es erneut.':'Sending failed. Please try again.';
+ }finally{btn.disabled=false;btn.textContent=T[lang].send}
+}const buildServices=[['Website',99],['Online booking',79],['AI chatbot',79],['AI Email Assistant',79],['Review automation',49],['AI phone setup',149],['Advanced automation',99]];function renderBuilder(){let g=document.getElementById('builderGrid');if(!g)return;g.innerHTML=buildServices.map((x,i)=>'<div class="pick"><input type="checkbox" id="bp'+i+'" onchange="calcBuilder()"><label for="bp'+i+'">'+x[0]+'</label><b>€'+x[1]+'</b></div>').join('')}function calcBuilder(){let s=0;buildServices.forEach((x,i)=>{if(document.getElementById('bp'+i).checked)s+=x[1]});document.getElementById('builderTotal').textContent=s}function addCustom(){let a=[],s=0;buildServices.forEach((x,i)=>{if(document.getElementById('bp'+i).checked){a.push(x[0]);s+=x[1]}});if(!a.length)return;cart=[{n:'CUSTOM: '+a.join(' + '),p:s}];save();drawer.classList.add('open')}renderBuilder();function roiCalc(){let m=Number(document.getElementById('missed')?.value||0),v=Number(document.getElementById('value')?.value||0),r=Number(document.getElementById('rate')?.value||0);let o=document.getElementById('roiOut');if(o)o.textContent=Math.round(m*v*r/100).toLocaleString()}roiCalc();function toggleMiniChat(){document.getElementById('miniChat').classList.toggle('open');setTimeout(()=>document.getElementById('miniInput')?.focus(),50)}function miniSend(){let i=document.getElementById('miniInput'),m=document.getElementById('miniMsgs'),q=i.value.trim();if(!q)return;m.innerHTML+='<div class="bubble user">'+escMini(q)+'</div>';i.value='';let z=q.toLowerCase(),a;if(z.includes('299')||z.includes('business'))a='BUSINESS AI is €299 and includes the START package plus online booking, AI chat, booking overview and review automation.';else if(z.includes('499')||z.includes('pro')||z.includes('phone'))a='AI PRO is €499 and adds AI email, phone setup, lead follow-up and advanced automation. External phone, SMS or AI provider usage can cost extra.';else if(z.includes('149')||z.includes('start')||z.includes('website'))a='START is €149 and is designed for a professional online presence with a responsive website and appointment request.';else if(z.includes('book')||z.includes('termin'))a='Online booking can be included with BUSINESS AI or AI PRO, or requested separately for €79.';else if(z.includes('deutsch')||z.includes('german'))a='Ja. LogoBoss Web AI kann Kundenoberflächen auf Deutsch und Englisch einrichten.';else if(z.includes('price')||z.includes('cost')||z.includes('preis'))a='Packages are START €149, BUSINESS AI €299 and AI PRO €499. You can also build a custom package below.';else a='I can help with packages, pricing, websites, online booking, AI chat, reviews, email and automation. What would you like for your business?';setTimeout(()=>{m.innerHTML+='<div class="bubble bot">'+a+'</div>';m.scrollTop=m.scrollHeight},250);m.scrollTop=m.scrollHeight}function escMini(s){return s.replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]))}apply();
+</script><script>function prepareCustomQuote(f){var b=document.getElementById("customBusinessType").value.trim();var r=document.getElementById("customRequest").value.trim();document.getElementById("customCombinedMessage").value="Business type: "+(b||"Not specified")+" | Custom request: "+r;return true}</script><script>function toggleNavDrawer(force){const d=document.getElementById('navDrawer'),s=document.getElementById('navShade');if(!d||!s)return;const open=typeof force==='boolean'?force:!d.classList.contains('open');d.classList.toggle('open',open);s.classList.toggle('open',open);document.body.style.overflow=open?'hidden':''}document.addEventListener('keydown',e=>{if(e.key==='Escape')toggleNavDrawer(false)});</script>
+<script id="full-i18n-fix">
+(function(){
+const X={
+de:{
+eyebrow:'WEB · AUTOMATISIERUNG · KI',demo:'Demo-Projekte ansehen',nav:'SCHNELLNAVIGATION',
+drawer:['Startseite','Pakete','Demo-Projekte','Leistungen','Eigenes Paket','Pakete vergleichen','FAQ','Angebot anfragen'],
+howTitle:'So funktioniert es',howSub:'Von der Idee zum funktionierenden digitalen System in vier klaren Schritten.',
+steps:[['Erzählen Sie uns von Ihrem Unternehmen','Leistungen, Ziele und was Sie automatisieren möchten.'],['Wir bauen Ihr System','Website, Terminbuchung und ausgewählte KI-Werkzeuge.'],['Prüfen & veröffentlichen','Wir bereiten die Lösung vor und stimmen die letzten Details mit Ihnen ab.'],['Wachsen & automatisieren','Erweitern Sie die Automatisierung, wenn Ihr Unternehmen wächst.']],
+indTitle:'Lösungen für Ihre Branche',indSub:'Das LogoBoss Web AI System kann an unterschiedliche Unternehmen und Branchen angepasst werden.',
+portfolioTitle:'Demo-Projekte',portfolioSub:'Öffnen Sie ein Live-Demo für Ihre Branche. Diese Beispiele zeigen mögliche Designs und Funktionen – Ihre endgültige Website wird nach Beratung individuell angepasst.',
+open:'Live-Demo öffnen →',
+beforeTitle:'Ohne ein klares System',afterTitle:'Mit einer LogoBoss Web AI Lösung',
+customTitle:'Sie benötigen etwas anderes?',customSub:'Beschreiben Sie uns, was Sie brauchen. Wir können ein individuelles Projekt besprechen, statt Ihr Unternehmen in ein festes Paket zu zwingen.',
+customLabels:['Unternehmen / Name','Kontakt','Branche','Was möchten Sie?'],customBtn:'Individuelles Angebot anfragen',customNote:'Keine Online-Zahlung. Wir prüfen Ihre Anfrage und kontaktieren Sie, um das Projekt zu besprechen.',
+finalSmall:'PASSEND ZU IHREM UNTERNEHMEN',finalTitle:'Erzählen Sie uns von Ihrem Unternehmen',
+tryAi:'KI-Demo testen'
+},
+en:{
+eyebrow:'WEB · AUTOMATION · AI',demo:'View demo projects',nav:'QUICK NAVIGATION',
+drawer:['Home','Packages','Demo Projects','Services','Build your package','Compare packages','FAQ','Request a quote'],
+howTitle:'How it works',howSub:'From idea to a working digital system in four clear steps.',
+steps:[['Tell us about your business','Services, goals and what you want to automate.'],['We build your system','Website, booking and selected AI tools.'],['Review & launch','We prepare the solution and agree the final details.'],['Grow & automate','Add more automation as your business grows.']],
+indTitle:'Solutions for your business',indSub:'The LogoBoss Web AI system can be adapted to different businesses and industries.',
+portfolioTitle:'Demo Projects',portfolioSub:'Open a live industry demo. These examples show possible designs and functions — your final website is customized after consultation.',
+open:'Open live demo →',
+beforeTitle:'Without a clear system',afterTitle:'With a LogoBoss Web AI setup',
+customTitle:'Need something different?',customSub:'Tell us what you want. We can discuss a custom project instead of forcing your business into a fixed package.',
+customLabels:['Business / name','Contact','Business type','What would you like?'],customBtn:'Request a custom quote',customNote:'No online payment. We review your request and contact you to discuss the project.',
+finalSmall:"LET'S BUILD AROUND YOUR BUSINESS",finalTitle:'Tell us about your business',
+tryAi:'Try AI Demo'
+}};
+function txt(el,s){if(el)el.textContent=s}
+window.applyExtendedI18n=function(){
+ const z=X[window.lang||localStorage.getItem('lb_lang')||'de'];
+ txt(document.getElementById('heroEyebrow'),z.eyebrow);txt(document.getElementById('demoQuick'),z.demo);txt(document.getElementById('navKicker'),z.nav);
+ const links=document.querySelectorAll('#navDrawer>a'); z.drawer.forEach((v,i)=>{if(links[i]){const n=links[i].querySelector('span');links[i].childNodes[0].nodeValue=v+' ';}});
+ const hs=document.querySelector('#how-pro');if(hs){txt(hs.querySelector('.title'),z.howTitle);txt(hs.querySelector('.sub'),z.howSub);hs.querySelectorAll('.step').forEach((e,i)=>{if(z.steps[i]){txt(e.querySelector('h3'),z.steps[i][0]);txt(e.querySelector('p'),z.steps[i][1])}})}
+ const ins=document.querySelector('#industries');if(ins){txt(ins.querySelector('.title'),z.indTitle);txt(ins.querySelector('.sub'),z.indSub);ins.querySelectorAll('a.secondary').forEach(a=>txt(a,z.open))}
+ const ps=document.querySelector('#portfolio');if(ps){txt(ps.querySelector('.sales-title'),z.portfolioTitle);txt(ps.querySelector('.sales-sub'),z.portfolioSub);ps.querySelectorAll('.portfolio-card span').forEach(a=>txt(a,z.open))}
+ const ba=document.querySelector('.compare-ba');if(ba){txt(ba.querySelector('.ba:not(.after) h3'),z.beforeTitle);txt(ba.querySelector('.ba.after h3'),z.afterTitle)}
+ const cs=document.querySelector('#custom-project');if(cs){txt(cs.querySelector('.sales-title'),z.customTitle);txt(cs.querySelector('.sales-sub'),z.customSub);cs.querySelectorAll('label').forEach((e,i)=>{if(z.customLabels[i])txt(e,z.customLabels[i])});txt(cs.querySelector('button[type=submit]'),z.customBtn);txt(cs.querySelector('form p'),z.customNote);const lf=cs.querySelector('input[name=language]');if(lf)lf.value=(window.lang||localStorage.getItem('lb_lang')||'de').toUpperCase()}
+ const fc=document.querySelector('.final-cta');if(fc){txt(fc.querySelector('small'),z.finalSmall);txt(fc.querySelector('h2'),z.finalTitle)}
+ const cf=document.querySelector('.chatfloat');if(cf)txt(cf,z.tryAi);
+ // common mixed labels in builder/compare and industry cards
+ document.querySelectorAll('#builder .title').forEach(e=>txt(e,(window.lang||localStorage.getItem('lb_lang')||'de')==='de'?'Eigenes Paket zusammenstellen':'Build Your Own Package'));
+ document.querySelectorAll('#compare .title').forEach(e=>txt(e,(window.lang||localStorage.getItem('lb_lang')||'de')==='de'?'Pakete vergleichen':'Compare Packages'));
+};
+const old=window.apply;if(typeof old==='function'){window.apply=function(){old();window.applyExtendedI18n()}}
+window.applyExtendedI18n();
+})();
+</script>
+
+<script id="logoboss-slider-js">
+(function(){
+ document.querySelectorAll('[data-slider]').forEach(function(slider){
+   var track=slider.querySelector('.lb-track'), slides=Array.from(track.children), index=0, startX=null;
+   var counter=slider.querySelector('.lb-counter span');
+   function go(n){index=(n+slides.length)%slides.length;track.style.transform='translateX(-'+(index*100)+'%)';if(counter)counter.textContent=index+1;}
+   slider.querySelector('.lb-prev').addEventListener('click',function(){go(index-1)});
+   slider.querySelector('.lb-next').addEventListener('click',function(){go(index+1)});
+   slider.addEventListener('touchstart',function(e){startX=e.touches[0].clientX},{passive:true});
+   slider.addEventListener('touchend',function(e){if(startX===null)return;var dx=e.changedTouches[0].clientX-startX;if(Math.abs(dx)>45)go(index+(dx<0?1:-1));startX=null},{passive:true});
+   go(0);
+ });
+})();
+</script><script id="lb-feature-i18n-v3">(function(){
+const titles={"de": ["Digitale Lösungen", "Professionelle Websites", "Online-Terminbuchung", "KI-Telefonassistent", "KI-Chatassistent", "E-Mail-Benachrichtigungen", "Für jede Branche", "Auf allen Geräten", "Individuelles Design", "Kundenanfragen", "Zeit sparen", "Sichere Abläufe", "Terminverwaltung", "SEO-Grundlagen", "Unsere Pakete", "Einfacher Start", "Kontakt aufnehmen"], "en": ["Digital Solutions", "Professional Websites", "Online Booking", "AI Phone Assistant", "AI Chat Assistant", "Email Notifications", "For Every Industry", "Works on All Devices", "Custom Design", "Customer Inquiries", "Save Time", "Secure Workflows", "Appointment Management", "SEO Foundations", "Our Packages", "Easy Setup", "Get in Touch"]}, descriptions={"de": ["Websites, Buchungen und smarte Automatisierung.", "Ein moderner Online-Auftritt für Ihr Unternehmen.", "Terminanfragen direkt über Ihre Website.", "Anrufe und Kundenwünsche effizient erfassen.", "Antworten auf häufige Fragen rund um die Uhr.", "Informationen zu neuen Anfragen erhalten.", "Für Salons, Restaurants, Werkstätten und mehr.", "Optimiert für Mobilgeräte, Tablets und Desktop.", "Farben und Layout passend zu Ihrer Marke.", "Machen Sie den ersten Kontakt besonders einfach.", "Weniger Routineaufgaben, mehr Zeit fürs Geschäft.", "Sorgfältig entwickelte digitale Prozesse.", "Anfragen und Termine übersichtlich organisieren.", "Technische Grundlagen für gute Auffindbarkeit.", "START, BUSINESS AI und PRO AI entdecken.", "Schritt für Schritt zum digitalen Auftritt.", "Erzählen Sie uns von Ihrem Projekt."], "en": ["Websites, booking and smart automation.", "A modern online presence for your business.", "Appointment requests directly on your website.", "Capture calls and customer requests efficiently.", "Answer common questions around the clock.", "Stay informed about new customer inquiries.", "For salons, restaurants, mechanics and more.", "Optimized for mobile, tablet and desktop.", "Colors and layouts tailored to your brand.", "Make it easy for customers to reach you.", "Less repetitive work, more time for business.", "Carefully designed digital processes.", "Keep bookings and inquiries organized.", "Technical foundations for online visibility.", "Explore START, BUSINESS AI and PRO AI.", "A clear path to your digital presence.", "Tell us about your next project."]};
+function updateFeatureLanguage(){
+  const lang=(typeof window.lang==='string'?window.lang:localStorage.getItem('lb_lang'))==='en'?'en':'de';
+  document.documentElement.lang=lang;
+  document.querySelectorAll('.lb-feature-slide').forEach(function(el){
+    const i=Number(el.dataset.feature);
+    el.querySelector('.lb-feature-title').textContent=titles[lang][i];
+    el.querySelector('.lb-feature-description').textContent=descriptions[lang][i];
+    el.setAttribute('aria-label',titles[lang][i]);
+  });
+  document.querySelectorAll('.lb-prev').forEach(b=>b.setAttribute('aria-label',lang==='de'?'Vorheriges Bild':'Previous slide'));
+  document.querySelectorAll('.lb-next').forEach(b=>b.setAttribute('aria-label',lang==='de'?'Nächstes Bild':'Next slide'));
+}
+const previousSetLang=window.setLang;
+if(typeof previousSetLang==='function'){window.setLang=function(l){previousSetLang(l);updateFeatureLanguage()}}
+updateFeatureLanguage();
+})();</script></body></html>
