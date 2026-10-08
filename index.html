@@ -2196,6 +2196,70 @@ IMPORTANT:
   document.getElementById("deBtn")?.addEventListener("click",()=>setTimeout(sync,0));
   document.getElementById("enBtn")?.addEventListener("click",()=>setTimeout(sync,0));
 })();
+</script></body><!-- LogoBoss AI BRAND PATCH
+Zalijepi cijeli ovaj blok neposredno prije </body> u index.html.
+Mijenja naziv brenda "LogoBoss Web AI" u "LogoBoss AI" na stranici,
+u browser title-u i glavnim SEO/social meta poljima.
+-->
+<script id="logoboss-ai-brand-patch">
+(function(){
+  function setMeta(selector, value){
+    var el=document.querySelector(selector);
+    if(el) el.setAttribute("content", value);
+  }
+
+  function replaceBrand(root){
+    var walker=document.createTreeWalker(root||document.body, NodeFilter.SHOW_TEXT);
+    var nodes=[];
+    while(walker.nextNode()) nodes.push(walker.currentNode);
+    nodes.forEach(function(n){
+      n.nodeValue=n.nodeValue
+        .replace(/LogoBoss Web AI AI/g,"LogoBoss AI")
+        .replace(/LogoBoss Web AI/g,"LogoBoss AI")
+        .replace(/LOGOBOSS WEB AI/g,"LOGOBOSS AI");
+    });
+
+    document.querySelectorAll('img[alt*="LogoBoss Web AI"]').forEach(function(img){
+      img.alt=img.alt.replace(/LogoBoss Web AI/g,"LogoBoss AI");
+    });
+  }
+
+  document.title="LogoBoss AI — Websites, Automation & AI Assistants";
+
+  setMeta('meta[name="description"]',
+    'LogoBoss AI erstellt moderne Websites, Company OS, Online-Terminbuchung, KI-Assistenten und Automatisierung für Unternehmen.');
+  setMeta('meta[property="og:site_name"]','LogoBoss AI');
+  setMeta('meta[property="og:title"]','LogoBoss AI | Company OS, Websites, Automation & AI');
+  setMeta('meta[property="og:image:alt"]','LogoBoss AI – Company OS, websites and AI automation');
+  setMeta('meta[name="twitter:title"]','LogoBoss AI | Company OS, Websites, Automation & AI');
+
+  replaceBrand(document.body);
+
+  /* Header / menu branding written with HTML tags */
+  document.querySelectorAll('.logo span').forEach(function(el){
+    if(/LogoBoss/i.test(el.textContent)) el.innerHTML='LogoBoss <b>AI</b>';
+  });
+
+  /* Structured data */
+  document.querySelectorAll('script[type="application/ld+json"]').forEach(function(el){
+    try{
+      var obj=JSON.parse(el.textContent);
+      function walk(x){
+        if(!x) return;
+        if(typeof x==="string") return x
+          .replace(/LogoBoss Web AI/g,"LogoBoss AI")
+          .replace(/LOGOBOSS WEB AI/g,"LOGOBOSS AI");
+        if(Array.isArray(x)) return x.map(walk);
+        if(typeof x==="object"){
+          Object.keys(x).forEach(function(k){ x[k]=walk(x[k]); });
+        }
+        return x;
+      }
+      el.textContent=JSON.stringify(walk(obj));
+    }catch(e){}
+  });
+})();
 </script>
+
 
 
