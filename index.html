@@ -914,5 +914,1288 @@ updateFeatureLanguage();
  document.getElementById("deBtn")?.addEventListener("click",()=>setTimeout(sync,0));
  document.getElementById("enBtn")?.addEventListener("click",()=>setTimeout(sync,0));
 })();
-</script></body></html>
+</script></body></html><!--
+LogoBoss AI Company OS v8.1 verified product-experience add-on
+IMPORTANT:
+- Use this V8.1 INSTEAD of the older Company OS add-on. Do not keep both.
+- Paste the whole block immediately before </body> in your current index.html.
+- It automatically inserts Company OS above #packages.
+- DE/EN follows your existing LogoBoss language switch.
+-->
+
+<style id="lb-company-os-v8-1-style">
+#company-os,#company-os-demo{scroll-margin-top:88px}
+.lb-os-wrap{max-width:1180px;margin:auto;padding:0 20px}
+.lb-os-section{padding:76px 0 30px}
+.lb-os-demo-section{padding:30px 0 70px}
+.lb-os-kicker{text-align:center;color:var(--gold,#68d7ff);font-size:12px;font-weight:900;letter-spacing:.2em;margin-bottom:12px}
+.lb-os-title{text-align:center;font-size:clamp(32px,5vw,49px);margin:0 0 10px;letter-spacing:-.04em;color:#f8fbff}
+.lb-os-sub{text-align:center;color:var(--muted,#a8b9d8);max-width:860px;margin:0 auto 30px;line-height:1.65}
+.lb-os-product{border:1px solid rgba(100,157,255,.25);border-radius:25px;padding:22px;background:radial-gradient(circle at 80% 0%,rgba(141,92,255,.14),transparent 35%),linear-gradient(145deg,rgba(14,26,59,.90),rgba(6,11,29,.96));box-shadow:0 30px 90px #0008,0 0 65px rgba(57,127,255,.08)}
+.lb-os-product-head{display:flex;align-items:center;justify-content:space-between;gap:20px;margin-bottom:17px}
+.lb-os-badge{display:inline-block;background:linear-gradient(135deg,rgba(42,198,255,.16),rgba(134,91,255,.18));color:#bdeeff;border:1px solid rgba(86,170,255,.23);border-radius:8px;padding:6px 9px;font-size:12px;font-weight:900}
+.lb-os-product h3{font-size:clamp(27px,4vw,42px);margin:12px 0 5px}
+.lb-os-product p{color:#a8b9d8;line-height:1.6;max-width:780px}
+.lb-os-primary{display:inline-block;text-decoration:none;padding:14px 20px;border-radius:12px;font-weight:900;background:linear-gradient(135deg,#2fcfff,#397fff 52%,#8d5cff);color:#fff;white-space:nowrap;border:1px solid rgba(125,200,255,.28);box-shadow:0 12px 30px rgba(48,121,255,.2)}
+.lb-os-cats{display:flex;flex-wrap:wrap;gap:7px;margin:0 0 15px}
+.lb-os-cats button{border:1px solid rgba(100,157,255,.20)!important;background:rgba(9,22,51,.82)!important;color:#cfe9ff!important;border-radius:999px!important;padding:8px 12px!important;font-size:11px!important}
+.lb-os-cats button.active{background:linear-gradient(135deg,#1f8fd0,#6253d9)!important;color:#fff!important;border-color:transparent!important}
+.lb-os-slider{position:relative;overflow:hidden;border:1px solid rgba(89,174,255,.24);border-radius:20px;background:#071229;box-shadow:0 18px 55px rgba(0,0,0,.3),0 0 32px rgba(66,130,255,.08);touch-action:pan-y}
+.lb-os-track{display:flex;transition:transform .38s cubic-bezier(.22,.7,.25,1)}
+.lb-os-slide{min-width:100%;min-height:430px;height:auto;position:relative;padding:42px;display:grid;grid-template-columns:1.12fr .88fr;gap:30px;align-items:center;overflow:hidden;background:radial-gradient(ellipse at 84% 19%,rgba(147,83,255,.26),transparent 42%),radial-gradient(ellipse at 17% 85%,rgba(0,203,255,.18),transparent 48%),linear-gradient(125deg,#04091c,#0a1b43 60%,#150c35)}
+.lb-os-slide:before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(94,178,255,.055) 1px,transparent 1px),linear-gradient(90deg,rgba(94,178,255,.055) 1px,transparent 1px);background-size:39px 39px;mask-image:linear-gradient(90deg,transparent,#000)}
+.lb-os-copy{position:relative;z-index:2}
+.lb-os-mini-kicker{font-size:12px;letter-spacing:.18em;color:#6edfff;font-weight:900}
+.lb-os-icon{margin:24px 0 14px;width:62px;height:62px;border-radius:18px;border:1px solid rgba(91,205,255,.40);display:flex;align-items:center;justify-content:center;color:#87e8ff;font-weight:900;font-size:23px;background:linear-gradient(135deg,rgba(36,171,255,.16),rgba(139,80,255,.22));box-shadow:0 0 34px rgba(41,138,255,.13)}
+.lb-os-slide h4{font-size:clamp(28px,4vw,44px);margin:0 0 12px;letter-spacing:-.035em}
+.lb-os-slide p{font-size:16px;line-height:1.6;color:#c3d3ef;max-width:620px}
+.lb-os-signature{display:block;margin-top:20px;font-size:10px;color:#72dcff;letter-spacing:.18em;font-weight:800}
+.lb-os-glass{position:relative;z-index:2;border:1px solid rgba(104,197,255,.28);border-radius:21px;padding:24px;background:linear-gradient(145deg,rgba(20,55,110,.70),rgba(15,16,59,.82));box-shadow:0 25px 75px rgba(0,0,0,.34),0 0 45px rgba(64,151,255,.12)}
+.lb-os-glass small{display:block;color:#8ab7ff;letter-spacing:.13em;margin-bottom:12px}
+.lb-os-glass strong{display:block;color:#74dfff;font-size:36px;margin-bottom:8px}
+.lb-os-glass span{color:#dbeeff}
+.lb-os-bars{display:grid;gap:8px;margin-top:18px}
+.lb-os-bars i{display:block;height:8px;border-radius:99px;background:linear-gradient(90deg,#50ddff,#655ef6)}
+.lb-os-bars i:nth-child(2){width:78%}.lb-os-bars i:nth-child(3){width:62%}.lb-os-bars i:nth-child(4){width:88%}
+.lb-os-prev,.lb-os-next{position:absolute;z-index:5;top:50%;transform:translateY(-50%);width:44px;height:44px;border-radius:50%;border:1px solid rgba(112,205,255,.34)!important;background:rgba(5,12,31,.84)!important;color:#fff!important;font-size:28px!important;font-weight:900;padding:0!important}
+.lb-os-prev{left:12px}.lb-os-next{right:12px}
+.lb-os-count{position:absolute;right:18px;bottom:14px;z-index:4;color:#d9eeff;font-size:12px;background:rgba(4,10,27,.78);border:1px solid rgba(100,177,255,.2);border-radius:999px;padding:7px 10px;backdrop-filter:blur(10px)}
+.lb-os-note{margin:14px 4px 0;color:#8097bf;font-size:12px;line-height:1.55}
+.lb-os-demo-shell{display:grid;grid-template-columns:240px 1fr;min-height:650px;border:1px solid rgba(96,164,255,.25);border-radius:24px;overflow:hidden;background:linear-gradient(155deg,#0b1734,#060b1d);box-shadow:0 30px 90px #0008}
+.lb-os-nav{padding:15px;background:#071126;border-right:1px solid rgba(100,157,255,.15);display:flex;flex-direction:column;gap:5px;max-height:650px;overflow:auto}
+.lb-os-nav button{cursor:pointer;text-align:left;background:transparent!important;color:#aebedb!important;border:0!important;border-radius:9px!important;padding:10px 12px!important;font-size:12px!important}
+.lb-os-nav button.active{background:linear-gradient(135deg,rgba(45,201,255,.15),rgba(128,87,255,.18))!important;color:#90e6ff!important}
+.lb-os-demo-main{padding:24px;min-width:0}
+.lb-os-demo-top{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(100,157,255,.14);padding-bottom:16px}
+.lb-os-demo-top small{color:#7f94b8;letter-spacing:.12em}
+.lb-os-demo-top h3{margin:5px 0 0;font-size:28px}
+.lb-os-live{color:#8de0ae;font-size:11px}
+.lb-os-metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:18px 0}
+.lb-os-metrics>div{padding:15px;border:1px solid rgba(100,157,255,.16);border-radius:14px;background:rgba(13,27,61,.74)}
+.lb-os-metrics small{display:block;color:#8f9fbe;margin-bottom:7px}
+.lb-os-metrics b{font-size:20px;color:#6fdcff}
+.lb-os-demo-content{border:1px solid rgba(100,157,255,.16);border-radius:16px;background:rgba(8,17,40,.70);padding:20px;min-height:350px}
+.lb-os-actions{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px}
+.lb-os-actions button,.lb-os-ai button{cursor:pointer;border:1px solid rgba(100,167,255,.28)!important;border-radius:10px!important;padding:10px 13px!important;background:linear-gradient(135deg,#102a58,#342b78)!important;color:#dff4ff!important;font-weight:800}
+.lb-os-demo-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin:16px 0}
+.lb-os-card{padding:15px;border:1px solid rgba(100,157,255,.16);border-radius:12px;background:rgba(14,27,59,.75)}
+.lb-os-card b{color:#74dfff}.lb-os-card small{display:block;color:#8fa3c6;margin-top:6px}
+.lb-os-table{width:100%;border-collapse:collapse;font-size:13px}
+.lb-os-table th,.lb-os-table td{text-align:left;padding:11px;border-bottom:1px solid rgba(100,157,255,.13)}
+.lb-os-table th{color:#70dcff}
+.lb-os-search{width:100%;padding:11px 12px;border:1px solid rgba(103,154,255,.24);border-radius:10px;background:#08132d;color:#fff;margin-bottom:14px}
+.lb-os-ai{display:flex;gap:8px;margin-top:15px}
+.lb-os-ai input{flex:1;min-width:0;padding:12px;border:1px solid rgba(103,154,255,.24);border-radius:10px;background:#08132d;color:#fff}
+.lb-os-answer{margin-top:12px;padding:14px;border-radius:12px;background:#0e1b39;color:#dbe8ff;line-height:1.55}
+@media(max-width:800px){
+  .lb-os-product-head{display:block}.lb-os-primary{margin-top:8px}
+  .lb-os-slide{grid-template-columns:1fr;padding:28px 22px 56px;min-height:560px;height:auto}
+  .lb-os-glass{margin:0 18px}
+  .lb-os-demo-shell{grid-template-columns:1fr}
+  .lb-os-nav{flex-direction:row;overflow:auto;border-right:0;border-bottom:1px solid rgba(100,157,255,.15);max-height:none}
+  .lb-os-nav button{white-space:nowrap}
+  .lb-os-demo-main{padding:14px}
+  .lb-os-metrics{grid-template-columns:repeat(2,1fr)}
+  .lb-os-demo-grid{grid-template-columns:1fr}
+}
+
+.lb-rank-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:16px 0}
+.lb-rank-col{border:1px solid rgba(100,157,255,.16);border-radius:14px;background:rgba(14,27,59,.72);padding:13px}
+.lb-rank-col h5{margin:0 0 10px;color:#73dcff;font-size:13px}
+.lb-worker-chip{display:block;padding:9px 10px;margin:7px 0;border-radius:10px;background:#0a1732;border:1px solid rgba(100,157,255,.15);font-size:12px;color:#d9eaff}
+.lb-worker-chip small{display:block;color:#879bbd;margin-top:3px}
+.lb-shift-row{display:grid;grid-template-columns:110px 1fr 1fr 1fr;gap:8px;align-items:center;padding:9px 0;border-bottom:1px solid rgba(100,157,255,.12);font-size:12px}
+.lb-shift-row b{color:#70dcff}
+.lb-shift-cell{padding:8px;border-radius:9px;background:#0b1935;border:1px solid rgba(100,157,255,.13)}
+@media(max-width:700px){.lb-rank-grid{grid-template-columns:1fr}.lb-shift-row{grid-template-columns:80px 1fr}.lb-shift-row .lb-shift-cell:nth-child(n+3){display:none}}
+
+
+.lb-os-hero{display:grid;grid-template-columns:1.1fr .9fr;gap:18px;align-items:stretch;margin-bottom:20px}
+.lb-os-hero-card{border:1px solid rgba(97,170,255,.22);border-radius:26px;background:radial-gradient(circle at 80% 0%,rgba(128,87,255,.16),transparent 38%),linear-gradient(145deg,rgba(11,24,53,.96),rgba(5,11,29,.98));padding:28px;box-shadow:0 24px 70px rgba(0,0,0,.28)}
+.lb-os-hero .lb-os-badge{margin-bottom:10px}
+.lb-os-hero h3{font-size:clamp(30px,4.2vw,54px);line-height:1.02;margin:0 0 12px;letter-spacing:-.04em}
+.lb-os-hero p{color:#b8c9e4;line-height:1.65;margin:0 0 18px}
+.lb-os-pill-row{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 20px}
+.lb-os-pill{padding:9px 12px;border-radius:999px;border:1px solid rgba(100,157,255,.2);background:rgba(8,21,48,.75);font-size:12px;color:#cfe5ff}
+.lb-os-hero-actions{display:flex;flex-wrap:wrap;gap:10px}
+.lb-os-secondary{display:inline-block;text-decoration:none;padding:14px 20px;border-radius:12px;font-weight:900;background:rgba(255,255,255,.02);color:#cde7ff;border:1px solid rgba(100,157,255,.18)}
+.lb-os-hero-visual{border:1px solid rgba(97,170,255,.22);border-radius:26px;background:linear-gradient(155deg,rgba(6,16,39,.98),rgba(8,28,66,.95));padding:20px;display:grid;grid-template-rows:auto auto;gap:14px;overflow:hidden;position:relative}
+.lb-os-hero-visual:before{content:"";position:absolute;inset:-20% auto auto -20%;width:260px;height:260px;border-radius:50%;background:radial-gradient(circle,rgba(66,214,255,.18),transparent 70%)}
+.lb-os-window{position:relative;border:1px solid rgba(100,157,255,.16);border-radius:18px;background:rgba(10,24,53,.8);padding:16px;overflow:hidden}
+.lb-os-window small{display:block;color:#7da6e6;letter-spacing:.12em;margin-bottom:10px}
+.lb-os-window strong{display:block;color:#f5fbff;font-size:23px;margin-bottom:10px}
+.lb-os-window-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.lb-os-mini-box{border:1px solid rgba(100,157,255,.14);border-radius:13px;background:#0b1733;padding:12px}
+.lb-os-mini-box b{display:block;color:#6fdcff;font-size:17px}
+.lb-os-mini-box span{display:block;color:#95a8ca;font-size:12px;margin-top:6px}
+.lb-os-flow{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.lb-os-flow div{padding:13px;border-radius:14px;background:#0a1630;border:1px solid rgba(100,157,255,.14);font-size:12px;color:#dbe8ff}
+.lb-os-flow b{display:block;color:#72dcff;margin-bottom:6px}
+.lb-os-overview{margin:18px 0 24px}
+.lb-os-overview-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.lb-os-over-card{padding:18px;border:1px solid rgba(97,170,255,.18);border-radius:18px;background:linear-gradient(145deg,rgba(10,21,48,.82),rgba(8,14,34,.9))}
+.lb-os-over-card b{display:block;color:#7adfff;margin-bottom:7px}
+.lb-os-over-card span{color:#aabddd;font-size:13px;line-height:1.55}
+.lb-os-catgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:14px}
+.lb-os-catcard{padding:18px;border:1px solid rgba(97,170,255,.18);border-radius:18px;background:linear-gradient(145deg,rgba(14,27,59,.75),rgba(7,13,31,.9))}
+.lb-os-catcard b{display:block;color:#f6fbff;font-size:15px;margin-bottom:8px}
+.lb-os-catcard span{display:block;color:#9bb0d2;font-size:13px;line-height:1.55}
+.lb-os-catcard i{font-style:normal;display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:12px;background:linear-gradient(135deg,rgba(47,207,255,.16),rgba(141,92,255,.2));border:1px solid rgba(97,170,255,.22);color:#78dfff;margin-bottom:12px}
+@media(max-width:900px){
+  .lb-os-hero{grid-template-columns:1fr}
+  .lb-os-overview-grid,.lb-os-catgrid{grid-template-columns:repeat(2,1fr)}
+  .lb-os-flow{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:640px){
+  .lb-os-overview-grid,.lb-os-catgrid{grid-template-columns:1fr}
+}
+
+
+.lb-os-demo-toolbar{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 14px}
+.lb-os-demo-toolbar button{cursor:pointer;border:1px solid rgba(100,167,255,.24)!important;border-radius:999px!important;padding:8px 11px!important;background:#0b1937!important;color:#bad9ff!important;font-size:11px!important}
+.lb-os-demo-toolbar button.active{background:linear-gradient(135deg,#1f9bcd,#6553d9)!important;color:white!important}
+.lb-os-prodash{display:grid;grid-template-columns:1.25fr .75fr;gap:12px;margin:14px 0}
+.lb-os-chartbox,.lb-os-sidebox{border:1px solid rgba(100,157,255,.15);border-radius:14px;background:rgba(10,24,53,.72);padding:15px}
+.lb-os-chartbox h5,.lb-os-sidebox h5{margin:0 0 12px;color:#dcecff}
+.lb-os-chartbars{height:150px;display:flex;align-items:flex-end;gap:9px}
+.lb-os-chartbars i{flex:1;border-radius:7px 7px 0 0;background:linear-gradient(#55dfff,#605cf1);min-height:22px;box-shadow:0 0 22px rgba(71,142,255,.12)}
+.lb-os-chartbars i:nth-child(1){height:38%}.lb-os-chartbars i:nth-child(2){height:57%}.lb-os-chartbars i:nth-child(3){height:49%}.lb-os-chartbars i:nth-child(4){height:75%}.lb-os-chartbars i:nth-child(5){height:68%}.lb-os-chartbars i:nth-child(6){height:91%}
+.lb-os-alert{padding:10px 11px;border-radius:10px;margin:8px 0;background:#0b1835;border:1px solid rgba(100,157,255,.12);font-size:12px;color:#c7d8f3}
+.lb-os-alert b{color:#78dfff}
+.lb-os-flowline{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin:14px 0}
+.lb-os-flowline span{padding:8px 10px;border-radius:10px;background:#0b1835;border:1px solid rgba(100,157,255,.12);font-size:11px;color:#d8e7ff}
+.lb-os-flowline em{font-style:normal;color:#5edcff}
+.lb-os-app-image{margin:16px 0;border-radius:18px;border:1px solid rgba(102,169,255,.18);background:
+ radial-gradient(circle at 18% 18%,rgba(51,207,255,.16),transparent 27%),
+ radial-gradient(circle at 82% 22%,rgba(137,91,255,.18),transparent 30%),
+ linear-gradient(145deg,#07132e,#0a1f49);padding:18px;overflow:hidden}
+.lb-os-app-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;color:#dcecff;font-size:12px}
+.lb-os-app-dots{display:flex;gap:5px}.lb-os-app-dots i{width:7px;height:7px;border-radius:50%;background:#45d5ff}.lb-os-app-dots i:nth-child(2){background:#657fff}.lb-os-app-dots i:nth-child(3){background:#a35dff}
+.lb-os-app-grid{display:grid;grid-template-columns:150px 1fr;gap:12px}
+.lb-os-app-sidebar{display:grid;gap:7px}.lb-os-app-sidebar span{padding:9px;border-radius:9px;background:#0a1734;border:1px solid rgba(100,157,255,.11);color:#9fb4d5;font-size:11px}
+.lb-os-app-sidebar span.active{color:#7fe2ff;background:linear-gradient(135deg,rgba(48,200,255,.12),rgba(126,87,255,.16))}
+.lb-os-app-main{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.lb-os-app-main div{min-height:86px;padding:12px;border-radius:12px;background:rgba(9,21,48,.86);border:1px solid rgba(100,157,255,.13)}
+.lb-os-app-main b{display:block;color:#6edcff;font-size:18px;margin-bottom:5px}.lb-os-app-main small{color:#8fa5c9}
+@media(max-width:760px){.lb-os-prodash{grid-template-columns:1fr}.lb-os-app-grid{grid-template-columns:1fr}.lb-os-app-sidebar{grid-template-columns:repeat(3,1fr)}.lb-os-app-main{grid-template-columns:1fr 1fr}}
+
+
+/* ===== V8 PRODUCT EXPERIENCE ===== */
+.lb-os-exp{margin:28px 0 34px}
+.lb-os-exp-head{text-align:center;max-width:850px;margin:0 auto 20px}
+.lb-os-exp-head h3{font-size:clamp(26px,4vw,40px);margin:0 0 9px}
+.lb-os-exp-head p{color:#9eb2d4;line-height:1.6;margin:0}
+.lb-os-exp-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.lb-os-exp-card{border:1px solid rgba(98,166,255,.18);border-radius:20px;background:linear-gradient(145deg,rgba(12,27,59,.78),rgba(6,14,35,.92));padding:18px;box-shadow:0 18px 46px rgba(0,0,0,.18)}
+.lb-os-exp-card.wide{grid-column:1/-1}
+.lb-os-exp-card h4{margin:0 0 7px;font-size:18px;color:#f3f8ff}
+.lb-os-exp-card>p{margin:0 0 14px;color:#98aed2;font-size:13px;line-height:1.55}
+.lb-os-chiprow{display:flex;flex-wrap:wrap;gap:7px}
+.lb-os-chiprow button,.lb-os-chiprow span{border:1px solid rgba(99,170,255,.2);background:#091832;color:#cde5ff;border-radius:999px;padding:8px 11px;font-size:11px}
+.lb-os-chiprow button{cursor:pointer}
+.lb-os-chiprow button.active{background:linear-gradient(135deg,#23bfea,#6754da);color:white;border-color:transparent}
+.lb-os-pack-result,.lb-os-setup-result,.lb-os-ai-action-result{margin-top:12px;padding:12px;border-radius:12px;background:#09172f;border:1px solid rgba(99,170,255,.14);color:#c7d9f5;font-size:12px;line-height:1.55}
+.lb-os-wizard-step{display:none}.lb-os-wizard-step.active{display:block}
+.lb-os-wizard-options{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin:10px 0}
+.lb-os-wizard-options button{cursor:pointer;padding:11px;border-radius:11px;border:1px solid rgba(99,170,255,.18);background:#0a1833;color:#cfe4ff}
+.lb-os-wizard-options button.selected{background:linear-gradient(135deg,rgba(38,190,235,.22),rgba(103,84,218,.24));color:#fff}
+.lb-os-wizard-actions{display:flex;gap:8px;justify-content:flex-end;margin-top:10px}
+.lb-os-wizard-actions button{cursor:pointer;padding:9px 13px;border-radius:10px;border:1px solid rgba(99,170,255,.22);background:#102653;color:#e6f4ff;font-weight:800}
+.lb-os-apps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}
+.lb-os-app-toggle{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px;border-radius:12px;background:#09172f;border:1px solid rgba(99,170,255,.13);font-size:12px;color:#d5e5fb}
+.lb-os-switch{width:38px;height:21px;border-radius:999px;background:#24324a;position:relative;cursor:pointer;flex:0 0 auto}
+.lb-os-switch:after{content:"";position:absolute;top:3px;left:3px;width:15px;height:15px;border-radius:50%;background:#fff;transition:.2s}
+.lb-os-switch.on{background:linear-gradient(90deg,#27c5ee,#6d59e5)}
+.lb-os-switch.on:after{left:20px}
+.lb-os-approval{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center;padding:11px 0;border-bottom:1px solid rgba(99,170,255,.11)}
+.lb-os-approval:last-child{border-bottom:0}
+.lb-os-approval small{display:block;color:#8299be;margin-top:4px}
+.lb-os-approve-actions{display:flex;gap:6px}
+.lb-os-approve-actions button{cursor:pointer;padding:7px 9px;border-radius:8px;border:1px solid rgba(99,170,255,.18);background:#0d2148;color:#d9efff;font-size:11px}
+.lb-os-activity{display:grid;gap:8px}
+.lb-os-activity-item{display:grid;grid-template-columns:28px 1fr auto;gap:9px;align-items:center;padding:9px;border-radius:11px;background:#09172f;border:1px solid rgba(99,170,255,.11);font-size:12px;color:#c9dbf6}
+.lb-os-activity-item i{font-style:normal;width:28px;height:28px;border-radius:9px;display:grid;place-items:center;background:linear-gradient(135deg,rgba(37,196,235,.17),rgba(106,84,221,.2));color:#79e2ff}
+.lb-os-activity-item time{font-size:10px;color:#7187ac}
+.lb-os-integrations{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}
+.lb-os-integration{padding:12px;border-radius:12px;background:#09172f;border:1px solid rgba(99,170,255,.12)}
+.lb-os-integration b{display:block;color:#eaf4ff;font-size:12px}
+.lb-os-integration span{display:block;color:#7f96b9;font-size:10px;margin-top:5px}
+.lb-os-integration.connected{border-color:rgba(73,218,157,.25)}
+.lb-os-integration.connected span{color:#8de0ae}
+.lb-os-ai-actions{display:grid;gap:8px}
+.lb-os-ai-action{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center;padding:11px;border-radius:12px;background:#09172f;border:1px solid rgba(99,170,255,.12)}
+.lb-os-ai-action small{display:block;color:#7e95b8;margin-top:4px}
+.lb-os-ai-action button{cursor:pointer;padding:8px 10px;border-radius:9px;border:1px solid rgba(99,170,255,.2);background:linear-gradient(135deg,#13336a,#45378d);color:#eef7ff;font-size:11px;font-weight:900}
+.lb-os-story{display:grid;grid-template-columns:220px 1fr;gap:14px}
+.lb-os-story-steps{display:grid;gap:7px}
+.lb-os-story-step{cursor:pointer;text-align:left;padding:11px;border-radius:11px;border:1px solid rgba(99,170,255,.13);background:#08162e;color:#9fb4d5;font-size:12px}
+.lb-os-story-step.active{background:linear-gradient(135deg,rgba(35,191,234,.18),rgba(103,84,218,.23));color:#fff}
+.lb-os-story-panel{border:1px solid rgba(99,170,255,.14);border-radius:14px;background:#09172f;padding:16px;min-height:185px}
+.lb-os-story-panel h5{font-size:20px;margin:0 0 7px}
+.lb-os-story-panel p{color:#99aed0;line-height:1.55;font-size:13px}
+.lb-os-story-kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:14px}
+.lb-os-story-kpis div{padding:10px;border-radius:10px;background:#0c1c3b;border:1px solid rgba(99,170,255,.1)}
+.lb-os-story-kpis b{display:block;color:#73dcff}.lb-os-story-kpis small{color:#7890b5}
+.lb-os-rolehome{margin:0 0 14px;padding:14px;border-radius:14px;background:linear-gradient(135deg,rgba(16,42,89,.72),rgba(36,25,82,.66));border:1px solid rgba(99,170,255,.16)}
+.lb-os-rolehome b{display:block;color:#77dfff;margin-bottom:5px}.lb-os-rolehome span{color:#c4d5ee;font-size:12px;line-height:1.5}
+@media(max-width:850px){
+  .lb-os-exp-grid{grid-template-columns:1fr}
+  .lb-os-apps-grid,.lb-os-integrations{grid-template-columns:repeat(2,1fr)}
+  .lb-os-story{grid-template-columns:1fr}
+  .lb-os-story-steps{grid-template-columns:repeat(3,1fr)}
+}
+@media(max-width:560px){
+  .lb-os-apps-grid,.lb-os-integrations,.lb-os-wizard-options,.lb-os-story-kpis{grid-template-columns:1fr}
+  .lb-os-story-steps{grid-template-columns:1fr 1fr}
+}
+
+</style>
+
+<script id="lb-company-os-v8-1">
+(function(){
+  if(document.getElementById('company-os')) return;
+
+  const modules = [
+    ["core","◈","Unternehmens-Dashboard","Company Dashboard","Umsatz, Kosten, offene Aufgaben und wichtige Kennzahlen auf einen Blick.","Revenue, costs, open tasks and key business metrics at a glance."],
+    ["sales","€","Vertrieb","Sales","Verkäufe, Aufträge und Umsatz zentral erfassen und verfolgen.","Track sales, orders and revenue in one place."],
+    ["sales","▣","Angebote & Aufträge","Quotes & Orders","Angebote erstellen, in Aufträge umwandeln und den gesamten Status verfolgen.","Create quotes, turn them into orders and track the full status."],
+    ["purchasing","↓","Einkauf","Purchases","Einkäufe dokumentieren, Kosten vergleichen und Bestellungen verwalten.","Record purchases, compare costs and manage orders."],
+    ["finance","↕","Einnahmen & Ausgaben","Income & Expenses","Geldflüsse übersichtlich erfassen und auswerten.","Track and analyze money coming in and going out."],
+    ["finance","≣","Buchhaltung & Hauptbuch","Accounting & General Ledger","Kontenplan, Buchungen, Journale, Debitoren/Kreditoren und Buchungsperioden verwalten.","Manage chart of accounts, entries, journals, receivables/payables and accounting periods."],
+    ["finance","▤","Monats-/Jahresabschluss & Finanzberichte","Period Close & Financial Statements","Perioden abschließen und GuV, Bilanz, Cashflow und weitere Finanzberichte vorbereiten.","Close periods and prepare P&L, balance sheet, cash flow and other financial statements."],
+    ["finance","→","Zahlungsläufe & Zahlungsarten","Payment Runs & Methods","Fällige Zahlungen bündeln, vorbereiten und nach Zahlungsart oder Bankkonto steuern.","Group and prepare due payments by payment method or bank account."],
+    ["finance","▤","Rechnungen","Invoices","Rechnungen erstellen und offen, bezahlt oder überfällig verfolgen.","Create invoices and track open, paid or overdue status."],
+    ["finance","◎","Forderungen & Verbindlichkeiten","Receivables & Payables","Sehen, wer Geld schuldet und welche Lieferantenrechnungen bezahlt werden müssen.","See who owes money and which supplier bills are due."],
+    ["finance","⌁","Budgets & Prognosen","Budgets & Forecasts","Budgets planen und zukünftige Einnahmen, Kosten und Liquidität abschätzen.","Plan budgets and forecast revenue, costs and cash flow."],
+    ["finance","◉","Bank & Kasse","Banking & Cash","Bankkonten, Kassen, Zahlungen und Liquidität zentral verfolgen.","Track bank accounts, cash, payments and liquidity centrally."],
+    ["finance","⇄","Bankabgleich","Bank Reconciliation","Bankbewegungen importieren und automatisch mit Rechnungen und Zahlungen abgleichen.","Import bank transactions and match them to invoices and payments."],
+    ["finance","▧","Spesen & Belegscanner","Expenses & Receipt Scanner","Belege fotografieren oder hochladen und Ausgaben zur Prüfung und Freigabe erfassen.","Capture receipts by photo/upload and route expenses for review and approval."],
+    ["finance","§","Steuern & E-Rechnungen","Tax & E-Invoicing","Steuerregeln, Mehrwertsteuer und elektronische Rechnungen über lokale Integrationen unterstützen.","Support tax rules, VAT and electronic invoicing through local integrations."],
+    ["finance","⌂","Anlagevermögen","Fixed Assets","Maschinen, Geräte und andere Anlagen mit Wert, Abschreibung und Kosten verwalten.","Manage machinery, equipment and other assets with value, depreciation and costs."],
+    ["finance","⊙","Kostenstellen & Profitcenter","Cost & Profit Centers","Kosten, Umsatz und Ergebnis nach Abteilung, Standort oder Geschäftsbereich auswerten.","Analyze costs, revenue and results by department, location or business unit."],
+    ["finance","⚠","Mahnwesen & Kreditlimits","Collections & Credit Limits","Überfällige Forderungen, Mahnstufen und Kreditlimits für Kunden steuern.","Manage overdue receivables, dunning stages and customer credit limits."],
+    ["finance","⧉","Konsolidierung & Intercompany","Consolidation & Intercompany","Mehrere Gesellschaften verbinden und interne Geschäfte sowie konsolidierte Ergebnisse abbilden.","Connect multiple companies and handle intercompany transactions and consolidated results."],
+    ["crm","◎","Kunden / CRM","Customers / CRM","Kontakte, Anfragen und Kundenhistorie verwalten.","Manage contacts, inquiries and customer history."],
+    ["purchasing","◇","Lieferanten","Suppliers","Lieferanten, Preise und frühere Bestellungen vergleichen.","Compare suppliers, prices and previous orders."],
+    ["purchasing","↔","Anfragen & Ausschreibungen","RFQ & Tenders","Anfragen an mehrere Lieferanten senden und Preis, Lieferzeit und Bedingungen vergleichen.","Send requests to multiple suppliers and compare price, lead time and terms."],
+    ["purchasing","✦","Automatische Beschaffung","Smart Reordering","Mindestbestände, Verbrauch und Prognosen nutzen, um Einkaufsvorschläge automatisch vorzubereiten.","Use minimum stock, consumption and forecasts to prepare purchase suggestions automatically."],
+    ["purchasing","★","Lieferantenbewertung","Vendor Scorecards","Preis, Qualität, Lieferzeit und Reklamationen je Lieferant bewerten.","Score suppliers by price, quality, delivery time and claims."],
+    ["purchasing","§","Rahmenverträge & Einkaufskonditionen","Purchase Agreements","Rahmenverträge, Preisstaffeln, Mindestmengen und vereinbarte Konditionen verwalten.","Manage blanket agreements, price tiers, minimum quantities and negotiated terms."],
+    ["inventory","▦","Lagerbestand","Inventory","Bestände, Mindestmengen und verfügbare Artikel jederzeit sehen.","See stock levels, minimum quantities and available items."],
+    ["inventory","⇄","Wareneingang / Warenausgang","Stock In / Stock Out","Jede Warenbewegung nachvollziehbar dokumentieren.","Record and trace every stock movement."],
+    ["inventory","▥","Mehrere Lager & Barcode","Multi-Warehouse & Barcode","Bestände über mehrere Standorte verwalten und Waren per Barcode bewegen.","Manage stock across locations and move items using barcodes."],
+    ["inventory","#","Serien- & Chargenverfolgung","Serial & Lot Tracking","Produkte, Chargen und Seriennummern vom Einkauf bis zur Auslieferung rückverfolgen.","Trace products, lots and serial numbers from purchase to delivery."],
+    ["inventory","⌖","Lagerplätze & Kommissionierung","Bins & Picking","Lagerplätze, Picklisten, Packvorgänge und interne Umlagerungen organisieren.","Organize bins, pick lists, packing and internal transfers."],
+    ["inventory","⌛","MHD & Ablaufdaten","Expiry & Shelf Life","Ablaufdaten, Mindesthaltbarkeit und FEFO/FIFO-Regeln für sensible Ware steuern.","Manage expiry dates, shelf life and FEFO/FIFO rules for sensitive stock."],
+    ["inventory","⇥","Wareneingangsprüfung","Receiving & Putaway","Anlieferungen prüfen, einlagern und Abweichungen direkt dokumentieren.","Inspect receipts, put goods away and document discrepancies immediately."],
+    ["operations","⬡","Materialien","Materials","Mengen, Preise und Materialverbrauch pro Auftrag verwalten.","Manage quantities, prices and material usage per job."],
+    ["operations","▣","Projekte & Aufträge","Projects & Jobs","Projekte planen, Verantwortliche zuweisen und Fortschritt verfolgen.","Plan projects, assign owners and track progress."],
+    ["operations","⌁","Gantt, Meilensteine & Abhängigkeiten","Gantt, Milestones & Dependencies","Projektphasen, Meilensteine, Abhängigkeiten und kritische Termine visuell planen.","Plan phases, milestones, dependencies and critical dates visually."],
+    ["operations","▥","Ressourcenplanung & Auslastung","Resource Planning & Utilization","Mitarbeiter, Maschinen und Teams projektübergreifend planen und Überlastung erkennen.","Plan employees, machines and teams across projects and detect over-allocation."],
+    ["operations","∑","Projektkosten","Project Costs","Material, Arbeitszeit und weitere Kosten einem Projekt zuordnen.","Allocate material, labor and other costs to each project."],
+    ["manufacturing","⚙","Produktion","Manufacturing","Produktionsaufträge planen, ausführen und den Fortschritt vom Material bis zum fertigen Produkt verfolgen.","Plan and run production orders from materials to finished goods."],
+    ["manufacturing","⊞","Montage & Kits","Assembly & Kitting","Komponenten zu Sets oder fertigen Artikeln zusammenstellen, auch ohne kompletten Fertigungsprozess.","Assemble components into kits or finished items without a full manufacturing process."],
+    ["manufacturing","≣","Stücklisten & Arbeitsabläufe","BOM & Routings","Komponenten, Arbeitsschritte und benötigte Mengen für Produkte definieren.","Define components, operations and quantities required for products."],
+    ["manufacturing","⌂","Maschinen & Kapazität","Machines & Capacity","Maschinen, Arbeitsplätze, Kapazitäten und Produktionszeiten planen.","Plan machines, work centers, capacity and production time."],
+    ["manufacturing","∞","MRP & Bedarfsplanung","MRP & Demand Planning","Materialbedarf, Nachfrage, Lieferzeiten und Produktionsbedarf vorausschauend planen.","Plan material demand, lead times and production requirements ahead of time."],
+    ["manufacturing","↺","Produktlebenszyklus / PLM","Product Lifecycle / PLM","Produktversionen, Stücklistenänderungen, Freigaben und technische Änderungen kontrollieren.","Control product versions, BOM changes, approvals and engineering changes."],
+    ["manufacturing","▤","Arbeitsanweisungen","Work Instructions","Arbeitsanweisungen, Checklisten, Bilder und Qualitätsvorgaben direkt am Auftrag anzeigen.","Show instructions, checklists, images and quality requirements directly on the job."],
+    ["manufacturing","↔","Fremdfertigung","Subcontracting","Externe Fertigungsschritte, Materialbeistellung, Liefertermine und Kosten steuern.","Manage outsourced production steps, supplied materials, delivery dates and costs."],
+    ["manufacturing","⚑","Shopfloor & Andon","Shop Floor & Andon","Arbeitsplätze, Produktionsstatus, Stillstände und Störungen in Echtzeit sichtbar machen.","Show work centers, production status, downtime and issues in real time."],
+    ["manufacturing","✓","Qualitätskontrolle","Quality Control","Prüfungen, Fehler, Ausschuss und Qualitätsstatus dokumentieren.","Track inspections, defects, scrap and quality status."],
+    ["assets","⚒","Wartung & Anlagevermögen","Maintenance & Assets","Maschinen, Fahrzeuge und Anlagen samt Wartung, Kosten und Terminen verwalten.","Manage machines, vehicles and assets with maintenance, costs and schedules."],
+    ["assets","🚚","Fuhrpark","Fleet Management","Fahrzeuge, Fahrer, Kilometer, Kraftstoff, Versicherung, Service und Kosten verwalten.","Manage vehicles, drivers, mileage, fuel, insurance, service and costs."],
+    ["assets","◌","IoT & Maschinendaten","IoT & Machine Telemetry","Maschinenzustände, Sensorwerte, Laufzeiten und Ereignisse optional in Wartung und Produktion einbinden.","Optionally connect machine states, sensor readings, runtime and events to maintenance and production."],
+    ["people","♙","Mitarbeiter","Employees","Mitarbeiter, Rollen, Teams und Einsatzbereiche organisieren.","Organize employees, roles, teams and assignments."],
+    ["people","♛","Ränge, Rollen & Verantwortungen","Ranks, Roles & Responsibilities","Hierarchie, Rang, Qualifikationen und Verantwortungsbereiche jedes Mitarbeiters festlegen.","Define hierarchy, rank, qualifications and responsibilities for every employee."],
+    ["people","▦","Einsatz- & Schichtplanung","Workforce & Shift Scheduling","Mitarbeiter nach Rang, Qualifikation, Verfügbarkeit und Projekt automatisch oder manuell einplanen.","Schedule employees manually or automatically by rank, qualification, availability and project."],
+    ["people","☑","Wer macht was?","Who Does What?","Für jeden Tag, Auftrag und jede Schicht klar anzeigen, wer welche Aufgabe übernimmt und wer verantwortlich ist.","Clearly show who is doing each task and who is responsible for every day, job and shift."],
+    ["people","◷","Zeiterfassung","Time Tracking","Arbeitsbeginn, Arbeitsende und Stunden pro Projekt erfassen.","Track clock-in, clock-out and hours by project."],
+    ["people","☷","Abwesenheit & Einsatzplanung","Leave & Workforce Planning","Urlaub, Abwesenheiten, Schichten und Einsatzplanung verwalten.","Manage leave, absences, shifts and workforce planning."],
+    ["people","＋","Recruiting & Bewerber","Recruiting & Applicants","Stellen, Bewerbungen, Interviews und Einstellungsstatus in einem Prozess verwalten.","Manage jobs, applications, interviews and hiring status in one process."],
+    ["people","→","Onboarding & Offboarding","Onboarding & Offboarding","Neue Mitarbeiter strukturiert einarbeiten und Austritte mit Checklisten sauber abwickeln.","Run structured onboarding and offboarding with checklists."],
+    ["people","★","Leistung & Entwicklung","Performance & Development","Ziele, Feedback, Mitarbeitergespräche, Schulungen und Entwicklung verfolgen.","Track goals, feedback, reviews, training and development."],
+    ["people","✓","Qualifikationen & Zertifikate","Skills & Certifications","Fähigkeiten, Berechtigungen, Führerscheine und Zertifikate mit Ablaufdatum verwalten.","Manage skills, permits, licenses and certifications with expiry dates."],
+    ["people","€","Lohnvorbereitung & Payroll-Connector","Payroll Prep & Connector","Arbeitszeiten, Zuschläge und Abwesenheiten für lokale Lohnsysteme vorbereiten und über Integrationen übergeben.","Prepare hours, allowances and absences for local payroll systems and pass them through integrations."],
+    ["people","⚕","Arbeitssicherheit & Vorfälle","Safety & Incidents","Sicherheitsunterweisungen, Vorfälle, Beinaheunfälle und Maßnahmen dokumentieren.","Document safety training, incidents, near misses and corrective actions."],
+    ["people","☑","Digitale Prüfungen & Checklisten","Inspections & Checklists","Wiederkehrende Prüfungen und Checklisten für Arbeitsplatz, Fahrzeug, Maschine oder Projekt durchführen.","Run recurring inspections and checklists for workplaces, vehicles, machines or projects."],
+    ["people","◫","Mitarbeiter-Self-Service","Employee Self-Service","Mitarbeiter können eigene Zeiten, Schichten, Urlaubsanträge, Dokumente und persönliche Aufgaben verwalten.","Employees can manage their own time, shifts, leave requests, documents and personal tasks."],
+    ["core","✓","Aufgaben","Tasks","Aufgaben verteilen, Fristen setzen und Status verfolgen.","Assign tasks, set deadlines and follow status."],
+    ["core","▦","Kalender, Termine & Besprechungen","Calendar, Appointments & Meetings","Firmenkalender, Kundentermine, Meetings, Erinnerungen und Ressourcenbuchungen koordinieren.","Coordinate company calendars, customer appointments, meetings, reminders and resource bookings."],
+    ["core","⌕","Globale Suche & Command Palette","Global Search & Command Palette","Kunden, Rechnungen, Projekte, Produkte, Mitarbeiter und Aktionen systemweit schnell finden.","Quickly find customers, invoices, projects, products, employees and actions across the system."],
+    ["core","↯","Freigaben & Workflows","Approvals & Workflows","Einkäufe, Dokumente und sensible Aktionen mit Freigaben und Regeln steuern.","Control purchases, documents and sensitive actions with approvals and rules."],
+    ["documents","▧","Dokumente","Documents","Angebote, Verträge, Rechnungen und interne Dateien zentral ablegen.","Store quotes, contracts, invoices and internal files centrally."],
+    ["documents","✎","E-Signatur & Verträge","E-Signatures & Contracts","Dokumente vorbereiten, Freigaben verfolgen und digitale Unterschriften integrieren.","Prepare documents, track approvals and integrate digital signatures."],
+    ["service","?","Helpdesk & Tickets","Helpdesk & Tickets","Kundenanfragen als Tickets erfassen, priorisieren und bis zur Lösung verfolgen.","Turn customer requests into tickets and track them to resolution."],
+    ["service","⌖","Außendienst","Field Service","Vor-Ort-Einsätze, Termine, Techniker, Material und Arbeitszeit organisieren.","Organize onsite jobs, technicians, materials and time."],
+    ["service","↺","Garantie, Reklamation & RMA","Warranty, Claims & RMA","Garantien, Reklamationen, Rücksendungen, Reparaturen und Ersatzlieferungen verfolgen.","Track warranties, claims, returns, repairs and replacements."],
+    ["service","☎","Kommunikationszentrale","Communications Hub","E-Mail, Telefon, Chat und interne Nachrichten am Kunden, Projekt oder Auftrag bündeln.","Bring email, phone, chat and internal messages together around customers, projects or orders."],
+    ["service","☏","Telefonie / VoIP & Anrufhistorie","Telephony / VoIP & Call History","Geschäftsanrufe, Gesprächsnotizen, Ruflisten und Zuordnung zu Kunden oder Vorgängen integrieren.","Integrate business calls, call notes, history and links to customers or records."],
+    ["service","⏱","SLA & Serviceverträge","SLA & Service Contracts","Reaktionszeiten, Servicelevel, Wartungsverträge und Eskalationen verfolgen.","Track response times, service levels, maintenance contracts and escalations."],
+    ["service","★","Customer Success & Verlängerungen","Customer Success & Renewals","Kundenzufriedenheit, Nutzung, Verlängerungen und Risiken bei Bestandskunden verfolgen.","Track customer health, usage, renewals and risks for existing customers."],
+    ["portal","◫","Kunden- & Lieferantenportal","Customer & Supplier Portals","Kunden und Lieferanten sicheren Zugriff auf relevante Aufträge, Dokumente und Status geben.","Give customers and suppliers secure access to relevant orders, documents and status."],
+    ["sales","∞","Verträge & Abonnements","Contracts & Subscriptions","Wiederkehrende Leistungen, Verträge, Verlängerungen und wiederkehrende Rechnungen verwalten.","Manage recurring services, contracts, renewals and recurring billing."],
+    ["sales","▣","Preislisten, Rabatte & Freigaben","Pricing, Discounts & Approvals","Kundenpreise, Preislisten, Rabatte und Freigabegrenzen steuern.","Control customer pricing, price lists, discounts and approval limits."],
+    ["sales","↗","Sales Pipeline & Forecast","Sales Pipeline & Forecast","Leads, Chancen, Verkaufsstufen und erwarteten Umsatz prognostizieren.","Track leads, opportunities, sales stages and forecast expected revenue."],
+    ["sales","★","Ziele & Provisionen","Targets & Commissions","Verkaufsziele, Teamleistung und Provisionsgrundlagen transparent verfolgen.","Track sales targets, team performance and commission bases transparently."],
+    ["logistics","➜","Lieferung, Versand & Retouren","Delivery, Shipping & Returns","Lieferungen, Versandstatus, Rücksendungen und Rückerstattungen verwalten.","Manage deliveries, shipping status, returns and refunds."],
+    ["commerce","▦","POS / Kasse","Point of Sale","Verkäufe vor Ort mit Produkten, Kunden, Zahlungen und Lagerbestand verbinden.","Connect in-person sales with products, customers, payments and inventory."],
+    ["commerce","◫","Webshop / Commerce","E-Commerce","Produkte online verkaufen und Bestellungen direkt mit Lager, Kunden und Finanzen verbinden.","Sell products online and connect orders directly to inventory, customers and finance."],
+    ["commerce","⌂","Vermietung","Rental","Mietartikel, Verfügbarkeit, Übergabe, Rückgabe, Kaution und Vertragslaufzeit verwalten.","Manage rental items, availability, handover, return, deposits and contract periods."],
+    ["finance","↗","Gewinn & Margen","Profit & Margins","Gewinn und Marge für Unternehmen, Kunde, Produkt oder Projekt berechnen.","Calculate profit and margin by company, customer, product or project."],
+    ["analytics","⌁","Berichte & Analysen","Reports & Analytics","Trends, Kosten, Umsatz und Produktivität auswerten.","Analyze trends, costs, revenue and productivity."],
+    ["analytics","▥","Individuelle Dashboards & KPIs","Custom Dashboards & KPIs","Dashboards je Rolle zusammenstellen und Kennzahlen für Leitung, Vertrieb, Produktion oder Team anzeigen.","Build role-based dashboards and KPIs for management, sales, production or teams."],
+    ["analytics","⇩","Datenexport & BI","Data Export & BI","Daten für Berichte, Tabellen und externe Business-Intelligence-Werkzeuge bereitstellen.","Provide data for reports, spreadsheets and external business intelligence tools."],
+    ["analytics","♻","Nachhaltigkeit & ESG","Sustainability & ESG","Energie, Emissionen und andere Nachhaltigkeitskennzahlen optional erfassen und auswerten.","Optionally track energy, emissions and other sustainability metrics."],
+    ["analytics","!","Intelligente Benachrichtigungen","Smart Alerts","Hinweise zu Fristen, niedrigen Beständen, offenen Rechnungen und Abweichungen.","Get alerts for deadlines, low stock, unpaid invoices and variances."],
+    ["admin","♜","Rollen, Rechte & Audit-Protokoll","Roles, Permissions & Audit Log","Zugriffe nach Rolle steuern und wichtige Änderungen nachvollziehbar protokollieren.","Control access by role and keep an audit trail of important changes."],
+    ["admin","◎","Mehrere Firmen, Länder & Währungen","Multi-Company, Country & Currency","Mehrere Firmen, Standorte, Währungen und regionale Einstellungen zentral verwalten.","Manage multiple companies, locations, currencies and regional settings."],
+    ["admin","⇧","Datenimport & Migration","Data Import & Migration","Kunden, Artikel, Lieferanten und Stammdaten aus CSV/Excel oder Altsystemen übernehmen.","Import customers, items, suppliers and master data from CSV/Excel or legacy systems."],
+    ["admin","🌐","Sprache, Zeitzone & Lokalisierung","Language, Time Zone & Localization","Sprache, Zeitzone, Zahlen-/Datumsformate und regionale Einstellungen je Firma oder Benutzer steuern.","Control language, time zone, number/date formats and regional settings per company or user."],
+    ["admin","☁","Backup & Wiederherstellung","Backup & Recovery","Sicherungen, Wiederherstellung und Notfallprozesse für Unternehmensdaten vorsehen.","Provide backups, recovery and disaster procedures for company data."],
+    ["admin","◉","Systemstatus, Logs & Monitoring","System Health, Logs & Monitoring","Fehler, Integrationen, Jobs, Performance und Systemzustand zentral überwachen.","Monitor errors, integrations, jobs, performance and system health centrally."],
+    ["admin","◫","Sandbox & Änderungsmanagement","Sandbox & Change Management","Neue Funktionen und Konfigurationen zuerst testen, versionieren und kontrolliert veröffentlichen.","Test, version and release new functions and configurations in a controlled environment."],
+    ["admin","⚿","SSO, MFA & Sicherheit","SSO, MFA & Security","Anmeldung, Mehrfaktor-Schutz, Sitzungen und Sicherheitsrichtlinien zentral verwalten.","Manage sign-in, multi-factor protection, sessions and security policies centrally."],
+    ["admin","⚖","Datenschutz & Aufbewahrung","Privacy & Retention","DSGVO-relevante Zugriffe, Aufbewahrungsfristen und Datenlöschung regelbasiert steuern.","Control GDPR-relevant access, retention periods and deletion through policies."],
+    ["admin","✎","Custom Fields & Formular-Builder","Custom Fields & Form Builder","Eigene Felder, Formulare und Pflichtangaben ohne Code pro Prozess definieren.","Define custom fields, forms and required data per process without code."],
+    ["admin","🔔","Benachrichtigungszentrale","Notification Center","Systemmeldungen, Aufgaben, Freigaben, Erinnerungen und AI-Warnungen zentral bündeln.","Centralize system alerts, tasks, approvals, reminders and AI warnings."],
+    ["admin","⌘","Stammdaten-Governance","Master Data Governance","Kunden, Produkte, Lieferanten und andere Stammdaten mit Regeln, Freigaben und Dublettenprüfung verwalten.","Govern customers, products, suppliers and other master data with rules, approvals and duplicate checks."],
+    ["admin","↔","Integrationen & API","Integrations & API","E-Mail, Kalender, Buchhaltung, Shop, Telefonie und weitere Systeme verbinden.","Connect email, calendars, accounting, commerce, phone and other systems."],
+    ["knowledge","⌘","Wissensdatenbank","Knowledge Base","Anleitungen, Prozesse, interne Regeln und Unternehmenswissen strukturiert bereitstellen.","Organize procedures, internal rules and company knowledge."],
+    ["knowledge","▶","Schulung & Lernzentrum","Training & Learning","Interne Schulungen, Anleitungen, Tests und Pflichtunterweisungen für Mitarbeiter bereitstellen.","Provide internal training, guides, tests and required learning for employees."],
+    ["knowledge","↺","Dokumentversionen & SOPs","Document Versioning & SOPs","Arbeitsanweisungen, SOPs und Dokumentversionen kontrolliert veröffentlichen und revisionssicher nachvollziehen.","Publish work instructions, SOPs and document versions with controlled history."],
+    ["marketing","✉","E-Mail & Marketing-Automation","Email & Marketing Automation","Kampagnen, Zielgruppen, Follow-ups und Ergebnisse verwalten.","Manage campaigns, audiences, follow-ups and results."],
+    ["marketing","◎","Social Media & Content-Kalender","Social Media & Content Calendar","Beiträge, Kampagnen und Veröffentlichungspläne für soziale Kanäle zentral planen.","Plan posts, campaigns and publishing schedules for social channels centrally."],
+    ["marketing","★","Bewertungen & Kundenfeedback","Reviews & Customer Feedback","Bewertungen, Umfragen und Kundenfeedback sammeln und auswerten.","Collect and analyze reviews, surveys and customer feedback."],
+    ["marketing","◎","Events & Formulare","Events & Forms","Anmeldungen, Formulare, Veranstaltungen und Lead-Erfassung mit CRM verbinden.","Connect registrations, forms, events and lead capture to CRM."],
+    ["automation","⚡","No-Code Workflow Builder","No-Code Workflow Builder","Eigene Regeln erstellen: Wenn etwas passiert, automatisch prüfen, benachrichtigen, zuweisen oder eine Freigabe starten.","Build rules: when something happens, automatically check, notify, assign or start an approval."],
+    ["automation","◷","Zeitgesteuerte Automationen","Scheduled Automations","Wiederkehrende Berichte, Erinnerungen, Prüfungen und Aufgaben automatisch zu festen Zeiten ausführen.","Run recurring reports, reminders, checks and tasks automatically on a schedule."],
+    ["automation","⇆","Ereignisbasierte Automationen","Event Automations","Aktionen automatisch auslösen, wenn sich Status, Bestand, Zahlung, Projekt oder Kunde ändert.","Trigger actions automatically when status, stock, payment, project or customer data changes."],
+    ["ai","AI","LogoBoss AI Command Center","LogoBoss AI Command Center","Fragen Sie Ihr Unternehmen nach Umsatz, Schulden, Kosten, Projekten, Lager, Mitarbeitern und nächsten Schritten.","Ask your business about revenue, debts, costs, projects, inventory, employees and next actions."],
+    ["ai","✦","AI Agents mit Freigaben","AI Agents with Approvals","KI-Agenten können Entwürfe und Aktionen vorbereiten; sensible finanzielle oder rechtliche Schritte bleiben freigabepflichtig.","AI agents can prepare drafts and actions while sensitive financial or legal steps remain approval-gated."],
+    ["ai","⌕","AI Dokument- & Datensuche","AI Document & Data Search","Über Dokumente, Kunden, Projekte, Rechnungen und interne Informationen in natürlicher Sprache suchen.","Search documents, customers, projects, invoices and internal information in natural language."],
+    ["ai","⚑","AI Risiko- & Abweichungserkennung","AI Risk & Anomaly Detection","Ungewöhnliche Kosten, Verzögerungen, Bestandsprobleme und andere Abweichungen früh hervorheben.","Highlight unusual costs, delays, inventory issues and other anomalies early."],
+    ["ai","🧭","AI Planer & Szenarien","AI Planning & Scenarios","Was-wäre-wenn-Szenarien für Personal, Einkauf, Produktion, Preise und Cashflow vergleichen.","Compare what-if scenarios for staffing, purchasing, production, pricing and cash flow."],
+    ["mobile","▣","Mobile App / PWA","Mobile App / PWA","Company OS auf Smartphone und Tablet nutzen, inklusive Kamera, Belegscan und mobilen Aufgaben.","Use Company OS on phones and tablets, including camera, receipt capture and mobile tasks."],
+    ["mobile","◫","Offline-Modus für Außendienst","Offline Field Mode","Ausgewählte Außendienst- und Checklistenfunktionen auch ohne stabile Verbindung nutzbar machen.","Make selected field-service and checklist functions usable without a stable connection."]
+  ];
+
+  const categories = [
+    ["all","Alle","All"],["core","Kernsystem","Core"],["crm","CRM","CRM"],["sales","Vertrieb","Sales"],
+    ["finance","Finanzen","Finance"],["purchasing","Einkauf","Purchasing"],["inventory","Lager","Inventory"],
+    ["operations","Projekte","Projects"],["manufacturing","Produktion","Manufacturing"],["people","Team & HR","Team & HR"],
+    ["service","Service","Service"],["logistics","Logistik","Logistics"],["portal","Portale","Portals"],
+    ["commerce","Handel","Commerce"],["marketing","Marketing","Marketing"],["assets","Anlagen & Fuhrpark","Assets & Fleet"],
+    ["analytics","Analyse & ESG","Analytics & ESG"],["documents","Dokumente","Documents"],["knowledge","Wissen","Knowledge"],
+    ["automation","Workflows","Workflows"],["mobile","Mobile","Mobile"],["admin","Admin & Sicherheit","Admin & Security"],["ai","KI","AI"]
+  ];
+
+  const t = {
+    de:{
+      title:"Ein System für Ihr gesamtes Unternehmen",
+      sub:"Vom ersten Kundenkontakt bis Finanzen, Einkauf, Lager, Produktion, Mitarbeiter, Rang- und Schichtplanung, Service, Handel, Sicherheit, Workflows und KI – als modularer Company OS.",
+      product:"Ein privater digitaler Arbeitsbereich für Ihr Unternehmen. Module können passend zur Firma aktiviert und erweitert werden.",
+      demo:"Demo testen", demoTitle:"So funktioniert Company OS",
+      demoSub:"Testen Sie typische Abläufe mit Demo-Daten. Die Demo speichert keine echten Unternehmensdaten.",
+      company:"DEMO-UNTERNEHMEN", metrics:["Umsatz","Kosten","Aktive Projekte","Mitarbeiter aktiv"],
+      add:"Neu hinzufügen", sample:"Beispieldaten", searchPh:"Suchen…", askPh:"Fragen Sie LogoBoss AI…", ask:"Fragen",
+      ai:"LogoBoss AI kann verbundene Unternehmensdaten analysieren und Antworten vorbereiten. Diese Website-Demo verwendet ausschließlich Beispieldaten.",
+      note:"Company OS ist modular. Diese Version deckt die wichtigsten branchenübergreifenden ERP-, CRM-, HR-, Projekt-, Produktions-, Service-, Sicherheits- und KI-Bereiche ab. Branchenspezifische Sondermodule können zusätzlich ergänzt werden. Aktivierte Funktionen hängen von Paket, Branche, Land, Integrationen und technischer Umsetzung ab."
+    },
+    en:{
+      title:"One system for your entire business",
+      sub:"From first customer contact to finance, purchasing, inventory, manufacturing, employees, rank-based scheduling, service, commerce, security, workflows and AI — in one modular Company OS.",
+      product:"A private digital workspace for your company. Modules can be enabled and expanded to fit each business.",
+      demo:"Try demo", demoTitle:"How Company OS works",
+      demoSub:"Try common workflows with demo data. This demo does not store real company data.",
+      company:"DEMO COMPANY", metrics:["Revenue","Costs","Active projects","Employees active"],
+      add:"Add new", sample:"Sample data", searchPh:"Search…", askPh:"Ask LogoBoss AI…", ask:"Ask",
+      ai:"LogoBoss AI can analyze connected company data and prepare answers. This website demo uses sample data only.",
+      note:"Company OS is modular. This version covers the main cross-industry ERP, CRM, HR, project, manufacturing, service, security and AI areas. Industry-specific modules can be added separately. Enabled functionality depends on package, industry, country, integrations and technical implementation."
+    }
+  };
+
+  const extraContent = {
+    de:{
+      heroText:"Ein professionelles, modulares Betriebssystem für Unternehmen — von Kunden, Verkauf und Einkauf bis Produktion, Lager, Mitarbeiter, Finanzen, Service und KI.",
+      heroBtn2:"Module ansehen",
+      overviewTitle:"Was Company OS umfasst",
+      blocks:[
+        ["Alle Abläufe an einem Ort","Keine zehn getrennten Programme — Daten, Teams und Prozesse bleiben verbunden."],
+        ["Für verschiedene Branchen","Geeignet für Produktion, Bau, Dienstleistung, Handel, Werkstatt, Logistik und weitere Bereiche."],
+        ["Modular aufbaubar","Jede Firma aktiviert nur die Module, die sie wirklich braucht, und kann später erweitern."],
+        ["KI mit Freigaben","AI hilft bei Analyse und Entwürfen. Sensible Schritte bleiben durch Freigaben geschützt."]
+      ],
+      cats:[
+        ["Vertrieb & CRM","Leads, Angebote, Aufträge, Kundenhistorie und Forecasts."],
+        ["Finanzen","Rechnungen, Zahlungen, Bank, Ausgaben, Budgets und Margen."],
+        ["Lager & Einkauf","Bestände, Wareneingang, Lieferanten, RFQs und Nachbestellung."],
+        ["Produktion & Projekte","BOM, MRP, Fertigung, Projekte, Kosten und Qualität."],
+        ["Mitarbeiter & Schichten","Ränge, Rollen, Zeiterfassung, Schichtplanung und Aufgaben."],
+        ["Service & Außendienst","Tickets, Einsätze, Garantien, Kommunikation und Rückläufer."],
+        ["Portale & Handel","Kundenportal, Lieferantenportal, POS, Webshop und Abos."],
+        ["Sicherheit, Workflows & KI","Rollen, MFA, Audit Log, Automationen, AI-Agenten und Suche."]
+      ]
+    },
+    en:{
+      heroText:"A professional modular operating system for businesses — from customers, sales and purchasing to manufacturing, inventory, employees, finance, service and AI.",
+      heroBtn2:"View modules",
+      overviewTitle:"What Company OS includes",
+      blocks:[
+        ["All operations in one place","No need for ten disconnected tools — data, teams and processes stay connected."],
+        ["For multiple industries","Suitable for manufacturing, construction, service, retail, workshops, logistics and more."],
+        ["Modular by design","Each company enables only the modules it needs and can expand later."],
+        ["AI with approvals","AI helps with analysis and drafts. Sensitive actions stay protected by approvals."]
+      ],
+      cats:[
+        ["Sales & CRM","Leads, quotes, orders, customer history and forecasts."],
+        ["Finance","Invoices, payments, banking, expenses, budgets and margins."],
+        ["Inventory & Purchasing","Stock, goods receipts, suppliers, RFQs and reordering."],
+        ["Manufacturing & Projects","BOM, MRP, production, projects, costs and quality."],
+        ["Employees & Scheduling","Ranks, roles, time tracking, shift planning and tasks."],
+        ["Service & Field Work","Tickets, field jobs, warranties, communications and returns."],
+        ["Portals & Commerce","Customer portal, supplier portal, POS, web shop and subscriptions."],
+        ["Security, Workflows & AI","Roles, MFA, audit log, automations, AI agents and search."]
+      ]
+    }
+  };
+  const uiText = {
+    de:{
+      premiumBadge:"PREMIUM · UNTERNEHMENSSOFTWARE",
+      pills:["CRM","Finanzen","Lager","Produktion","Projekte","HR","Service","KI"],
+      overviewLabel:"UNTERNEHMENSÜBERSICHT",
+      heroMetrics:["Projekte","Team aktiv","Fällige Rechnungen","Intelligente Hinweise"],
+      heroFlows:[
+        ["Vertrieb","Lead → Angebot → Auftrag"],
+        ["Einkauf","RFQ → Bestellung → Lieferant"],
+        ["Produktion","BOM → MRP → Auftrag"],
+        ["Finanzen","Rechnung → Zahlung → Marge"]
+      ],
+      demoKicker:"INTERAKTIVE DEMO",
+      appTitle:"LogoBoss AI Company OS · Demo Firma GmbH",
+      ownerView:"Inhaberansicht",
+      appNav:["Dashboard","Vertrieb & CRM","Projekte","Lager","Produktion","Mitarbeiter","Finanzen","KI-Zentrale"],
+      appMetrics:["Monatsumsatz","Ergebnis","Mitarbeiter aktiv","Aktive Projekte","Rechnungen überfällig","KI-Hinweise"],
+      roles:["Inhaber","Manager","Mitarbeiter","Finanzen"],
+      statusActive:"Aktiv",
+      statusReview:"Prüfung"
+    },
+    en:{
+      premiumBadge:"PREMIUM · BUSINESS SOFTWARE",
+      pills:["CRM","Finance","Inventory","Manufacturing","Projects","HR","Service","AI"],
+      overviewLabel:"COMPANY OVERVIEW",
+      heroMetrics:["Projects","Team active","Invoices due","Smart alerts"],
+      heroFlows:[
+        ["Sales","Lead → Quote → Order"],
+        ["Purchasing","RFQ → PO → Supplier"],
+        ["Production","BOM → MRP → Job"],
+        ["Finance","Invoice → Payment → Margin"]
+      ],
+      demoKicker:"INTERACTIVE DEMO",
+      appTitle:"LogoBoss AI Company OS · Demo Company GmbH",
+      ownerView:"Owner view",
+      appNav:["Dashboard","Sales & CRM","Projects","Inventory","Manufacturing","Employees","Finance","AI Command"],
+      appMetrics:["Monthly revenue","Result","Employees active","Active projects","Invoices overdue","AI alerts"],
+      roles:["Owner","Manager","Worker","Finance"],
+      statusActive:"Active",
+      statusReview:"Review"
+    }
+  };
+  const productExperience = {
+    de:{
+      title:"So wird Company OS zum echten Arbeitsbereich",
+      sub:"Nicht nur Module anzeigen: Company OS passt sich an Branche, Rolle und Arbeitsablauf der Firma an.",
+      industryTitle:"1 · Branchenpakete",
+      industrySub:"Wählen Sie eine Branche. Company OS empfiehlt passende Module und Dashboards.",
+      industries:[
+        ["Produktion","Produktion, MRP, BOM, Qualität, Lager, Einkauf, Wartung"],
+        ["Bau & Montage","Projekte, Baustellen, Material, Mitarbeiter, Zeiterfassung, Fahrzeuge"],
+        ["Werkstatt / Auto","Kunden, Fahrzeuge, Termine, Aufträge, Teile, Rechnungen, Garantie"],
+        ["Dienstleistung","CRM, Angebote, Projekte, Zeiten, Aufgaben, Rechnungen, Support"],
+        ["Handel","POS, Webshop, Lager, Einkauf, Preise, Kunden, Retouren"],
+        ["Logistik","Fuhrpark, Fahrer, Aufträge, Lieferungen, Kosten, Wartung"],
+        ["Hotel / Gastro","Reservierungen, Personal, Einkauf, Lager, Aufgaben, Finanzen"],
+        ["Individuell","LogoBoss AI stellt ein individuelles Modulset zusammen"]
+      ],
+      wizardTitle:"2 · Smart Setup Wizard",
+      wizardSub:"Ein kurzer Assistent konfiguriert Company OS für die Firma.",
+      wizardQ:["Wie arbeitet die Firma?","Welche Ressourcen werden verwaltet?","Was ist besonders wichtig?"],
+      wizardOpts:[
+        ["Projekte / Aufträge","Produktion","Handel","Service"],
+        ["Mitarbeiter","Lager","Fahrzeuge","Maschinen"],
+        ["Kosten & Gewinn","Planung","Kundenservice","Automatisierung"]
+      ],
+      wizardNext:"Weiter",
+      wizardDone:"Konfiguration erstellen",
+      wizardEmpty:"Wählen Sie Optionen, damit LogoBoss AI Module empfehlen kann.",
+      appsTitle:"3 · Module Marketplace / App Center",
+      appsSub:"Module können pro Firma aktiviert oder deaktiviert werden. Das Beispiel zeigt eine mögliche Konfiguration.",
+      apps:["CRM","Vertrieb","Finanzen","Lager","Einkauf","Projekte","Produktion","HR","Service","Fuhrpark","POS","AI Command"],
+      approvalTitle:"4 · Freigabezentrale",
+      approvalSub:"Alles, was eine Entscheidung braucht, landet in einer zentralen Inbox.",
+      approvals:[
+        ["Einkauf · 8.450 €","Materialbestellung über Freigabegrenze"],
+        ["Urlaubsantrag · 5 Tage","Mitarbeiter: Tom R."],
+        ["Rabatt · 18 %","Angebot Q-1042 für Kunde Müller GmbH"],
+        ["AI-Aktion","Zahlungserinnerung für 3 überfällige Rechnungen"]
+      ],
+      approve:"Freigeben", reject:"Ablehnen", approved:"Freigegeben", rejected:"Abgelehnt",
+      activityTitle:"5 · Live Activity Feed",
+      activitySub:"Die Leitung sieht wichtige Ereignisse der Firma in Echtzeit.",
+      activity:[
+        ["✓","Markus hat Aufgabe „Montage B-104“ abgeschlossen.","vor 3 Min."],
+        ["€","Zahlung über 3.400 € von Müller GmbH eingegangen.","vor 11 Min."],
+        ["▦","Material M-204 liegt unter Mindestbestand.","vor 18 Min."],
+        ["◷","Mia hat Schicht 06:00–14:00 gestartet.","vor 32 Min."]
+      ],
+      roleFeatureTitle:"6 · Rollenbasierte Startseiten",
+      roleFeatureSub:"Jede Rolle sieht genau die Informationen und Aktionen, die sie für ihre Arbeit benötigt.",
+      integrationTitle:"7 · Integration Center",
+      integrationSub:"Externe Systeme werden über einen zentralen Integrationsbereich verbunden.",
+      integrations:[
+        ["Gmail / Outlook","E-Mail","connected"],
+        ["Google / Outlook Calendar","Kalender","connected"],
+        ["DATEV / Lexware / sevdesk","Buchhaltung","available"],
+        ["Stripe","Zahlungen","available"],
+        ["Shopify / WooCommerce","Commerce","available"],
+        ["VoIP / Telefonie","Anrufe","available"],
+        ["Banking","Bankdaten","available"],
+        ["API / Webhooks","Entwickler","connected"],
+        ["Cloud Storage","Dokumente","available"]
+      ],
+      connected:"Demo: verbunden", available:"Verfügbar",
+      aiActionTitle:"8 · AI Action Center",
+      aiActionSub:"AI schlägt Aktionen vor. Sensible Schritte werden erst nach Freigabe ausgeführt.",
+      aiActions:[
+        ["Material nachbestellen","2 Artikel liegen unter Mindestbestand · Lieferant B ist 7 % günstiger"],
+        ["Mahnung vorbereiten","3 Rechnungen sind länger als 10 Tage überfällig"],
+        ["Team umplanen","Projekt B-104 braucht morgen zwei zusätzliche Fachkräfte"],
+        ["Angebot vorbereiten","Kunde hat eine neue Anfrage über 25 Einheiten gesendet"]
+      ],
+      review:"Prüfen & freigeben",
+      aiChoose:"Wählen Sie eine vorgeschlagene AI-Aktion aus.",
+      aiPrepared:"Aktion vorbereitet. Im echten System würde vor der Ausführung eine Freigabe verlangt.",
+      storyTitle:"9 · Kompletter Demo-Ablauf",
+      storySub:"Ein Besucher kann den Weg vom neuen Kunden bis zur Zahlung und Gewinnanalyse durchspielen.",
+      storySteps:["Lead","Angebot","Auftrag","Planung","Material","Arbeit","Rechnung","Zahlung","Ergebnis"],
+      storyPanels:[
+        ["Neuer Lead","Müller GmbH fragt 20 Einheiten an.","CRM","Lead #L-204"],
+        ["Angebot erstellt","Company OS kalkuliert Material, Arbeitszeit und Marge.","Angebot","€42.800"],
+        ["Auftrag bestätigt","Das akzeptierte Angebot wird mit einem Klick zum Auftrag.","Auftrag","SO-1042"],
+        ["Projekt geplant","Team, Termine, Meilensteine und Kapazität werden geplant.","Projekt","B-104"],
+        ["Material reserviert","Lagerbestand wird geprüft; fehlende Ware geht in Einkaufsvorschlag.","Material","92 % verfügbar"],
+        ["Arbeit läuft","Mitarbeiter buchen Zeit, Aufgaben und Materialverbrauch.","Fortschritt","68 %"],
+        ["Rechnung erstellt","Aus dem Auftrag wird eine Rechnung mit Zahlungsziel.","Rechnung","€42.800"],
+        ["Zahlung verbucht","Bankabgleich ordnet den Zahlungseingang automatisch zu.","Bezahlt","€42.800"],
+        ["Gewinn sichtbar","Dashboard zeigt Projektkosten, Umsatz und Marge.","Marge","€11.940"]
+      ],
+      roleHome:{
+        owner:["Inhaber-Dashboard","Umsatz, Cashflow, Gewinn, Risiken, Freigaben und AI-Hinweise."],
+        manager:["Manager-Dashboard","Projekte, Teams, Termine, Kapazitäten, Aufgaben und Eskalationen."],
+        worker:["Mitarbeiter-Dashboard","Heutige Schicht, Aufgaben, Checklisten, Projekt und Zeiterfassung."],
+        finance:["Finanz-Dashboard","Rechnungen, Zahlungen, Bank, Mahnungen, Ausgaben und Abschlüsse."]
+      }
+    },
+    en:{
+      title:"How Company OS becomes a real workspace",
+      sub:"Not just a module list: Company OS adapts to the company's industry, role and workflow.",
+      industryTitle:"1 · Industry Packs",
+      industrySub:"Choose an industry. Company OS recommends suitable modules and dashboards.",
+      industries:[
+        ["Manufacturing","Manufacturing, MRP, BOM, quality, inventory, purchasing, maintenance"],
+        ["Construction & Installation","Projects, job sites, materials, employees, time tracking, fleet"],
+        ["Workshop / Automotive","Customers, vehicles, appointments, jobs, parts, invoices, warranty"],
+        ["Professional Services","CRM, quotes, projects, time, tasks, invoices, support"],
+        ["Commerce","POS, web shop, inventory, purchasing, pricing, customers, returns"],
+        ["Logistics","Fleet, drivers, jobs, deliveries, costs, maintenance"],
+        ["Hotel / Hospitality","Reservations, staff, purchasing, inventory, tasks, finance"],
+        ["Custom","LogoBoss AI builds a custom module set"]
+      ],
+      wizardTitle:"2 · Smart Setup Wizard",
+      wizardSub:"A short assistant configures Company OS for the business.",
+      wizardQ:["How does the company work?","Which resources are managed?","What matters most?"],
+      wizardOpts:[
+        ["Projects / Jobs","Manufacturing","Commerce","Service"],
+        ["Employees","Inventory","Vehicles","Machines"],
+        ["Cost & Profit","Planning","Customer Service","Automation"]
+      ],
+      wizardNext:"Next",
+      wizardDone:"Build configuration",
+      wizardEmpty:"Choose options so LogoBoss AI can recommend modules.",
+      appsTitle:"3 · Module Marketplace / App Center",
+      appsSub:"Modules can be enabled or disabled per company. This example shows one possible configuration.",
+      apps:["CRM","Sales","Finance","Inventory","Purchasing","Projects","Manufacturing","HR","Service","Fleet","POS","AI Command"],
+      approvalTitle:"4 · Approval Center",
+      approvalSub:"Everything requiring a decision arrives in one central inbox.",
+      approvals:[
+        ["Purchase · €8,450","Material order above approval limit"],
+        ["Leave request · 5 days","Employee: Tom R."],
+        ["Discount · 18%","Quote Q-1042 for Müller GmbH"],
+        ["AI action","Payment reminder for 3 overdue invoices"]
+      ],
+      approve:"Approve", reject:"Reject", approved:"Approved", rejected:"Rejected",
+      activityTitle:"5 · Live Activity Feed",
+      activitySub:"Management sees important business events in real time.",
+      activity:[
+        ["✓","Markus completed task “Assembly B-104”.","3 min ago"],
+        ["€","€3,400 payment received from Müller GmbH.","11 min ago"],
+        ["▦","Material M-204 is below minimum stock.","18 min ago"],
+        ["◷","Mia started shift 06:00–14:00.","32 min ago"]
+      ],
+      roleFeatureTitle:"6 · Role-based Home Screens",
+      roleFeatureSub:"Each role sees exactly the information and actions needed for its work.",
+      integrationTitle:"7 · Integration Center",
+      integrationSub:"External systems are connected through one central integration area.",
+      integrations:[
+        ["Gmail / Outlook","Email","connected"],
+        ["Google / Outlook Calendar","Calendar","connected"],
+        ["DATEV / Lexware / sevdesk","Accounting","available"],
+        ["Stripe","Payments","available"],
+        ["Shopify / WooCommerce","Commerce","available"],
+        ["VoIP / Telephony","Calls","available"],
+        ["Banking","Bank data","available"],
+        ["API / Webhooks","Developers","connected"],
+        ["Cloud Storage","Documents","available"]
+      ],
+      connected:"Demo: connected", available:"Available",
+      aiActionTitle:"8 · AI Action Center",
+      aiActionSub:"AI proposes actions. Sensitive steps execute only after approval.",
+      aiActions:[
+        ["Reorder materials","2 items are below minimum stock · Supplier B is 7% cheaper"],
+        ["Prepare reminder","3 invoices are more than 10 days overdue"],
+        ["Reschedule team","Project B-104 needs two extra specialists tomorrow"],
+        ["Prepare quote","Customer sent a new request for 25 units"]
+      ],
+      review:"Review & approve",
+      aiChoose:"Select a suggested AI action.",
+      aiPrepared:"Action prepared. In the real system, approval would be required before execution.",
+      storyTitle:"9 · Complete Demo Workflow",
+      storySub:"A visitor can play through the full journey from a new customer to payment and profit analysis.",
+      storySteps:["Lead","Quote","Order","Planning","Material","Work","Invoice","Payment","Result"],
+      storyPanels:[
+        ["New lead","Müller GmbH requests 20 units.","CRM","Lead #L-204"],
+        ["Quote created","Company OS calculates materials, labor and margin.","Quote","€42,800"],
+        ["Order confirmed","The accepted quote becomes an order with one click.","Order","SO-1042"],
+        ["Project planned","Team, dates, milestones and capacity are scheduled.","Project","B-104"],
+        ["Material reserved","Stock is checked; missing items become purchase suggestions.","Material","92% available"],
+        ["Work in progress","Employees record time, tasks and material usage.","Progress","68%"],
+        ["Invoice created","The order becomes an invoice with payment terms.","Invoice","€42,800"],
+        ["Payment matched","Bank reconciliation automatically matches the incoming payment.","Paid","€42,800"],
+        ["Profit visible","Dashboard shows project costs, revenue and margin.","Margin","€11,940"]
+      ],
+      roleHome:{
+        owner:["Owner dashboard","Revenue, cash flow, profit, risks, approvals and AI insights."],
+        manager:["Manager dashboard","Projects, teams, schedules, capacity, tasks and escalations."],
+        worker:["Worker dashboard","Today's shift, tasks, checklists, project and time tracking."],
+        finance:["Finance dashboard","Invoices, payments, banking, collections, expenses and closing."]
+      }
+    }
+  };
+
+  function lang(){ return localStorage.getItem("lb_lang")==="en" ? "en" : "de"; }
+  function name(m,l){return m[l==="de"?2:3]}
+  function desc(m,l){return m[l==="de"?4:5]}
+
+  const slideHTML = modules.map((m,i)=>`
+    <article class="lb-os-slide" data-os="${i}" data-cat="${m[0]}">
+      <div class="lb-os-copy">
+        <span class="lb-os-mini-kicker">LOGOBOSS · COMPANY OS</span>
+        <div class="lb-os-icon">${m[1]}</div>
+        <h4>${m[2]}</h4>
+        <p>${m[4]}</p>
+        <span class="lb-os-signature">OPERATIONS · DATA · AI</span>
+      </div>
+      <div class="lb-os-glass">
+        <small>COMPANY OS · MODULE</small>
+        <strong>${i===0?"€48,240":m[0]==="ai"?"AI":m[0]==="manufacturing"?"MRP":"LIVE"}</strong>
+        <span>${m[2]}</span>
+        <div class="lb-os-bars"><i></i><i></i><i></i><i></i></div>
+      </div>
+    </article>`).join("");
+
+  const html = `
+  <section id="company-os" class="lb-os-section">
+    <div class="lb-os-wrap">
+      <div class="lb-os-kicker">LOGOBOSS AI · COMPANY OS</div>
+      <h2 class="lb-os-title" id="lbOsTitle"></h2>
+      <p class="lb-os-sub" id="lbOsSub"></p>
+
+      <div class="lb-os-hero">
+        <div class="lb-os-hero-card">
+          <span class="lb-os-badge" id="lbOsPremiumBadge"></span>
+          <h3>LogoBoss AI Company OS</h3>
+          <p id="lbOsHeroText"></p>
+          <div class="lb-os-pill-row">
+            <span class="lb-os-pill" id="lbOsPill0"></span><span class="lb-os-pill" id="lbOsPill1"></span><span class="lb-os-pill" id="lbOsPill2"></span>
+            <span class="lb-os-pill" id="lbOsPill3"></span><span class="lb-os-pill" id="lbOsPill4"></span><span class="lb-os-pill" id="lbOsPill5"></span>
+            <span class="lb-os-pill" id="lbOsPill6"></span><span class="lb-os-pill" id="lbOsPill7"></span>
+          </div>
+          <div class="lb-os-hero-actions">
+            <a class="lb-os-primary" href="#company-os-demo" id="lbOsHeroDemoLink"></a>
+            <a class="lb-os-secondary" href="#company-os-modules" id="lbOsHeroBtn2"></a>
+          </div>
+        </div>
+        <div class="lb-os-hero-visual">
+          <div class="lb-os-window">
+            <small id="lbOsHeroOverviewLabel"></small>
+            <strong>€48,240</strong>
+            <div class="lb-os-window-grid">
+              <div class="lb-os-mini-box"><b>7</b><span id="lbOsHeroMetric0"></span></div>
+              <div class="lb-os-mini-box"><b>12 / 15</b><span id="lbOsHeroMetric1"></span></div>
+              <div class="lb-os-mini-box"><b>3</b><span id="lbOsHeroMetric2"></span></div>
+              <div class="lb-os-mini-box"><b>AI</b><span id="lbOsHeroMetric3"></span></div>
+            </div>
+          </div>
+          <div class="lb-os-flow">
+            <div><b id="lbOsFlowB0"></b><span id="lbOsFlowT0"></span></div>
+            <div><b id="lbOsFlowB1"></b><span id="lbOsFlowT1"></span></div>
+            <div><b id="lbOsFlowB2"></b><span id="lbOsFlowT2"></span></div>
+            <div><b id="lbOsFlowB3"></b><span id="lbOsFlowT3"></span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="lb-os-overview">
+        <h3 class="lb-os-title" id="lbOsOverviewTitle" style="font-size:clamp(24px,4vw,36px);margin-bottom:14px"></h3>
+        <div class="lb-os-overview-grid" id="lbOsOverviewGrid"></div>
+        <div class="lb-os-catgrid" id="lbOsCatGrid"></div>
+      </div>
+
+
+      <div class="lb-os-exp" id="company-os-experience">
+        <div class="lb-os-exp-head">
+          <div class="lb-os-kicker">PRODUCT EXPERIENCE</div>
+          <h3 id="lbOsExpTitle"></h3>
+          <p id="lbOsExpSub"></p>
+        </div>
+
+        <div class="lb-os-exp-grid">
+          <!-- 1. Industry Packs -->
+          <div class="lb-os-exp-card">
+            <h4 id="lbOsIndustryTitle"></h4>
+            <p id="lbOsIndustrySub"></p>
+            <div class="lb-os-chiprow" id="lbOsIndustryButtons"></div>
+            <div class="lb-os-pack-result" id="lbOsIndustryResult"></div>
+          </div>
+
+          <!-- 2. Smart Setup Wizard -->
+          <div class="lb-os-exp-card">
+            <h4 id="lbOsWizardTitle"></h4>
+            <p id="lbOsWizardSub"></p>
+            <div id="lbOsWizard">
+              <div class="lb-os-wizard-step active" data-step="0"><b id="lbOsWQ0"></b><div class="lb-os-wizard-options" id="lbOsWO0"></div></div>
+              <div class="lb-os-wizard-step" data-step="1"><b id="lbOsWQ1"></b><div class="lb-os-wizard-options" id="lbOsWO1"></div></div>
+              <div class="lb-os-wizard-step" data-step="2"><b id="lbOsWQ2"></b><div class="lb-os-wizard-options" id="lbOsWO2"></div></div>
+              <div class="lb-os-wizard-actions"><button type="button" id="lbOsWizardNext"></button></div>
+              <div class="lb-os-setup-result" id="lbOsWizardResult"></div>
+            </div>
+          </div>
+
+          <!-- 3. Module Marketplace -->
+          <div class="lb-os-exp-card wide">
+            <h4 id="lbOsAppsTitle"></h4>
+            <p id="lbOsAppsSub"></p>
+            <div class="lb-os-apps-grid" id="lbOsAppsGrid"></div>
+          </div>
+
+          <!-- 4. Approval Center -->
+          <div class="lb-os-exp-card">
+            <h4 id="lbOsApprovalTitle"></h4>
+            <p id="lbOsApprovalSub"></p>
+            <div id="lbOsApprovals"></div>
+          </div>
+
+          <!-- 5. Activity Feed -->
+          <div class="lb-os-exp-card">
+            <h4 id="lbOsActivityTitle"></h4>
+            <p id="lbOsActivitySub"></p>
+            <div class="lb-os-activity" id="lbOsActivity"></div>
+          </div>
+
+
+          <!-- 6. Role-based Home Screens -->
+          <div class="lb-os-exp-card">
+            <h4 id="lbOsRoleFeatureTitle"></h4>
+            <p id="lbOsRoleFeatureSub"></p>
+            <div class="lb-os-chiprow" id="lbOsRoleFeatureButtons">
+              <button type="button" data-role="owner"></button>
+              <button type="button" data-role="manager"></button>
+              <button type="button" data-role="worker"></button>
+              <button type="button" data-role="finance"></button>
+            </div>
+            <div class="lb-os-pack-result" id="lbOsRoleFeatureResult"></div>
+          </div>
+
+          <!-- 7. Integration Center -->
+          <div class="lb-os-exp-card">
+            <h4 id="lbOsIntegrationTitle"></h4>
+            <p id="lbOsIntegrationSub"></p>
+            <div class="lb-os-integrations" id="lbOsIntegrations"></div>
+          </div>
+
+          <!-- 8. AI Action Center -->
+          <div class="lb-os-exp-card">
+            <h4 id="lbOsAiActionTitle"></h4>
+            <p id="lbOsAiActionSub"></p>
+            <div class="lb-os-ai-actions" id="lbOsAiActions"></div>
+            <div class="lb-os-ai-action-result" id="lbOsAiActionResult"></div>
+          </div>
+
+          <!-- 9. End-to-end demo story -->
+          <div class="lb-os-exp-card wide">
+            <h4 id="lbOsStoryTitle"></h4>
+            <p id="lbOsStorySub"></p>
+            <div class="lb-os-story">
+              <div class="lb-os-story-steps" id="lbOsStorySteps"></div>
+              <div class="lb-os-story-panel" id="lbOsStoryPanel"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="lb-os-product" id="company-os-modules">
+        <div class="lb-os-product-head">
+          <div>
+            <span class="lb-os-badge">MODULAR · ALL-IN-ONE</span>
+            <h3>LogoBoss AI Company OS</h3>
+            <p id="lbOsProductText"></p>
+          </div>
+          <a class="lb-os-primary" href="#company-os-demo" id="lbOsDemoLink"></a>
+        </div>
+        <div class="lb-os-cats" id="lbOsCats"></div>
+        <div class="lb-os-slider" id="lbOsSlider">
+          <div class="lb-os-track">${slideHTML}</div>
+          <button class="lb-os-prev" type="button">‹</button>
+          <button class="lb-os-next" type="button">›</button>
+          <div class="lb-os-count"><span>1</span> / ${modules.length}</div>
+        </div>
+        <p class="lb-os-note" id="lbOsNote"></p>
+      </div>
+    </div>
+  </section>
+
+  <section id="company-os-demo" class="lb-os-demo-section">
+    <div class="lb-os-wrap">
+      <div class="lb-os-kicker" id="lbOsDemoKicker"></div>
+      <h2 class="lb-os-title" id="lbOsDemoTitle"></h2>
+      <p class="lb-os-sub" id="lbOsDemoSub"></p>
+
+      <div class="lb-os-app-image" aria-label="Company OS application preview">
+        <div class="lb-os-app-top">
+          <div class="lb-os-app-dots"><i></i><i></i><i></i></div>
+          <b id="lbOsAppTitle"></b>
+          <span id="lbOsAppView"></span>
+        </div>
+        <div class="lb-os-app-grid">
+          <div class="lb-os-app-sidebar">
+            <span class="active" id="lbOsAppNav0"></span><span id="lbOsAppNav1"></span><span id="lbOsAppNav2"></span><span id="lbOsAppNav3"></span>
+            <span id="lbOsAppNav4"></span><span id="lbOsAppNav5"></span><span id="lbOsAppNav6"></span><span id="lbOsAppNav7"></span>
+          </div>
+          <div class="lb-os-app-main">
+            <div><b>€48,240</b><small id="lbOsAppM0"></small></div>
+            <div><b>€16,380</b><small id="lbOsAppM1"></small></div>
+            <div><b>12 / 15</b><small id="lbOsAppM2"></small></div>
+            <div><b>7</b><small id="lbOsAppM3"></small></div>
+            <div><b>3</b><small id="lbOsAppM4"></small></div>
+            <div><b>2</b><small id="lbOsAppM5"></small></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="lb-os-demo-shell">
+        <aside class="lb-os-nav" id="lbOsNav"></aside>
+        <div class="lb-os-demo-main">
+          <div class="lb-os-demo-toolbar" id="lbOsRoleToolbar">
+            <button type="button" class="active" data-role="owner" id="lbOsRole0"></button>
+            <button type="button" data-role="manager" id="lbOsRole1"></button>
+            <button type="button" data-role="worker" id="lbOsRole2"></button>
+            <button type="button" data-role="finance" id="lbOsRole3"></button>
+          </div>
+          <div class="lb-os-rolehome" id="lbOsRoleHome"></div>
+          <div class="lb-os-demo-top">
+            <div><small id="lbOsCompany"></small><h3 id="lbOsPanelTitle">Dashboard</h3></div>
+            <span class="lb-os-live">● DEMO</span>
+          </div>
+          <div class="lb-os-metrics">
+            <div><small id="lbOsM0"></small><b>€48,240</b></div>
+            <div><small id="lbOsM1"></small><b>€31,860</b></div>
+            <div><small id="lbOsM2"></small><b>7</b></div>
+            <div><small id="lbOsM3"></small><b>12 / 15</b></div>
+          </div>
+          <div class="lb-os-demo-content" id="lbOsContent"></div>
+        </div>
+      </div>
+    </div>
+  </section>`;
+
+  /* Place Company OS BEFORE the existing large 17-slide LogoBoss gallery.
+     If that gallery cannot be found, fall back to placing it before #packages. */
+  const firstMainSlider=document.querySelector(".lb-slider-main");
+  const targetSection=firstMainSlider ? firstMainSlider.closest("section") : document.getElementById("packages");
+  if(!targetSection)return;
+  targetSection.insertAdjacentHTML("beforebegin",html);
+
+  let index=0,current=0,activeCat="all",currentRole="owner";
+  const slider=document.getElementById("lbOsSlider"), track=slider.querySelector(".lb-os-track"), counter=slider.querySelector(".lb-os-count span");
+
+  function go(n){
+    index=(n+modules.length)%modules.length;
+    track.style.transform=`translateX(-${index*100}%)`;
+    counter.textContent=index+1;
+    activeCat=modules[index][0];
+    renderCats(false);
+  }
+  slider.querySelector(".lb-os-prev").onclick=()=>go(index-1);
+  slider.querySelector(".lb-os-next").onclick=()=>go(index+1);
+  let sx=null;
+  slider.addEventListener("touchstart",e=>sx=e.touches[0].clientX,{passive:true});
+  slider.addEventListener("touchend",e=>{if(sx===null)return;const dx=e.changedTouches[0].clientX-sx;if(Math.abs(dx)>45)go(index+(dx<0?1:-1));sx=null},{passive:true});
+
+  function renderCats(jumpAllowed=true){
+    const l=lang(), box=document.getElementById("lbOsCats");
+    box.innerHTML=categories.map(c=>`<button type="button" data-cat="${c[0]}" class="${c[0]===activeCat?'active':''}">${c[l==="de"?1:2]}</button>`).join("");
+    box.querySelectorAll("button").forEach(b=>b.onclick=()=>{
+      const c=b.dataset.cat; activeCat=c;
+      if(c!=="all"){
+        const first=modules.findIndex(m=>m[0]===c);
+        if(first>=0)go(first);
+      } else { go(0); activeCat="all"; renderCats(false); }
+    });
+  }
+
+  let wizardStep=0;
+  const wizardSelections=[null,null,null];
+  let wizardBuilt=false;
+  let selectedIndustry=0;
+  let storyStep=0;
+  const approvalStates=[null,null,null,null];
+  let selectedAiAction=null;
+
+  function renderProductExperience(){
+    const l=lang(),p=productExperience[l];
+    document.getElementById("lbOsExpTitle").textContent=p.title;
+    document.getElementById("lbOsExpSub").textContent=p.sub;
+
+    document.getElementById("lbOsIndustryTitle").textContent=p.industryTitle;
+    document.getElementById("lbOsIndustrySub").textContent=p.industrySub;
+    const ib=document.getElementById("lbOsIndustryButtons");
+    ib.innerHTML=p.industries.map((x,i)=>`<button type="button" data-i="${i}" class="${i===selectedIndustry?"active":""}">${x[0]}</button>`).join("");
+    ib.querySelectorAll("button").forEach(b=>b.onclick=()=>{
+      selectedIndustry=Number(b.dataset.i);
+      renderProductExperience();
+    });
+    document.getElementById("lbOsIndustryResult").innerHTML=`<b>${p.industries[selectedIndustry][0]}</b><br>${p.industries[selectedIndustry][1]}`;
+
+    document.getElementById("lbOsWizardTitle").textContent=p.wizardTitle;
+    document.getElementById("lbOsWizardSub").textContent=p.wizardSub;
+    for(let s=0;s<3;s++){
+      document.getElementById("lbOsWQ"+s).textContent=p.wizardQ[s];
+      const o=document.getElementById("lbOsWO"+s);
+      o.innerHTML=p.wizardOpts[s].map((x,i)=>`<button type="button" data-step="${s}" data-i="${i}" class="${wizardSelections[s]===i?"selected":""}">${x}</button>`).join("");
+      o.querySelectorAll("button").forEach(b=>b.onclick=()=>{
+        wizardSelections[Number(b.dataset.step)]=Number(b.dataset.i);
+        renderProductExperience();
+      });
+      document.querySelector(`.lb-os-wizard-step[data-step="${s}"]`).classList.toggle("active",s===wizardStep);
+    }
+    const next=document.getElementById("lbOsWizardNext");
+    next.textContent=wizardStep<2?p.wizardNext:p.wizardDone;
+    next.onclick=()=>{
+      if(wizardStep<2){wizardStep++;renderProductExperience();}
+      else{
+        wizardBuilt=true;
+        renderProductExperience();
+      }
+    };
+    const chosen=wizardSelections.map((v,i)=>v===null?null:p.wizardOpts[i][v]).filter(Boolean);
+    document.getElementById("lbOsWizardResult").innerHTML=wizardBuilt&&chosen.length
+      ? `<b>LogoBoss AI</b><br>${l==="de"?"Empfohlen: ":"Recommended: "}${chosen.join(" · ")} · CRM · Finance · AI`
+      : p.wizardEmpty;
+
+    document.getElementById("lbOsAppsTitle").textContent=p.appsTitle;
+    document.getElementById("lbOsAppsSub").textContent=p.appsSub;
+    const ag=document.getElementById("lbOsAppsGrid");
+    if(!ag.dataset.ready){
+      ag.innerHTML=p.apps.map((x,i)=>`<div class="lb-os-app-toggle"><span data-app-label="${i}">${x}</span><div class="lb-os-switch ${i<9||i===11?"on":""}" data-i="${i}"></div></div>`).join("");
+      ag.dataset.ready="1";
+      ag.querySelectorAll(".lb-os-switch").forEach(sw=>sw.onclick=()=>sw.classList.toggle("on"));
+    }else{
+      p.apps.forEach((x,i)=>{const e=ag.querySelector(`[data-app-label="${i}"]`);if(e)e.textContent=x});
+    }
+
+    document.getElementById("lbOsApprovalTitle").textContent=p.approvalTitle;
+    document.getElementById("lbOsApprovalSub").textContent=p.approvalSub;
+    const ap=document.getElementById("lbOsApprovals");
+    ap.innerHTML=p.approvals.map((x,i)=>{
+      const state=approvalStates[i];
+      const actions=state===true
+        ? `<span style="font-size:11px;color:#8de0ae">${p.approved}</span>`
+        : state===false
+          ? `<span style="font-size:11px;color:#ffb4c0">${p.rejected}</span>`
+          : `<button data-action="yes" data-i="${i}">${p.approve}</button><button data-action="no" data-i="${i}">${p.reject}</button>`;
+      return `<div class="lb-os-approval"><div><b>${x[0]}</b><small>${x[1]}</small></div><div class="lb-os-approve-actions">${actions}</div></div>`;
+    }).join("");
+    ap.querySelectorAll("button").forEach(b=>b.onclick=()=>{
+      approvalStates[Number(b.dataset.i)]=b.dataset.action==="yes";
+      renderProductExperience();
+    });
+
+    document.getElementById("lbOsActivityTitle").textContent=p.activityTitle;
+    document.getElementById("lbOsActivitySub").textContent=p.activitySub;
+    document.getElementById("lbOsActivity").innerHTML=p.activity.map(x=>`<div class="lb-os-activity-item"><i>${x[0]}</i><span>${x[1]}</span><time>${x[2]}</time></div>`).join("");
+
+    document.getElementById("lbOsRoleFeatureTitle").textContent=p.roleFeatureTitle;
+    document.getElementById("lbOsRoleFeatureSub").textContent=p.roleFeatureSub;
+    const rf=document.getElementById("lbOsRoleFeatureButtons");
+    const roleKeys=["owner","manager","worker","finance"];
+    rf.querySelectorAll("button").forEach((b,i)=>{
+      b.textContent=uiText[l].roles[i];
+      b.classList.toggle("active",roleKeys[i]===currentRole);
+      b.onclick=()=>{
+        currentRole=roleKeys[i];
+        document.querySelectorAll("#lbOsRoleToolbar button").forEach(x=>x.classList.toggle("active",x.dataset.role===currentRole));
+        applyRoleLabel();
+        renderRoleHome();
+        renderProductExperience();
+      };
+    });
+    const ritem=p.roleHome[currentRole]||p.roleHome.owner;
+    document.getElementById("lbOsRoleFeatureResult").innerHTML=`<b>${ritem[0]}</b><br>${ritem[1]}`;
+
+    document.getElementById("lbOsIntegrationTitle").textContent=p.integrationTitle;
+    document.getElementById("lbOsIntegrationSub").textContent=p.integrationSub;
+    document.getElementById("lbOsIntegrations").innerHTML=p.integrations.map(x=>`<div class="lb-os-integration ${x[2]==="connected"?"connected":""}"><b>${x[0]}</b><span>${x[1]} · ${x[2]==="connected"?p.connected:p.available}</span></div>`).join("");
+
+    document.getElementById("lbOsAiActionTitle").textContent=p.aiActionTitle;
+    document.getElementById("lbOsAiActionSub").textContent=p.aiActionSub;
+    const aa=document.getElementById("lbOsAiActions");
+    aa.innerHTML=p.aiActions.map((x,i)=>`<div class="lb-os-ai-action"><div><b>${x[0]}</b><small>${x[1]}</small></div><button type="button" data-i="${i}">${p.review}</button></div>`).join("");
+    aa.querySelectorAll("button").forEach(b=>b.onclick=()=>{
+      selectedAiAction=Number(b.dataset.i);
+      renderProductExperience();
+    });
+    document.getElementById("lbOsAiActionResult").textContent=selectedAiAction===null
+      ? p.aiChoose
+      : `${p.aiActions[selectedAiAction][0]} — ${p.aiPrepared}`;
+
+    document.getElementById("lbOsStoryTitle").textContent=p.storyTitle;
+    document.getElementById("lbOsStorySub").textContent=p.storySub;
+    const ss=document.getElementById("lbOsStorySteps");
+    ss.innerHTML=p.storySteps.map((x,i)=>`<button type="button" class="lb-os-story-step ${i===storyStep?"active":""}" data-i="${i}">${i+1}. ${x}</button>`).join("");
+    ss.querySelectorAll("button").forEach(b=>b.onclick=()=>{storyStep=Number(b.dataset.i);renderProductExperience()});
+    const sp=p.storyPanels[storyStep];
+    document.getElementById("lbOsStoryPanel").innerHTML=`<h5>${sp[0]}</h5><p>${sp[1]}</p><div class="lb-os-story-kpis"><div><b>${sp[2]}</b><small>${p.storySteps[storyStep]}</small></div><div><b>${sp[3]}</b><small>Status</small></div><div><b>${storyStep+1} / ${p.storySteps.length}</b><small>${l==="de"?"Prozess":"Process"}</small></div></div>`;
+  }
+
+  function renderRoleHome(){
+    const l=lang(), p=productExperience[l], item=p.roleHome[currentRole]||p.roleHome.owner;
+    const box=document.getElementById("lbOsRoleHome");
+    if(box)box.innerHTML=`<b>${item[0]}</b><span>${item[1]}</span>`;
+  }
+
+  function renderNav(){
+    const l=lang(),nav=document.getElementById("lbOsNav");
+    nav.innerHTML=modules.map((m,i)=>`<button type="button" data-i="${i}" class="${i===current?'active':''}">${m[1]} ${name(m,l)}</button>`).join("");
+    nav.querySelectorAll("button").forEach(b=>b.onclick=()=>{current=Number(b.dataset.i);renderNav();renderPanel()});
+  }
+
+  function genericPanel(m,l,z){
+    const title=name(m,l), description=desc(m,l), u=uiText[l];
+    return `
+      <div class="lb-os-actions"><button type="button" id="lbOsAdd">＋ ${z.add}</button></div>
+      <input class="lb-os-search" id="lbOsSearch" placeholder="${z.searchPh}">
+      <p>${description}</p>
+      <div class="lb-os-demo-grid" id="lbOsCards">
+        <div class="lb-os-card" data-search="001 ${z.sample} alpha active"><b>${z.sample} #01</b><small>${title} · 72%</small></div>
+        <div class="lb-os-card" data-search="002 ${z.sample} beta review"><b>${z.sample} #02</b><small>${title} · 44%</small></div>
+      </div>
+      <table class="lb-os-table">
+        <thead><tr><th>ID</th><th>${title}</th><th>Status</th></tr></thead>
+        <tbody id="lbOsRows">
+          <tr data-search="001 ${z.sample} a active"><td>001</td><td>${z.sample} A</td><td>${u.statusActive}</td></tr>
+          <tr data-search="002 ${z.sample} b review"><td>002</td><td>${z.sample} B</td><td>${u.statusReview}</td></tr>
+        </tbody>
+      </table>`;
+  }
+
+  function renderPanel(){
+    const l=lang(),z=t[l],m=modules[current],title=name(m,l);
+    document.getElementById("lbOsPanelTitle").textContent=title;
+    const box=document.getElementById("lbOsContent");
+
+    if(current===0){
+      box.innerHTML=`
+        <div class="lb-os-flowline">
+          <span>${l==="de"?"Lead":"Lead"}</span><em>→</em><span>${l==="de"?"Angebot":"Quote"}</span><em>→</em><span>${l==="de"?"Auftrag":"Order"}</span><em>→</em><span>${l==="de"?"Projekt / Produktion":"Project / Production"}</span><em>→</em><span>${l==="de"?"Rechnung":"Invoice"}</span><em>→</em><span>${l==="de"?"Zahlung":"Payment"}</span>
+        </div>
+        <div class="lb-os-prodash">
+          <div class="lb-os-chartbox">
+            <h5>${l==="de"?"Unternehmensentwicklung":"Business performance"}</h5>
+            <div class="lb-os-chartbars"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+          </div>
+          <div class="lb-os-sidebox">
+            <h5>${l==="de"?"KI-Hinweise":"AI insights"}</h5>
+            <div class="lb-os-alert"><b>01</b> ${l==="de"?"Projekt B-104 liegt 12 % über Materialbudget.":"Project B-104 is 12% over material budget."}</div>
+            <div class="lb-os-alert"><b>02</b> ${l==="de"?"3 Rechnungen sind überfällig.":"3 invoices are overdue."}</div>
+            <div class="lb-os-alert"><b>03</b> ${l==="de"?"2 Artikel liegen unter Mindestbestand.":"2 items are below minimum stock."}</div>
+          </div>
+        </div>`;
+      return;
+    }
+
+    if(title==="Ränge, Rollen & Verantwortungen" || title==="Ranks, Roles & Responsibilities"){
+      box.innerHTML=`
+        <p>${desc(m,l)}</p>
+        <div class="lb-rank-grid">
+          <div class="lb-rank-col"><h5>${l==="de"?"LEITUNG":"MANAGEMENT"}</h5>
+            <span class="lb-worker-chip">Anna K. <small>${l==="de"?"Betriebsleitung · Rang 1":"Operations Manager · Rank 1"}</small></span>
+          </div>
+          <div class="lb-rank-col"><h5>${l==="de"?"TEAMLEITUNG":"TEAM LEADS"}</h5>
+            <span class="lb-worker-chip">Markus B. <small>${l==="de"?"Produktion · Rang 2":"Production · Rank 2"}</small></span>
+            <span class="lb-worker-chip">Lea S. <small>${l==="de"?"Montage · Rang 2":"Installation · Rank 2"}</small></span>
+          </div>
+          <div class="lb-rank-col"><h5>${l==="de"?"FACHKRÄFTE":"SPECIALISTS"}</h5>
+            <span class="lb-worker-chip">Tom R. <small>${l==="de"?"Schweißer · Rang 3":"Welder · Rank 3"}</small></span>
+            <span class="lb-worker-chip">Mia L. <small>${l==="de"?"Elektrik · Rang 3":"Electrical · Rank 3"}</small></span>
+          </div>
+        </div>
+        <div class="lb-os-answer">${l==="de"?"Für jeden Rang können Rechte, Freigaben, Qualifikationen und Verantwortungen definiert werden.":"Permissions, approvals, qualifications and responsibilities can be defined for every rank."}</div>`;
+      return;
+    }
+
+    if(title==="Einsatz- & Schichtplanung" || title==="Workforce & Shift Scheduling"){
+      box.innerHTML=`
+        <p>${desc(m,l)}</p>
+        <div class="lb-os-actions">
+          <button type="button" id="lbAutoPlan">✦ ${l==="de"?"KI-Einsatzplan erstellen":"Create AI schedule"}</button>
+          <button type="button">＋ ${l==="de"?"Schicht hinzufügen":"Add shift"}</button>
+        </div>
+        <div id="lbShiftPlan">
+          <div class="lb-shift-row"><b>${l==="de"?"Montag":"Monday"}</b><span class="lb-shift-cell">06:00–14:00 · Markus B. · ${l==="de"?"Teamleiter":"Team Lead"}</span><span class="lb-shift-cell">Tom R. · ${l==="de"?"Schweißen":"Welding"}</span><span class="lb-shift-cell">Mia L. · ${l==="de"?"Elektrik":"Electrical"}</span></div>
+          <div class="lb-shift-row"><b>${l==="de"?"Dienstag":"Tuesday"}</b><span class="lb-shift-cell">06:00–14:00 · Lea S. · ${l==="de"?"Teamleiter":"Team Lead"}</span><span class="lb-shift-cell">Amir H. · ${l==="de"?"Montage":"Assembly"}</span><span class="lb-shift-cell">Sara P. · ${l==="de"?"Qualität":"Quality"}</span></div>
+          <div class="lb-shift-row"><b>${l==="de"?"Mittwoch":"Wednesday"}</b><span class="lb-shift-cell">14:00–22:00 · Markus B. · ${l==="de"?"Teamleiter":"Team Lead"}</span><span class="lb-shift-cell">Tom R. · ${l==="de"?"Projekt B-104":"Project B-104"}</span><span class="lb-shift-cell">Mia L. · ${l==="de"?"Projekt B-106":"Project B-106"}</span></div>
+        </div>
+        <div class="lb-os-answer" id="lbPlanNote">${l==="de"?"Plan berücksichtigt Rang, Qualifikation, Verfügbarkeit, Abwesenheit, Projektbedarf und maximale Arbeitszeit.":"The plan considers rank, qualification, availability, leave, project needs and maximum working time."}</div>`;
+      document.getElementById("lbAutoPlan").onclick=()=>{
+        document.getElementById("lbPlanNote").textContent=l==="de"
+          ?"KI-Demo: Einsatzplan optimiert. 2 Qualifikationskonflikte vermieden und Teamleiter für jede Schicht zugewiesen."
+          :"AI demo: schedule optimized. 2 qualification conflicts avoided and a team lead assigned to every shift.";
+      };
+      return;
+    }
+
+    if(title==="Wer macht was?" || title==="Who Does What?"){
+      box.innerHTML=`
+        <p>${desc(m,l)}</p>
+        <table class="lb-os-table">
+          <thead><tr><th>${l==="de"?"Mitarbeiter":"Employee"}</th><th>${l==="de"?"Rang":"Rank"}</th><th>${l==="de"?"Heute":"Today"}</th><th>${l==="de"?"Verantwortlich für":"Responsible for"}</th></tr></thead>
+          <tbody>
+            <tr><td>Markus B.</td><td>2</td><td>${l==="de"?"Produktion":"Production"}</td><td>${l==="de"?"Team A · Projekt B-104":"Team A · Project B-104"}</td></tr>
+            <tr><td>Tom R.</td><td>3</td><td>${l==="de"?"Schweißen":"Welding"}</td><td>${l==="de"?"Rahmen 12–18":"Frames 12–18"}</td></tr>
+            <tr><td>Mia L.</td><td>3</td><td>${l==="de"?"Elektrik":"Electrical"}</td><td>${l==="de"?"Kabine B-106":"Cabin B-106"}</td></tr>
+            <tr><td>Sara P.</td><td>3</td><td>${l==="de"?"Qualitätsprüfung":"Quality check"}</td><td>${l==="de"?"Endkontrolle":"Final inspection"}</td></tr>
+          </tbody>
+        </table>
+        <div class="lb-os-answer">${l==="de"?"Leitung und Manager sehen sofort, wer arbeitet, wo gearbeitet wird, an welchem Projekt, wer das Team führt und wer die Fertigstellung freigeben darf.":"The owner/manager can instantly see who is working, where, on which project, who leads the team and who can approve completion."}</div>`;
+      return;
+    }
+
+    if(m[0]==="ai"){
+      box.innerHTML=`
+        <p>${desc(m,l)}</p>
+        <div class="lb-os-ai"><input id="lbOsAiInput" placeholder="${z.askPh}"><button type="button" id="lbOsAiAsk">${z.ask}</button></div>
+        <div class="lb-os-answer" id="lbOsAiAnswer">${z.ai}</div>`;
+      document.getElementById("lbOsAiAsk").onclick=()=>{
+        const q=(document.getElementById("lbOsAiInput").value||"").toLowerCase();
+        let a=z.ai;
+        if(/owe|dug|schuld|invoice|rechnung/.test(q))a=l==="de"?"Offene Demo-Forderungen: 3 Rechnungen im Gesamtwert von 6.420 €.":"Open demo receivables: 3 invoices totaling €6,420.";
+        else if(/profit|gewinn|zarad|revenue|umsatz/.test(q))a=l==="de"?"Demo: 48.240 € Umsatz, 31.860 € Kosten, 16.380 € Ergebnis.":"Demo: €48,240 revenue, €31,860 costs, €16,380 result.";
+        else if(/project|projekt|cost|kosten|troš/.test(q))a=l==="de"?"Projekt B-104 liegt in der Demo 12 % über dem geplanten Materialbudget.":"Demo project B-104 is 12% over its planned material budget.";
+        else if(/stock|lager|material/.test(q))a=l==="de"?"Demo-Hinweis: Zwei Materialien liegen unter dem definierten Mindestbestand.":"Demo alert: two materials are below their defined minimum stock.";
+        document.getElementById("lbOsAiAnswer").textContent=a;
+      };
+      return;
+    }
+
+    box.innerHTML=genericPanel(m,l,z);
+    document.getElementById("lbOsAdd").onclick=()=>{
+      const rows=document.querySelectorAll("#lbOsRows tr").length;
+      const id=String(rows+1).padStart(3,"0");
+      document.getElementById("lbOsRows").insertAdjacentHTML("beforeend",`<tr data-search="${id} new active"><td>${id}</td><td>${z.sample} ${id}</td><td>${uiText[l].statusActive}</td></tr>`);
+    };
+    document.getElementById("lbOsSearch").oninput=e=>{
+      const q=e.target.value.toLowerCase();
+      document.querySelectorAll("#lbOsCards .lb-os-card,#lbOsRows tr").forEach(el=>el.style.display=(el.dataset.search||"").toLowerCase().includes(q)?"":"none");
+    };
+  }
+
+  function applyRoleLabel(){
+    const l=lang(), label=document.getElementById("lbOsCompany");
+    if(!label)return;
+    const map={
+      owner:l==="de"?"DEMO-UNTERNEHMEN · INHABER":"DEMO COMPANY · OWNER",
+      manager:l==="de"?"DEMO-UNTERNEHMEN · MANAGER":"DEMO COMPANY · MANAGER",
+      worker:l==="de"?"DEMO-UNTERNEHMEN · MITARBEITER":"DEMO COMPANY · WORKER",
+      finance:l==="de"?"DEMO-UNTERNEHMEN · FINANZEN":"DEMO COMPANY · FINANCE"
+    };
+    label.textContent=map[currentRole]||map.owner;
+  }
+
+  function sync(){
+    const l=lang(),z=t[l],u=uiText[l];
+    const ex=extraContent[l];
+    document.getElementById("lbOsTitle").textContent=z.title;
+    document.getElementById("lbOsSub").textContent=z.sub;
+    document.getElementById("lbOsHeroText").textContent=ex.heroText;
+    document.getElementById("lbOsPremiumBadge").textContent=u.premiumBadge;
+    u.pills.forEach((v,i)=>document.getElementById("lbOsPill"+i).textContent=v);
+    document.getElementById("lbOsHeroOverviewLabel").textContent=u.overviewLabel;
+    u.heroMetrics.forEach((v,i)=>document.getElementById("lbOsHeroMetric"+i).textContent=v);
+    u.heroFlows.forEach((v,i)=>{
+      document.getElementById("lbOsFlowB"+i).textContent=v[0];
+      document.getElementById("lbOsFlowT"+i).textContent=v[1];
+    });
+    document.getElementById("lbOsOverviewTitle").textContent=ex.overviewTitle;
+    document.getElementById("lbOsOverviewGrid").innerHTML=ex.blocks.map(b=>`<div class="lb-os-over-card"><b>${b[0]}</b><span>${b[1]}</span></div>`).join("");
+    const catIcons=["€","◎","▦","⚙","♙","⌖","◫","AI"];
+    document.getElementById("lbOsCatGrid").innerHTML=ex.cats.map((c,i)=>`<div class="lb-os-catcard"><i>${catIcons[i]||"◈"}</i><b>${c[0]}</b><span>${c[1]}</span></div>`).join("");
+    document.getElementById("lbOsProductText").textContent=z.product;
+    document.getElementById("lbOsDemoLink").textContent=z.demo;
+    document.getElementById("lbOsHeroDemoLink").textContent=z.demo;
+    document.getElementById("lbOsHeroBtn2").textContent=ex.heroBtn2;
+    document.getElementById("lbOsDemoKicker").textContent=u.demoKicker;
+    document.getElementById("lbOsDemoTitle").textContent=z.demoTitle;
+    document.getElementById("lbOsDemoSub").textContent=z.demoSub;
+    document.getElementById("lbOsAppTitle").textContent=u.appTitle;
+    const roleIdx=currentRole==="owner"?0:currentRole==="manager"?1:currentRole==="worker"?2:3;
+    document.getElementById("lbOsAppView").textContent=u.roles[roleIdx];
+    u.appNav.forEach((v,i)=>document.getElementById("lbOsAppNav"+i).textContent=v);
+    u.appMetrics.forEach((v,i)=>document.getElementById("lbOsAppM"+i).textContent=v);
+    u.roles.forEach((v,i)=>document.getElementById("lbOsRole"+i).textContent=v);
+    document.getElementById("lbOsNote").textContent=z.note;
+    z.metrics.forEach((v,i)=>document.getElementById("lbOsM"+i).textContent=v);
+    document.querySelectorAll(".lb-os-slide").forEach((el,i)=>{
+      el.querySelector("h4").textContent=name(modules[i],l);
+      el.querySelector("p").textContent=desc(modules[i],l);
+      el.querySelector(".lb-os-glass span").textContent=name(modules[i],l);
+    });
+    renderCats(false);renderNav();renderPanel();applyRoleLabel();renderProductExperience();renderRoleHome();
+  }
+
+  document.querySelectorAll("#lbOsRoleToolbar button").forEach(btn=>btn.addEventListener("click",()=>{
+    document.querySelectorAll("#lbOsRoleToolbar button").forEach(x=>x.classList.remove("active"));
+    btn.classList.add("active");
+    currentRole=btn.dataset.role||"owner";
+    document.getElementById("lbOsAppView").textContent=uiText[lang()].roles[
+      currentRole==="owner"?0:currentRole==="manager"?1:currentRole==="worker"?2:3
+    ];
+    applyRoleLabel();renderRoleHome();
+  }));
+
+  sync();
+  document.getElementById("deBtn")?.addEventListener("click",()=>setTimeout(sync,0));
+  document.getElementById("enBtn")?.addEventListener("click",()=>setTimeout(sync,0));
+})();
+</script>
+
 
