@@ -38,11 +38,11 @@ button.small{font-size:13px;padding:9px 12px}
 .eyebrow{font-size:11px;font-weight:900;letter-spacing:.18em;color:#69d6ff;margin-bottom:10px}
 .heading p{margin-bottom:0}
 .actions{display:flex;gap:10px;flex-wrap:wrap}
-.metrics{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:13px;margin:25px 0}
+.metrics{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:13px;margin:25px 0}
 .metric{padding:19px 21px;border:1px solid var(--line);background:linear-gradient(130deg,rgba(17,36,77,.94),rgba(9,19,44,.96));border-radius:17px}
 .metric small{display:block;color:var(--muted);font-size:13px}
 .metric strong{display:block;font-size:29px;margin-top:6px;color:#d9f4ff}
-.controls{display:grid;grid-template-columns:minmax(190px,1fr) 190px;gap:12px;margin:16px 0 20px}
+.controls{display:grid;grid-template-columns:minmax(190px,1fr) 190px 190px;gap:12px;margin:16px 0 20px}
 .tablewrap{overflow:auto;border-radius:16px;border:1px solid var(--line)}
 table{border-collapse:collapse;width:100%;min-width:950px}
 thead{background:#15264d}
@@ -55,7 +55,7 @@ td .sub{display:block;font-size:12px;color:#93a9ce}
 .pill.new{background:rgba(44,145,233,.18);color:#8ce0ff}
 .pill.completed{background:rgba(33,152,112,.18);color:#7fe7c0}
 .pill.cancelled{background:rgba(202,77,103,.17);color:#ffadbd}
-.pill.test{color:#bdc4d6}
+.pill.test{color:#bdc4d6}.test-tag{display:inline-block;margin-left:6px;padding:2px 7px;border:1px solid rgba(205,188,255,.36);border-radius:8px;background:rgba(125,92,190,.17);font-size:11px;font-weight:800;color:#cfc2ff}.test-control{display:flex;align-items:center;gap:10px;margin-top:18px;padding:12px 14px;border:1px solid rgba(143,120,231,.25);border-radius:12px;background:rgba(115,80,199,.1)}.test-control input{width:18px;height:18px;accent-color:#885dff;flex-shrink:0}.test-control label{margin:0;cursor:pointer}.test-control small{display:block;font-weight:400;color:var(--muted)}
 .empty{text-align:center;padding:32px;color:var(--muted)}
 dialog{border:1px solid rgba(113,166,255,.35);border-radius:22px;color:var(--text);background:linear-gradient(145deg,#101f42,#070f28);width:min(650px,calc(100% - 24px));max-height:85vh;overflow:auto;box-shadow:0 30px 100px rgba(0,0,0,.7)}
 dialog::backdrop{background:rgba(0,4,16,.82)}
@@ -95,19 +95,19 @@ dialog::backdrop{background:rgba(0,4,16,.82)}
 <div class="metric"><small>Ukupno zahtjeva</small><strong id="totalCount">0</strong></div>
 <div class="metric"><small>Novi zahtjevi</small><strong id="newCount">0</strong></div>
 <div class="metric"><small>U obradi</small><strong id="workingCount">0</strong></div>
-<div class="metric"><small>Vrijednost upita*</small><strong id="totalValue">€0</strong></div>
+<div class="metric"><small>Vrijednost stvarnih upita*</small><strong id="totalValue">€0</strong></div><div class="metric"><small>Testne narudžbe</small><strong id="testCount">0</strong></div>
 </div>
 <section class="card">
-<div class="controls"><div><label for="search">Pretraži narudžbe</label><input id="search" placeholder="Ime, firma, kontakt ili paket"></div><div><label for="filter">Status</label><select id="filter"><option value="">Svi statusi</option><option value="new">Novo</option><option value="contacted">Kontaktiran</option><option value="in_progress">U obradi</option><option value="completed">Završeno</option><option value="cancelled">Otkazano</option><option value="test">Test</option></select></div></div>
+<div class="controls"><div><label for="search">Pretraži narudžbe</label><input id="search" placeholder="Ime, firma, kontakt ili paket"></div><div><label for="filter">Status</label><select id="filter"><option value="">Svi statusi</option><option value="new">Novo</option><option value="contacted">Kontaktiran</option><option value="in_progress">U obradi</option><option value="completed">Završeno</option><option value="cancelled">Otkazano</option><option value="test">Test (stari status)</option></select></div><div><label for="typeFilter">Vrsta narudžbe</label><select id="typeFilter"><option value="real">Stvarne narudžbe</option><option value="test">Samo testne</option><option value="all">Sve narudžbe</option></select></div></div>
 <div class="tablewrap"><table><thead><tr><th>Datum</th><th>Paket</th><th>Kupac / firma</th><th>Kontakt</th><th>Iznos</th><th>Status</th><th>Detalji</th></tr></thead><tbody id="rows"><tr><td colspan="7" class="empty">Učitavanje...</td></tr></tbody></table></div>
 <div id="dashboardStatus" class="status" role="status" aria-live="polite"></div>
-<p class="note">* Informativna vrijednost zahtjeva, ne naplaćeni prihod. Testne narudžbe se ne računaju.</p>
+<p class="note">* Informativna vrijednost zahtjeva, ne naplaćeni prihod. Testne narudžbe su odvojene i ne ulaze u statistiku. Neprepoznate testove možeš ručno označiti.</p>
 </section>
 </section>
 </main>
 <dialog id="detailDialog" aria-label="Detalji narudžbe">
 <div style="display:flex;align-items:center;justify-content:space-between;gap:14px"><h2>Detalji narudžbe</h2><button class="ghost small" id="closeDialog" type="button">✕</button></div>
-<dl class="details" id="detailList"></dl>
+<dl class="details" id="detailList"></dl><div class="test-control"><input type="checkbox" id="isTest"><label for="isTest">Testna narudžba <small>Isključi iz statistike stvarnih upita. Status obrade ostaje zaseban.</small></label></div>
 <div class="dialog-actions"><select id="statusSelect" aria-label="Promijeni status" style="max-width:230px"><option value="new">Novo</option><option value="contacted">Kontaktiran</option><option value="in_progress">U obradi</option><option value="completed">Završeno</option><option value="cancelled">Otkazano</option><option value="test">Test</option></select><button id="saveStatus" type="button">Sačuvaj status</button></div>
 <div id="detailStatus" class="status" role="status" aria-live="polite"></div>
 </dialog>
@@ -126,16 +126,20 @@ window.addEventListener("DOMContentLoaded",async()=>{
  const message=(id,msg,err=false)=>{const el=$(id);el.textContent=msg;el.style.color=err?"#ff9faf":"#7fe7c0";};
  async function loadOrders(){
    message("dashboardStatus","Učitavam...");
-   const {data,error}=await db.from("orders").select("id,created_at,customer_name,company_name,email,phone_whatsapp,country,package_name,total_eur,note,language,status").order("created_at",{ascending:false}).limit(500);
+   const {data,error}=await db.from("orders").select("id,created_at,customer_name,company_name,email,phone_whatsapp,country,package_name,total_eur,note,language,status,is_test").order("created_at",{ascending:false}).limit(500);
    if(error){message("dashboardStatus","Greška pri učitavanju: "+error.message,true);return;}
    orders=Array.isArray(data)?data:[];
-   const real=orders.filter(o=>o.status!=="test");
+   updateMetrics();
+   render();
+   message("dashboardStatus","Učitano "+orders.length+" zapisa. Prikazuje se najviše 500 najnovijih.");
+ }
+ function updateMetrics(){
+   const real=orders.filter(o=>!o.is_test&&o.status!=="test");
    $("totalCount").textContent=String(real.length);
    $("newCount").textContent=String(real.filter(o=>o.status==="new").length);
    $("workingCount").textContent=String(real.filter(o=>["contacted","in_progress"].includes(o.status)).length);
    $("totalValue").textContent=euro(real.reduce((sum,o)=>sum+(Number(o.total_eur)||0),0));
-   render();
-   message("dashboardStatus","Učitano "+orders.length+" zapisa. Prikazuje se najviše 500 najnovijih.");
+   $("testCount").textContent=String(orders.length-real.length);
  }
  function cell(row,value,sub){
    const td=document.createElement("td");
@@ -144,8 +148,8 @@ window.addEventListener("DOMContentLoaded",async()=>{
    row.appendChild(td);
  }
  function render(){
-   const term=$("search").value.trim().toLowerCase(),filter=$("filter").value;
-   const rows=orders.filter(o=>(!filter||o.status===filter)&&(!term||[o.customer_name,o.company_name,o.email,o.phone_whatsapp,o.package_name,o.country].some(x=>String(x||"").toLowerCase().includes(term))));
+   const term=$("search").value.trim().toLowerCase(),filter=$("filter").value,type=$("typeFilter").value;
+   const rows=orders.filter(o=>(type==="all"||(type==="test"?Boolean(o.is_test||o.status==="test"):!o.is_test&&o.status!=="test"))&&(!filter||o.status===filter)&&(!term||[o.customer_name,o.company_name,o.email,o.phone_whatsapp,o.package_name,o.country].some(x=>String(x||"").toLowerCase().includes(term))));
    const tbody=$("rows");tbody.replaceChildren();
    if(!rows.length){const tr=document.createElement("tr"),td=document.createElement("td");td.colSpan=7;td.className="empty";td.textContent="Nema rezultata.";tr.appendChild(td);tbody.appendChild(tr);return;}
    for(const o of rows){
@@ -156,7 +160,7 @@ window.addEventListener("DOMContentLoaded",async()=>{
      cell(tr,o.email,o.phone_whatsapp);
      cell(tr,euro(o.total_eur));
      const st=document.createElement("td"),pill=document.createElement("span");
-     pill.className="pill "+String(o.status||"").replace(/[^a-z_]/g,"");pill.textContent=statuses[o.status]||o.status||"—";st.appendChild(pill);tr.appendChild(st);
+     pill.className="pill "+String(o.status||"").replace(/[^a-z_]/g,"");pill.textContent=statuses[o.status]||o.status||"—";st.appendChild(pill);if(o.is_test&&o.status!=="test"){const tag=document.createElement("span");tag.className="test-tag";tag.textContent="TEST";st.appendChild(tag);}tr.appendChild(st);
      const action=document.createElement("td"),btn=document.createElement("button");btn.type="button";btn.className="ghost small";btn.textContent="Otvori";btn.addEventListener("click",()=>openOrder(o.id));action.appendChild(btn);tr.appendChild(action);tbody.appendChild(tr);
    }
  }
@@ -167,6 +171,7 @@ window.addEventListener("DOMContentLoaded",async()=>{
    const list=$("detailList");list.replaceChildren();
    for(const [k,v] of fields){const dt=document.createElement("dt"),dd=document.createElement("dd");dt.textContent=k;dd.textContent=String(v??"—");list.append(dt,dd);}
    $("statusSelect").value=statuses[o.status]?o.status:"new";
+   $("isTest").checked=Boolean(o.is_test||o.status==="test");
    message("detailStatus","");
    $("detailDialog").showModal();
  }
@@ -193,21 +198,22 @@ window.addEventListener("DOMContentLoaded",async()=>{
  $("refresh").addEventListener("click",loadOrders);
  $("search").addEventListener("input",render);
  $("filter").addEventListener("change",render);
+ $("typeFilter").addEventListener("change",render);
  $("closeDialog").addEventListener("click",()=>$("detailDialog").close());
  $("saveStatus").addEventListener("click",async()=>{
    if(!currentId)return;
-   const status=$("statusSelect").value;
+   const status=$("statusSelect").value,is_test=$("isTest").checked;
    if(!statuses[status])return;
    $("saveStatus").disabled=true;
-   const {error}=await db.from("orders").update({status}).eq("id",currentId);
+   const {error}=await db.from("orders").update({status,is_test}).eq("id",currentId);
    $("saveStatus").disabled=false;
    if(error){message("detailStatus","Status nije sačuvan: "+error.message,true);return;}
-   const o=orders.find(x=>x.id===currentId);if(o)o.status=status;
-   render();message("detailStatus","Status je sačuvan.");
+   const o=orders.find(x=>x.id===currentId);if(o){o.status=status;o.is_test=is_test;}
+   updateMetrics();render();message("detailStatus","Promjene su sačuvane.");
    setTimeout(()=>$("detailDialog").close(),450);
  });
  $("export").addEventListener("click",()=>{
-   const cols=["created_at","customer_name","company_name","email","phone_whatsapp","country","package_name","total_eur","status","note"];
+   const cols=["created_at","customer_name","company_name","email","phone_whatsapp","country","package_name","total_eur","status","is_test","note"];
    const safe=v=>{let t=String(v??"").replaceAll('"','""');if(/^[=+\-@\t\r]/.test(t))t="'"+t;return '"'+t+'"';};
    const csv="\ufeff"+[cols.join(";"),...orders.map(o=>cols.map(c=>safe(o[c])).join(";"))].join("\r\n");
    const blob=new Blob([csv],{type:"text/csv;charset=utf-8"}),url=URL.createObjectURL(blob),a=document.createElement("a");
