@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://logobossweb-ai.eu/sitemap.xml
