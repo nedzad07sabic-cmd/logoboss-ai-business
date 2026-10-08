@@ -838,5 +838,81 @@ updateFeatureLanguage();
     send(payload,custom.querySelector('button[type="submit"]'),document.getElementById("customFormNotice"),packages,0,language);
   });
 })();
+</script><style id="lb-bilingual-mini-demo-style">
+.lb-demo-note{padding:8px 14px;background:rgba(25,44,87,.75);border-top:1px solid rgba(93,152,255,.20);color:#93b4df;font-size:11px;line-height:1.4}
+.chatinput button{background:linear-gradient(120deg,#27bdeb,#397fff,#8559e6)!important;color:white!important;border:1px solid rgba(121,187,255,.3)!important;border-radius:11px!important}
+</style>
+<script id="lb-bilingual-mini-demo-20261008">
+(function(){
+ const lang=()=>localStorage.getItem("lb_lang")==="en"?"en":"de";
+ const de={
+  welcome:"Hallo! Ich bin die LogoBoss Demo. Fragen Sie mich nach Websites, Paketen, Preisen, Terminbuchung oder Automatisierung.",
+  placeholder:"Ihre Frage eingeben...",send:"Senden",
+  note:"Demo mit vorbereiteten Antworten · Keine persönlichen Daten eingeben.",
+  start:"START kostet 149 € und enthält eine responsive Website, Leistungen, Kontakt und eine Terminanfrage.",
+  business:"BUSINESS AI kostet 299 € und erweitert START um Online-Terminbuchung, KI-Chat-Option und Automatisierung.",
+  pro:"AI PRO kostet 499 € und ergänzt KI-Telefonie, E-Mail-Automatisierung und Lead-Nachverfolgung. Anbieter- und Telefonkosten können zusätzlich anfallen.",
+  prices:"Unsere Pakete: START 149 €, BUSINESS AI 299 € und AI PRO 499 €. Individuelle Lösungen können wir separat besprechen.",
+  booking:"Eine Online-Terminbuchung ist im BUSINESS AI und AI PRO Paket vorgesehen. Wir können sie auch individuell anbieten.",
+  contact:"Für ein individuelles Angebot nutzen Sie bitte das Anfrageformular auf dieser Website. Unser Team meldet sich persönlich.",
+  lang:"Ja, unsere Website ist auf Deutsch und Englisch verfügbar. Mehrsprachige Kundenlösungen können individuell geplant werden.",
+  ai:"LogoBoss bietet KI-Chat, Telefon- und E-Mail-Automatisierung als mögliche Lösungen. Dies ist eine Demo mit vorbereiteten Antworten, kein Live-KI-Modell.",
+  other:"Ich helfe bei Fragen zu Websites, Preisen, Buchungen und KI-Automatisierung. Was möchten Sie für Ihr Unternehmen umsetzen?"
+ };
+ const en={
+  welcome:"Hi! I'm the LogoBoss demo. Ask about websites, packages, pricing, online booking or automation.",
+  placeholder:"Type your question...",send:"Send",
+  note:"Demo with prepared answers · Please do not enter personal data.",
+  start:"START costs €149 and includes a responsive website, services, contact details and appointment requests.",
+  business:"BUSINESS AI costs €299 and adds online booking, an AI chat option and automation to START.",
+  pro:"AI PRO costs €499 and adds AI phone, email automation and lead follow-up. External phone and AI usage may cost extra.",
+  prices:"Our packages are START €149, BUSINESS AI €299 and AI PRO €499. We can also discuss custom solutions.",
+  booking:"Online booking is included in the BUSINESS AI and AI PRO offers. We can also discuss it as a custom feature.",
+  contact:"For a custom quote, please use the inquiry form on this website. Our team will contact you personally.",
+  lang:"Yes, the website is available in German and English. Multilingual client projects can be discussed.",
+  ai:"LogoBoss offers AI chat, phone and email automation options. This is a scripted demonstration, not a live AI model.",
+  other:"I can answer questions about websites, packages, pricing, booking and AI automation. What would you like to build?"
+ };
+ const t=()=>lang()==="de"?de:en;
+ function append(text,kind){
+  const list=document.getElementById("miniMsgs");if(!list)return;
+  const bubble=document.createElement("div");bubble.className="bubble "+kind;bubble.textContent=text;list.appendChild(bubble);list.scrollTop=list.scrollHeight;
+ }
+ function answer(q){
+  const z=q.toLowerCase(),a=t();
+  if(/\b(pro|499|telefon|phone|anruf|call)\b/i.test(z))return a.pro;
+  if(/\b(business|299)\b/i.test(z))return a.business;
+  if(/\b(start|149)\b/i.test(z))return a.start;
+  if(/preis|price|cost|kosten|paket|package/.test(z))return a.prices;
+  if(/termin|booking|appointment|reserv|buchung/.test(z))return a.booking;
+  if(/kontakt|contact|angebot|quote|bestell|order|email/.test(z))return a.contact;
+  if(/sprach|language|deutsch|english|german/.test(z))return a.lang;
+  if(/\b(ai|ki|automat|chatbot|bot)\b/.test(z))return a.ai;
+  if(/website|webseite|homepage|webdesign/.test(z))return a.start;
+  return a.other;
+ }
+ window.miniSend=function(){
+  const input=document.getElementById("miniInput");if(!input)return;
+  const q=input.value.trim().slice(0,600);if(!q)return;
+  append(q,"user");input.value="";
+  const response=answer(q);
+  setTimeout(()=>append(response,"bot"),180);
+ };
+ function sync(){
+  const a=t(),box=document.getElementById("miniChat");if(!box)return;
+  const head=box.querySelector(".chathead span"),input=document.getElementById("miniInput"),send=box.querySelector(".chatinput button");
+  if(head)head.textContent="✦ LogoBoss Web AI · Demo";
+  if(input)input.placeholder=a.placeholder;
+  if(send)send.textContent=a.send;
+  let note=box.querySelector(".lb-demo-note");
+  if(!note){note=document.createElement("div");note.className="lb-demo-note";box.querySelector(".chatinput")?.before(note);}
+  note.textContent=a.note;
+  const bubbles=box.querySelectorAll(".chatmsgs .bubble");
+  if(bubbles.length===1&&bubbles[0].classList.contains("bot"))bubbles[0].textContent=a.welcome;
+ }
+ sync();
+ document.getElementById("deBtn")?.addEventListener("click",()=>setTimeout(sync,0));
+ document.getElementById("enBtn")?.addEventListener("click",()=>setTimeout(sync,0));
+})();
 </script></body></html>
 
