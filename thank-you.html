@@ -1,1 +1,98 @@
-<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Order received - LOGO BOSS</title><style>body{margin:0;background:#08090b;color:#f7f5ef;font-family:Arial;display:grid;place-items:center;min-height:100vh}.box{max-width:650px;text-align:center;padding:45px 25px}.ok{font-size:70px;color:#d8ad55}h1{font-size:40px}p{color:#bbb;line-height:1.7;font-size:18px}a{display:inline-block;margin-top:20px;padding:14px 22px;border-radius:12px;background:#d8ad55;color:#111;text-decoration:none;font-weight:900}</style></head><body><div class="box"><div class="ok">✓</div><h1>Order received!</h1><p>Your request has been saved successfully. Logo Boss administration will contact you shortly. No payment is required now.</p><a href="./">Back to LOGO BOSS</a></div></body></html>
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Bestellung erhalten · LogoBoss Web AI</title>
+<meta name="description" content="LogoBoss Web AI bestätigt den Eingang Ihrer Anfrage.">
+<style>
+:root{--bg:#050817;--card:#0b1734;--cyan:#51d7ff;--blue:#397fff;--violet:#8d5cff;--text:#f5faff;--muted:#aabada}
+*{box-sizing:border-box}
+html{min-height:100%;background:var(--bg)}
+body{margin:0;min-height:100vh;font:16px/1.65 Arial,Helvetica,sans-serif;color:var(--text);background:radial-gradient(circle at 18% 14%,rgba(57,127,255,.18),transparent 30%),radial-gradient(circle at 85% 20%,rgba(141,92,255,.20),transparent 32%),linear-gradient(150deg,#050817,#08112a 58%,#040817);display:flex;flex-direction:column;overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.38;background-image:linear-gradient(rgba(88,152,255,.055) 1px,transparent 1px),linear-gradient(90deg,rgba(88,152,255,.055) 1px,transparent 1px);background-size:56px 56px;mask-image:linear-gradient(180deg,black,transparent 85%)}
+a{color:inherit}
+header{position:relative;z-index:1;padding:19px clamp(20px,5vw,72px);border-bottom:1px solid rgba(94,157,255,.16);background:rgba(4,9,24,.58);backdrop-filter:blur(15px)}
+.brand{display:inline-flex;align-items:center;gap:12px;text-decoration:none;font-size:18px;font-weight:900;letter-spacing:.02em}
+.brand img{width:45px;height:45px;border-radius:11px;object-fit:contain;box-shadow:0 0 25px rgba(78,134,255,.21)}
+.brand b{background:linear-gradient(95deg,#4cddff,#7a93ff,#af74ff);background-clip:text;-webkit-background-clip:text;color:transparent}
+main{width:100%;flex:1;display:grid;place-items:center;padding:56px 18px 68px;position:relative;z-index:1}
+.panel{width:min(690px,100%);position:relative;overflow:hidden;text-align:center;padding:clamp(32px,5vw,58px);border:1px solid rgba(116,166,255,.31);border-radius:28px;background:radial-gradient(circle at 82% 6%,rgba(121,87,245,.17),transparent 37%),linear-gradient(150deg,rgba(16,33,72,.94),rgba(6,12,32,.96));box-shadow:0 30px 95px rgba(0,0,0,.46),inset 0 1px rgba(255,255,255,.06)}
+.panel:before{content:"";position:absolute;left:12%;right:12%;top:0;height:2px;background:linear-gradient(90deg,transparent,#51dbff,#8b5cff,transparent)}
+.success{display:grid;place-items:center;margin:0 auto 22px;width:94px;height:94px;border:1px solid rgba(112,208,255,.5);border-radius:28px;background:linear-gradient(145deg,rgba(38,157,235,.2),rgba(120,81,249,.23));box-shadow:0 0 36px rgba(47,164,255,.19),inset 0 0 30px rgba(98,165,255,.12);font-size:54px;font-weight:700;color:#7be6ff}
+.eyebrow{display:inline-block;padding:7px 15px;border-radius:100px;border:1px solid rgba(114,181,255,.22);background:rgba(29,63,122,.28);font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:#9cceff;font-weight:850}
+h1{margin:18px 0 13px;font-size:clamp(32px,6vw,48px);line-height:1.12;letter-spacing:-.04em}
+h1 span{background:linear-gradient(95deg,#50dfff,#5694ff,#ae7dff);background-clip:text;-webkit-background-clip:text;color:transparent}
+.lead{color:var(--muted);max-width:540px;margin:0 auto 24px;font-size:17px}
+.receipt{display:none;text-align:left;padding:19px 21px;margin:26px 0 16px;border-radius:18px;border:1px solid rgba(110,167,255,.20);background:rgba(5,15,40,.70)}
+.receipt h2{margin:0 0 10px;font-size:14px;text-transform:uppercase;letter-spacing:.10em;color:#8ec8ff}
+.receipt-row{display:flex;justify-content:space-between;gap:18px;padding:10px 0;border-bottom:1px solid rgba(112,154,255,.12);font-size:15px}
+.receipt-row:last-child{border-bottom:0}
+.receipt-row span:last-child{white-space:nowrap;color:#84ddff;font-weight:900}
+.receipt-row.total{font-weight:900}
+.note{font-size:13px;color:#a8bbdb;line-height:1.65;margin:20px 0}
+.actions{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:24px}
+.btn{display:inline-flex;justify-content:center;align-items:center;min-height:51px;padding:13px 26px;border-radius:14px;text-decoration:none;font-size:14px;font-weight:900}
+.btn.primary{color:white;background:linear-gradient(115deg,#2fcfff,#397fff 54%,#8d5cff);border:1px solid rgba(145,217,255,.25);box-shadow:0 12px 34px rgba(54,118,255,.23)}
+.btn.secondary{color:#cbe7ff;background:rgba(13,31,67,.65);border:1px solid rgba(100,167,255,.32)}
+footer{position:relative;z-index:1;padding:18px;text-align:center;font-size:12px;color:#8295ba;border-top:1px solid rgba(88,150,255,.12)}
+@media(max-width:540px){header{padding:15px 17px}.brand{font-size:15px}.brand img{width:37px;height:37px}main{padding:30px 14px 44px}.panel{padding:30px 21px}.actions{flex-direction:column}.btn{width:100%}.receipt{padding:15px}.lead{font-size:15px}}
+</style>
+</head>
+<body>
+<header><a class="brand" href="./"><img src="logo-boss.svg" alt="LogoBoss Web AI Logo"><span>LogoBoss <b>Web AI</b></span></a></header>
+<main>
+  <section class="panel" aria-labelledby="successTitle">
+    <div class="success" aria-hidden="true">✓</div>
+    <div class="eyebrow" id="eyebrow">ANFRAGE EINGEGANGEN</div>
+    <h1 id="successTitle">Vielen Dank! <span>Ihre Anfrage ist da.</span></h1>
+    <p class="lead" id="lead">Ihre Anfrage wurde erfolgreich gespeichert. Das LogoBoss Web AI Team meldet sich, um die Details mit Ihnen abzustimmen.</p>
+    <div class="receipt" id="receipt" aria-label="Bestellübersicht">
+      <h2 id="summaryTitle">Ihre Auswahl</h2>
+      <div id="items"></div>
+      <div class="receipt-row total"><span id="totalLabel">Gesamt</span><span id="totalPrice"></span></div>
+    </div>
+    <p class="note" id="note">Keine Online-Zahlung erforderlich. Dies ist eine Anfrage, keine verbindliche Zahlung.</p>
+    <div class="actions"><a href="./#packages" class="btn primary" id="packagesBtn">Zurück zu LogoBoss</a><a href="./#portfolio" class="btn secondary" id="demosBtn">Demo-Projekte ansehen</a></div>
+  </section>
+</main>
+<footer>© 2026 LogoBoss Web AI · logobossweb-ai.eu</footer>
+<script>
+(function(){
+  const p=new URLSearchParams(location.search);
+  let receipt=null;
+  try{receipt=JSON.parse(sessionStorage.getItem("lb_last_order")||"null")}catch(e){}
+  const language=p.get("lang")==="en"||receipt?.language==="en"?"en":"de";
+  const dict={
+    de:{title:"Bestellung erhalten · LogoBoss Web AI",eyebrow:"ANFRAGE EINGEGANGEN",heading:"Vielen Dank!",accent:"Ihre Anfrage ist da.",lead:"Ihre Anfrage wurde erfolgreich gespeichert. Das LogoBoss Web AI Team meldet sich, um die Details mit Ihnen abzustimmen.",selection:"Ihre Auswahl",total:"Gesamt",note:"Keine Online-Zahlung erforderlich. Dies ist eine Anfrage und noch kein bestätigter Auftrag.",back:"Zurück zu LogoBoss",demos:"Demo-Projekte ansehen"},
+    en:{title:"Order received · LogoBoss Web AI",eyebrow:"REQUEST RECEIVED",heading:"Thank you!",accent:"Your request is in.",lead:"Your request has been saved successfully. The LogoBoss Web AI team will contact you to discuss the details.",selection:"Your selection",total:"Total",note:"No online payment is required. This is a request, not a confirmed paid order.",back:"Back to LogoBoss",demos:"Explore demo projects"}
+  };
+  const t=dict[language];
+  document.documentElement.lang=language;document.title=t.title;
+  document.getElementById("eyebrow").textContent=t.eyebrow;
+  const heading=document.getElementById("successTitle");
+  heading.textContent=t.heading+" ";
+  const accent=document.createElement("span");accent.textContent=t.accent;heading.appendChild(accent);
+  document.getElementById("lead").textContent=t.lead;
+  document.getElementById("summaryTitle").textContent=t.selection;
+  document.getElementById("totalLabel").textContent=t.total;
+  document.getElementById("note").textContent=t.note;
+  document.getElementById("packagesBtn").textContent=t.back;
+  document.getElementById("demosBtn").textContent=t.demos;
+  const now=Date.now();
+  if(receipt&&Array.isArray(receipt.packages)&&receipt.packages.length&&Number(receipt.created_at)>now-3600000){
+    const target=document.getElementById("items");
+    for(const item of receipt.packages){
+      const row=document.createElement("div");row.className="receipt-row";
+      const name=document.createElement("span");name.textContent=String(item.name||"");
+      const amount=document.createElement("span");amount.textContent="€"+Number(item.price||0).toFixed(0);
+      row.append(name,amount);target.appendChild(row);
+    }
+    document.getElementById("totalPrice").textContent="€"+Number(receipt.total||0).toFixed(0);
+    document.getElementById("receipt").style.display="block";
+  }
+})();
+</script>
+</body>
+</html>
