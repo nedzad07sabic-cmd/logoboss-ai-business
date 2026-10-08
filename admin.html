@@ -205,12 +205,35 @@ window.addEventListener("DOMContentLoaded",async()=>{
    const status=$("statusSelect").value,is_test=$("isTest").checked;
    if(!statuses[status])return;
    $("saveStatus").disabled=true;
-   const {error}=await db.from("orders").update({status,is_test}).eq("id",currentId);
+   const {data:{session}}=await db.auth.getSession();
+   if(!session?.access_token){
+     $("saveStatus").disabled=false;
+     message("detailStatus","Prijava je istekla. Prijavi se ponovo.",true);
+     return;
+   }
+   let result;
+   try{
+     const response=await fetch(API_URL+"/functions/v1/update-order-status",{
+       method:"POST",
+       headers:{"Content-Type":"application/json","Authorization":"Bearer "+session.access_token,"apikey":PUBLIC_KEY},
+       body:JSON.stringify({id:currentId,status,is_test})
+     });
+     result=await response.json();
+     if(!response.ok||!result?.success)throw new Error(result?.error||"Server nije prihvatio promjenu");
+   }catch(error){
+     $("saveStatus").disabled=false;
+     message("detailStatus","Promjena nije sačuvana: "+(error?.message||"Pokušaj ponovo"),true);
+     return;
+   }
    $("saveStatus").disabled=false;
-   if(error){message("detailStatus","Status nije sačuvan: "+error.message,true);return;}
    const o=orders.find(x=>x.id===currentId);if(o){o.status=status;o.is_test=is_test;}
-   updateMetrics();render();message("detailStatus","Promjene su sačuvane.");
-   setTimeout(()=>$("detailDialog").close(),450);
+   updateMetrics();render();
+   if(result.notification_reason==="email_provider_unavailable"||result.notification_reason==="email_not_configured"){
+     message("detailStatus","Status je sačuvan, ali email kupcu nije poslan. Potrebna je verifikacija email domene.",true);
+     return;
+   }
+   message("detailStatus",result.notification_sent?"Status sačuvan. Email obavijest je poslana kupcu.":"Promjene su sačuvane.");
+   setTimeout(()=>$("detailDialog").close(),950);
  });
  $("export").addEventListener("click",()=>{
    const cols=["created_at","customer_name","company_name","email","phone_whatsapp","country","package_name","total_eur","status","is_test","note"];
