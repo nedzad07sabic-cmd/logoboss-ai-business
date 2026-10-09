@@ -107,3 +107,38 @@ body{background:#060915}
 @media(max-width:700px){.lb-safe-grid[data-visible-count="2"]{grid-template-columns:minmax(0,1fr)}}
 
 .globe-static-fallback:after{content:"";position:absolute;inset:15%;border-radius:50%;background:radial-gradient(circle at 28% 25%,#21395f,#091227 65%,#445284);border:1px solid #697aca66;box-shadow:0 0 50px #5b6ade22;z-index:0}
+
+/* Keep each illustration inside its physical screen at smaller sizes. */
+.motion-step-list,.motion-package-picker{scrollbar-width:none}
+.motion-step-list::-webkit-scrollbar,.motion-package-picker::-webkit-scrollbar{display:none}
+.fx-login .fx-lock{margin-top:13px;margin-bottom:10px}
+.fx-visual[data-visual="form"] .fx-content{height:calc(100% - 35px);display:flex;flex-direction:column;padding:18px 25px;gap:8px}
+.fx-visual[data-visual="form"] h4{font-size:23px;margin:4px 0 7px}
+.fx-visual[data-visual="form"] .fx-field{margin:0;padding:9px 12px}
+.fx-visual[data-visual="form"] .fx-field-large{height:auto;flex:1;min-height:28px}
+.fx-visual[data-visual="form"] .fx-action{margin:0;padding:10px}
+.fx-visual[data-flows="3"] .fx-pipelines{min-height:130px;gap:14px}
+.fx-visual[data-flows="3"] .fx-pipe-node{height:38px}
+.fx-approval-symbol{width:62px;height:66px;font-size:28px;margin:13px auto 16px}
+.fx-visual[data-visual="approval"] h4{font-size:23px;margin-bottom:13px}
+@media(max-width:700px){
+.fx-login .fx-lock{margin-top:8px;margin-bottom:7px}
+.fx-visual[data-visual="form"] .fx-content{height:calc(100% - 27px);padding:14px 19px;gap:6px}
+.fx-visual[data-visual="form"] h4{font-size:18px;margin:3px 0 5px}
+.fx-visual[data-visual="form"] .fx-field{padding:6px 8px}
+.fx-visual[data-visual="form"] .fx-field-large{min-height:22px}
+.fx-visual[data-visual="form"] .fx-action{padding:7px}
+.fx-visual[data-flows="3"] .fx-pipelines{min-height:96px;gap:9px;padding:3px 0 8px}
+.fx-visual[data-flows="3"] .fx-pipe-node{height:23px}
+.fx-approval-symbol{width:44px;height:49px;font-size:23px;margin:10px auto 11px}
+.fx-visual[data-visual="approval"] h4{font-size:18px;margin-bottom:9px}
+}
+@media(max-width:700px) and (max-height:750px){
+.fx-login .fx-lock{margin:7px auto 6px}
+.fx-visual[data-visual="form"] .fx-content{padding:10px 18px;gap:4px}
+.fx-visual[data-visual="form"] h4{font-size:16px}
+.fx-visual[data-flows="3"] .fx-pipelines{min-height:87px;gap:8px}
+.fx-visual[data-flows="3"] .fx-pipe-node{height:20px}
+.fx-approval-symbol{height:44px;margin:8px auto}
+.fx-visual[data-visual="approval"] h4{font-size:16px}
+}

@@ -102,7 +102,7 @@ function visual(feature){
  floating=mini(t('IHR PAKET','YOUR PACKAGE'),'<span class="fx-big-symbol">◇</span><b>'+t('Vereinbarte Funktionen.','Agreed features.')+'</b>','fx-mini-right');icon='◇';
  }
  document.getElementById('motionScene').setAttribute('aria-label',t('Illustrativer 3D-Präsentationsbereich: ','Illustrative 3D presentation: ')+label);
- document.getElementById('motionScene').innerHTML='<div class="fx-floor"></div><div class="fx-orbit-ring"></div><div class="fx-depth-particles"><i></i><i></i><i></i><i></i></div><div class="fx-visual" data-visual="'+type+'"><div class="fx-solid"><div class="fx-thickness"></div><div class="fx-surface">'+body+'</div></div>'+floating+badge(label,icon)+'</div>';
+ document.getElementById('motionScene').innerHTML='<div class="fx-floor"></div><div class="fx-orbit-ring"></div><div class="fx-depth-particles"><i></i><i></i><i></i><i></i></div><div class="fx-visual" data-visual="'+type+'" data-flows="'+(type==='workflow'?feature.amount:type==='chatflows'?2:1)+'"><div class="fx-solid"><div class="fx-thickness"></div><div class="fx-surface">'+body+'</div></div>'+floating+badge(label,icon)+'</div>';
 }
 function filterOffers(){
  let count=0;
