@@ -142,3 +142,8 @@ body{background:#060915}
 .fx-approval-symbol{height:44px;margin:8px auto}
 .fx-visual[data-visual="approval"] h4{font-size:16px}
 }
+
+.fx-module-grid{margin:18px 0 0;gap:10px}
+.fx-module-grid>div{height:75px}
+@media(max-width:700px){.fx-module-grid{margin:14px 0 0;gap:8px}.fx-module-grid>div{height:53px}}
+@media(max-width:700px) and (max-height:750px){.fx-module-grid{margin:10px 0 0;gap:7px}.fx-module-grid>div{height:46px}}
