@@ -1,12 +1,12 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://logobossweb-ai.eu/</loc>
-  </url>
-  <url>
-    <loc>https://logobossweb-ai.eu/webdesign-deutschland.html</loc>
-  </url>
-  <url>
-    <loc>https://logobossweb-ai.eu/website-design-usa.html</loc>
-  </url>
+  <url><loc>https://logobossweb-ai.eu/</loc></url>
+  <url><loc>https://logobossweb-ai.eu/webdesign-deutschland.html</loc></url>
+  <url><loc>https://logobossweb-ai.eu/website-design-usa.html</loc></url>
+  <url><loc>https://logobossweb-ai.eu/ai-assistants.html</loc></url>
+  <url><loc>https://logobossweb-ai.eu/en/ai-assistants.html</loc></url>
+  <url><loc>https://logobossweb-ai.eu/automation.html</loc></url>
+  <url><loc>https://logobossweb-ai.eu/en/automation.html</loc></url>
+  <url><loc>https://logobossweb-ai.eu/company-os.html</loc></url>
+  <url><loc>https://logobossweb-ai.eu/en/company-os.html</loc></url>
 </urlset>

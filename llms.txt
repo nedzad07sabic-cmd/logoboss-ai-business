@@ -1,0 +1,26 @@
+# LogoBoss AI
+
+> Websites, AI text assistants, workflow automation and a basic Company OS for businesses. The public site is available in German and English.
+
+## Services
+
+- [Business web design in German](https://logobossweb-ai.eu/webdesign-deutschland.html): Digital Start, Web Business and Web Pro.
+- [Business website design in English](https://logobossweb-ai.eu/website-design-usa.html)
+- [AI text assistants](https://logobossweb-ai.eu/ai-assistants.html): Business AI and Pro AI; approved FAQs, inquiry capture and human handoff. Phone and voice AI are not included.
+- [AI assistants in English](https://logobossweb-ai.eu/en/ai-assistants.html)
+- [Automation](https://logobossweb-ai.eu/automation.html): one agreed workflow in Automation Start; up to three in Automation Business.
+- [Automation in English](https://logobossweb-ai.eu/en/automation.html)
+- [Company OS](https://logobossweb-ai.eu/company-os.html): protected login, inquiries, appointment requests, services and a basic dashboard for one business.
+- [Company OS in English](https://logobossweb-ai.eu/en/company-os.html)
+
+## Pricing and fulfillment
+
+Each listed package has a one-time setup price and a recurring monthly amount in EUR. The first payment combines setup and the first month. Use the linked service pages for current package amounts. The final payable total is shown in Stripe checkout.
+Payment does not instantly activate all modules. Project scope, content and integrations are agreed and configured before review and handover.
+Appointment forms create requests pending confirmation. Broader ERP, payroll, voice AI and custom industry software require a separate technical review and offer.
+
+## Contact and accounts
+
+- [Main website and packages](https://logobossweb-ai.eu/)
+- [Customer area](https://logobossweb-ai.eu/#account): use the same confirmed email as at checkout.
+- Public contact: info.logobossai@gmail.com

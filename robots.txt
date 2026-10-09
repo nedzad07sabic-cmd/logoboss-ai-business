@@ -1,4 +1,6 @@
 User-agent: *
 Allow: /
+Disallow: /backups/
+Disallow: /supabase/
 
 Sitemap: https://logobossweb-ai.eu/sitemap.xml

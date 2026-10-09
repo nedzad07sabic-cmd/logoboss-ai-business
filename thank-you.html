@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
-<title>Bestellung erhalten · LogoBoss Web AI</title>
+<title>Anfrageübersicht · LogoBoss AI</title>
 <meta name="description" content="LogoBoss Web AI bestätigt den Eingang Ihrer Anfrage.">
 <style>
 :root{--bg:#050817;--card:#0b1734;--cyan:#51d7ff;--blue:#397fff;--violet:#8d5cff;--text:#f5faff;--muted:#aabada}
@@ -39,22 +39,26 @@ h1 span{background:linear-gradient(95deg,#50dfff,#5694ff,#ae7dff);background-cli
 footer{position:relative;z-index:1;padding:18px;text-align:center;font-size:12px;color:#8295ba;border-top:1px solid rgba(88,150,255,.12)}
 @media(max-width:540px){header{padding:15px 17px}.brand{font-size:15px}.brand img{width:37px;height:37px}main{padding:30px 14px 44px}.panel{padding:30px 21px}.actions{flex-direction:column}.btn{width:100%}.receipt{padding:15px}.lead{font-size:15px}}
 </style>
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" href="/favicon.png" sizes="96x96">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
 </head>
 <body>
-<header><a class="brand" href="./"><img src="logo-boss.svg" alt="LogoBoss Web AI Logo"><span>LogoBoss <b>Web AI</b></span></a></header>
+<header><a class="brand" href="./"><img src="favicon.png" alt="LogoBoss Web AI Logo"><span>LogoBoss <b>Web AI</b></span></a></header>
 <main>
   <section class="panel" aria-labelledby="successTitle">
     <div class="success" aria-hidden="true">✓</div>
-    <div class="eyebrow" id="eyebrow">ANFRAGE EINGEGANGEN</div>
-    <h1 id="successTitle">Vielen Dank! <span>Ihre Anfrage ist da.</span></h1>
-    <p class="lead" id="lead">Ihre Anfrage wurde erfolgreich gespeichert. Das LogoBoss Web AI Team meldet sich, um die Details mit Ihnen abzustimmen.</p>
+    <div class="eyebrow" id="eyebrow">ANFRAGEÜBERSICHT</div>
+    <h1 id="successTitle">Vielen Dank! <span>Ihre Anfrage im Überblick.</span></h1>
+    <p class="lead" id="lead">Prüfen Sie den aktuellen Status Ihrer Anfrage im Kundenkonto. Diese Seite allein bestätigt weder eine gespeicherte Anfrage noch eine Zahlung.</p>
     <div class="receipt" id="receipt" aria-label="Bestellübersicht">
       <h2 id="summaryTitle">Ihre Auswahl</h2>
       <div id="items"></div>
       <div class="receipt-row total"><span id="totalLabel">Gesamt</span><span id="totalPrice"></span></div>
     </div>
     <p class="note" id="note">Keine Online-Zahlung erforderlich. Dies ist eine Anfrage, keine verbindliche Zahlung.</p>
-    <div class="actions"><a href="./#packages" class="btn primary" id="packagesBtn">Zurück zu LogoBoss</a><a href="./#portfolio" class="btn secondary" id="demosBtn">Demo-Projekte ansehen</a></div>
+    <div class="actions"><a href="./#account" class="btn primary" id="packagesBtn">Kundenkonto öffnen</a><a href="./#services" class="btn secondary" id="demosBtn">Pakete ansehen</a></div>
   </section>
 </main>
 <footer>© 2026 LogoBoss Web AI · logobossweb-ai.eu</footer>
@@ -65,8 +69,8 @@ footer{position:relative;z-index:1;padding:18px;text-align:center;font-size:12px
   try{receipt=JSON.parse(sessionStorage.getItem("lb_last_order")||"null")}catch(e){}
   const language=p.get("lang")==="en"||receipt?.language==="en"?"en":"de";
   const dict={
-    de:{title:"Bestellung erhalten · LogoBoss Web AI",eyebrow:"ANFRAGE EINGEGANGEN",heading:"Vielen Dank!",accent:"Ihre Anfrage ist da.",lead:"Ihre Anfrage wurde erfolgreich gespeichert. Das LogoBoss Web AI Team meldet sich, um die Details mit Ihnen abzustimmen.",selection:"Ihre Auswahl",total:"Gesamt",note:"Keine Online-Zahlung erforderlich. Dies ist eine Anfrage und noch kein bestätigter Auftrag.",back:"Zurück zu LogoBoss",demos:"Demo-Projekte ansehen"},
-    en:{title:"Order received · LogoBoss Web AI",eyebrow:"REQUEST RECEIVED",heading:"Thank you!",accent:"Your request is in.",lead:"Your request has been saved successfully. The LogoBoss Web AI team will contact you to discuss the details.",selection:"Your selection",total:"Total",note:"No online payment is required. This is a request, not a confirmed paid order.",back:"Back to LogoBoss",demos:"Explore demo projects"}
+    de:{title:"Anfrageübersicht · LogoBoss AI",eyebrow:"ANFRAGEÜBERSICHT",heading:"Vielen Dank!",accent:"Ihre Anfrage im Überblick.",lead:"Prüfen Sie den aktuellen Status Ihrer Anfrage im Kundenkonto. Diese Seite allein bestätigt weder eine gespeicherte Anfrage noch eine Zahlung.",selection:"Ihre Auswahl",total:"Gesamt",note:"Keine Online-Zahlung erforderlich. Dies ist eine Anfrage und noch kein bestätigter Auftrag.",back:"Kundenkonto öffnen",demos:"Pakete ansehen"},
+    en:{title:"Request overview · LogoBoss AI",eyebrow:"REQUEST OVERVIEW",heading:"Thank you!",accent:"Your request at a glance.",lead:"Check the current status of your request in your customer account. This page alone confirms neither a saved request nor a payment.",selection:"Your selection",total:"Total",note:"No online payment is required. This is a request, not a confirmed paid order.",back:"Open customer account",demos:"View packages"}
   };
   const t=dict[language];
   document.documentElement.lang=language;document.title=t.title;
