@@ -88,3 +88,10 @@ html{scroll-behavior:smooth;scroll-padding-top:90px}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.motion-track{height:auto}.motion-stage{position:relative;top:0;height:auto;min-height:0;padding:28px 0}.motion-stage-grid{min-height:500px}.motion-panel,.motion-primary,.motion-node{transition:none}.motion-layer-two,.motion-layer-three{opacity:1!important}.motion-hero-note{margin-top:30px}}
 
 @media(max-width:700px) and (max-height:740px){.motion-stage{min-height:0}.motion-stage-copy{padding-top:12px}.motion-stage-copy h3{font-size:25px;margin:10px 0}.motion-stage-copy>p{font-size:11px;min-height:48px}.motion-step-list{margin:8px 0 4px}.motion-scene{height:250px}.motion-main-panel{height:210px;top:8%}.motion-stage-bottom{padding-bottom:10px}.motion-stage-grid{gap:3px}.motion-layer-two{top:48%}}
+
+/* QA refinements: header clearance, keyboard access and narrow screens. */
+body{min-width:0}
+.motion-hero a,.motion-story-end a,#megaGrid .motion-menu a{text-decoration:none}
+.motion-pause{position:absolute;bottom:4%;right:11%;z-index:3;border:1px solid #334352;border-radius:50%;height:25px;width:25px;display:grid;place-items:center;background:#0e1827;color:#93acbf;cursor:pointer;font-size:10px;padding:0}
+@media(max-width:700px){.motion-hero{padding-top:78px}.motion-pause{right:7%;bottom:1%;height:22px;width:22px}.motion-story-end{align-items:flex-start}.motion-story-end>a{max-width:200px;line-height:1.4}.motion-tabs button{font-size:10px}}
+@media(max-width:360px){.motion-actions{gap:14px}.motion-primary{padding:13px 14px;font-size:11px}.motion-actions .motion-text-link{font-size:11px}.motion-layer-two{right:4px}.motion-story-end>a{max-width:175px}}
