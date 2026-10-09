@@ -24,17 +24,17 @@ function orbitPoint(a,k){
 }
 const gl=canvas.getContext('webgl',{alpha:true,antialias:true,powerPreference:'low-power'});
 if(gl){
-  const vs='attribute vec3 aPosition;attribute vec3 aNormal;attribute vec3 aTint;attribute float aScale;uniform float uAngle,uDpr,uPointSize,uAspect;varying vec3 vNormal,vOriginal,vTint;varying float vScale;vec3 spin(vec3 p){float c=cos(uAngle),s=sin(uAngle);p=vec3(p.x*c+p.z*s,p.y,-p.x*s+p.z*c);float t=.18;return vec3(p.x,p.y*cos(t)-p.z*sin(t),p.y*sin(t)+p.z*cos(t));}void main(){vec3 p=spin(aPosition);vNormal=spin(aNormal);vOriginal=normalize(aNormal);vTint=aTint;vScale=aScale;float w=4.0-p.z*.45;gl_Position=vec4(p.x*3.04/uAspect,-p.y*3.04,-p.z*.9,w);gl_PointSize=uPointSize*uDpr*(.7+max(p.z,0.0)*.45)*aScale;}';
-  const fs='precision mediump float;uniform float uKind;uniform vec3 uColor;varying vec3 vNormal,vOriginal,vTint;varying float vScale;void main(){if(uKind>3.5){vec2 q=(gl_PointCoord-.5)*2.0;float d=dot(q,q);if(d>1.0)discard;if(uKind<4.5){vec3 n=vec3(q.x,-q.y,sqrt(max(0.0,1.0-d)));float light=.25+.75*max(dot(n,normalize(vec3(-.6,.8,1.4))),0.0);float gloss=pow(max(dot(n,normalize(vec3(-.35,.5,1.8))),0.0),32.0);vec3 c=vTint*light+vec3(.76,.85,1.0)*gloss*.65+vTint*pow(1.0-n.z,2.0)*.18;gl_FragColor=vec4(c,1.0-smoothstep(.78,1.0,d));}else{float glow=pow(1.0-sqrt(d),2.0);gl_FragColor=vec4(vTint,glow*(uKind<5.5?.26:vScale*.32));}return;}vec3 n=normalize(vNormal);float facing=max(n.z,0.0);float rim=pow(1.0-facing,3.0),light=max(dot(n,normalize(vec3(-.7,-.8,1.2))),0.0);if(uKind<.5){vec3 c=mix(vec3(.018,.036,.082),vec3(.05,.15,.27),light);float longitude=atan(vOriginal.x,vOriginal.z),latitude=asin(clamp(vOriginal.y,-1.0,1.0));float grid=(1.0-smoothstep(.025,.052,abs(sin(longitude*12.0))))+(1.0-smoothstep(.025,.05,abs(sin(latitude*12.0))));c+=vec3(.05,.1,.18)*grid*.25;c+=mix(vec3(.06,.38,.85),vec3(.4,.17,.9),n.x*.5+.5)*rim*.5;gl_FragColor=vec4(c,1.0);}else if(uKind<1.5){float d=length(gl_PointCoord-vec2(.5));if(d>.5)discard;vec3 c=mix(vec3(.24,.61,.98),vec3(.61,.43,1.0),n.x*.5+.5);gl_FragColor=vec4(c*(.55+light*.7),(1.0-smoothstep(.3,.5,d))*.95);}else if(uKind<2.5){vec3 c=mix(vec3(.12,.55,1.0),vec3(.52,.22,1.0),n.x*.5+.5);gl_FragColor=vec4(c,rim*.28);}else{gl_FragColor=vec4(uColor,.18);}}';
+  const vs='attribute vec3 aPosition;attribute vec3 aNormal;attribute vec3 aTint;attribute float aScale;uniform float uAngle,uDpr,uPointSize,uAspect;varying mediump vec3 vNormal,vOriginal,vTint;varying mediump float vScale;vec3 spin(vec3 p){float c=cos(uAngle),s=sin(uAngle);p=vec3(p.x*c+p.z*s,p.y,-p.x*s+p.z*c);float t=.18;return vec3(p.x,p.y*cos(t)-p.z*sin(t),p.y*sin(t)+p.z*cos(t));}void main(){vec3 p=spin(aPosition);vNormal=spin(aNormal);vOriginal=normalize(aNormal);vTint=aTint;vScale=aScale;float w=4.0-p.z*.45;gl_Position=vec4(p.x*3.04/uAspect,-p.y*3.04,-p.z*.9,w);gl_PointSize=uPointSize*uDpr*(.7+max(p.z,0.0)*.45)*aScale;}';
+  const fs='precision mediump float;uniform float uKind;uniform vec3 uColor;varying mediump vec3 vNormal,vOriginal,vTint;varying mediump float vScale;void main(){if(uKind>3.5){vec2 q=(gl_PointCoord-.5)*2.0;float d=dot(q,q);if(d>1.0)discard;if(uKind<4.5){vec3 n=vec3(q.x,-q.y,sqrt(max(0.0,1.0-d)));float light=.25+.75*max(dot(n,normalize(vec3(-.6,.8,1.4))),0.0);float gloss=pow(max(dot(n,normalize(vec3(-.35,.5,1.8))),0.0),32.0);vec3 c=vTint*light+vec3(.76,.85,1.0)*gloss*.65+vTint*pow(1.0-n.z,2.0)*.18;gl_FragColor=vec4(c,1.0-smoothstep(.78,1.0,d));}else{float glow=pow(1.0-sqrt(d),2.0);gl_FragColor=vec4(vTint,glow*(uKind<5.5?.26:vScale*.32));}return;}vec3 n=normalize(vNormal);float facing=max(n.z,0.0);float rim=pow(1.0-facing,3.0),light=max(dot(n,normalize(vec3(-.7,-.8,1.2))),0.0);if(uKind<.5){vec3 c=mix(vec3(.018,.036,.082),vec3(.05,.15,.27),light);float longitude=atan(vOriginal.x,vOriginal.z),latitude=asin(clamp(vOriginal.y,-1.0,1.0));float grid=(1.0-smoothstep(.025,.052,abs(sin(longitude*12.0))))+(1.0-smoothstep(.025,.05,abs(sin(latitude*12.0))));c+=vec3(.05,.1,.18)*grid*.25;c+=mix(vec3(.06,.38,.85),vec3(.4,.17,.9),n.x*.5+.5)*rim*.5;gl_FragColor=vec4(c,1.0);}else if(uKind<1.5){float d=length(gl_PointCoord-vec2(.5));if(d>.5)discard;vec3 c=mix(vec3(.24,.61,.98),vec3(.61,.43,1.0),n.x*.5+.5);gl_FragColor=vec4(c*(.55+light*.7),(1.0-smoothstep(.3,.5,d))*.95);}else if(uKind<2.5){vec3 c=mix(vec3(.12,.55,1.0),vec3(.52,.22,1.0),n.x*.5+.5);gl_FragColor=vec4(c,rim*.28);}else{gl_FragColor=vec4(uColor,.18);}}';
   function shader(type,source){
     const sh=gl.createShader(type);gl.shaderSource(sh,source);gl.compileShader(sh);
-    if(!gl.getShaderParameter(sh,gl.COMPILE_STATUS))throw Error('Globe shader failed');
+    if(!gl.getShaderParameter(sh,gl.COMPILE_STATUS))throw Error('Globe shader failed: '+gl.getShaderInfoLog(sh));
     return sh;
   }
   try{
     const program=gl.createProgram();
     gl.attachShader(program,shader(gl.VERTEX_SHADER,vs));gl.attachShader(program,shader(gl.FRAGMENT_SHADER,fs));
-    gl.linkProgram(program);if(!gl.getProgramParameter(program,gl.LINK_STATUS))throw Error('Globe program failed');
+    gl.linkProgram(program);if(!gl.getProgramParameter(program,gl.LINK_STATUS))throw Error('Globe program failed: '+gl.getProgramInfoLog(program));
     gl.useProgram(program);
     const loc={
       p:gl.getAttribLocation(program,'aPosition'),n:gl.getAttribLocation(program,'aNormal'),
@@ -131,6 +131,7 @@ if(gl){
       gl.uniform1f(loc.size,size);emit(pearls,4,gl.POINTS);
     };
   }catch(error){
+    console.warn('LogoBoss globe: using the canvas fallback. '+error.message);
     const replacement=canvas.cloneNode(false);canvas.replaceWith(replacement);canvas=replacement;draw=null;
   }
 }
