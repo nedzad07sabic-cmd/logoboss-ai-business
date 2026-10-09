@@ -2,6 +2,34 @@
 
 The public website is hosted by GitHub Pages. Supabase functions and database migrations are deployed separately; publishing this repository does not deploy the backend.
 
+## Authentication emails
+
+Function: `auth-email`. Supabase Auth's **Send Email Hook** is enabled for this project's signed HTTPS endpoint. Authentication emails use the existing server-side `RESEND_API_KEY`; the default Supabase SMTP sender is not used while the hook is enabled. Email confirmation and secure email changes remain required.
+
+- From: **LogoBoss AI <account@logobossweb-ai.eu>**, using the verified domain.
+- Reply-To and support: **info.logobossai@gmail.com**, the site's contact address selected by the owner.
+- Resend cannot use the public Gmail domain as a verified From domain. Replies go to Gmail; sending uses the owned domain.
+- Templates include the LogoBoss icon, brand colors, German and English instructions, a confirmation/reset link and a plain-text fallback.
+- Supported actions: signup, password recovery, magic-link sign-in, invitations, email changes and reauthentication. Security-notification flags remain disabled; add supported notification templates before enabling them.
+- The raw request body is verified with Standard Webhooks, including timestamp validity, before any provider request. JWT verification is disabled specifically because Supabase Auth signs these requests with the hook secret.
+- `LB_AUTH_EMAIL_HOOK_SECRET` is stored only in the project's Edge Function secrets and the matching Auth Hook configuration. Do not commit or display its value. To rotate it, update both secure settings together.
+- Verification links point only to this Supabase project's `/auth/v1/verify` endpoint. Redirects are restricted to the exact home, index and admin callbacks on the owned HTTPS origin.
+- Resend idempotency keys prevent duplicate sends during retries. Failed sends return an error rather than silently confirming a user's account.
+- Signed `POST /functions/v1/auth-email/health` with a `{"check":"sender"}` body verifies the fixed sending-domain record without sending email. It returns only readiness and never returns credentials or provider response details.
+
+Validation on 10 October 2026 (Europe/Berlin):
+- 11 automated security and template tests passed, including real Standard Webhooks signatures, expired/modified signatures, unsafe redirects, secure email-change token mapping, provider errors and idempotency.
+- Deployed endpoint: unauthenticated POST 401, GET 405, signed sender check 200.
+- Signup and recovery emails sent only to Resend's official labelled `delivered@resend.dev` simulation addresses both reached `delivered`. A duplicate signup request did not increase the send count.
+- Usage after tests: 2/100 daily and 6/3,000 monthly. No plan upgrade or real charge was made.
+- A real customer's mailbox and confirmation/reset click were not tested; provider simulation is not a complete customer account test.
+
+To run the tests in an isolated checkout:
+```sh
+npm install --no-save --ignore-scripts --package-lock=false standardwebhooks@1.0.0
+node --test supabase/functions/auth-email/auth-email.test.mjs
+```
+
 ## Live combined checkout
 
 Function: `bright-action`. It accepts Stripe-signed **live** events only, validates the two-item setup + monthly catalog, and saves the verified payment and customer order atomically. It does not send customer or admin emails. Customer portal access stays disabled until the project is reviewed and configured.
