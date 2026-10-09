@@ -21,8 +21,11 @@ Validation on 10 October 2026 (Europe/Berlin):
 - 11 automated security and template tests passed, including real Standard Webhooks signatures, expired/modified signatures, unsafe redirects, secure email-change token mapping, provider errors and idempotency.
 - Deployed endpoint: unauthenticated POST 401, GET 405, signed sender check 200.
 - Signup and recovery emails sent only to Resend's official labelled `delivered@resend.dev` simulation addresses both reached `delivered`. A duplicate signup request did not increase the send count.
-- Usage after tests: 2/100 daily and 6/3,000 monthly. No plan upgrade or real charge was made.
-- A real customer's mailbox and confirmation/reset click were not tested; provider simulation is not a complete customer account test.
+- Usage after all tests: 4/100 daily and 8/3,000 monthly. No plan upgrade or real charge was made.
+- A disposable account at an official Resend simulation address exercised the actual Supabase Auth service and configured hook: signup 200 without a pre-confirmation session; confirmation 303 to the exact owned callback; password login 200.
+- Password recovery returned 200 and delivered its email; its verification link returned 303 with the recovery flow. Password update returned 200; the old password was rejected (400) and the new password signed in (200).
+- Only that disposable account was deleted after the checks, using its exact user ID and test address. No customer account was modified.
+- All four test emails were delivered to the provider simulation service. Real Gmail inbox placement and the browser UI were not retested in this step.
 
 To run the tests in an isolated checkout:
 ```sh
