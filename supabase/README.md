@@ -7,7 +7,7 @@ The public website is hosted by GitHub Pages. Supabase functions and database mi
 Function: `bright-action`. It accepts Stripe-signed **live** events only, validates the two-item setup + monthly catalog, and saves the verified payment and customer order atomically. It does not send customer or admin emails. Customer portal access stays disabled until the project is reviewed and configured.
 
 Required server environment variables:
-- `STRIPE_LIVE_SECRET_KEY`: an existing live Stripe secret/restricted key with permission to read checkout sessions, subscriptions and their invoices.
+- `STRIPE_LIVE_SECRET_KEY`: an existing live Stripe secret/restricted key with permission to read checkout sessions, subscriptions and their invoices. The legacy `STRIPE_SECRET_KEY` is accepted only when its value is explicitly a live key; a sandbox key never enables this handler.
 - `STRIPE_LIVE_WEBHOOK_SECRET`: the signing secret of the **same live webhook endpoint**.
 - `SUPABASE_URL` and `SUPABASE_SERVICE_ROLE_KEY`: supplied by Supabase.
 

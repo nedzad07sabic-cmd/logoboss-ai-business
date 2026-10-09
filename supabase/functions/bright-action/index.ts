@@ -2,7 +2,10 @@ import "jsr:@supabase/functions-js/edge-runtime.d.ts";
 import Stripe from "npm:stripe@23.0.0";
 import { validateCheckout, idOf } from "./checkout-validation.mjs";
 
-const key = Deno.env.get("STRIPE_LIVE_SECRET_KEY") || "";
+// Accept an existing legacy key only when it is explicitly a live key; never promote a sandbox key.
+const explicitKey = Deno.env.get("STRIPE_LIVE_SECRET_KEY") || "";
+const legacyKey = Deno.env.get("STRIPE_SECRET_KEY") || "";
+const key = explicitKey || (/^(sk|rk)_live_/.test(legacyKey) ? legacyKey : "");
 const secret = Deno.env.get("STRIPE_LIVE_WEBHOOK_SECRET") || "";
 const base = Deno.env.get("SUPABASE_URL") || "";
 const serviceKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY") || "";
