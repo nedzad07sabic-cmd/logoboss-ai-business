@@ -2089,7 +2089,7 @@ function openOrder(opts){
  const l=lang(),modal=document.getElementById('orderBackdrop');
  const name=opts.name||'LogoBoss AI';const setup=Number(opts.setup||0);const monthly=Number(opts.monthly||0);const from=opts.from==='1'||opts.from===true;
  let price=opts.price||((from?(l==='de'?'ab ':'from '):'')+(setup?setup.toLocaleString('de-DE')+' €':'')+(monthly?' + '+(from?(l==='de'?'ab ':'from '):'')+monthly.toLocaleString('de-DE')+' € / '+(l==='de'?'Monat':'month'):''));
- document.getElementById('orderPackageLabel').textContent=name;document.getElementById('orderPriceLabel').textContent=price;
+ document.getElementById('orderPackageLabel').textContent=name;document.getElementById('orderPriceLabel').textContent=price;document.getElementById('newOrderForm').dataset.monthly=String(monthly);
  document.getElementById('orderPackageField').value=name+(price?' — '+price:'');document.getElementById('orderTotalField').value=setup||0;document.getElementById('orderLanguageField').value=l;
  document.getElementById('orderTitle').textContent=l==='de'?'Paket anfragen':'Request package';document.getElementById('orderSubmit').textContent=l==='de'?'Bestellanfrage senden':'Send order request';
  document.getElementById('orderFairUse').textContent=l==='de'?'Fair-Use-Limits gelten. AI, Telefonie, SMS, E-Mail, Storage, Zahlungsabwicklung und Drittanbieter-Dienste können zusätzliche nutzungsabhängige Kosten verursachen.':'Fair-use limits apply. AI, telephony, SMS, email, storage, payment processing and third-party services may include additional usage-based charges.';
@@ -2402,40 +2402,40 @@ html,body{max-width:100%;overflow-x:clip}
 </style>
 <div id="lbClientLayer" hidden aria-hidden="true">
   <section id="lbClientBox" role="dialog" aria-modal="true" aria-labelledby="lbClientHeading">
-    <div class="lb-client-head"><div><div class="lb-client-logo">LogoBoss <b>AI</b> · Client Portal</div><p>Ihr Konto, Ihre Anfragen, Ihre aktivierten Leistungen.</p></div><button id="lbClientClose" type="button" class="lb-client-close" aria-label="Schließen">×</button></div>
+    <div class="lb-client-head"><div><div class="lb-client-logo">LogoBoss <b>AI</b> · Client Portal</div><p><span data-lb-de="Ihr Konto, Ihre Anfragen, Ihre aktivierten Leistungen." data-lb-en="Your account, requests and enabled services.">Ihr Konto, Ihre Anfragen, Ihre aktivierten Leistungen.</span></p></div><button id="lbClientClose" type="button" class="lb-client-close" aria-label="Schließen">×</button></div>
     <div class="lb-client-body">
-      <h2 id="lbClientHeading">Anmelden</h2>
+      <h2 id="lbClientHeading"><span data-lb-de="Anmelden" data-lb-en="Log in">Anmelden</span></h2>
       <p id="lbClientDescription" class="lb-client-desc">Melden Sie sich an oder erstellen Sie kostenlos ein Konto.</p>
       <form id="lbAccountForm" autocomplete="on">
-        <label id="lbClientCompanyField" class="lb-client-field" hidden>Firma (optional)<input id="lbClientCompany" type="text" maxlength="150" autocomplete="organization" placeholder="Ihr Firmenname"></label>
-        <label id="lbClientEmailField" class="lb-client-field">E-Mail<input id="lbClientEmail" type="email" required autocomplete="email" inputmode="email" maxlength="250"></label>
-        <label id="lbClientPasswordField" class="lb-client-field">Passwort<input id="lbClientPassword" type="password" minlength="8" required autocomplete="current-password"></label>
-        <label id="lbClientConfirmField" class="lb-client-field" hidden>Passwort wiederholen<input id="lbClientConfirm" type="password" minlength="8" autocomplete="new-password"></label>
-        <button id="lbClientSubmit" class="lb-client-primary" type="submit">Anmelden</button>
+        <label id="lbClientCompanyField" class="lb-client-field" hidden><span data-lb-de="Firma (optional)" data-lb-en="Company (optional)">Firma (optional)</span><input id="lbClientCompany" type="text" maxlength="150" autocomplete="organization" placeholder="Ihr Firmenname"></label>
+        <label id="lbClientEmailField" class="lb-client-field"><span data-lb-de="E-Mail" data-lb-en="Email">E-Mail</span><input id="lbClientEmail" type="email" required autocomplete="email" inputmode="email" maxlength="250"></label>
+        <label id="lbClientPasswordField" class="lb-client-field"><span data-lb-de="Passwort" data-lb-en="Password">Passwort</span><input id="lbClientPassword" type="password" minlength="8" required autocomplete="current-password"></label>
+        <label id="lbClientConfirmField" class="lb-client-field" hidden><span data-lb-de="Passwort wiederholen" data-lb-en="Repeat password">Passwort wiederholen</span><input id="lbClientConfirm" type="password" minlength="8" autocomplete="new-password"></label>
+        <button id="lbClientSubmit" class="lb-client-primary" type="submit"><span data-lb-de="Anmelden" data-lb-en="Log in">Anmelden</span></button>
       </form>
-      <div id="lbClientAlt" class="lb-client-actions"><button type="button" data-lb-auth="login">Anmelden</button><button type="button" data-lb-auth="signup">Registrieren</button><button type="button" data-lb-auth="forgot">Passwort vergessen?</button></div>
-      <div id="lbClientResend" hidden class="lb-client-actions"><button type="button" id="lbClientResendButton">Bestätigungs-E-Mail erneut senden</button></div>
+      <div id="lbClientAlt" class="lb-client-actions"><button type="button" data-lb-auth="login"><span data-lb-de="Anmelden" data-lb-en="Log in">Anmelden</span></button><button type="button" data-lb-auth="signup"><span data-lb-de="Registrieren" data-lb-en="Register">Registrieren</span></button><button type="button" data-lb-auth="forgot"><span data-lb-de="Passwort vergessen?" data-lb-en="Forgot password?">Passwort vergessen?</span></button></div>
+      <div id="lbClientResend" hidden class="lb-client-actions"><button type="button" id="lbClientResendButton"><span data-lb-de="Bestätigungs-E-Mail erneut senden" data-lb-en="Resend confirmation email">Bestätigungs-E-Mail erneut senden</span></button></div>
       <div id="lbAuthNotice" class="lb-client-msg" hidden role="status" aria-live="polite"></div>
       <section id="lbAccountDashboard" hidden aria-label="Kundenportal">
-        <button id="lbResumeOrder" type="button" hidden class="lb-client-primary" style="margin:0 0 16px">Ausgewähltes Paket fortsetzen →</button>
-        <div class="lb-client-toprow"><div id="lbClientIdentity" class="lb-client-meta"></div><button type="button" id="lbClientLogout" class="lb-client-logout">Abmelden</button></div>
-        <div class="lb-client-tabs" role="tablist" aria-label="Portalbereiche"><button type="button" data-lb-tab="orders" class="active">Meine Anfragen</button><button type="button" data-lb-tab="business">Mein Business</button><button type="button" data-lb-tab="profile">Mein Profil</button></div>
-        <div id="lbClientOrdersPanel"><div class="lb-client-orders" id="lbClientOrders"><div class="lb-client-empty">Bestellungen werden geladen …</div></div><p class="lb-client-foot">Online-Käufe werden über Stripe bezahlt. Verwenden Sie im Kundenkonto dieselbe bestätigte E-Mail-Adresse wie beim Kauf. Funktionen werden nach Einrichtung und Freigabe aktiviert.</p><button id="lbClientRefresh" class="lb-client-primary" type="button">Bestellungen aktualisieren</button><p class="lb-client-foot"><a href="https://billing.stripe.com/p/login/00wbJ15ybdVk4mK7pp3ZK00">Rechnungen, Zahlungsart & monatliches Abonnement bei Stripe verwalten ↗</a><br>Stripe prüft den Zugang mit der E-Mail-Adresse Ihres Kaufs. Ein Login allein bestätigt keine Zahlung.</p></div>
+        <button id="lbResumeOrder" type="button" hidden class="lb-client-primary" style="margin:0 0 16px"><span data-lb-de="Ausgewähltes Paket fortsetzen →" data-lb-en="Continue with selected package →">Ausgewähltes Paket fortsetzen →</span></button>
+        <div class="lb-client-toprow"><div id="lbClientIdentity" class="lb-client-meta"></div><button type="button" id="lbClientLogout" class="lb-client-logout"><span data-lb-de="Abmelden" data-lb-en="Log out">Abmelden</span></button></div>
+        <div class="lb-client-tabs" role="tablist" aria-label="Portalbereiche"><button type="button" data-lb-tab="orders" class="active"><span data-lb-de="Meine Anfragen" data-lb-en="My requests">Meine Anfragen</span></button><button type="button" data-lb-tab="business"><span data-lb-de="Mein Business" data-lb-en="My business">Mein Business</span></button><button type="button" data-lb-tab="profile"><span data-lb-de="Mein Profil" data-lb-en="My profile">Mein Profil</span></button></div>
+        <div id="lbClientOrdersPanel"><div class="lb-client-orders" id="lbClientOrders"><div class="lb-client-empty"><span data-lb-de="Bestellungen werden geladen …" data-lb-en="Loading orders …">Bestellungen werden geladen …</span></div></div><p class="lb-client-foot"><span data-lb-de="Online-Käufe werden über Stripe bezahlt. Verwenden Sie im Kundenkonto dieselbe bestätigte E-Mail-Adresse wie beim Kauf. Funktionen werden nach Einrichtung und Freigabe aktiviert." data-lb-en="Online purchases are paid through Stripe. Use the same verified email address in your account as at checkout. Features are activated after setup and approval.">Online-Käufe werden über Stripe bezahlt. Verwenden Sie im Kundenkonto dieselbe bestätigte E-Mail-Adresse wie beim Kauf. Funktionen werden nach Einrichtung und Freigabe aktiviert.</span></p><button id="lbClientRefresh" class="lb-client-primary" type="button"><span data-lb-de="Bestellungen aktualisieren" data-lb-en="Refresh orders">Bestellungen aktualisieren</span></button><p class="lb-client-foot"><a href="https://billing.stripe.com/p/login/00wbJ15ybdVk4mK7pp3ZK00"><span data-lb-de="Rechnungen, Zahlungsart &amp; monatliches Abonnement bei Stripe verwalten ↗" data-lb-en="Manage invoices, payment method and monthly subscription in Stripe ↗">Rechnungen, Zahlungsart & monatliches Abonnement bei Stripe verwalten ↗</span></a><br><span data-lb-de="Stripe prüft den Zugang mit der E-Mail-Adresse Ihres Kaufs. Ein Login allein bestätigt keine Zahlung." data-lb-en="Stripe verifies access with your checkout email address. Logging in alone does not confirm a payment.">Stripe prüft den Zugang mit der E-Mail-Adresse Ihres Kaufs. Ein Login allein bestätigt keine Zahlung.</span></p></div>
         <section id="lbClientBusinessPanel" hidden aria-label="Meine aktivierten Geschäftsfunktionen">
-          <div id="lbBusinessNotice" class="lb-client-empty">Nur von LogoBoss AI aktivierte Unternehmen sind hier sichtbar.</div>
+          <div id="lbBusinessNotice" class="lb-client-empty"><span data-lb-de="Nur von LogoBoss AI aktivierte Unternehmen sind hier sichtbar." data-lb-en="Only businesses activated by LogoBoss AI are visible here.">Nur von LogoBoss AI aktivierte Unternehmen sind hier sichtbar.</span></div>
           <div id="lbBusinessContent" hidden>
-            <div class="lb-client-toprow"><h3 id="lbBusinessName" style="font-size:20px;margin:12px 0">Ihr Unternehmen</h3><button type="button" id="lbBusinessRefresh" class="lb-client-logout">Aktualisieren</button></div>
-            <div class="lb-biz-cards"><div class="lb-biz-card">Termine<b id="lbBizAppointmentsCount">0</b></div><div class="lb-biz-card">Anfragen<b id="lbBizLeadsCount">0</b></div><div class="lb-biz-card">Leistungen<b id="lbBizServicesCount">0</b></div></div>
-            <div class="lb-biz-section"><h3>Freigeschaltete Module</h3><div class="lb-biz-modules" id="lbBusinessModules"></div></div>
-            <div class="lb-biz-section"><h3>Kundenanfragen / Leads</h3><div class="lb-biz-list" id="lbBusinessLeads"></div></div>
-            <div class="lb-biz-section"><h3>Termine</h3><div class="lb-biz-list" id="lbBusinessAppointments"></div></div>
-            <div class="lb-biz-section"><h3>Leistungen</h3><div class="lb-biz-list" id="lbBusinessServices"></div>
-              <form class="lb-biz-add" id="lbServiceCreate"><label>Neue Leistung<input id="lbServiceName" maxlength="100" required placeholder="z.B. Haarschnitt"></label><label>Dauer (Min.)<input id="lbServiceMinutes" type="number" min="15" max="480" value="60" required></label><label>Preis (€)<input id="lbServicePrice" type="number" min="0" max="10000" step="0.01" placeholder="optional"></label><button type="submit">Hinzufügen</button></form>
+            <div class="lb-client-toprow"><h3 id="lbBusinessName" style="font-size:20px;margin:12px 0"><span data-lb-de="Ihr Unternehmen" data-lb-en="Your business">Ihr Unternehmen</span></h3><button type="button" id="lbBusinessRefresh" class="lb-client-logout"><span data-lb-de="Aktualisieren" data-lb-en="Refresh">Aktualisieren</span></button></div>
+            <div class="lb-biz-cards"><div class="lb-biz-card"><span data-lb-de="Termine" data-lb-en="Appointments">Termine</span><b id="lbBizAppointmentsCount">0</b></div><div class="lb-biz-card"><span data-lb-de="Anfragen" data-lb-en="Inquiries">Anfragen</span><b id="lbBizLeadsCount">0</b></div><div class="lb-biz-card"><span data-lb-de="Leistungen" data-lb-en="Services">Leistungen</span><b id="lbBizServicesCount">0</b></div></div>
+            <div class="lb-biz-section"><h3><span data-lb-de="Freigeschaltete Module" data-lb-en="Enabled modules">Freigeschaltete Module</span></h3><div class="lb-biz-modules" id="lbBusinessModules"></div></div>
+            <div class="lb-biz-section"><h3><span data-lb-de="Kundenanfragen / Leads" data-lb-en="Customer inquiries / leads">Kundenanfragen / Leads</span></h3><div class="lb-biz-list" id="lbBusinessLeads"></div></div>
+            <div class="lb-biz-section"><h3><span data-lb-de="Termine" data-lb-en="Appointments">Termine</span></h3><div class="lb-biz-list" id="lbBusinessAppointments"></div></div>
+            <div class="lb-biz-section"><h3><span data-lb-de="Leistungen" data-lb-en="Services">Leistungen</span></h3><div class="lb-biz-list" id="lbBusinessServices"></div>
+              <form class="lb-biz-add" id="lbServiceCreate"><label><span data-lb-de="Neue Leistung" data-lb-en="New service">Neue Leistung</span><input id="lbServiceName" maxlength="100" required placeholder="z.B. Haarschnitt"></label><label><span data-lb-de="Dauer (Min.)" data-lb-en="Duration (min.)">Dauer (Min.)</span><input id="lbServiceMinutes" type="number" min="15" max="480" value="60" required></label><label><span data-lb-de="Preis (€)" data-lb-en="Price (€)">Preis (€)</span><input id="lbServicePrice" type="number" min="0" max="10000" step="0.01" placeholder="optional"></label><button type="submit"><span data-lb-de="Hinzufügen" data-lb-en="Add">Hinzufügen</span></button></form>
             </div>
-            <p class="lb-client-foot">Nur freigeschaltete Funktionen. KI-Dienste und Telefonie sind nicht automatisch mit diesem Portal verbunden.</p>
+            <p class="lb-client-foot"><span data-lb-de="Nur freigeschaltete Funktionen. KI-Dienste und Telefonie sind nicht automatisch mit diesem Portal verbunden." data-lb-en="Only enabled features are available. AI services and telephony are not automatically connected to this portal.">Nur freigeschaltete Funktionen. KI-Dienste und Telefonie sind nicht automatisch mit diesem Portal verbunden.</span></p>
           </div>
         </section>
-        <form id="lbClientProfilePanel" hidden><label class="lb-client-field">Firma / Company<input id="lbClientProfileCompany" type="text" maxlength="150" autocomplete="organization"></label><button type="submit" class="lb-client-primary">Profil speichern</button><button id="lbClientChangePassword" type="button" class="lb-client-logout">Passwort ändern</button></form>
+        <form id="lbClientProfilePanel" hidden><label class="lb-client-field"><span data-lb-de="Firma / Company" data-lb-en="Company">Firma / Company</span><input id="lbClientProfileCompany" type="text" maxlength="150" autocomplete="organization"></label><button type="submit" class="lb-client-primary"><span data-lb-de="Profil speichern" data-lb-en="Save profile">Profil speichern</span></button><button id="lbClientChangePassword" type="button" class="lb-client-logout"><span data-lb-de="Passwort ändern" data-lb-en="Change password">Passwort ändern</span></button></form>
       </section>
     </div>
   </section>
@@ -2449,6 +2449,23 @@ const el=id=>document.getElementById(id);
 let lbMode='login',lbUser=null,lbBusy=false,lbPendingOrder=false,lbLoginInitialized=false;
 let lbOwnOrders=[],lbCurrentBusiness=null,lbCurrentModules=null;
 let lbReturnFocus=null,lbPreviousOverflow='';
+
+const lbLocale=()=>document.documentElement.lang==='en'?'en-US':'de-DE';
+const lbTr=(de,en)=>lbLocale()==='en-US'?en:de;
+function lbApplyLanguage(){
+ const layer=el('lbClientLayer');
+ layer.querySelectorAll('[data-lb-de]').forEach(n=>n.textContent=lbTr(n.dataset.lbDe,n.dataset.lbEn));
+ el('lbAccountOpen').textContent=lbUser?lbTr('Mein Konto','My account'):lbTr('Login / Registrieren','Log in / Register');
+ el('lbClientClose').setAttribute('aria-label',lbTr('Schließen','Close'));
+ el('lbAccountDashboard').setAttribute('aria-label',lbTr('Kundenportal','Customer portal'));
+ el('lbClientBusinessPanel').setAttribute('aria-label',lbTr('Meine aktivierten Geschäftsfunktionen','My enabled business features'));
+ layer.querySelector('.lb-client-tabs').setAttribute('aria-label',lbTr('Portalbereiche','Portal sections'));
+ for(const[id,de,en]of [['lbClientCompany','Ihr Firmenname','Your company name'],['lbServiceName','z.B. Haarschnitt','e.g. Haircut'],['lbServicePrice','optional','optional']])el(id).placeholder=lbTr(de,en);
+ const texts=lbMode==='account'?[lbTr('Mein Kundenportal','My customer portal'),lbTr('Übersicht Ihrer Bestellungen, Zahlungen und Leistungen.','Overview of your orders, payments and services.')]:txt()[lbMode]||txt().login;
+ el('lbClientHeading').textContent=texts[0];el('lbClientDescription').textContent=texts[1];if(texts[2])el('lbClientSubmit').textContent=texts[2];
+ if(lbUser&&!layer.hidden){if(!el('lbClientBusinessPanel').hidden)void lbLoadBusiness();else void lbLoadOrders();}
+}
+
 const LB_PENDING_PACKAGE_KEY='lb_pending_package_v1';
 function lbRememberPackage(){
   const label=el('orderPackageLabel')?.textContent?.trim()||'';
@@ -2456,7 +2473,7 @@ function lbRememberPackage(){
   try{localStorage.setItem(LB_PENDING_PACKAGE_KEY,JSON.stringify({name:label,
       setup:Number(el('orderTotalField')?.value||0),
       price:String(el('orderPriceLabel')?.textContent||'').slice(0,180),
-      monthly:0,
+      monthly:Number(el('newOrderForm')?.dataset.monthly||0),
       time:Date.now()}));}catch{}
 }
 function lbGetPendingPackage(){
@@ -2466,34 +2483,34 @@ function lbGetPendingPackage(){
 }
 function lbForgetPendingPackage(){try{localStorage.removeItem(LB_PENDING_PACKAGE_KEY);}catch{}}
 const lbAuthCallback=()=>location.origin+location.pathname;
-const txt={
- login:['Anmelden','Melden Sie sich an, um Ihren Kundenbereich zu öffnen.','Anmelden'],
- signup:['Konto erstellen','Registrierung ist kostenlos. Bitte bestätigen Sie Ihre E-Mail-Adresse.','Registrieren'],
- forgot:['Passwort vergessen?','Wir senden einen Link zum Zurücksetzen des Passworts an Ihre E-Mail.','Link senden'],
- update:['Neues Passwort','Wählen Sie ein neues Passwort mit mindestens 8 Zeichen.','Passwort speichern']
-};
+const txt=()=>({
+ login:[lbTr("Anmelden","Log in"),lbTr("Melden Sie sich an, um Ihren Kundenbereich zu öffnen.","Log in to open your customer account."),lbTr("Anmelden","Log in")],
+ signup:[lbTr("Konto erstellen","Create account"),lbTr("Registrierung ist kostenlos. Bitte bestätigen Sie Ihre E-Mail-Adresse.","Registration is free. Please verify your email address."),lbTr("Registrieren","Register")],
+ forgot:[lbTr("Passwort vergessen?","Forgot password?"),lbTr("Wir senden einen Link zum Zurücksetzen des Passworts an Ihre E-Mail.","We will email you a link to reset your password."),lbTr("Link senden","Send link")],
+ update:[lbTr("Neues Passwort","New password"),lbTr("Wählen Sie ein neues Passwort mit mindestens 8 Zeichen.","Choose a new password with at least 8 characters."),lbTr("Passwort speichern","Save password")]
+});
 function lbNotice(message='',bad=false,good=false){const box=el('lbAuthNotice');box.hidden=!message;box.textContent=message;box.classList.toggle('bad',bad);box.classList.toggle('good',good);}
-function lbSetMode(m){lbMode=m;const t=txt[m]||txt.login;el('lbClientHeading').textContent=t[0];el('lbClientDescription').textContent=t[1];el('lbClientSubmit').textContent=t[2];el('lbAccountForm').hidden=false;el('lbAccountDashboard').hidden=true;el('lbClientCompanyField').hidden=m!=='signup';el('lbClientEmailField').hidden=m==='update';el('lbClientPasswordField').hidden=m==='forgot';el('lbClientConfirmField').hidden=!['signup','update'].includes(m);el('lbClientAlt').hidden=m==='update';el('lbClientResend').hidden=true;
+function lbSetMode(m){lbMode=m;const t=txt()[m]||txt().login;el('lbClientHeading').textContent=t[0];el('lbClientDescription').textContent=t[1];el('lbClientSubmit').textContent=t[2];el('lbAccountForm').hidden=false;el('lbAccountDashboard').hidden=true;el('lbClientCompanyField').hidden=m!=='signup';el('lbClientEmailField').hidden=m==='update';el('lbClientPasswordField').hidden=m==='forgot';el('lbClientConfirmField').hidden=!['signup','update'].includes(m);el('lbClientAlt').hidden=m==='update';el('lbClientResend').hidden=true;
  el('lbClientEmail').required=m!=='update';el('lbClientPassword').required=m!=='forgot';el('lbClientConfirm').required=['signup','update'].includes(m);el('lbClientPassword').autocomplete=m==='login'?'current-password':'new-password';lbNotice();}
 function lbOpen(mode){const layer=el('lbClientLayer');if(layer.hidden){lbReturnFocus=document.activeElement;lbPreviousOverflow=document.body.style.overflow;document.body.style.overflow='hidden';}layer.hidden=false;layer.setAttribute('aria-hidden','false');if(mode)lbSetMode(mode);else if(lbUser)lbRenderAccount();else lbSetMode('login');setTimeout(()=>{const id=lbMode==='update'?'lbClientPassword':lbUser?'lbClientLogout':'lbClientEmail';el(id)?.focus()},0);}
 function lbClose(){el('lbClientLayer').hidden=true;el('lbClientLayer').setAttribute('aria-hidden','true');document.body.style.overflow=lbPreviousOverflow;if(lbReturnFocus?.isConnected)lbReturnFocus.focus();if(location.hash==='#account')history.replaceState(null,'',location.pathname+location.search);}
 function lbEsc(v){return String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
-function lbStatus(v){return ({new:'Eingegangen',contacted:'Kontakt aufgenommen',in_progress:'In Bearbeitung',completed:'Abgeschlossen',cancelled:'Storniert',test:'Test'})[v]||v||'Eingegangen';}
-async function lbLoadOrders(){const box=el('lbClientOrders');box.innerHTML='<div class="lb-client-empty">Ihre Anfragen werden geladen …</div>';
+function lbStatus(v){return ({new:lbTr("Eingegangen","Received"),contacted:lbTr("Kontakt aufgenommen","Contacted"),in_progress:lbTr("In Bearbeitung","In progress"),completed:lbTr("Abgeschlossen","Completed"),cancelled:lbTr("Storniert","Cancelled"),test:'Test'})[v]||v||lbTr("Eingegangen","Received");}
+async function lbLoadOrders(){const box=el('lbClientOrders');box.innerHTML=lbTr("<div class=\"lb-client-empty\">Ihre Anfragen werden geladen …</div>","<div class=\"lb-client-empty\">Loading your requests …</div>");
  try{const {error:claimError}=await lbClient.rpc('lb_claim_my_orders');if(claimError)throw claimError;
  const {data,error}=await lbClient.from('orders').select('id,created_at,package_name,status,is_test,portal_enabled,company_name,total_eur,client_business_id,payments:stripe_payments(payment_status,subscription_status,cancel_at_period_end,last_invoice_status,setup_eur,monthly_eur,amount_paid_eur)').order('created_at',{ascending:false}).limit(100);
  if(error)throw error;lbOwnOrders=data||[];
- const money=v=>new Intl.NumberFormat('de-DE',{style:'currency',currency:'EUR'}).format(Number(v||0));
+ const money=v=>new Intl.NumberFormat(lbLocale(),{style:'currency',currency:'EUR'}).format(Number(v||0));
  box.innerHTML=(data||[]).length?(data||[]).map(o=>{
   const p=(o.payments||[]).find(x=>x.payment_status==='paid');
-  const subLabels={active:'Aktiv',trialing:'Testphase',past_due:'Zahlung ausstehend',unpaid:'Nicht bezahlt',canceled:'Beendet',incomplete:'Unvollständig',incomplete_expired:'Abgelaufen',paused:'Pausiert'};
-  const billing=p?'<div class="lb-client-meta"><strong>Erste Zahlung bestätigt: '+lbEsc(money(p.amount_paid_eur))+'</strong><br>Einrichtung: '+lbEsc(money(p.setup_eur))+' · Betreuung: '+lbEsc(money(p.monthly_eur))+' / Monat<br>Abonnement: '+lbEsc(subLabels[p.subscription_status]||'Status wird abgeglichen')+(p.cancel_at_period_end?' · endet zum Ablauf des Abrechnungszeitraums':'')+(p.last_invoice_status==='open'?' · aktuelle Rechnung offen':'')+'</div>':'<div class="lb-client-meta">'+(o.is_test?'Unverbindliche Testanfrage · keine bestätigte Online-Zahlung':'Keine bestätigte Stripe-Zahlung zugeordnet. Nutzen Sie nach dem Kauf dieselbe E-Mail-Adresse und aktualisieren Sie die Übersicht.')+'</div>';
-  return '<article class="lb-client-order"><strong>'+lbEsc(o.package_name)+'</strong><div class="lb-client-meta">'+lbEsc(o.company_name||'')+' · '+lbEsc(new Date(o.created_at).toLocaleDateString('de-DE'))+' · '+lbEsc(o.id.slice(0,8))+'</div>'+billing+'<span class="lb-client-state'+(o.portal_enabled?' ready':'')+'">'+lbEsc(lbStatus(o.status))+' · '+(o.portal_enabled?'Portal freigeschaltet':'Freischaltung ausstehend')+'</span>'+(o.portal_enabled?'<div class="lb-client-meta">Ihr Paket ist freigeschaltet. Die konkrete Produktanwendung wird bei Übergabe separat verbunden.</div>':'')+'</article>';
- }).join(''):'<div class="lb-client-empty">Noch keine Bestellungen zugeordnet. Nutzen Sie die bestätigte E-Mail-Adresse Ihres Stripe-Kaufs. Die Zuordnung kann nach der Zahlung etwas dauern; aktualisieren Sie die Übersicht oder kontaktieren Sie LogoBoss AI.</div>';
- }catch(e){box.innerHTML='<div class="lb-client-empty">Ihre Anfragen konnten nicht geladen werden. '+lbEsc(e.message||'Unbekannter Fehler')+'. Bitte später erneut versuchen.</div>';}}
-async function lbRenderAccount(){if(!lbUser)return;const resume=el('lbResumeOrder');if(resume)resume.hidden=!lbGetPendingPackage();lbMode='account';el('lbClientHeading').textContent='Mein Kundenportal';el('lbClientDescription').textContent='Übersicht Ihrer Bestellungen, Zahlungen und Leistungen.';el('lbAccountForm').hidden=true;el('lbClientAlt').hidden=true;el('lbClientResend').hidden=true;el('lbAccountDashboard').hidden=false;el('lbClientIdentity').textContent=lbUser.email||'';el('lbClientProfileCompany').value=String(lbUser.user_metadata?.company_name||'');lbNotice();await lbLoadOrders();}
-async function lbSyncSession(){const {data:{session},error}=await lbClient.auth.getSession();if(error)throw error;lbUser=session?.user||null;el('lbAccountOpen').textContent=lbUser?'Mein Konto':'Login / Registrieren';const mail=el('orderEmail');if(mail&&lbUser){mail.value=lbUser.email||'';mail.readOnly=true;}else if(mail){mail.readOnly=false;}return lbUser;}
-el('lbAccountOpen').addEventListener('click',async()=>{try{await lbSyncSession();lbOpen()}catch(e){lbOpen('login');lbNotice(e.message||'Login derzeit nicht erreichbar',true)}});
+  const subLabels={active:lbTr("Aktiv","Active"),trialing:lbTr("Testphase","Trial"),past_due:lbTr("Zahlung ausstehend","Payment pending"),unpaid:lbTr("Nicht bezahlt","Unpaid"),canceled:lbTr("Beendet","Cancelled"),incomplete:lbTr("Unvollständig","Incomplete"),incomplete_expired:lbTr("Abgelaufen","Expired"),paused:lbTr("Pausiert","Paused")};
+  const billing=p?lbTr("<div class=\"lb-client-meta\"><strong>Erste Zahlung bestätigt: ","<div class=\"lb-client-meta\"><strong>Initial payment confirmed: ")+lbEsc(money(p.amount_paid_eur))+lbTr("</strong><br>Einrichtung: ","</strong><br>Setup: ")+lbEsc(money(p.setup_eur))+lbTr(" · Betreuung: "," · Care: ")+lbEsc(money(p.monthly_eur))+lbTr(" / Monat<br>Abonnement: "," / month<br>Subscription: ")+lbEsc(subLabels[p.subscription_status]||lbTr("Status wird abgeglichen","Status being checked"))+(p.cancel_at_period_end?lbTr(" · endet zum Ablauf des Abrechnungszeitraums"," · ends at the end of the billing period"):'')+(p.last_invoice_status==='open'?lbTr(" · aktuelle Rechnung offen"," · current invoice unpaid"):'')+'</div>':'<div class="lb-client-meta">'+(o.is_test?lbTr("Unverbindliche Testanfrage · keine bestätigte Online-Zahlung","Non-binding test request · no confirmed online payment"):lbTr("Keine bestätigte Stripe-Zahlung zugeordnet. Nutzen Sie nach dem Kauf dieselbe E-Mail-Adresse und aktualisieren Sie die Übersicht.","No confirmed Stripe payment linked. After purchase, use the same email address and refresh this overview."))+'</div>';
+  return '<article class="lb-client-order"><strong>'+lbEsc(o.package_name)+'</strong><div class="lb-client-meta">'+lbEsc(o.company_name||'')+' · '+lbEsc(new Date(o.created_at).toLocaleDateString(lbLocale()))+' · '+lbEsc(o.id.slice(0,8))+'</div>'+billing+'<span class="lb-client-state'+(o.portal_enabled?' ready':'')+'">'+lbEsc(lbStatus(o.status))+' · '+(o.portal_enabled?lbTr("Portal freigeschaltet","Portal enabled"):lbTr("Freischaltung ausstehend","Activation pending"))+'</span>'+(o.portal_enabled?lbTr("<div class=\"lb-client-meta\">Ihr Paket ist freigeschaltet. Die konkrete Produktanwendung wird bei Übergabe separat verbunden.</div>","<div class=\"lb-client-meta\">Your package is enabled. The product application is connected separately during handover.</div>"):'')+'</article>';
+ }).join(''):lbTr("<div class=\"lb-client-empty\">Noch keine Bestellungen zugeordnet. Nutzen Sie die bestätigte E-Mail-Adresse Ihres Stripe-Kaufs. Die Zuordnung kann nach der Zahlung etwas dauern; aktualisieren Sie die Übersicht oder kontaktieren Sie LogoBoss AI.</div>","<div class=\"lb-client-empty\">No orders linked yet. Use the verified email address from your Stripe purchase. Linking can take a little time after payment; refresh the overview or contact LogoBoss AI.</div>");
+ }catch(e){box.innerHTML=lbTr("<div class=\"lb-client-empty\">Ihre Anfragen konnten nicht geladen werden. ","<div class=\"lb-client-empty\">Your requests could not be loaded. ")+lbEsc(e.message||lbTr("Unbekannter Fehler","Unknown error"))+lbTr(". Bitte später erneut versuchen.</div>",". Please try again later.</div>");}}
+async function lbRenderAccount(){if(!lbUser)return;const resume=el('lbResumeOrder');if(resume)resume.hidden=!lbGetPendingPackage();lbMode='account';el('lbClientHeading').textContent=lbTr("Mein Kundenportal","My customer portal");el('lbClientDescription').textContent=lbTr("Übersicht Ihrer Bestellungen, Zahlungen und Leistungen.","Overview of your orders, payments and services.");el('lbAccountForm').hidden=true;el('lbClientAlt').hidden=true;el('lbClientResend').hidden=true;el('lbAccountDashboard').hidden=false;el('lbClientIdentity').textContent=lbUser.email||'';el('lbClientProfileCompany').value=String(lbUser.user_metadata?.company_name||'');lbNotice();await lbLoadOrders();}
+async function lbSyncSession(){const {data:{session},error}=await lbClient.auth.getSession();if(error)throw error;lbUser=session?.user||null;el('lbAccountOpen').textContent=lbUser?lbTr("Mein Konto","My account"):lbTr("Login / Registrieren","Log in / Register");const mail=el('orderEmail');if(mail&&lbUser){mail.value=lbUser.email||'';mail.readOnly=true;}else if(mail){mail.readOnly=false;}return lbUser;}
+el('lbAccountOpen').addEventListener('click',async()=>{try{await lbSyncSession();lbOpen()}catch(e){lbOpen('login');lbNotice(e.message||lbTr("Login derzeit nicht erreichbar","Login is currently unavailable"),true)}});
 el('lbClientClose').addEventListener('click',lbClose);
 el('lbClientLayer').addEventListener('click',e=>{if(e.target===el('lbClientLayer'))lbClose()});
 document.addEventListener('keydown',e=>{if(el('lbClientLayer').hidden)return;if(e.key==='Escape'){lbClose();return;}if(e.key==='Tab'){const controls=[...el('lbClientBox').querySelectorAll('a[href],button,input,select,textarea,[tabindex]')].filter(n=>!n.disabled&&n.tabIndex>=0&&n.getClientRects().length);if(!controls.length)return;const first=controls[0],last=controls.at(-1);if(e.shiftKey&&(document.activeElement===first||!el('lbClientBox').contains(document.activeElement))){e.preventDefault();last.focus()}else if(!e.shiftKey&&(document.activeElement===last||!el('lbClientBox').contains(document.activeElement))){e.preventDefault();first.focus()}}});
@@ -2501,22 +2518,22 @@ window.addEventListener('hashchange',async()=>{if(location.hash==='#account'){tr
 document.querySelectorAll('[data-lb-auth]').forEach(b=>b.addEventListener('click',()=>lbSetMode(b.dataset.lbAuth)));
 el('lbAccountForm').addEventListener('submit',async(e)=>{e.preventDefault();if(lbBusy)return;lbBusy=true;const btn=el('lbClientSubmit');btn.disabled=true;lbNotice();
  try{const email=el('lbClientEmail').value.trim().toLowerCase(),password=el('lbClientPassword').value,confirm=el('lbClientConfirm').value;let result;
- if(['signup','update'].includes(lbMode)&&password!==confirm)throw Error('Passwörter stimmen nicht überein.');
+ if(['signup','update'].includes(lbMode)&&password!==confirm)throw Error(lbTr("Passwörter stimmen nicht überein.","Passwords do not match."));
  if(lbMode==='signup'){
   result=await lbClient.auth.signUp({email,password,options:{emailRedirectTo:lbAuthCallback(),data:{company_name:el('lbClientCompany').value.trim()}}});if(result.error)throw result.error;
-  if(!result.data.session){el('lbClientResend').hidden=false;lbNotice('Registrierung eingegangen. Bitte öffnen Sie die Bestätigungs-E-Mail und bestätigen Sie Ihre Adresse. Anschließend können Sie sich anmelden.',false,true);}else{await lbSyncSession();await lbRenderAccount();lbNotice('Konto wurde erstellt.',false,true);}
+  if(!result.data.session){el('lbClientResend').hidden=false;lbNotice(lbTr("Registrierung eingegangen. Bitte öffnen Sie die Bestätigungs-E-Mail und bestätigen Sie Ihre Adresse. Anschließend können Sie sich anmelden.","Registration received. Open the confirmation email and verify your address. You can then log in."),false,true);}else{await lbSyncSession();await lbRenderAccount();lbNotice(lbTr("Konto wurde erstellt.","Account created."),false,true);}
  }else if(lbMode==='login'){
-  result=await lbClient.auth.signInWithPassword({email,password});if(result.error)throw result.error;await lbSyncSession();await lbRenderAccount();if(lbPendingOrder){lbPendingOrder=false;lbClose();const f=el('newOrderForm');if(f){el('orderEmail').value=lbUser.email;el('orderEmail').readOnly=true;el('paymentStatus').textContent='Angemeldet. Sie können Ihre Anfrage jetzt absenden.';el('paymentStatus').classList.add('show');}}}
+  result=await lbClient.auth.signInWithPassword({email,password});if(result.error)throw result.error;await lbSyncSession();await lbRenderAccount();if(lbPendingOrder){lbPendingOrder=false;lbClose();const f=el('newOrderForm');if(f){el('orderEmail').value=lbUser.email;el('orderEmail').readOnly=true;el('paymentStatus').textContent=lbTr("Angemeldet. Sie können Ihre Anfrage jetzt absenden.","Logged in. You can now send your request.");el('paymentStatus').classList.add('show');}}}
  else if(lbMode==='forgot'){
   result=await lbClient.auth.resetPasswordForEmail(email,{redirectTo:lbAuthCallback()});if(result.error)throw result.error;
-  lbNotice('Falls für diese E-Mail ein Konto besteht, erhalten Sie einen Link zum Zurücksetzen Ihres Passworts. Bitte prüfen Sie auch Ihren Spam-Ordner.',false,true);
+  lbNotice(lbTr("Falls für diese E-Mail ein Konto besteht, erhalten Sie einen Link zum Zurücksetzen Ihres Passworts. Bitte prüfen Sie auch Ihren Spam-Ordner.","If an account exists for this email, you will receive a password reset link. Please also check your spam folder."),false,true);
  }else if(lbMode==='update'){
-  result=await lbClient.auth.updateUser({password});if(result.error)throw result.error;el('lbClientPassword').value='';el('lbClientConfirm').value='';await lbSyncSession();await lbRenderAccount();lbNotice('Ihr neues Passwort wurde gespeichert.',false,true);
+  result=await lbClient.auth.updateUser({password});if(result.error)throw result.error;el('lbClientPassword').value='';el('lbClientConfirm').value='';await lbSyncSession();await lbRenderAccount();lbNotice(lbTr("Ihr neues Passwort wurde gespeichert.","Your new password has been saved."),false,true);
  }
- }catch(err){lbNotice(err.message||'Vorgang fehlgeschlagen. Bitte erneut versuchen.',true)}finally{btn.disabled=false;lbBusy=false;}
+ }catch(err){lbNotice(err.message||lbTr("Vorgang fehlgeschlagen. Bitte erneut versuchen.","This action failed. Please try again."),true)}finally{btn.disabled=false;lbBusy=false;}
 });
-el('lbClientResendButton').addEventListener('click',async()=>{const email=el('lbClientEmail').value.trim();if(!email){lbNotice('Bitte zuerst E-Mail eingeben.',true);return;}const btn=el('lbClientResendButton');btn.disabled=true;try{const {error}=await lbClient.auth.resend({type:'signup',email,options:{emailRedirectTo:lbAuthCallback()}});if(error)throw error;lbNotice('Bestätigungs-E-Mail erneut angefordert. Bitte Postfach und Spam prüfen.',false,true)}catch(e){lbNotice(e.message,true)}finally{btn.disabled=false}});
-el('lbClientLogout').addEventListener('click',async()=>{await lbClient.auth.signOut();lbUser=null;el('lbAccountOpen').textContent='Login / Registrieren';el('lbClientPassword').value='';el('lbClientConfirm').value='';lbSetMode('login');const mail=el('orderEmail');if(mail)mail.readOnly=false;});
+el('lbClientResendButton').addEventListener('click',async()=>{const email=el('lbClientEmail').value.trim();if(!email){lbNotice(lbTr("Bitte zuerst E-Mail eingeben.","Enter your email address first."),true);return;}const btn=el('lbClientResendButton');btn.disabled=true;try{const {error}=await lbClient.auth.resend({type:'signup',email,options:{emailRedirectTo:lbAuthCallback()}});if(error)throw error;lbNotice(lbTr("Bestätigungs-E-Mail erneut angefordert. Bitte Postfach und Spam prüfen.","Confirmation email requested again. Check your inbox and spam folder."),false,true)}catch(e){lbNotice(e.message,true)}finally{btn.disabled=false}});
+el('lbClientLogout').addEventListener('click',async()=>{await lbClient.auth.signOut();lbUser=null;el('lbAccountOpen').textContent=lbTr("Login / Registrieren","Log in / Register");el('lbClientPassword').value='';el('lbClientConfirm').value='';lbSetMode('login');const mail=el('orderEmail');if(mail)mail.readOnly=false;});
 el('lbClientRefresh').addEventListener('click',lbLoadOrders);
 el('lbResumeOrder').addEventListener('click',()=>{
  const pending=lbGetPendingPackage();if(!pending)return;
@@ -2531,43 +2548,42 @@ el('lbResumeOrder').addEventListener('click',()=>{
  }
 });
 document.querySelectorAll('[data-lb-tab]').forEach(b=>b.addEventListener('click',()=>{const tab=b.dataset.lbTab;document.querySelectorAll('[data-lb-tab]').forEach(x=>x.classList.toggle('active',x===b));el('lbClientOrdersPanel').hidden=tab!=='orders';el('lbClientBusinessPanel').hidden=tab!=='business';el('lbClientProfilePanel').hidden=tab!=='profile';if(tab==='business')lbLoadBusiness();}));
-el('lbClientProfilePanel').addEventListener('submit',async e=>{e.preventDefault();const button=e.currentTarget.querySelector('button[type="submit"]');button.disabled=true;try{const {data,error}=await lbClient.auth.updateUser({data:{company_name:el('lbClientProfileCompany').value.trim()}});if(error)throw error;lbUser=data.user;lbNotice('Profil gespeichert.',false,true)}catch(e){lbNotice(e.message,true)}finally{button.disabled=false}});
+el('lbClientProfilePanel').addEventListener('submit',async e=>{e.preventDefault();const button=e.currentTarget.querySelector('button[type="submit"]');button.disabled=true;try{const {data,error}=await lbClient.auth.updateUser({data:{company_name:el('lbClientProfileCompany').value.trim()}});if(error)throw error;lbUser=data.user;lbNotice(lbTr("Profil gespeichert.","Profile saved."),false,true)}catch(e){lbNotice(e.message,true)}finally{button.disabled=false}});
 el('lbClientChangePassword').addEventListener('click',()=>{lbSetMode('update');lbOpen('update')});
 // Protect the real order request flow: login first, then submit with a confirmed account.
 // Send JSON instead of an HTML form redirect, which previously could lead to a missing thank-you.html.
 const lbOrderForm=el('newOrderForm');if(lbOrderForm)lbOrderForm.addEventListener('submit',async e=>{
  e.preventDefault();e.stopImmediatePropagation();
- const submit=el('orderSubmit');if(submit.disabled)return;
- try{const user=await lbSyncSession();if(!user){lbPendingOrder=true;lbRememberPackage();lbOpen('signup');lbNotice('Bitte erstellen Sie zuerst ein Kundenkonto oder melden Sie sich an. Ihre Paketauswahl bleibt gespeichert.');return;}
- if(!user.email_confirmed_at){lbOpen('login');lbNotice('Bestätigen Sie zuerst Ihre E-Mail-Adresse, bevor Sie eine Anfrage senden.',true);return;}
+ const submit=el('orderSubmit');if(submit.disabled)return;submit.disabled=true;
+ try{const user=await lbSyncSession();if(!user){lbPendingOrder=true;lbRememberPackage();lbOpen('signup');lbNotice(lbTr("Bitte erstellen Sie zuerst ein Kundenkonto oder melden Sie sich an. Ihre Paketauswahl bleibt gespeichert.","Create a customer account or log in first. Your package selection will be saved."));return;}
+ if(!user.email_confirmed_at){lbOpen('login');lbNotice(lbTr("Bestätigen Sie zuerst Ihre E-Mail-Adresse, bevor Sie eine Anfrage senden.","Verify your email address before sending a request."),true);return;}
  const email=el('orderEmail');email.value=user.email;email.readOnly=true;if(!lbOrderForm.reportValidity())return;
  submit.disabled=true;const params=new FormData(lbOrderForm);params.set('email',user.email);params.set('language',localStorage.getItem('lb_lang')==='en'?'en':'de');
  const note=String(params.get('note')||'');params.set('note',note);
  const payload=Object.fromEntries(params.entries());
  const session=(await lbClient.auth.getSession()).data.session;
  const r=await fetch(LB_SUPABASE_URL+'/functions/v1/submit-order',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json','Authorization':'Bearer '+session.access_token,'apikey':LB_PUBLIC_KEY},body:JSON.stringify(payload)});
- const response=await r.json().catch(()=>({}));if(!r.ok||!response.success)throw Error(response.error||'Anfrage konnte nicht gesendet werden.');
- el('paymentStatus').textContent=(response.is_test?'Interne Testanfrage gespeichert. Nummer: ':'Anfrage gespeichert. Nummer: ')+(response.order?.id||'–')+'. Öffnen Sie „Mein Konto“, um den Status zu sehen.';el('paymentStatus').classList.add('show');el('paymentStatus').classList.remove('error');
+ const response=await r.json().catch(()=>({}));if(!r.ok||!response.success)throw Error(response.error||lbTr("Anfrage konnte nicht gesendet werden.","The request could not be sent."));
+ el('paymentStatus').textContent=(response.is_test?lbTr("Interne Testanfrage gespeichert. Nummer: ","Internal test request saved. Number: "):lbTr("Anfrage gespeichert. Nummer: ","Request saved. Number: "))+(response.order?.id||'–')+lbTr(". Öffnen Sie „Mein Konto“, um den Status zu sehen.",". Open “My account” to view the status.");el('paymentStatus').classList.add('show');el('paymentStatus').classList.remove('error');
  lbForgetPendingPackage();
  await lbClient.rpc('lb_claim_my_orders');
- }catch(err){el('paymentStatus').textContent=err.message||'Anfrage fehlgeschlagen.';el('paymentStatus').classList.add('show','error');}
+ }catch(err){el('paymentStatus').textContent=err.message||lbTr("Anfrage fehlgeschlagen.","Request failed.");el('paymentStatus').classList.add('show','error');}
  finally{submit.disabled=false;}
 },true);
-// Never allow direct checkout without a session. All Stripe checkout buttons are already paused in this test build.
-el('stripePayBtn')?.addEventListener('click',async e=>{const user=await lbSyncSession();if(!user){e.preventDefault();e.stopImmediatePropagation();lbPendingOrder=true;lbOpen('signup');lbNotice('Zur Bestellung müssen Sie sich erst anmelden oder registrieren.');}},true);
+// Stripe hosts checkout; verified account ownership is required to claim orders in this portal.
 
 // Client business panel: RLS in Supabase enforces tenant separation server-side.
-const lbBizEmpty='<div class="lb-client-empty">Keine Einträge vorhanden.</div>';
+const lbBizEmpty=()=>lbTr("<div class=\"lb-client-empty\">Keine Einträge vorhanden.</div>","<div class=\"lb-client-empty\">No entries yet.</div>");
 async function lbLoadBusiness(){
  const info=el('lbBusinessNotice'),body=el('lbBusinessContent');info.hidden=false;body.hidden=true;
- info.textContent='Geschäftsdaten werden geladen …';
+ info.textContent=lbTr("Geschäftsdaten werden geladen …","Loading business data …");
  try{
   await lbLoadOrders();
   const allowed=new Set(lbOwnOrders.filter(o=>o.portal_enabled&&o.client_business_id).map(o=>o.client_business_id));
-  if(!allowed.size){info.textContent='Ihre Bestellung ist registriert. Die Geschäftsfunktionen werden erst nach Bereitstellung und Freischaltung durch LogoBoss AI aktiviert.';return;}
+  if(!allowed.size){info.textContent=lbTr("Ihre Bestellung ist registriert. Die Geschäftsfunktionen werden erst nach Bereitstellung und Freischaltung durch LogoBoss AI aktiviert.","Your order is registered. Business features are activated after setup and approval by LogoBoss AI.");return;}
   const {data:members,error:me}=await lbClient.from('business_members').select('business_id,role');if(me)throw me;
   const owner=(members||[]).find(m=>allowed.has(m.business_id));
-  if(!owner){info.textContent='Die Freischaltung wird gerade eingerichtet. Bitte aktualisieren Sie später oder kontaktieren Sie LogoBoss AI.';return;}
+  if(!owner){info.textContent=lbTr("Die Freischaltung wird gerade eingerichtet. Bitte aktualisieren Sie später oder kontaktieren Sie LogoBoss AI.","Activation is being set up. Refresh later or contact LogoBoss AI.");return;}
   const id=owner.business_id;
   const [business,mr,leads,appointments,services]=await Promise.all([
    lbClient.from('businesses').select('id,name,package,active').eq('id',id).maybeSingle(),
@@ -2577,51 +2593,53 @@ async function lbLoadBusiness(){
    lbClient.from('business_services').select('id,name,duration_minutes,price_eur,active').eq('business_id',id).order('name',{ascending:true}).limit(50)
   ]);
   for(const r of [business,mr,leads,appointments,services])if(r.error)throw r.error;
-  if(!business.data?.active){info.textContent='Ihr Unternehmenszugang ist noch nicht aktiv.';return;}
+  if(!business.data?.active){info.textContent=lbTr("Ihr Unternehmenszugang ist noch nicht aktiv.","Your business access is not active yet.");return;}
   lbCurrentBusiness=id;lbCurrentModules=mr.data||{};
-  el('lbBusinessName').textContent=business.data.name||'Mein Unternehmen';
-  const modules={website:'Website',booking:'Online-Termine',ai_chat:'KI-Chat',email_ai:'E-Mail-Automation',review_automation:'Bewertungen',advanced_automation:'Workflows'};
+  el('lbBusinessName').textContent=business.data.name||lbTr("Mein Unternehmen","My business");
+  const modules={website:'Website',booking:lbTr("Online-Termine","Online appointments"),ai_chat:lbTr("KI-Chat","AI chat"),email_ai:lbTr("E-Mail-Automation","Email automation"),review_automation:lbTr("Bewertungen","Reviews"),advanced_automation:'Workflows'};
   el('lbBusinessModules').innerHTML=Object.entries(modules).map(([k,label])=>'<span class="lb-biz-module'+(lbCurrentModules[k]?' active':'')+'">'+(lbCurrentModules[k]?'✓ ':'○ ')+label+'</span>').join('');
   const ls=leads.data||[],as=appointments.data||[],ss=services.data||[];
   el('lbBizLeadsCount').textContent=ls.length;el('lbBizAppointmentsCount').textContent=lbCurrentModules.booking?as.length:'–';el('lbBizServicesCount').textContent=lbCurrentModules.booking?ss.length:'–';
-  el('lbBusinessLeads').innerHTML=ls.length?ls.map(l=>'<div class="lb-biz-item"><span><b>'+lbEsc(l.customer_name||'Anfrage')+'</b><span class="lb-client-meta">'+lbEsc(l.email||'')+' · '+lbEsc(l.source||'Web')+'</span></span><select aria-label="Status der Anfrage" data-kind="lead" data-id="'+lbEsc(l.id)+'">'+['new','contacted','qualified','closed'].map(x=>'<option value="'+x+'"'+(x===l.status?' selected':'')+'>'+x+'</option>').join('')+'</select></div>').join(''):lbBizEmpty;
-  el('lbBusinessAppointments').innerHTML=lbCurrentModules.booking?(as.length?as.map(a=>'<div class="lb-biz-item"><span><b>'+lbEsc(a.customer_name)+'</b><span class="lb-client-meta">'+lbEsc(a.service)+' · '+lbEsc(a.starts_at?new Date(a.starts_at).toLocaleString('de-DE'):'Noch nicht terminiert')+'</span></span><select aria-label="Terminstatus" data-kind="appointment" data-id="'+lbEsc(a.id)+'">'+['new','confirmed','completed','cancelled'].map(x=>'<option value="'+x+'"'+(x===a.status?' selected':'')+'>'+x+'</option>').join('')+'</select></div>').join(''):lbBizEmpty):'<div class="lb-client-empty">Terminverwaltung ist noch nicht freigeschaltet.</div>';
-  el('lbBusinessServices').innerHTML=lbCurrentModules.booking?(ss.length?ss.map(s=>'<div class="lb-biz-item"><span><b>'+lbEsc(s.name)+'</b><span class="lb-client-meta">'+Number(s.duration_minutes||0)+' Min. · '+(s.price_eur==null?'Preis auf Anfrage':Number(s.price_eur).toLocaleString('de-DE',{style:'currency',currency:'EUR'}))+'</span></span><label><input type="checkbox" data-kind="service" data-id="'+lbEsc(s.id)+'"'+(s.active?' checked':'')+'> Aktiv</label></div>').join(''):lbBizEmpty):'<div class="lb-client-empty">Leistungenverwaltung ist noch nicht freigeschaltet.</div>';
+  el('lbBusinessLeads').innerHTML=ls.length?ls.map(l=>'<div class="lb-biz-item"><span><b>'+lbEsc(l.customer_name||lbTr("Anfrage","Inquiry"))+'</b><span class="lb-client-meta">'+lbEsc(l.email||'')+' · '+lbEsc(l.source||'Web')+lbTr("</span></span><select aria-label=\"Status der Anfrage\" data-kind=\"lead\" data-id=\"","</span></span><select aria-label=\"Inquiry status\" data-kind=\"lead\" data-id=\"")+lbEsc(l.id)+'">'+['new','contacted','qualified','closed'].map(x=>'<option value="'+x+'"'+(x===l.status?' selected':'')+'>'+x+'</option>').join('')+'</select></div>').join(''):lbBizEmpty();
+  el('lbBusinessAppointments').innerHTML=lbCurrentModules.booking?(as.length?as.map(a=>'<div class="lb-biz-item"><span><b>'+lbEsc(a.customer_name)+'</b><span class="lb-client-meta">'+lbEsc(a.service)+' · '+lbEsc(a.starts_at?new Date(a.starts_at).toLocaleString(lbLocale()):lbTr("Noch nicht terminiert","Not scheduled yet"))+lbTr("</span></span><select aria-label=\"Terminstatus\" data-kind=\"appointment\" data-id=\"","</span></span><select aria-label=\"Appointment status\" data-kind=\"appointment\" data-id=\"")+lbEsc(a.id)+'">'+['new','confirmed','completed','cancelled'].map(x=>'<option value="'+x+'"'+(x===a.status?' selected':'')+'>'+x+'</option>').join('')+'</select></div>').join(''):lbBizEmpty()):lbTr("<div class=\"lb-client-empty\">Terminverwaltung ist noch nicht freigeschaltet.</div>","<div class=\"lb-client-empty\">Appointment management is not enabled yet.</div>");
+  el('lbBusinessServices').innerHTML=lbCurrentModules.booking?(ss.length?ss.map(s=>'<div class="lb-biz-item"><span><b>'+lbEsc(s.name)+'</b><span class="lb-client-meta">'+Number(s.duration_minutes||0)+' Min. · '+(s.price_eur==null?lbTr("Preis auf Anfrage","Price on request"):Number(s.price_eur).toLocaleString(lbLocale(),{style:'currency',currency:'EUR'}))+'</span></span><label><input type="checkbox" data-kind="service" data-id="'+lbEsc(s.id)+'"'+(s.active?' checked':'')+lbTr("> Aktiv</label></div>","> Active</label></div>")).join(''):lbBizEmpty()):lbTr("<div class=\"lb-client-empty\">Leistungenverwaltung ist noch nicht freigeschaltet.</div>","<div class=\"lb-client-empty\">Service management is not enabled yet.</div>");
   el('lbServiceCreate').hidden=!lbCurrentModules.booking;
   info.hidden=true;body.hidden=false;
- }catch(e){info.textContent='Geschäftsdaten konnten nicht geladen werden: '+(e.message||'Unbekannter Fehler');}
+ }catch(e){info.textContent=lbTr("Geschäftsdaten konnten nicht geladen werden: ","Business data could not be loaded: ")+(e.message||lbTr("Unbekannter Fehler","Unknown error"));}
 }
 el('lbBusinessRefresh').addEventListener('click',lbLoadBusiness);
 for(const containerId of ['lbBusinessLeads','lbBusinessAppointments','lbBusinessServices']){
  el(containerId).addEventListener('change',async e=>{
   const n=e.target,k=n.dataset.kind,id=n.dataset.id;
   if(!lbCurrentBusiness||!id||!k)return;
-  if(!confirm('Änderung speichern?')){await lbLoadBusiness();return;}
+  if(!confirm(lbTr("Änderung speichern?","Save this change?"))){await lbLoadBusiness();return;}
   n.disabled=true;
   try{
    const map={lead:['leads',{status:n.value}],appointment:['appointments',{status:n.value}],service:['business_services',{active:n.checked}]};
-   const entry=map[k];if(!entry)throw Error('Ungültiger Eintrag');
-   if((k==='appointment'||k==='service')&&!lbCurrentModules?.booking)throw Error('Modul nicht freigeschaltet');
+   const entry=map[k];if(!entry)throw Error(lbTr("Ungültiger Eintrag","Invalid entry"));
+   if((k==='appointment'||k==='service')&&!lbCurrentModules?.booking)throw Error(lbTr("Modul nicht freigeschaltet","Module not enabled"));
    const {error}=await lbClient.from(entry[0]).update(entry[1]).eq('business_id',lbCurrentBusiness).eq('id',id);
    if(error)throw error;
    await lbLoadBusiness();
-  }catch(error){alert('Speichern fehlgeschlagen: '+(error.message||error));await lbLoadBusiness();}
+  }catch(error){alert(lbTr("Speichern fehlgeschlagen: ","Save failed: ")+(error.message||error));await lbLoadBusiness();}
  });
 }
 el('lbServiceCreate').addEventListener('submit',async e=>{
  e.preventDefault();if(!lbCurrentBusiness||!lbCurrentModules?.booking)return;
  const name=el('lbServiceName').value.trim(),duration=Number(el('lbServiceMinutes').value),priceStr=el('lbServicePrice').value;
  const price=priceStr.trim()?Number(priceStr):null;
- if(!name||name.length>100||!Number.isInteger(duration)||duration<15||duration>480||(price!==null&&(!Number.isFinite(price)||price<0||price>10000))){alert('Bitte gültige Leistungsdaten eingeben.');return;}
+ if(!name||name.length>100||!Number.isInteger(duration)||duration<15||duration>480||(price!==null&&(!Number.isFinite(price)||price<0||price>10000))){alert(lbTr("Bitte gültige Leistungsdaten eingeben.","Enter valid service details."));return;}
  const button=e.currentTarget.querySelector('button[type="submit"]');button.disabled=true;
  try{const {error}=await lbClient.from('business_services').insert({business_id:lbCurrentBusiness,name,duration_minutes:duration,price_eur:price,active:true});if(error)throw error;el('lbServiceName').value='';el('lbServicePrice').value='';await lbLoadBusiness();}
- catch(err){alert('Leistung konnte nicht gespeichert werden: '+(err.message||err))}
+ catch(err){alert(lbTr("Leistung konnte nicht gespeichert werden: ","The service could not be saved: ")+(err.message||err))}
  finally{button.disabled=false;}
 });
 
 // Auth recovery links can contain #access_token=...&type=recovery and should be processed before a generic route.
 const lbInitialRecovery=location.hash.includes('type=recovery')||new URLSearchParams(location.search).get('lb_auth')==='recovery';
-lbClient.auth.onAuthStateChange((event,session)=>{lbUser=session?.user||null;el('lbAccountOpen').textContent=lbUser?'Mein Konto':'Login / Registrieren';if(event==='PASSWORD_RECOVERY'){queueMicrotask(()=>{lbOpen('update');});}else if(event==='SIGNED_IN'&&!lbInitialRecovery&&lbLoginInitialized){queueMicrotask(()=>{if(!el('lbClientLayer').hidden&&lbMode==='login')lbRenderAccount()});}});
+lbClient.auth.onAuthStateChange((event,session)=>{lbUser=session?.user||null;el('lbAccountOpen').textContent=lbUser?lbTr("Mein Konto","My account"):lbTr("Login / Registrieren","Log in / Register");if(event==='PASSWORD_RECOVERY'){queueMicrotask(()=>{lbOpen('update');});}else if(event==='SIGNED_IN'&&!lbInitialRecovery&&lbLoginInitialized){queueMicrotask(()=>{if(!el('lbClientLayer').hidden&&lbMode==='login')lbRenderAccount()});}});
+new MutationObserver(lbApplyLanguage).observe(document.documentElement,{attributes:true,attributeFilter:['lang']});
+lbApplyLanguage();
 (async()=>{try{await lbSyncSession();lbLoginInitialized=true;if(lbInitialRecovery&&lbUser){lbOpen('update');return;}if(new URLSearchParams(location.search).get('lb_auth')==='account'||location.hash==='#account')lbOpen();
  if(lbUser&&lbGetPendingPackage()){lbOpen();}}
  catch(e){console.error('LogoBoss auth init',e);lbLoginInitialized=true;}})();
@@ -2632,7 +2650,9 @@ window.addEventListener('DOMContentLoaded',()=>{
  const first=document.querySelector('#offer-digital-start');
  if(first){const parent=first.parentElement;
   if(parent){const message=document.createElement('p');message.className='lb-live-disclosure';
-  message.innerHTML='Preise für Unternehmen: Einrichtung einmalig und Betreuung monatlich. Beim Kauf werden Einrichtung + erster Monat fällig; danach verlängert sich die monatliche Betreuung automatisch. Stripe verarbeitet Zahlungen. Ein Kundenportal wird nach Einrichtung freigeschaltet. Steuern gemäß Rechnung und geltender Regelung. | Business pricing: one-time setup plus a monthly subscription; initial checkout charges both setup and month one.';
+  message.dataset.lbDe='Preise für Unternehmen: Einrichtung einmalig und Betreuung monatlich. Beim Kauf werden Einrichtung + erster Monat fällig; danach verlängert sich die monatliche Betreuung automatisch. Stripe verarbeitet Zahlungen. Ein Kundenportal wird nach Einrichtung freigeschaltet. Steuern gemäß Rechnung und geltender Regelung.';
+  message.dataset.lbEn='Business pricing: one-time setup and monthly care. At checkout, setup and the first month are due; monthly care then renews automatically. Stripe processes payments. Customer access is enabled after setup. Taxes follow the invoice and applicable rules.';
+  message.textContent=document.documentElement.lang==='en'?message.dataset.lbEn:message.dataset.lbDe;
   parent.insertAdjacentElement('afterend',message);
   }
  }
