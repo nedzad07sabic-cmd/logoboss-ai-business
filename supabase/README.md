@@ -77,3 +77,7 @@ The migrations in this directory were applied during the audit. Treat them as th
 
 The sitemap contains the home page and eight DE/EN service pages. Account, checkout-return and demonstration pages have `noindex`. The logo and favicon URLs must remain public and stable. Search indexing and favicon display are controlled by search engines.
 
+# Support centre (10 October 2026)
+
+The `support-tickets` Edge Function and migration `20261010170300_add_private_support_tickets.sql` add private customer tickets, administrator replies, linked order selection, statuses and private attachments. See `../ops/support-release-20261010.md` for the authorization model, notifications, tests and limitations. Deploy the migration before enabling the frontend. The function uses custom JWT verification against Auth and the existing Resend secret; no server keys belong in browser files.
+
