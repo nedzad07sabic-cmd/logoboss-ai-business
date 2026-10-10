@@ -292,7 +292,12 @@ h1,h2,h3,h4,.brand,.navlinks,.btn,.lb-menu-card b{font-family:Manrope,'DM Sans',
 .lb-package-detail{border:1px solid rgba(135,186,255,.24);border-radius:12px;background:rgba(58,97,166,.10);margin:0 0 14px;overflow:hidden}.lb-package-detail summary{cursor:pointer;padding:11px 12px;color:#b8e9ff;font-size:12px;font-weight:800}.lb-package-detail summary:focus-visible{outline:2px solid #80ddff}.lb-package-detail[open] summary{border-bottom:1px solid rgba(135,186,255,.18)}.lb-package-detail-list{margin:0;padding:10px 14px 14px 28px;list-style:disc}.lb-package-detail-list li{font-size:12px;line-height:1.5;color:#d3def3;margin:7px 0}
 </style>
 <link rel="stylesheet" href="./motion-design.css?v=20261009-motion-2">
-<link rel="stylesheet" href="./immersive-3d.css?v=20261009-3d-4">
+<link rel="stylesheet" href="./immersive-3d.css?v=20261010-hosting-1">
+<style>
+/* Hosting system shares the native 3D presentation. */
+.navlinks{display:flex!important}.node-hosting{top:5%;right:22%;animation-delay:-3s}.motion-tabs{grid-template-columns:repeat(5,minmax(0,1fr))}.lb-hosting-card{border-color:#68c2ff55}.lb-hosting-card .lb-safe-price{font-size:30px}.lb-hosting-card .lb-safe-price small{font-size:12px}.lb-hosting-status{font-size:12px!important;color:#a4b3cf!important;line-height:1.65}.lb-hosting-request{display:block;text-align:center;text-decoration:none}.fx-server-rack{display:grid;gap:12px;margin:24px 0}.fx-server-unit{display:flex;gap:16px;align-items:center;padding:15px 18px;border:1px solid #6abaff50;border-radius:8px;background:linear-gradient(135deg,#243a60,#111f3c);box-shadow:0 8px 0 #070e22,0 18px 25px #0004;transform:translateZ(22px)}.fx-server-unit i{width:7px;height:7px;border-radius:50%;background:#68d7ff;box-shadow:0 0 15px #68d7ff}.fx-server-unit b{font-size:12px;letter-spacing:2px}.fx-server-unit span{margin-left:auto;color:#a8bfff;font-size:10px}.fx-capacity{height:12px;border-radius:10px;background:#11182e;overflow:hidden;margin:24px 0}.fx-capacity i{display:block;width:68%;height:100%;background:linear-gradient(90deg,#68c2ff,#a189ff);box-shadow:0 0 20px #68c2ff}.fx-domain-name{font-size:clamp(20px,3vw,34px);letter-spacing:-1px;margin:30px 0;color:#8cceff}.fx-hosting-seal{width:75px;height:75px;display:grid;place-items:center;border:1px solid #91a5ff70;border-radius:50%;font-size:35px;background:radial-gradient(circle,#334473,#11192f);box-shadow:0 0 40px #737fff30;margin:20px auto}.fx-deploy{display:flex;align-items:center;gap:12px;margin:35px 0}.fx-deploy span{padding:18px 14px;border:1px solid #7f99ff60;border-radius:10px;background:#1d2b50;color:#9bcbff}.fx-deploy i{height:1px;flex:1;background:linear-gradient(90deg,#69bdff,#b186ff)}
+@media(max-width:760px){.nav{gap:5px}.navlinks{margin-left:auto;gap:0}.navlinks a{font-size:11px;padding:8px 6px}.brand>span{font-size:17px}.lb-lang-trigger{padding:8px}.motion-tabs button{padding-left:5px;padding-right:5px;font-size:10px}.motion-tabs button small{font-size:7px}.node-hosting{top:3%;right:20%}.motion-package-picker:has([data-package^="hosting-"]){overflow-x:auto}.motion-package-picker:has([data-package^="hosting-"])>button{flex:1 0 145px}.fx-server-rack{gap:8px;margin:14px 0}.fx-server-unit{padding:9px 12px;gap:10px;box-shadow:0 5px 0 #070e22}.fx-server-unit b{font-size:8px}.fx-server-unit span{font-size:7px}.fx-domain-name{font-size:20px;margin:15px 0}.fx-hosting-seal{height:48px;width:48px;font-size:24px;margin:12px auto}.fx-deploy{margin:20px 0}.fx-deploy span{font-size:10px;padding:10px}}
+</style>
 </head>
 <body>
 <!-- LogoBoss AI FINAL · Launch-ready design + Stripe test integration -->
@@ -300,26 +305,18 @@ h1,h2,h3,h4,.brand,.navlinks,.btn,.lb-menu-card b{font-family:Manrope,'DM Sans',
   <div class="wrap nav">
     <a class="brand" href="#home" data-home><span>LogoBoss AI</span></a>
     <nav class="navlinks" aria-label="Main navigation">
-      <a href="#home" data-lb-de="Start" data-lb-en="Home">Start</a>
+      <a href="#home" data-home data-lb-de="Home" data-lb-en="Home">Home</a>
       <a href="#systems" data-lb-de="Systeme" data-lb-en="Systems">Systeme</a>
-      <a href="#services" data-motion-all data-lb-de="Pakete" data-lb-en="Packages">Pakete</a>
     </nav>
     <div class="lang native-lang-hooks" aria-hidden="true"><button id="deBtn" class="active" type="button" tabindex="-1">DE</button><button id="enBtn" type="button" tabindex="-1">EN</button></div>
     <div class="lb-language notranslate" data-lang-picker>
       <button class="lb-lang-trigger" type="button" aria-haspopup="true" aria-expanded="false"><span class="lb-lang-globe">◎</span><span class="lb-lang-current">DE</span><span class="lb-lang-chevron">⌄</span></button>
       <div class="lb-lang-menu" role="menu"></div>
     </div>
-    <a class="nav-cta" href="#services" data-motion-all data-lb-de="Lösungen ansehen" data-lb-en="Explore solutions">Lösungen ansehen</a>
-    <button class="more-btn" id="megaOpen" type="button" aria-label="Open systems menu" aria-haspopup="dialog" aria-expanded="false"><span></span><span></span><span></span></button>
   </div>
 </header>
 
-<div class="mega-backdrop" id="megaBackdrop" aria-hidden="true">
-  <div class="mega" role="dialog" aria-modal="true" aria-label="LogoBoss AI services">
-    <div class="mega-head"><b data-i18n="megaTitle">LogoBoss AI · Menü</b><button class="mega-close" id="megaClose" type="button" aria-label="Close systems menu">×</button></div>
-    <div class="mega-grid" id="megaGrid"></div>
-  </div>
-</div>
+
 
 <main id="homeView">
 <section class="motion-hero" id="home">
@@ -329,15 +326,16 @@ h1,h2,h3,h4,.brand,.navlinks,.btn,.lb-menu-card b{font-family:Manrope,'DM Sans',
    <h1><span data-lb-de="Alles beginnt" data-lb-en="It all starts">Alles beginnt</span><br><em data-lb-de="mit Verbindung." data-lb-en="with connection.">mit Verbindung.</em></h1>
    <p data-lb-de="Ihre Website. Ihre Kunden. Ihre Abläufe. Wir verbinden digitale Werkzeuge zu einem System, das zu Ihrem Unternehmen passt." data-lb-en="Your website. Your customers. Your workflows. We connect digital tools into a system built around your business.">Ihre Website. Ihre Kunden. Ihre Abläufe. Wir verbinden digitale Werkzeuge zu einem System, das zu Ihrem Unternehmen passt.</p>
    <div class="motion-actions"><a class="motion-primary" href="#systems" data-lb-de="Systeme entdecken ↗" data-lb-en="Explore systems ↗">Systeme entdecken ↗</a><a class="motion-text-link" href="#services" data-motion-all data-lb-de="Pakete ansehen →" data-lb-en="View packages →">Pakete ansehen →</a></div>
-   <div class="motion-hero-note"><span>01 — 04</span><span data-lb-de="Vier Bereiche. Ihre Verbindung." data-lb-en="Four areas. Your connection.">Vier Bereiche. Ihre Verbindung.</span></div>
+   <div class="motion-hero-note"><span>01 — 05</span><span data-lb-de="Fünf Bereiche. Ihre Verbindung." data-lb-en="Five areas. Your connection.">Fünf Bereiche. Ihre Verbindung.</span></div>
   </div>
-  <div class="motion-earth" role="group" aria-label="Web, AI, Automation and Company OS">
+  <div class="motion-earth" role="group" aria-label="Web, AI, Automation, Company OS and Hosting">
    <div class="motion-earth-halo"></div><div class="motion-earth-aura"></div><canvas id="motionEarth" aria-hidden="true"></canvas>
    <div class="motion-orbit motion-orbit-one"></div><div class="motion-orbit motion-orbit-two"></div>
    <a class="motion-node node-web" href="#system-web"><i></i><span>Web</span><small>01</small></a>
    <a class="motion-node node-ai" href="#system-ai"><i></i><span>AI</span><small>02</small></a>
    <a class="motion-node node-automation" href="#system-automation"><i></i><span>Automation</span><small>03</small></a>
    <a class="motion-node node-company" href="#system-company"><i></i><span>Company OS</span><small>04</small></a>
+   <a class="motion-node node-hosting" href="#system-hosting"><i></i><span>Hosting</span><small>05</small></a>
    <div class="motion-earth-caption">CONNECTED BY LOGOBOSS AI</div><button class="motion-pause" id="motionPause" type="button" aria-label="Pause globe animation" aria-pressed="false"><span aria-hidden="true">Ⅱ</span></button>
   </div>
  </div>
@@ -350,6 +348,7 @@ h1,h2,h3,h4,.brand,.navlinks,.btn,.lb-menu-card b{font-family:Manrope,'DM Sans',
   <button id="motion-tab-ai" role="tab" aria-selected="false" aria-controls="motion-panel" data-category="ai"><small>02</small> AI</button>
   <button id="motion-tab-automation" role="tab" aria-selected="false" aria-controls="motion-panel" data-category="automation"><small>03</small> Automation</button>
   <button id="motion-tab-company" role="tab" aria-selected="true" aria-controls="motion-panel" data-category="company"><small>04</small> Company OS</button>
+  <button id="motion-tab-hosting" role="tab" aria-selected="false" aria-controls="motion-panel" data-category="hosting"><small>05</small> Hosting</button>
  </div></div>
  <div class="wrap motion-package-picker" id="motionPackagePicker" aria-label="Choose a package"></div>
  <div class="wrap motion-selected-summary"><div><span class="motion-kicker" data-lb-de="PAKET IM FOKUS" data-lb-en="PACKAGE IN FOCUS">PAKET IM FOKUS</span><h3 id="motionSelectedPackage">Company OS Start</h3></div><div><p id="motionSelectedPrice"></p><a id="motionSelectedOffer" href="#offer-company-os-start" class="motion-text-link" data-lb-de="Umfang & Kauf ansehen ↗" data-lb-en="View scope & purchase ↗">Umfang & Kauf ansehen ↗</a></div></div>
@@ -371,11 +370,11 @@ h1,h2,h3,h4,.brand,.navlinks,.btn,.lb-menu-card b{font-family:Manrope,'DM Sans',
  <div class="wrap">
   <div class="lb-safe-head">
    <div class="eyebrow" data-lb-de="KLAR DEFINIERTER LEISTUNGSUMFANG" data-lb-en="CLEAR, DELIVERABLE SCOPE">KLAR DEFINIERTER LEISTUNGSUMFANG</div>
-   <h2 id="lbSellableHeading" data-lb-de="8 Pakete. Ein klarer Leistungsumfang." data-lb-en="8 packages. Clear deliverables.">8 Pakete. Ein klarer Leistungsumfang.</h2>
+   <h2 id="lbSellableHeading" data-lb-de="13 Pakete. Ein klarer Leistungsumfang." data-lb-en="13 packages. Clear deliverables.">13 Pakete. Ein klarer Leistungsumfang.</h2>
    <p data-lb-de="Websites, Anfragen, Online-Terminwünsche, Text-Chat und einfache interne Workflows: ohne übergroße Versprechen. Nach dem Kauf wird die Einrichtung abgestimmt, und die Leistung wird schrittweise bereitgestellt." data-lb-en="Websites, inquiries, appointment requests, text chat and straightforward internal workflows — without oversized promises. After purchase, the setup is coordinated and deliverables are rolled out step by step.">Websites, Anfragen, Online-Terminwünsche, Text-Chat und einfache interne Workflows: ohne übergroße Versprechen. Nach dem Kauf wird die Einrichtung abgestimmt, und die Leistung wird schrittweise bereitgestellt.</p>
   </div>
-  <div class="motion-offer-filter" id="motionOfferFilter"><span id="motionOfferFilterLabel"></span><button type="button" data-motion-all data-lb-de="Alle 8 Pakete" data-lb-en="All 8 packages">Alle 8 Pakete</button></div>
-  <div class="lb-safe-alert"><b data-lb-de="STRIPE LIVE · 8 PAKETE" data-lb-en="STRIPE LIVE · 8 PACKAGES">STRIPE LIVE · 8 PAKETE</b><span data-lb-de="Direktkäufe werden bei Stripe bezahlt: Einrichtung und erster Monat heute, danach monatlich. Die Freischaltung erfolgt nach Prüfung und Einrichtung. Das separate Anfrageformular ist derzeit nur ein Test. Drittanbieter können zusätzliche Gebühren berechnen." data-lb-en="Direct purchases are paid through Stripe: setup and month one today, then monthly care. Access is enabled after review and setup. The separate inquiry form is currently for testing only. Third-party services may add charges.">Direktkäufe werden bei Stripe bezahlt: Einrichtung und erster Monat heute, danach monatlich. Die Freischaltung erfolgt nach Prüfung und Einrichtung. Das separate Anfrageformular ist derzeit nur ein Test. Drittanbieter können zusätzliche Gebühren berechnen.</span></div>
+  <div class="motion-offer-filter" id="motionOfferFilter"><span id="motionOfferFilterLabel"></span><button type="button" data-motion-all data-lb-de="Alle 13 Pakete" data-lb-en="All 13 packages">Alle 13 Pakete</button></div>
+  <div class="lb-safe-alert"><b data-lb-de="ANGEBOTE · 13 PAKETE" data-lb-en="OFFERS · 13 PACKAGES">ANGEBOTE · 13 PAKETE</b><span data-lb-de="Web-, AI-, Automation- und Company-OS-Pakete haben einen separaten Checkout. Hosting ist derzeit nur unverbindlich per E-Mail anfragbar; Verfügbarkeit und Start werden vor Vertragsabschluss bestätigt. Domains und AI/API-Verbrauch sind separat, sofern nicht enthalten." data-lb-en="Web, AI, Automation and Company OS packages have a separate checkout. Hosting currently accepts non-binding email inquiries only; availability and start date are confirmed before contract. Domains and AI/API usage are separate unless included.">Web-, AI-, Automation- und Company-OS-Pakete haben einen separaten Checkout. Hosting ist derzeit nur unverbindlich per E-Mail anfragbar; Verfügbarkeit und Start werden vor Vertragsabschluss bestätigt. Domains und AI/API-Verbrauch sind separat, sofern nicht enthalten.</span></div>
   <div class="lb-safe-grid"><article class="lb-safe-card" id="offer-digital-start">
  <div class="lb-safe-card-top"><span class="lb-safe-type">Web</span><span class="lb-safe-stage" data-lb-de="STANDARDPAKET" data-lb-en="STANDARD PACKAGE">STANDARDPAKET</span></div>
  <h3>Digital Start</h3>
@@ -456,7 +455,34 @@ h1,h2,h3,h4,.brand,.navlinks,.btn,.lb-menu-card b{font-family:Manrope,'DM Sans',
 <details class="lb-package-detail"><summary data-lb-de="Alle Leistungen & Grenzen" data-lb-en="Full scope & limits">Alle Leistungen & Grenzen</summary><ul class="lb-package-detail-list lb-safe-list-de"><li>Geschützter Arbeitsbereich für 1 Unternehmen.</li><li>Anfragen, Terminwünsche und Leistungskatalog.</li><li>Basis-Dashboard und Statusverwaltung.</li><li>Module erst nach Einrichtung; 122 Demo-Module nicht pauschal enthalten.</li></ul><ul class="lb-package-detail-list lb-safe-list-en"><li>Protected workspace for 1 company.</li><li>Inquiries, appointment requests and services.</li><li>Basic dashboard and status management.</li><li>Modules enabled after setup; all 122 demo modules are not included by default.</li></ul></details>
  <button type="button" class="lb-safe-request" data-order-name="Company OS Start" data-order-setup="3990" data-order-monthly="199" data-lb-de="Angebot anfragen →" data-lb-en="Request an offer →">Angebot anfragen →</button>
  <a class="lb-live-buy" href="https://buy.stripe.com/4gMcN57Gj04u8D03993ZK07" target="_blank" rel="noopener noreferrer" aria-label="Company OS Start: heute 4.189 €, danach 199 € monatlich" data-stripe-package="company-os-start" data-payment-kind="setup_plus_monthly"><span data-lb-de="Paket + Abo kaufen" data-lb-en="Buy package + subscription">Paket + Abo kaufen</span><small data-lb-de="Heute: 4.189 € · danach 199 € / Monat" data-lb-en="Today: 4,189 € · then 199 € / month">Heute: 4.189 € · danach 199 € / Monat</small></a>
- </article></div>
+ </article>
+<article class="lb-safe-card lb-hosting-card" id="offer-hosting-web" data-category="hosting" data-price="8.99" data-period="month">
+<div class="lb-safe-card-top"><span class="lb-safe-type">Hosting</span><span class="lb-safe-stage" data-lb-de="AUF ANFRAGE" data-lb-en="ON REQUEST">AUF ANFRAGE</span></div><h3>Web Hosting</h3>
+<p data-lb-de="5 GB NVMe · 1 Website" data-lb-en="5 GB NVMe · 1 website">5 GB NVMe · 1 Website</p><div class="lb-safe-price">8,99 € <small>/ Monat</small></div>
+<ul><li data-lb-de="100 GB Datenverkehr / Monat" data-lb-en="100 GB monthly traffic">100 GB Datenverkehr / Monat</li><li data-lb-de="5 E-Mail-Postfächer, je bis 2 GB innerhalb des Gesamtlimits" data-lb-en="5 mailboxes, each up to 2 GB within total storage">5 E-Mail-Postfächer, je bis 2 GB innerhalb des Gesamtlimits</li><li data-lb-de="2 Datenbanken · SSL nach DNS-Einrichtung" data-lb-en="2 databases · SSL after DNS setup">2 Datenbanken · SSL nach DNS-Einrichtung</li></ul>
+<p class="lb-hosting-status" data-lb-de="Unverbindliche Anfrage. Verfügbarkeit und Start werden vor Vertragsabschluss bestätigt." data-lb-en="Non-binding inquiry. Availability and start date are confirmed before contract.">Unverbindliche Anfrage. Verfügbarkeit und Start werden vor Vertragsabschluss bestätigt.</p>
+<a class="lb-safe-request lb-hosting-request" href="mailto:info.logobossai@gmail.com?subject=LogoBoss%20Hosting%20inquiry%3A%20Web%20Hosting" data-lb-de="Per E-Mail anfragen →" data-lb-en="Ask by email →">Per E-Mail anfragen →</a></article><article class="lb-safe-card lb-hosting-card" id="offer-hosting-wordpress" data-category="hosting" data-price="50.76" data-period="month">
+<div class="lb-safe-card-top"><span class="lb-safe-type">Hosting</span><span class="lb-safe-stage" data-lb-de="AUF ANFRAGE" data-lb-en="ON REQUEST">AUF ANFRAGE</span></div><h3>WordPress & Care</h3>
+<p data-lb-de="10 GB NVMe · 1 WordPress-Website" data-lb-en="10 GB NVMe · 1 WordPress website">10 GB NVMe · 1 WordPress-Website</p><div class="lb-safe-price">50,76 € <small>/ Monat</small></div>
+<ul><li data-lb-de="200 GB Datenverkehr / Monat" data-lb-en="200 GB monthly traffic">200 GB Datenverkehr / Monat</li><li data-lb-de="Updates & Backup-Prüfung" data-lb-en="Updates & backup checks">Updates & Backup-Prüfung</li><li data-lb-de="30 Minuten Änderungen / Monat" data-lb-en="30 minutes of changes per month">30 Minuten Änderungen / Monat</li></ul>
+<p class="lb-hosting-status" data-lb-de="Unverbindliche Anfrage. Verfügbarkeit und Start werden vor Vertragsabschluss bestätigt." data-lb-en="Non-binding inquiry. Availability and start date are confirmed before contract.">Unverbindliche Anfrage. Verfügbarkeit und Start werden vor Vertragsabschluss bestätigt.</p>
+<a class="lb-safe-request lb-hosting-request" href="mailto:info.logobossai@gmail.com?subject=LogoBoss%20Hosting%20inquiry%3A%20WordPress%20%26%20Care" data-lb-de="Per E-Mail anfragen →" data-lb-en="Ask by email →">Per E-Mail anfragen →</a></article><article class="lb-safe-card lb-hosting-card" id="offer-hosting-apps" data-category="hosting" data-price="23.89" data-period="month">
+<div class="lb-safe-card-top"><span class="lb-safe-type">Hosting</span><span class="lb-safe-stage" data-lb-de="AUF ANFRAGE" data-lb-en="ON REQUEST">AUF ANFRAGE</span></div><h3>Apps & Bots</h3>
+<p data-lb-de="Ein definierter App- oder Bot-Dienst" data-lb-en="One agreed app or bot service">Ein definierter App- oder Bot-Dienst</p><div class="lb-safe-price">23,89 € <small>/ Monat</small></div>
+<ul><li data-lb-de="Laufzeit und Ressourcen vor Start vereinbaren" data-lb-en="Runtime and resources agreed before launch">Laufzeit und Ressourcen vor Start vereinbaren</li><li data-lb-de="Deployment & grundlegendes Monitoring" data-lb-en="Deployment & basic monitoring">Deployment & grundlegendes Monitoring</li><li data-lb-de="AI/API-Verbrauch separat" data-lb-en="AI/API usage billed separately">AI/API-Verbrauch separat</li></ul>
+<p class="lb-hosting-status" data-lb-de="Unverbindliche Anfrage. Verfügbarkeit und Start werden vor Vertragsabschluss bestätigt." data-lb-en="Non-binding inquiry. Availability and start date are confirmed before contract.">Unverbindliche Anfrage. Verfügbarkeit und Start werden vor Vertragsabschluss bestätigt.</p>
+<a class="lb-safe-request lb-hosting-request" href="mailto:info.logobossai@gmail.com?subject=LogoBoss%20Hosting%20inquiry%3A%20Apps%20%26%20Bots" data-lb-de="Per E-Mail anfragen →" data-lb-en="Ask by email →">Per E-Mail anfragen →</a></article><article class="lb-safe-card lb-hosting-card" id="offer-hosting-domains" data-category="hosting" data-price="14.04" data-period="year">
+<div class="lb-safe-card-top"><span class="lb-safe-type">Hosting</span><span class="lb-safe-stage" data-lb-de="AUF ANFRAGE" data-lb-en="ON REQUEST">AUF ANFRAGE</span></div><h3>Domains</h3>
+<p data-lb-de=".de 14,04 € / Jahr · .com 21,60 € / Jahr" data-lb-en=".de €14.04 / year · .com €21.60 / year">.de 14,04 € / Jahr · .com 21,60 € / Jahr</p><div class="lb-safe-price">14,04 € <small>/ Jahr</small></div>
+<ul><li data-lb-de="Registrierung nach Verfügbarkeitsprüfung" data-lb-en="Registration subject to availability">Registrierung nach Verfügbarkeitsprüfung</li><li data-lb-de="DNS-Einrichtung · Verlängerung jährlich" data-lb-en="DNS setup · annual renewal">DNS-Einrichtung · Verlängerung jährlich</li><li data-lb-de="Weitere Endungen auf Anfrage" data-lb-en="Other extensions on request">Weitere Endungen auf Anfrage</li></ul>
+<p class="lb-hosting-status" data-lb-de="Unverbindliche Anfrage. Verfügbarkeit und Start werden vor Vertragsabschluss bestätigt." data-lb-en="Non-binding inquiry. Availability and start date are confirmed before contract.">Unverbindliche Anfrage. Verfügbarkeit und Start werden vor Vertragsabschluss bestätigt.</p>
+<a class="lb-safe-request lb-hosting-request" href="mailto:info.logobossai@gmail.com?subject=LogoBoss%20Hosting%20inquiry%3A%20Domains" data-lb-de="Per E-Mail anfragen →" data-lb-en="Ask by email →">Per E-Mail anfragen →</a></article><article class="lb-safe-card lb-hosting-card" id="offer-hosting-email" data-category="hosting" data-price="1.35" data-period="month">
+<div class="lb-safe-card-top"><span class="lb-safe-type">Hosting</span><span class="lb-safe-stage" data-lb-de="AUF ANFRAGE" data-lb-en="ON REQUEST">AUF ANFRAGE</span></div><h3>Business Email</h3>
+<p data-lb-de="2 GB · 1 Postfach auf Ihrer Domain" data-lb-en="2 GB · 1 mailbox on your domain">2 GB · 1 Postfach auf Ihrer Domain</p><div class="lb-safe-price">1,35 € <small>/ Monat</small></div>
+<ul><li data-lb-de="Webmail · IMAP · SMTP" data-lb-en="Webmail · IMAP · SMTP">Webmail · IMAP · SMTP</li><li data-lb-de="SPF/DKIM-Einrichtung für Ihre Domain" data-lb-en="SPF/DKIM setup for your domain">SPF/DKIM-Einrichtung für Ihre Domain</li><li data-lb-de="Jährliche Abrechnung: 16,20 € · Domain separat" data-lb-en="Annual billing: €16.20 · domain separate">Jährliche Abrechnung: 16,20 € · Domain separat</li></ul>
+<p class="lb-hosting-status" data-lb-de="Unverbindliche Anfrage. Verfügbarkeit und Start werden vor Vertragsabschluss bestätigt." data-lb-en="Non-binding inquiry. Availability and start date are confirmed before contract.">Unverbindliche Anfrage. Verfügbarkeit und Start werden vor Vertragsabschluss bestätigt.</p>
+<a class="lb-safe-request lb-hosting-request" href="mailto:info.logobossai@gmail.com?subject=LogoBoss%20Hosting%20inquiry%3A%20Business%20Email" data-lb-de="Per E-Mail anfragen →" data-lb-en="Ask by email →">Per E-Mail anfragen →</a></article>
+</div>
   <div class="lb-safe-roadmap"><div><strong data-lb-de="Größere Projekte erst nach technischem Review" data-lb-en="Larger projects only after a technical review">Größere Projekte erst nach technischem Review</strong><p data-lb-de="AI Custom, Automation Pro, Company OS Business, Company OS Pro und Enterprise sind aktuell nicht bestellbar. Kein AI-Telefondienst, keine Lohnabrechnung und kein vollständiges ERP als Standardpaket." data-lb-en="AI Custom, Automation Pro, Company OS Business, Company OS Pro and Enterprise are not orderable yet. No AI phone service, payroll or full ERP in standard packages.">AI Custom, Automation Pro, Company OS Business, Company OS Pro und Enterprise sind aktuell nicht bestellbar. Kein AI-Telefondienst, keine Lohnabrechnung und kein vollständiges ERP als Standardpaket.</p></div><a href="mailto:info.logobossai@gmail.com?subject=LogoBoss%20AI%20Leistungsumfang" class="lb-safe-mail" data-lb-de="Frage stellen ↗" data-lb-en="Ask a question ↗">Frage stellen ↗</a></div>
   <div class="lb-safe-process"><div><b>01</b><strong data-lb-de="Umfang festlegen" data-lb-en="Agree scope">Umfang festlegen</strong><p data-lb-de="Branche, Texte, Bilder, Nutzer und Zusatzkosten" data-lb-en="Industry, content, users and extra costs">Branche, Texte, Bilder, Nutzer und Zusatzkosten</p></div><div><b>02</b><strong data-lb-de="Im Test bauen" data-lb-en="Build in test">Im Test bauen</strong><p data-lb-de="Demo, Datenbank und Funktionen getrennt prüfen" data-lb-en="Test demo, data access and functions">Demo, Datenbank und Funktionen getrennt prüfen</p></div><div><b>03</b><strong data-lb-de="Abnahme &amp; Übergabe" data-lb-en="Review and handover">Abnahme & Übergabe</strong><p data-lb-de="Erst nach Abnahme freischalten und betreuen" data-lb-en="Enable and maintain only after acceptance">Erst nach Abnahme freischalten und betreuen</p></div></div>
  </div>
@@ -481,7 +507,7 @@ h1,h2,h3,h4,.brand,.navlinks,.btn,.lb-menu-card b{font-family:Manrope,'DM Sans',
 
 <main class="detail-view hidden" id="detailView">
   <div class="wrap">
-    <div class="detail-top"><button class="back-btn" id="backHome" type="button">← <span data-i18n="back">Zurück</span></button><span class="detail-type" id="detailType">LOGOBOSS AI · PRODUCT</span><button class="more-btn" type="button" id="detailMega">•••</button></div>
+    <div class="detail-top"><button class="back-btn" id="backHome" type="button">← <span data-i18n="back">Zurück</span></button><span class="detail-type" id="detailType">LOGOBOSS AI · PRODUCT</span></div>
     <section class="generic-detail" id="genericDetail"></section>
     <div id="companySlot" class="hidden"><div id="companyPricing"></div><div id="packages"></div></div>
   </div>
@@ -2001,7 +2027,7 @@ const companyPlans=[
 function areaEntry(id){const a=areaPages[id];return a?{id,icon:a.icon,name:a.name,desc:a.desc}:null}
 function megaItem(id){const l=lang();const a=areaPages[id];if(a)return `<a class="mega-link" href="#product/${id}" data-open="${id}"><span class="mega-icon">${a.icon}</span><span><b>${a.name[l]}</b><small>${a.desc[l]}</small></span></a>`;const p=plans.find(x=>x.id===id);if(p)return `<a class="mega-link" href="#product/${id}" data-open="${id}"><span class="mega-icon">${p.num}</span><span><b>${p.name[l]}</b><small>${p.desc[l]}</small></span></a>`;const x=catalog.find(x=>x.id===id);return x?`<a class="mega-link" href="#product/${id}" data-open="${id}"><span class="mega-icon">${x.icon}</span><span><b>${x.name[l]}</b><small>${x.desc[l]}</small></span></a>`:''}
 function renderMega(){
- const l=lang(),box=document.getElementById('megaGrid');
+ const l=lang(),box=document.getElementById('megaGrid');if(!box)return;
  const items=[
  ['web','Web',l==='de'?'Websites, die Ihr Unternehmen zeigen.':'Websites that represent your business.'],
  ['ai','AI',l==='de'?'Text-Chat für Fragen und Anfragen.':'Text chat for questions and inquiries.'],
@@ -2012,7 +2038,7 @@ function renderMega(){
  box.innerHTML=`<div class="motion-menu"><div class="motion-kicker">${l==='de'?'WÄHLEN SIE IHR SYSTEM':'CHOOSE YOUR SYSTEM'}</div>${items.map(([id,name,desc],i)=>`<a href="#system-${id}" class="motion-menu-row"><span class="motion-menu-number">0${i+1}</span><span><b>${name}</b><small>${desc}</small></span><span class="motion-menu-arrow">↗</span></a>`).join('')}<div class="motion-menu-footer"><a href="#services">${l==='de'?'Alle Pakete':'All packages'} ↗</a><a href="#about" data-about-link>${l==='de'?'Über uns':'About us'} ↗</a></div></div>`;
 }
 
-const mega=document.getElementById('megaBackdrop');function openMega(){mega.classList.add('open');mega.setAttribute('aria-hidden','false');document.getElementById('megaOpen').setAttribute('aria-expanded','true');requestAnimationFrame(()=>document.getElementById('megaClose').focus())}function closeMega(){mega.classList.remove('open');mega.setAttribute('aria-hidden','true');document.getElementById('megaOpen').setAttribute('aria-expanded','false')}document.getElementById('megaOpen').onclick=openMega;document.getElementById('detailMega').onclick=openMega;document.getElementById('megaClose').onclick=closeMega;mega.addEventListener('click',e=>{if(e.target===mega || e.target.closest('a[href]'))closeMega()});document.addEventListener('keydown',e=>{if(e.key==='Escape')closeMega()});
+function openMega(){showHome();document.getElementById('systems').scrollIntoView({behavior:'smooth'});}function closeMega(){}
 
 const detailExtras={
  'digital-start':{type:'PACKAGE',best:{de:'Selbstständige, lokale Betriebe, neue Marken',en:'Independent professionals, local businesses, new brands'},delivery:{de:'Website + Lead-Grundlage',en:'Website + lead foundation'},items:{de:['Professionelle responsive Website','Klare Startseite und Leistungsstruktur','Kontakt- oder Anfrageformular','Basis SEO und Performance','Domain/Deployment Vorbereitung'],en:['Professional responsive website','Clear homepage and service structure','Contact or inquiry form','Basic SEO and performance','Domain/deployment preparation']}},
@@ -2614,7 +2640,7 @@ window.addEventListener('DOMContentLoaded',()=>{
 </script>
 <script src="./earth-points.js?v=20261009-motion-2" defer></script>
 <script src="./globe-3d.js?v=20261009-orbits-30-2" defer></script>
-<script src="./immersive-3d.js?v=20261009-3d-4" defer></script>
+<script src="./immersive-3d.js?v=20261010-hosting-1" defer></script>
 <script src="./stripe-options.js?v=20261009-combined-only" defer></script>
 </body>
 </html>

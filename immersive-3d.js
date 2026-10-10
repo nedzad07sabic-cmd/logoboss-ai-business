@@ -33,12 +33,18 @@ const manifest={
 'automation-business':[workflow(3),email(true),dashboard(),handover(true)],
 'company-os-start':companyFeatures
 };
-const categories={web:{label:'Web',number:'01',color:'#9c82ff'},ai:{label:'AI',number:'02',color:'#69bdff'},automation:{label:'Automation',number:'03',color:'#b186ff'},company:{label:'Company OS',number:'04',color:'#759dff'}};
+manifest["hosting-web"]=[{"type": "server", "de": "Hosting in Frankfurt", "en": "Hosting in Frankfurt", "descDe": "Ihre Website wird auf einem Hostingkonto im Rechenzentrum Frankfurt eingerichtet.", "descEn": "Your website is set up on a hosting account in Frankfurt."}, {"type": "storage", "de": "5 GB für Ihre Website", "en": "5 GB for your website", "descDe": "5 GB Gesamtplatz für Website, Datenbanken und E-Mails.", "descEn": "5 GB total storage shared by website, databases and email."}, {"type": "shield", "de": "SSL & verschlüsselte Verbindung", "en": "SSL & encrypted connection", "descDe": "SSL wird nach Domain- und DNS-Einrichtung aktiviert.", "descEn": "SSL is activated after domain and DNS setup."}, {"type": "mailbox", "de": "E-Mail auf Ihrer Domain", "en": "Email on your domain", "descDe": "Bis zu 5 Postfächer, je maximal 2 GB innerhalb der 5 GB Gesamtquote.", "descEn": "Up to 5 mailboxes, each capped at 2 GB within the 5 GB total quota."}];
+manifest["hosting-wordpress"]=[{"type": "wordpress", "de": "WordPress einrichten", "en": "Set up WordPress", "descDe": "Eine WordPress-Website auf 10 GB Gesamtplatz; 200 GB monatlicher Datenverkehr.", "descEn": "One WordPress site with 10 GB total storage and 200 GB monthly traffic."}, {"type": "maintenance", "de": "Updates & Pflege", "en": "Updates & care", "descDe": "WordPress, Plugins und Themes werden abgestimmt gepflegt; Änderungen werden geprüft.", "descEn": "WordPress, plugins and themes receive agreed maintenance; changes are checked."}, {"type": "backup", "de": "Backups prüfen", "en": "Check backups", "descDe": "Vor Änderungen wird der Backup-Status geprüft. Wiederherstellung wird nach Bedarf abgestimmt.", "descEn": "Backup status is checked before changes. Restoration is agreed as needed."}, {"type": "maintenance", "de": "30 Minuten Änderungen", "en": "30 minutes of changes", "descDe": "30 Minuten kleine Änderungen pro Monat. Größere Arbeiten werden separat angeboten.", "descEn": "30 minutes of small changes per month. Larger work is quoted separately."}];
+manifest["hosting-apps"]=[{"type": "deploy", "de": "Ihre App. Ihr Dienst.", "en": "Your app. Your service.", "descDe": "Eine definierte Anwendung oder ein Bot. Ressourcen und Laufzeit werden vor Start bestätigt.", "descEn": "One agreed app or bot. Resources and runtime are confirmed before launch."}, {"type": "server", "de": "Passende Serverressourcen", "en": "Appropriate server resources", "descDe": "Der passende Server wird vor Vertragsabschluss bereitgestellt und getestet.", "descEn": "The appropriate server is provisioned and tested before contract."}, {"type": "monitor", "de": "Betrieb im Blick", "en": "Monitor operations", "descDe": "Grundlegende Überwachung und Neustartregeln werden pro Dienst vereinbart.", "descEn": "Basic monitoring and restart rules are agreed for each service."}, {"type": "deploy", "de": "AI & APIs nach Nutzung", "en": "AI & APIs by usage", "descDe": "AI/API-Nutzung ist nicht im Hostingpreis enthalten und wird vor Start geklärt.", "descEn": "AI/API usage is excluded from the hosting price and agreed before launch."}];
+manifest["hosting-domains"]=[{"type": "domain", "de": "Ihre eigene Domain", "en": "Your own domain", "descDe": ".de 14,04 € pro Jahr; .com 21,60 € pro Jahr. Registrierung nur bei Verfügbarkeit.", "descEn": ".de €14.04 per year; .com €21.60 per year. Registration subject to availability."}, {"type": "dns", "de": "Domain und Website verbinden", "en": "Connect domain and website", "descDe": "DNS verbindet Ihre Domain mit dem richtigen Web- und Mailserver.", "descEn": "DNS connects your domain to the appropriate web and mail server."}, {"type": "domain", "de": "Jährlich verlängern", "en": "Renew annually", "descDe": "Domainregistrierung wird jährlich abgerechnet. Weitere Endungen auf Anfrage.", "descEn": "Domain registration is billed annually. Other extensions on request."}];
+manifest["hosting-email"]=[{"type": "mailbox", "de": "Ihre Geschäftsadresse", "en": "Your business address", "descDe": "Ein 2-GB-Postfach auf Ihrer eigenen Domain. Domainkosten kommen separat hinzu.", "descEn": "One 2 GB mailbox on your own domain. Domain fees are separate."}, {"type": "mailbox", "de": "Webmail · IMAP · SMTP", "en": "Webmail · IMAP · SMTP", "descDe": "E-Mails im Browser und in Ihren Mailprogrammen lesen und senden.", "descEn": "Read and send email in your browser and mail applications."}, {"type": "shield", "de": "Ihre Domain authentifizieren", "en": "Authenticate your domain", "descDe": "SPF und DKIM werden passend eingerichtet. Zustellung hängt auch von Empfänger und Inhalt ab.", "descEn": "SPF and DKIM are configured. Delivery also depends on recipient and content."}, {"type": "mailbox", "de": "Einfach jährlich abrechnen", "en": "Simple annual billing", "descDe": "1,35 € monatlicher Vergleichspreis; jährliche Zahlung 16,20 €.", "descEn": "€1.35 monthly equivalent; billed annually at €16.20."}];
+const categories={web:{label:'Web',number:'01',color:'#9c82ff'},ai:{label:'AI',number:'02',color:'#69bdff'},automation:{label:'Automation',number:'03',color:'#b186ff'},company:{label:'Company OS',number:'04',color:'#759dff'},hosting:{label:'Hosting',number:'05',color:'#68c2ff'}};
 const packages=[...document.querySelectorAll('.lb-safe-card')].map(card=>{
- const id=card.id.replace('offer-',''),request=card.querySelector('[data-order-setup]'),type=card.querySelector('.lb-safe-type').textContent.toLowerCase();
- return{id,card,name:card.querySelector('h3').textContent,setup:Number(request.dataset.orderSetup),monthly:Number(request.dataset.orderMonthly),category:type.includes('company')?'company':type.includes('automation')?'automation':type.includes('ai')?'ai':'web',features:manifest[id]||[]};
+ const id=card.id.replace('offer-',''),request=card.querySelector('[data-order-setup]')||{dataset:{orderSetup:0,orderMonthly:card.dataset.price}},type=card.querySelector('.lb-safe-type').textContent.toLowerCase();
+ return{id,card,name:card.querySelector('h3').textContent,setup:Number(request.dataset.orderSetup),monthly:Number(request.dataset.orderMonthly),period:card.dataset.period||'month',category:card.dataset.category|| (type.includes('company')?'company':type.includes('automation')?'automation':type.includes('ai')?'ai':'web'),features:manifest[id]||[]};
 });
 let category='company',selected=packages.find(p=>p.category===category),step=0,allOffers=false;
+const price=p=>p.category==='hosting'?number(p.monthly)+' € / '+t(p.period==='year'?'Jahr':'Monat',p.period==='year'?'year':'month'):number(p.setup)+' € '+t('Einrichtung','setup')+' + '+number(p.monthly)+' € / '+t('Monat','month');
 const number=n=>new Intl.NumberFormat(lang()==='de'?'de-DE':'en-GB').format(n);
 const escape=s=>String(s).replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('"','&quot;');
 const badge=(label,icon='↗')=>'<div class="fx-satellite"><span class="fx-icon">'+icon+'</span><span>'+label+'</span></div>';
@@ -48,7 +54,22 @@ const row=(label,tag)=>'<div class="fx-row"><span class="fx-row-icon">↗</span>
 function visual(feature){
  const label=t(feature.de,feature.en),type=feature.type;
  let body='',floating='',icon='◇';
- if(type==='web'){
+ if(['server','storage','shield','wordpress','maintenance','backup','deploy','monitor','domain','dns','mailbox'].includes(type)){
+ let content='';
+ if(type==='server')content='<div class="fx-server-rack">'+['WEB','DATA','MAIL'].map(x=>'<div class="fx-server-unit"><i></i><b>'+x+'</b><span>FRANKFURT · DE</span></div>').join('')+'</div>';
+ else if(type==='storage')content='<div class="fx-capacity"><i></i></div>'+row('NVMe',t('SPEICHER','STORAGE'))+row(t('Website · Daten · Mail','Website · data · mail'),'5 GB');
+ else if(type==='shield')content='<div class="fx-lock"></div><div class="fx-action">SSL · SPF · DKIM</div>';
+ else if(type==='wordpress')content='<div class="fx-hosting-seal">W</div>'+row('WordPress','10 GB')+row(t('Website einrichten','Set up website'),'↗');
+ else if(type==='maintenance')content=row('WordPress','✓')+row('Plugins','✓')+row('Themes','✓');
+ else if(type==='backup')content='<div class="fx-hosting-seal">↶</div>'+row(t('Sicherung prüfen','Check backup'),'01')+row(t('Änderung vorbereiten','Prepare change'),'02');
+ else if(type==='deploy')content='<div class="fx-deploy"><span>&lt;/&gt;</span><i></i><span>SERVER</span><i></i><span>BOT</span></div>';
+ else if(type==='monitor')content='<div class="fx-status-grid">'+['APP','CPU','RAM'].map((x,i)=>'<div><span>'+x+'</span><i style="height:'+(45+i*20)+'px"></i><small>MONITOR</small></div>').join('')+'</div>';
+ else if(type==='domain')content='<div class="fx-domain-name">your-business<span>.de</span></div>'+row('.de','14,04 € / '+t('Jahr','year'))+row('.com','21,60 € / '+t('Jahr','year'));
+ else if(type==='dns')content='<div class="fx-deploy"><span>DOMAIN</span><i></i><span>WEB</span><i></i><span>MAIL</span></div>';
+ else content='<div class="fx-envelope"><div class="fx-mail-letter"><b>info@your-business.de</b><i></i><i></i></div><span></span></div>';
+ body=bar('LOGOBOSS · HOSTING')+'<div class="fx-content"><div class="fx-caption">'+t('IHRE DIGITALE BASIS','YOUR DIGITAL FOUNDATION')+'</div><h4>'+label+'</h4>'+content+'</div>';
+ floating=mini('HOSTING','<span class="fx-big-symbol">'+({server:'◉',storage:'▤',shield:'◇',wordpress:'W',maintenance:'✓',backup:'↶',deploy:'⟷',monitor:'▥',domain:'◎',dns:'⟷',mailbox:'@'}[type])+'</span><b>'+t('Passend zu Ihrem System.','Built around your system.')+'</b>','fx-mini-right');icon='◎';
+ }else if(type==='web'){
  body=bar(t('IHRE WEBSITE','YOUR WEBSITE'))+'<div class="fx-content"><div class="fx-caption">'+t('IHR UNTERNEHMEN','YOUR BUSINESS')+'</div><div class="fx-web-head">'+t('Ein Auftritt.<br>Ihre Geschichte.','One website.<br>Your story.')+'</div><div class="fx-web-picture"><span class="fx-web-sculpture"></span><span class="fx-web-sculpture second"></span><span class="fx-web-sculpture third"></span></div><div class="fx-web-nav"><span>'+t('Leistungen','Services')+'</span><span>'+t('Über uns','About')+'</span><span>'+t('Kontakt','Contact')+'</span></div></div>';
  floating=mini(t('SEITENSTRUKTUR','PAGE STRUCTURE'),'<b>'+feature.amount+' '+t('Seiten','pages')+'</b><div class="fx-page-stack"><i></i><i></i><i></i></div>','fx-mini-right');icon='▤';
  }else if(type==='form'){
@@ -109,14 +130,14 @@ function filterOffers(){
  for(const p of packages){const visible=allOffers||p.category===category;p.card.hidden=!visible;if(visible)count++;}
  const name=categories[category].label;
  document.querySelector('.lb-safe-grid').dataset.visibleCount=String(count);
- document.getElementById('lbSellableHeading').textContent=allOffers?t('8 Pakete. Ein klarer Leistungsumfang.','8 packages. Clear deliverables.'):name+' · '+count+' '+t(count===1?'Paket':'Pakete',count===1?'package':'packages');
+ document.getElementById('lbSellableHeading').textContent=allOffers?t(packages.length+' Pakete. Ein klarer Leistungsumfang.',packages.length+' packages. Clear deliverables.'):name+' · '+count+' '+t(count===1?'Paket':'Pakete',count===1?'package':'packages');
  document.getElementById('motionOfferFilterLabel').textContent=allOffers?t('ALLE BEREICHE','ALL AREAS'):name.toUpperCase()+' · '+t('PASSENDE PAKETE','MATCHING PACKAGES');
 }
 function picker(){
  const list=packages.filter(p=>p.category===category);
- document.getElementById('motionPackagePicker').innerHTML=list.map(p=>'<button type="button" data-package="'+p.id+'" aria-pressed="'+(p.id===selected.id)+'"><span>'+escape(p.name)+'</span><small>'+number(p.setup)+' € + '+number(p.monthly)+' € / '+t('Monat','month')+'</small><i>↗</i></button>').join('');
+ document.getElementById('motionPackagePicker').innerHTML=list.map(p=>'<button type="button" data-package="'+p.id+'" aria-pressed="'+(p.id===selected.id)+'"><span>'+escape(p.name)+'</span><small>'+price(p)+'</small><i>↗</i></button>').join('');
  document.getElementById('motionSelectedPackage').textContent=selected.name;
- document.getElementById('motionSelectedPrice').textContent=number(selected.setup)+' € '+t('Einrichtung','setup')+' + '+number(selected.monthly)+' € / '+t('Monat','month');
+ document.getElementById('motionSelectedPrice').textContent=price(selected);
  for(const id of ['motionSelectedOffer','motionStoryOffer'])document.getElementById(id).href='#offer-'+selected.id;
 }
 function render(){
@@ -135,7 +156,7 @@ function render(){
  document.getElementById('motion-panel').setAttribute('aria-labelledby','motion-tab-'+category);
  filterOffers();
 }
-function refresh(){picker();render();visual(selected.features[step]);}
+function refresh(){picker();render();visual(selected.features[step]);document.querySelectorAll('.lb-hosting-card').forEach(card=>{card.querySelector('.lb-safe-price').innerHTML=number(Number(card.dataset.price))+' € <small>/ '+t(card.dataset.period==='year'?'Jahr':'Monat',card.dataset.period==='year'?'year':'month')+'</small>';});const notice=document.querySelector('.lb-safe-alert');if(!notice.dataset.original)notice.dataset.original=notice.innerHTML;if(category==='hosting'&&!allOffers)notice.innerHTML='<b>HOSTING · '+t('AUF ANFRAGE','ON REQUEST')+'</b><span>'+t('Preise für Privatkunden inkl. anwendbarer MwSt. Verfügbarkeit und Start werden vor Vertragsabschluss bestätigt. Hosting wird noch nicht automatisch aktiviert. Domains und AI/API-Verbrauch sind separat, sofern nicht ausdrücklich enthalten.','Consumer prices include applicable VAT. Availability and start date are confirmed before contract. Hosting is not yet activated automatically. Domains and AI/API usage are separate unless explicitly included.')+'</span>';else notice.innerHTML=notice.dataset.original;}
 function selectCategory(id,hash=false){if(!categories[id])return;category=id;selected=packages.find(p=>p.category===id);step=0;allOffers=false;track.style.setProperty('--progress','0');refresh();if(hash)history.replaceState(null,'','#system-'+id);}
 function selectPackage(id,hash=false){const p=packages.find(x=>x.id===id);if(!p)return;category=p.category;selected=p;step=0;allOffers=false;track.style.setProperty('--progress','0');refresh();if(hash)history.replaceState(null,'','#package-'+id);}
 const topOffset=()=>innerWidth<=700?66:78;
@@ -158,18 +179,19 @@ document.querySelector('.motion-tabs').addEventListener('click',e=>{const b=e.ta
 document.querySelector('.motion-tabs').addEventListener('keydown',e=>{
  if(!['ArrowLeft','ArrowRight','Home','End'].includes(e.key))return;
  const list=[...document.querySelectorAll('.motion-tabs button')],at=list.indexOf(document.activeElement);if(at<0)return;e.preventDefault();
- const next=e.key==='Home'?0:e.key==='End'?3:(at+(e.key==='ArrowRight'?1:3))%4;selectCategory(list[next].dataset.category,true);list[next].focus();
+ const next=e.key==='Home'?0:e.key==='End'?list.length-1:(at+(e.key==='ArrowRight'?1:list.length-1))%list.length;selectCategory(list[next].dataset.category,true);list[next].focus();
 });
 function ensureHome(){if(document.getElementById('homeView').classList.contains('hidden'))document.querySelector('[data-home]').click();}
 document.addEventListener('click',e=>{
  const all=e.target.closest('[data-motion-all]');
- if(all){allOffers=true;filterOffers();if(all.tagName==='BUTTON'){e.preventDefault();document.getElementById('services').scrollIntoView({behavior:reduced.matches?'auto':'smooth'});}return;}
- const a=e.target.closest('a[href^="#"]');if(!a)return;const href=a.getAttribute('href'),m=href.match(/^#system-(web|ai|automation|company)$/);
- if(m){e.preventDefault();ensureHome();selectCategory(m[1],true);document.getElementById('megaClose').click();document.getElementById('systems').scrollIntoView({behavior:reduced.matches?'auto':'smooth'});document.getElementById('motion-tab-'+category).focus({preventScroll:true});return;}
+ if(all){allOffers=true;filterOffers();const notice=document.querySelector('.lb-safe-alert');if(notice.dataset.original)notice.innerHTML=notice.dataset.original;if(all.tagName==='BUTTON'){e.preventDefault();document.getElementById('services').scrollIntoView({behavior:reduced.matches?'auto':'smooth'});}return;}
+ const a=e.target.closest('a[href^="#"]');if(!a)return;const href=a.getAttribute('href'),m=href.match(/^#system-(web|ai|automation|company|hosting)$/);
+ if(m){e.preventDefault();ensureHome();selectCategory(m[1],true);document.getElementById('megaClose')?.click();document.getElementById('systems').scrollIntoView({behavior:reduced.matches?'auto':'smooth'});document.getElementById('motion-tab-'+category).focus({preventScroll:true});return;}
+ if(href==='#systems'){ensureHome();}
  if(href.startsWith('#offer-')){const p=packages.find(x=>'#offer-'+x.id===href);if(p&&p.card.hidden){selectPackage(p.id);ensureHome();}}
 });
 function deepLink(){
- let m=location.hash.match(/^#system-(web|ai|automation|company)$/);
+ let m=location.hash.match(/^#system-(web|ai|automation|company|hosting)$/);
  if(m){selectCategory(m[1]);requestAnimationFrame(()=>document.getElementById('systems').scrollIntoView());return;}
  m=location.hash.match(/^#package-(.+)$/);
  if(m&&packages.some(p=>p.id===m[1])){selectPackage(m[1]);requestAnimationFrame(()=>document.getElementById('motionPackagePicker').scrollIntoView());return;}
@@ -179,10 +201,6 @@ function deepLink(){
 addEventListener('hashchange',deepLink);
 new MutationObserver(()=>refresh()).observe(document.documentElement,{attributes:true,attributeFilter:['lang']});
 reduced.addEventListener('change',()=>{render();updateScroll();});
-const menu=document.getElementById('megaBackdrop');let lastFocus;
-menu.inert=!menu.classList.contains('open');
-new MutationObserver(()=>{if(menu.classList.contains('open')){menu.inert=false;lastFocus=document.getElementById('megaOpen');}else{const restore=menu.contains(document.activeElement);menu.inert=true;if(restore&&lastFocus)lastFocus.focus();lastFocus=null;}}).observe(menu,{attributes:true,attributeFilter:['class']});
-menu.addEventListener('keydown',e=>{if(e.key!=='Tab'||!menu.classList.contains('open'))return;const list=[...menu.querySelectorAll('a[href],button')],first=list[0],last=list.at(-1);if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus();}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}});
 const observer=new IntersectionObserver(entries=>entries.forEach(x=>{if(x.isIntersecting){x.target.classList.add('depth-visible');observer.unobserve(x.target);}}),{threshold:.1});
 document.querySelectorAll('.lb-safe-card,.about-pro-card,.lb-footer-top').forEach(el=>{el.classList.add('motion-depth');observer.observe(el);});
 refresh();deepLink();requestAnimationFrame(updateScroll);
