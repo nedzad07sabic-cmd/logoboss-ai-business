@@ -31,8 +31,9 @@ async function check() {
   w.__auditClient = sb;
   for (const script of d.querySelectorAll('script:not([src])')) if (!['module','application/ld+json'].includes(script.type)) w.eval(script.textContent);
   for (const file of ['immersive-3d.js','stripe-options.js']) w.eval(fs.readFileSync(path.join(root,file),'utf8'));
-  const auth = d.getElementById('lb-client-auth-script').textContent.replace(/^\s*import[^\n]+\n/, '').replace('const lbClient=createClient(', 'const lbClient=window.__auditCreateClient(');
+  const auth = d.getElementById('lb-client-auth-script').textContent.replace(/^\s*import[^\n]+\n/gm, '').replace('const lbClient=createClient(', 'const lbClient=window.__auditCreateClient(');
   w.__auditCreateClient = () => sb;
+  w.initSupport = () => {}; // The real support module is tested separately.
   w.eval('(function(){'+auth+'\n})();');
   await tick(); await tick();
   const click = selector => {const el=d.querySelector(selector);assert.ok(el,selector);el.click();};

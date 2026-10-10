@@ -1,0 +1,24 @@
+const fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict');
+const {JSDOM}=require('jsdom'),{webcrypto}=require('node:crypto');
+const source=fs.readFileSync(path.join(__dirname,'../support-center.js'),'utf8').replace('export function initSupport','window.initSupport=function');
+const tick=()=>new Promise(r=>setImmediate(r));
+(async()=>{
+ const dom=new JSDOM('<html lang="de"><body><button data-lb-support-open>Support</button></body></html>',{url:'https://logobossweb-ai.eu/',runScripts:'outside-only',pretendToBeVisual:true});
+ const w=dom.window,d=w.document,requests=[];let user=null,authChange;
+ w.HTMLDialogElement.prototype.showModal=function(){this.open=true};w.HTMLDialogElement.prototype.close=function(){this.open=false};
+ Object.defineProperty(w,'crypto',{value:webcrypto});w.AbortSignal=AbortSignal;
+ const ticket={id:'20000000-0000-4000-8000-000000000001',number:1,subject:'<img src=x onerror=alert(1)>',category:'hosting',status:'open',updated_at:'2026-10-10T12:00:00Z'};
+ const message={id:'30000000-0000-4000-8000-000000000001',author_role:'support',body:'<script>alert(1)</script>',created_at:'2026-10-10T12:00:00Z'};
+ w.fetch=async(url,options)=>{const b=JSON.parse(options.body);requests.push(b);return{ok:true,json:async()=>b.action==='list'?{tickets:[ticket],orders:[],has_more:false}:b.action==='detail'?{ticket,messages:[message],has_more:false}:{ticket,notification_pending:true}};};
+ const client={auth:{getUser:async()=>({data:{user}}),getSession:async()=>({data:{session:user?{user,access_token:'fixture-jwt'}:null}}),onAuthStateChange(fn){authChange=fn;}}};let login=0;
+ w.eval(source);const app=w.initSupport({client,openAccount:()=>login++});await app.open();assert.match(d.body.textContent,/bestätigten Konto/);assert.equal(requests.length,0);
+ d.querySelector('[data-action=login]').click();assert.equal(login,1);
+ user={id:'user1',email:'customer@example.invalid'};await app.open();assert.ok(d.querySelector('[data-ticket]'));assert.equal(d.querySelector('[data-ticket] img'),null);
+ d.querySelector('[data-action=new]').click();let form=d.getElementById('lbSupportForm');form.elements.subject.value='Fixture';form.elements.body.value='Draft';
+ d.documentElement.lang='en';await tick();form=d.getElementById('lbSupportForm');assert.equal(form.elements.subject.value,'Fixture');assert.equal(form.elements.body.value,'Draft');assert.match(d.body.textContent,/New ticket/);
+ form.dispatchEvent(new w.Event('submit',{bubbles:true,cancelable:true}));form.dispatchEvent(new w.Event('submit',{bubbles:true,cancelable:true}));await tick();await tick();
+ assert.equal(requests.filter(x=>x.action==='create').length,1,'double click is one write');assert.equal(d.querySelector('.lb-support-message script'),null);assert.match(d.getElementById('lbSupportAlert').textContent,/not yet confirmed/);
+ assert.equal(d.querySelectorAll('.lb-support-node').length,12);
+ authChange('SIGNED_OUT',null);assert.equal(d.querySelector('.lb-support-message'),null);assert.match(d.body.textContent,/verified account/);app.close();assert.equal(d.getElementById('lbSupportDialog').open,false);
+ console.log(JSON.stringify({result:'passed',checks:['guest login','DE/EN and draft preservation','escaped messages and subjects','single submission','email failure notice','3D orbits','logout privacy']}));dom.window.close();
+})().catch(e=>{console.error(e);process.exit(1)});
