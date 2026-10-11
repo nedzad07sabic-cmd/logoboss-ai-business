@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#050914">
+  <meta name="robots" content="noindex,nofollow">
+  <title>LogoBoss AI · Offline</title>
+  <style>
+    :root{color-scheme:dark}*{box-sizing:border-box}body{margin:0;min-height:100svh;display:grid;place-items:center;padding:24px;background:radial-gradient(ellipse at top,#18365c88,transparent 65%),#050914;color:#eef5ff;font:16px/1.7 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}main{max-width:480px;text-align:center}img{border-radius:22px}h1{font-size:clamp(29px,7vw,40px);letter-spacing:-.045em;line-height:1.2;margin:24px 0 16px}p{color:#acbdd5}a{display:inline-block;padding:13px 23px;margin:15px 0;border:1px solid #648ec7;border-radius:12px;background:#2c539b;color:white;font-size:14px;font-weight:700;text-decoration:none}a:focus-visible{outline:3px solid #a8d8ff;outline-offset:5px}.small{font-size:12px}
+  </style>
+</head>
+<body>
+  <main>
+    <img src="/icon-192.png" width="82" height="82" alt="LogoBoss AI">
+    <h1 data-offline-de="Gerade keine Verbindung." data-offline-en="You are offline.">Gerade keine Verbindung.</h1>
+    <p data-offline-de="Verbinden Sie Ihr Gerät mit dem Internet, um Ihr Konto, Ihre Bestellungen und den Support zu öffnen." data-offline-en="Connect your device to the internet to open your account, orders and support.">Verbinden Sie Ihr Gerät mit dem Internet, um Ihr Konto, Ihre Bestellungen und den Support zu öffnen.</p>
+    <a href="/?app=1#support" data-offline-de="Erneut versuchen →" data-offline-en="Try again →">Erneut versuchen →</a>
+    <p class="small" data-offline-de="Nachrichten können erst mit einer Verbindung gesendet werden." data-offline-en="Messages can be sent when you are back online.">Nachrichten können erst mit einer Verbindung gesendet werden.</p>
+  </main>
+  <script>
+    (() => {
+      let language = 'de';
+      try { if (localStorage.getItem('lb_lang') === 'en') language = 'en'; } catch (_) {}
+      document.documentElement.lang = language;
+      document.querySelectorAll('[data-offline-de]').forEach(element => { element.textContent = language === 'en' ? element.dataset.offlineEn : element.dataset.offlineDe; });
+    })();
+  </script>
+</body>
+</html>

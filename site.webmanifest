@@ -1,8 +1,10 @@
 {
+  "id": "/",
   "name": "LogoBoss AI",
   "short_name": "LogoBoss AI",
-  "start_url": "/",
-  "display": "browser",
+  "start_url": "/?app=1#support",
+  "scope": "/",
+  "display": "standalone",
   "background_color": "#050914",
   "theme_color": "#050914",
   "icons": [
