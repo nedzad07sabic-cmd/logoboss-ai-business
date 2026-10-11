@@ -40,6 +40,7 @@ async function check() {
   let scenes=0;
   for(const [category,count] of [['web',3],['ai',2],['automation',2],['company',1],['hosting',5]]) {
     click('#motion-tab-'+category);
+    assert.equal(d.getElementById('services').dataset.offerCategory,category);
     assert.equal(d.querySelectorAll('.lb-safe-card:not([hidden])').length,count);
     const packages=[...d.querySelectorAll('#motionPackagePicker button')].map(x=>x.dataset.package);
     assert.equal(packages.length,count);
@@ -47,6 +48,7 @@ async function check() {
       assert.ok(length>0);for(let i=0;i<length;i++){click('[data-feature="'+i+'"]');assert.equal(d.querySelector('.motion-track').dataset.step,String(i));assert.ok(d.querySelector('.fx-visual'));scenes++;}}
   }
   click('[data-motion-all]');assert.equal(d.querySelectorAll('.lb-safe-card:not([hidden])').length,13);
+  assert.equal(d.getElementById('services').dataset.offerCategory,'all');
   assert.equal(d.querySelectorAll('.lb-live-buy').length,8);
   for(const link of d.querySelectorAll('.lb-live-buy')) {assert.equal(link.dataset.paymentKind,'setup_plus_monthly');assert.equal(new URL(link.href).origin,'https://buy.stripe.com');}
   for(const link of d.querySelectorAll('.lb-hosting-request')) {

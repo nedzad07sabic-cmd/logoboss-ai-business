@@ -19,6 +19,8 @@ Business Email displays the actual agreed annual total, including in the 3D sele
 
 The hosting category and all-packages view show a matching blue/violet client-portal panel. It directs customers to the account created during hosting checkout for orders, invoices and services, with DE/EN portal links. The general package notice accurately distinguishes online purchase buttons from inquiry offers. Inquiry-only cards explain their respective setup/availability steps without exposing backend configuration details.
 
+The website-package Stripe setup-plus-monthly disclosure is hidden in the hosting-only category, where it does not describe these WHMCS offers. It remains visible for the relevant website packages and the combined catalog.
+
 ## Fresh verification
 
 - Public HTTPS requests to the portal and product routes succeed.
