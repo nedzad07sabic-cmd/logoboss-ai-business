@@ -212,7 +212,7 @@ body.lb-catalog-page:before,body.lb-catalog-page:after{display:none!important}
 .lb-catalog-page .lb-faq p{font-size:14px;color:var(--lb-muted);padding-bottom:19px;margin:0}
 /* Preserve the existing request and account handlers while improving readability. */
 .lb-catalog-page .order-backdrop{background:#18345366;backdrop-filter:blur(8px)}
-.lb-catalog-page .order-modal{background:#fff!important;color:var(--lb-ink)!important;border:1px solid #cedaeb!important;box-shadow:0 25px 90px #162b5240!important}
+.lb-catalog-page .order-modal{--lb-ink:#152841;--lb-muted:#53657a;background:#fff!important;color:var(--lb-ink)!important;border:1px solid #cedaeb!important;box-shadow:0 25px 90px #162b5240!important}
 .lb-catalog-page .order-head h2,.lb-catalog-page .order-summary b{color:var(--lb-ink)!important}
 .lb-catalog-page .order-head .eyebrow{color:#59709a!important}
 .lb-catalog-page .order-close{background:#edf2f9!important;color:#345477!important;border-color:#d1dded!important}
@@ -302,6 +302,8 @@ body.lb-home-page{--lb-ink:#f1f6ff;--lb-muted:#bacce8;--lb-line:#334966;--lb-blu
 .lb-home-page .lb-footer-grid b{color:#edf4ff}
 .lb-home-page .lb-footer-bottom{border-color:#2c3c56}
 .lb-home-page .lb-footer a:hover{color:#fff}
+.lb-home-page #lb-account-links{background:#0a1425!important}
+.lb-home-page #lb-account-links>:is(a,button){background:#15243c!important;color:#c2d6f4!important;border-color:#334e71!important}
 .lb-catalog-page .lb-anchor{position:absolute;top:0;scroll-margin-top:95px}
 /* Language selector follows the footer reference: globe, code, upward menu. */
 .lb-catalog-page .lb-footer-legal{align-items:center}

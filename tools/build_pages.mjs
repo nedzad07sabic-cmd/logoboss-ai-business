@@ -11,7 +11,7 @@ vm.runInContext(read('package-preview.js'),context);
 vm.runInContext(read('catalog-experience.js'),context);
 const data=context.window.LB_CATALOG,render=context.window.LB_RENDER;
 const escape=value=>String(value).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const version='20261011-catalog-6';
+const version='20261011-catalog-7';
 const scripts=`<script src="/catalog-data.js?v=${version}" defer></script>\n<script src="/package-preview.js?v=${version}" defer></script>\n<script src="/catalog-experience.js?v=${version}" defer></script>`;
 mkdirSync(path.join(dir,'packages'),{recursive:true});
 for(const p of data.packages){
