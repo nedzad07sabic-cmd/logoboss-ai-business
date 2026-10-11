@@ -6,10 +6,10 @@ import {fileURLToPath} from 'node:url';
 const dir=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const read=p=>readFileSync(path.join(dir,p),'utf8');
 const context={window:{},URL,Intl,Date};vm.createContext(context);
-vm.runInContext(read('catalog-data.js'),context);vm.runInContext(read('catalog-experience.js'),context);
+vm.runInContext(read('catalog-data.js'),context);vm.runInContext(read('package-preview.js'),context);vm.runInContext(read('catalog-experience.js'),context);
 const {LB_CATALOG:d,LB_RENDER:r}=context.window;
 assert.equal(d.packages.length,13);
-assert.equal(d.languages.length,6);
+assert.equal(d.languages.length,8);
 const expected={
  'digital-start':[1190,59,'00wbJ15ybdVk4mK7pp3ZK00'],
  'web-business':[2320,99,'bJe4gz7Gj6sScTg4dd3ZK01'],
@@ -35,15 +35,42 @@ const uiKeys=[...read('catalog-experience.js').matchAll(/\bt\('([a-zA-Z0-9]+)'\s
 for(const key of uiKeys)assert.ok(d.ui[key],'unknown UI key: '+key);
 for(const language of d.languages){
  const lang=language.code;
- const home=r.home(lang);assert.equal((home.match(/class="lb-package-card"/g)||[]).length,13);assert.equal((home.match(/class="lb-system-tile"/g)||[]).length,5);
+ const home=r.home(lang);assert.equal((home.match(/data-orbit-package=/g)||[]).length,13);assert.equal((home.match(/class="lb-orbit-group /g)||[]).length,5);
+ assert.ok(!home.includes('€')&&!home.includes('lb-card-price')&&!home.includes('lb-package-card')&&!home.includes('assets/workspace'),'home must contain only the brand and linked orbit icons');
+ for(const p of d.packages)assert.ok(home.includes('href="'+r.packageUrl(p,lang)+'"'));
+ assert.ok(!r.header(lang).includes('lb-language-toggle'));assert.ok(r.header(lang).includes('/logo-boss.svg'));
+ assert.equal((r.footer(lang).match(/role="menuitemradio"/g)||[]).length,8);
+ for(const g of Object.values(d.groups)){
+   const category=r.categoryPage(g,lang);assert.equal((category.match(/class="lb-package-card"/g)||[]).length,d.packages.filter(p=>p.group===g.id).length);assert.ok(existsSync(path.join(dir,'systems',g.id+'.html')));
+ }
  for(const p of d.packages){
-  const html=r.packagePage(p,lang);assert.ok(html.includes(esc(p.name)));assert.ok(html.includes(esc(d.limits[p.limit][lang])));assert.ok(html.includes(esc(d.ui.demoNote[lang])));
+  const html=r.packagePage(p,lang);assert.ok(html.includes(esc(p.name)));assert.ok(html.includes(esc(d.limits[p.limit][lang])));assert.ok(html.includes(esc(d.ui.personalDemoNote[lang])));
+  assert.ok(html.includes(p.visual));assert.ok(existsSync(path.join(dir,p.visual)));assert.ok(html.includes('data-preview-form'));assert.ok(html.includes(esc(d.ui.businessName[lang])));
+  for(const k of p.flow)assert.ok(html.includes(esc(d.ui[k][lang])));
   for(const key of p.features)assert.ok(html.includes(esc(d.features[key][lang])));
   assert.ok(!html.includes('undefined')&&!html.includes('NaN'));
   if(!p.live)assert.ok(!html.includes('href="https://buy.stripe.com')&&!html.includes('href="https://portal.logobossweb-ai.eu/cart.php'));
   assert.ok(existsSync(path.join(dir,'packages',p.id+'.html')));
  }
 }
+const preview=context.window.LB_PREVIEW;
+const web=d.packages.find(p=>p.id==='web-business');
+const hotel=preview.panel(web,'bs',{name:'Hotel Adria',type:'hotel',city:'Mostar',color:'#8254bf',view:'desktop'});
+const clinic=preview.panel(web,'bs',{name:'Ordinacija Mira',type:'clinic',city:'Sarajevo',view:'phone'});
+assert.ok(hotel.includes('Hotel Adria')&&hotel.includes('Mostar')&&hotel.includes('/assets/business/hotel.webp'));
+assert.ok(clinic.includes('Ordinacija Mira')&&clinic.includes('/assets/business/clinic.webp')&&clinic.includes('is-phone'));
+assert.notEqual(hotel,clinic);
+const attack=preview.panel(web,'en',{name:'<img src=x onerror=alert(1)>',type:'../../evil',color:'red;position:fixed',city:'<script>alert(1)</script>'});
+assert.ok(attack.includes('&lt;img')&&!attack.includes('<script>')&&!attack.includes('red;position')&&!attack.includes('/../../evil'));
+assert.equal(preview.clean({name:'x'.repeat(1000)},web).name.length,80);
+const start=d.packages.find(p=>p.id==='digital-start');assert.ok(!preview.panel(start,'en',{}).includes('data-preview-view="workspace"'));
+assert.ok(preview.panel(d.packages.find(p=>p.id==='ai-business'),'en',{}).includes('data-preview-action="chat"'));
+assert.ok(!preview.panel(d.packages.find(p=>p.id==='ai-business'),'en',{}).includes('data-preview-action="handoff"'));
+assert.ok(preview.panel(d.packages.find(p=>p.id==='ai-pro'),'en',{}).includes('data-preview-action="handoff"'));
+assert.ok(!read('package-preview.js').includes('fetch('));
+assert.equal(new Set(d.packages.map(p=>p.visual)).size,13);
+assert.ok(read('globe-3d.js').includes('SATELLITE_COUNT=100'));
+assert.ok(read('globe-3d.js').includes('speed:[.00044,-.00039,.00050]'));
 for(const id of ['hosting-web','hosting-wordpress']){
  const p=d.packages.find(p=>p.id===id);const de=new URL(r.checkoutUrl(p,'de')),en=new URL(r.checkoutUrl(p,'en'));
  assert.equal(de.searchParams.get('language'),'German');assert.equal(en.searchParams.get('language'),'English');assert.equal(de.searchParams.get('pid'),id==='hosting-web'?'1':'2');
@@ -55,4 +82,4 @@ assert.ok(!root.includes('<script src="./immersive-3d.js'));
 assert.ok(root.includes('id="homeView" aria-hidden="true" inert'));
 assert.ok(read('catalog-experience.js').includes('globe) main.querySelector'));
 assert.ok(read('catalog-experience.css').includes('html')&&read('catalog-experience.css').includes('@media(max-width:520px)'));
-console.log('PASS: 78 localized package views, all prices and checkout links, availability states, translations, and existing integration hooks.');
+console.log('PASS: 104 localized package views, 40 category views, no home prices, 13 distinct previews, safe personalized demos, 100 bidirectional globe connections, approved prices/checkout links and existing integration hooks.');

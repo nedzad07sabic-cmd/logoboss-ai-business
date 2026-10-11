@@ -1,0 +1,148 @@
+[
+  {
+    "id": "digital-start",
+    "asset_path": "/workspace/scratch/66e67ff4fcf2/logoboss-website/assets/previews/digital-start.webp",
+    "original_image_path": "/workspace/scratch/66e67ff4fcf2/generated_images/exec-9751545c-62b4-4d55-87fa-126aa1cb5340.png",
+    "dimensions": [
+      1536,
+      1024
+    ],
+    "description": "Elegant local consultancy website with services and a contact form on laptop and smartphone.",
+    "prompt": "Use case: product-mockup\nAsset type: original LogoBoss AI website service-package preview, a single photorealistic bitmap.\nPrimary request: premium realistic laptop and smartphone product photography showing a small elegant local consultancy business website, ONLY services and a contact form.\nScene/backdrop: bright quiet off-white studio desk with a pale oak surface, soft warm window light; no people. A slim silver laptop is open in a three-quarter view and a smartphone lies slightly upright on a small real stand near its left front corner, each fully grounded on the desk. The laptop is the clear main subject.\nScreen design: highly polished, credible consultancy website in off-white, dark navy and small violet accents. Wide calm header, a refined editorial serif headline, a simple architectural abstract photo, three clear service cards, and a contact section. The phone shows a short contact form. Minimal short English labels only: \"Consultancy\", \"Our services\", \"Contact\", \"Name\", \"Email\", \"Message\", \"Send enquiry\". Sparse content, large readable UI. No fake client names or testimonials.\nComposition/framing: wide 3:2 landscape image, approximately 1536 by 1024, close enough to clearly understand the screens; realistic perspective and subtle screen reflections without hiding the UI. Devices comfortably contained in the frame. No image collage.\nStyle/medium: high-end photorealistic product photo, physical brushed aluminum, natural glass and matte screen texture, clean balanced daylight, premium restrained art direction.\nConstraints: all objects are physical and realistically supported. Original design. No booking calendar, appointment system, account, client dashboard, prices, payment interface, invented metrics, awards, ratings, dense copy, watermarks, extra text outside the screens, floating objects or magical visual effects.",
+    "mode": "built-in image_gen",
+    "encoding": {
+      "format": "WebP",
+      "quality": 84,
+      "max_width": 1536,
+      "content_edited": false
+    }
+  },
+  {
+    "id": "web-business",
+    "asset_path": "/workspace/scratch/66e67ff4fcf2/logoboss-website/assets/previews/web-business.webp",
+    "original_image_path": "/workspace/scratch/66e67ff4fcf2/generated_images/exec-7b13f854-f103-404f-9b3c-b39938cd4b85.png",
+    "dimensions": [
+      1536,
+      1024
+    ],
+    "description": "Boutique hotel website on a desktop with a separate human-confirmed enquiry request on a phone.",
+    "prompt": "Use case: product-mockup\nAsset type: original LogoBoss AI website service-package preview, a single photorealistic bitmap.\nPrimary request: sophisticated boutique hotel website shown on a wide desktop monitor, with a separate smartphone showing an enquiry request form that a human team will review.\nScene/backdrop: elegant light hotel reception corner, ivory plaster wall and pale stone counter, gently lit by a tall real window. Wide slim desktop monitor centered on the counter, black support stand visible; a smartphone upright to its right. A small folded paper menu sits far left without readable text. No people.\nScreen design: hotel homepage with an original beautiful sunlit contemporary hotel interior hero photograph occupying half the display, navy navigation, warm off-white background and restrained violet buttons. A short heading \"Boutique Hotel\", clear \"Rooms\" and \"Enquire\" navigation, two simple room preview tiles. The phone screen is a distinct clean request form labeled \"Stay enquiry\", with \"Your dates\", \"Email\", \"Send request\" and a small status label \"Awaiting team reply\". No confirmation language. Large legible sparse interface.\nComposition/framing: wide 3:2 landscape, approximately 1536 by 1024, slightly elevated frontal camera angle, desktop screen large and smartphone screen clearly understandable, devices grounded with real shadows. Premium product photography, naturally reflective glass, no image collage.\nColor palette: off-white, navy blue and subtle violet; interior photo uses natural beige.\nConstraints: original illustrative concept, no real brands, prices, testimonials, ratings, sales statistics, payment interface, dense copy, code, or watermark. Do not show an automatically confirmed booking, reservation confirmation, full booking engine, floating UI or magical objects. No text outside the physical screens.",
+    "mode": "built-in image_gen",
+    "encoding": {
+      "format": "WebP",
+      "quality": 84,
+      "max_width": 1536,
+      "content_edited": false
+    }
+  },
+  {
+    "id": "web-pro",
+    "asset_path": "/workspace/scratch/66e67ff4fcf2/logoboss-website/assets/previews/web-pro.webp",
+    "original_image_path": "/workspace/scratch/66e67ff4fcf2/generated_images/exec-59f520dc-ea59-42ae-9813-9714c6baec2b.png",
+    "dimensions": [
+      1536,
+      1024
+    ],
+    "description": "Auto-service website sign-in plus a protected client inquiry status dashboard.",
+    "prompt": "Use case: product-mockup\nAsset type: original LogoBoss AI website service-package preview, a single photorealistic bitmap.\nPrimary request: a polished professional auto-service website with client sign-in on a desktop monitor, beside a laptop showing a protected inquiry and status dashboard.\nScene/backdrop: clean contemporary auto-service front desk, cool off-white walls with softly defocused workshop glass in the background. A large matte navy monitor is at left and a real silver laptop at right on a pale gray desk. Natural bright light. No people, no stereotypical office photograph.\nScreen design: desktop website shows an original premium close-up photo of a clean automobile detail, understated navy header labeled \"Auto Service\", a clear bright sign-in panel labeled \"Client sign-in\", fields \"Email\" and \"Password\", and a \"Sign in\" button. Laptop screen shows a separate authenticated client portal, small shield/lock icon, title \"My inquiries\", a sparse three-row inquiry table with status chips \"Received\", \"In review\", \"Replied\"; a small selected inquiry detail card. Clean off-white UI, blue/violet accent, minimal English labels. Make the distinct sign-in screen and inquiry status screen both obvious and large enough to understand.\nComposition/framing: wide 3:2 landscape, approximately 1536 by 1024, close product shot with a gentle oblique perspective, not identical to a generic single laptop photo; both screens easily seen and all device edges physically plausible.\nStyle/medium: photorealistic editorial product photography with realistic physical materials and screen reflections.\nConstraints: no ERP, accounting, payroll, payment card screen, shopping cart, booking confirmation, full CRM sales pipeline, prices, fake testimonials or invented performance metrics. No dense text or code. No floating objects, watermarks, extra captions outside screens. Original design and imagery.",
+    "mode": "built-in image_gen",
+    "encoding": {
+      "format": "WebP",
+      "quality": 84,
+      "max_width": 1536,
+      "content_edited": false
+    }
+  },
+  {
+    "id": "ai-business",
+    "asset_path": "/workspace/scratch/66e67ff4fcf2/logoboss-website/assets/previews/ai-business.webp",
+    "original_image_path": "/workspace/scratch/66e67ff4fcf2/generated_images/exec-7c77169b-74a3-4fe6-b683-8cccdf42aef3.png",
+    "dimensions": [
+      1536,
+      1024
+    ],
+    "description": "Dental-practice website with text FAQ assistant and captured contact enquiry on laptop and phone.",
+    "prompt": "Use case: product-mockup\nAsset type: original LogoBoss AI website service-package preview, a single photorealistic bitmap.\nPrimary request: a premium dental practice website on a laptop with a visible TEXT FAQ chat widget and simple captured contact inquiry, with a smartphone showing TEXT chat.\nScene/backdrop: minimal bright dental reception work surface with ivory wall, pale blue frosted glass softly out of focus, a tidy small silver laptop angled slightly left and a navy smartphone standing to its right. No people. Calm clean daylight, no dental instruments.\nScreen design: refined website headed \"Dental Practice\", serene original interior photo, simple \"Services\" and \"Contact\" links. On the laptop, a clearly visible navy/violet text FAQ widget at the lower right contains exactly two short message bubbles: \"How can I enquire?\" and \"Leave your contact details.\" Beside it, a small clean inquiry card says \"Contact enquiry\" and \"Saved\" with Name and Email fields, no personal data. Smartphone screen shows a larger clean version of the text chat with the label \"Ask a question\" and a small text-entry field. No microphone button.\nComposition/framing: wide 3:2 landscape, approximately 1536 by 1024, close enough to understand the two interfaces with realistic perspective and device sizes. Soft daylight, off-white/navy blue/violet palette. Physical screens contained within the frame, grounded devices, premium photorealistic product photography.\nConstraints: original illustrative concept. Text chat only; NO phone call, voice assistant, microphone, waveform, call button, headset, audio interface, booking confirmation or payment interface. No medical advice, no invented testimonials, statistics, prices, dense copy or code, magical floating interfaces or watermark. No text outside the device displays.",
+    "mode": "built-in image_gen",
+    "encoding": {
+      "format": "WebP",
+      "quality": 84,
+      "max_width": 1536,
+      "content_edited": false
+    }
+  },
+  {
+    "id": "ai-pro",
+    "asset_path": "/workspace/scratch/66e67ff4fcf2/logoboss-website/assets/previews/ai-pro.webp",
+    "original_image_path": "/workspace/scratch/66e67ff4fcf2/generated_images/exec-e6f397f9-8cf6-4ded-9744-cab227622935.png",
+    "dimensions": [
+      1536,
+      1024
+    ],
+    "description": "Restaurant text assistant with two text flows on tablet and human-team inbox handoff on desktop.",
+    "prompt": "Use case: product-mockup\nAsset type: original LogoBoss AI website service-package preview, a single photorealistic bitmap.\nPrimary request: a premium restaurant TEXT-chat assistant on a tablet and an inbox handoff to a human team on a desktop monitor, clearly showing two text flows.\nScene/backdrop: refined contemporary restaurant host counter in light limestone, quietly defocused restaurant interior with pale upholstered seating and a navy banquette. Warm late-morning daylight. A large landscape tablet in a real dark stand is close in the foreground on the left; a desktop monitor is slightly behind on the right. No people or unrelated floating objects.\nScreen design: tablet interface is a beautiful off-white restaurant text assistant titled \"Restaurant assistant\", with two distinct short conversation sections labeled \"Menu questions\" and \"Table enquiry\". The menu question flow says \"See the menu?\" and \"Here is the menu.\" with a small menu card. The table enquiry flow says \"Table for Friday?\" and \"Our team will reply.\" with an enquiry card. The desktop shows a clean navy-sidebar inbox titled \"Team inbox\", two message cards \"Menu questions\" and \"Table enquiry\", and visible labels \"Needs reply\" and \"Team review\". Use text message icons, no telephone icons. Minimal large English text only, spacious legible UI; clear violet accent and navy text.\nComposition/framing: wide 3:2 landscape, approximately 1536 by 1024; tablet screen dominant, desktop inbox screen clearly legible, slightly side-on camera without severe perspective. Real devices, natural reflections, realistic screen light. This is a different scene and device arrangement from a dental laptop and phone.\nStyle/medium: high-end photorealistic product photography.\nConstraints: TEXT interaction only. No phone/voice calls, mic, waveform, headset, audio interface, automatically confirmed table booking, payment UI, prices, testimonials, awards, metrics, dense text, code, watermarks or captions outside screens. Original illustrative concept.",
+    "mode": "built-in image_gen",
+    "encoding": {
+      "format": "WebP",
+      "quality": 84,
+      "max_width": 1536,
+      "content_edited": false
+    }
+  },
+  {
+    "id": "automation-start",
+    "asset_path": "/workspace/scratch/66e67ff4fcf2/logoboss-website/assets/previews/automation-start.webp",
+    "original_image_path": "/workspace/scratch/66e67ff4fcf2/generated_images/exec-441913bb-8dd1-4455-8ade-ca15b975648c.png",
+    "dimensions": [
+      1536,
+      1024
+    ],
+    "description": "Four-stage contact enquiry and prepared email workflow shown on a realistic laptop.",
+    "prompt": "Use case: product-mockup\nAsset type: original LogoBoss AI website service-package preview, a single photorealistic bitmap.\nPrimary request: a restrained realistic close-up laptop workspace showing a contact request, saved inquiry and prepared email notification as a simple FOUR-card visual process on the laptop screen.\nScene/backdrop: quiet bright personal work nook, soft ivory wall and pale oak desk. One single elegant laptop centered with screen near frontal. A closed navy notebook lies to the right and a slender pen rests on it, no people, no extra screens. Natural soft side daylight.\nScreen design: large spacious off-white web workspace with slim navy header reading \"Enquiry workflow\". Four simple softly bordered visual cards across the main screen, each with one large familiar outline icon and a very short label: \"Contact request\", \"Saved enquiry\", \"Prepared email\", \"Ready for review\". Beneath the first card show a tiny sparse contact form labeled Name, Email and Message. The second shows one saved inquiry card. The third shows a minimal email preview labeled \"New enquiry\". The fourth has a modest \"Review\" button. The cards are evenly spaced and separated by generous whitespace; small subtle arrows are optional. This is a photorealistic device mockup of a simple friendly workflow overview, not a precision systems diagram. The four cards must be readable as four sequential stages.\nComposition/framing: wide 3:2 landscape, approximately 1536 by 1024, screen occupies most of image, keyboard and physical desktop visible, near-front-on camera, grounded objects and natural glass reflections that do not obscure the UI.\nStyle/medium: premium high-end product photography, off-white/navy blue with discreet blue/violet accents and realistic brushed metal textures.\nConstraints: original illustrative example, no unverified performance numbers, statistics, prices, code, complex system diagram, full CRM, ERP, voice/call interface, payment interface, testimonials, human names, or watermarks. No text outside the screen. No magic glowing trails, floating panels, physical sticky notes or additional devices.",
+    "mode": "built-in image_gen",
+    "encoding": {
+      "format": "WebP",
+      "quality": 84,
+      "max_width": 1536,
+      "content_edited": false
+    }
+  },
+  {
+    "id": "automation-business",
+    "asset_path": "/workspace/scratch/66e67ff4fcf2/logoboss-website/assets/previews/automation-business.webp",
+    "original_image_path": "/workspace/scratch/66e67ff4fcf2/generated_images/exec-b6da64d5-d17d-49dc-a942-01908ce115a4.png",
+    "dimensions": [
+      1536,
+      1024
+    ],
+    "description": "Multi-workflow dashboard with three process lanes, approval column and email-template review on laptop.",
+    "prompt": "Use case: product-mockup\nAsset type: original LogoBoss AI website service-package preview, a single photorealistic bitmap.\nPrimary request: a refined business multi-workflow dashboard with THREE clearly visible horizontal process lanes, a human approval column and an email template review pane on a large laptop.\nScene/backdrop: modern light creative-business desk beside an ivory curtain, cool bright daylight, pale gray desk, a broad silver laptop shown in a closer frontal three-quarter view. Laptop is raised on a low real aluminum stand, external slim keyboard partly visible below, matte navy ceramic cup at far left. No people. Distinctly different staging from a single laptop lying flat on an oak desk.\nScreen design: polished off-white workflow workspace with navy sidebar and violet highlights, title \"Business workflows\". Three horizontal process lanes labeled \"Enquiries\", \"Appointment requests\" and \"Follow-ups\", each with two or three small visual task cards using simple text labels \"Received\", \"Prepare\" or \"Review\". A distinct right-side column titled \"Approval\" contains two short review cards. At bottom right, a visible expanded email preview panel titled \"Email template\", with a short placeholder heading \"Thanks for your enquiry\", two light text lines and a \"Review template\" button. Clear roomy hierarchy and readable labels, no charts or metric tiles. Visible modern dashboard structure, not four sequential stages across one row.\nComposition/framing: wide 3:2 landscape, approximately 1536 by 1024. Laptop screen large and easy to understand, physical materials and support stand realistic, restrained clean composition without floating interfaces or image collage.\nStyle/medium: premium photorealistic product photography, neutral off-white/navy/blue/violet palette, tactile desk and aluminum.\nConstraints: original illustrative concept. No automatically confirmed bookings, payment/card interface, ERP, accounting, payroll, dense code, dense text, prices, fake testimonials, awards, KPI numbers, success claims, watermarks or captions outside screens. Approval must look like human review, not a completed autonomous action.",
+    "mode": "built-in image_gen",
+    "encoding": {
+      "format": "WebP",
+      "quality": 84,
+      "max_width": 1536,
+      "content_edited": false
+    }
+  },
+  {
+    "id": "company-os-start",
+    "asset_path": "/workspace/scratch/66e67ff4fcf2/logoboss-website/assets/previews/company-os-start.webp",
+    "original_image_path": "/workspace/scratch/66e67ff4fcf2/generated_images/exec-0addb8c6-0d3b-4a02-a3ab-83d785feeba5.png",
+    "initial_image_path": "/workspace/scratch/66e67ff4fcf2/generated_images/exec-737a33fb-b788-432b-8dd8-3a8cd1493597.png",
+    "dimensions": [
+      1536,
+      1024
+    ],
+    "description": "LogoBoss AI small-business workspace with enquiries, appointment requests, services and status on desktop and smartphone.",
+    "prompt": "Use case: product-mockup\nAsset type: original LogoBoss AI website service-package preview, a single photorealistic bitmap.\nPrimary request: a premium realistic large desktop monitor and smartphone showing the \"LogoBoss AI\" small-business workspace, with sidebar, inquiries table, appointment requests, services and status.\nScene/backdrop: airy modern small-business studio corner, off-white wall and low pale oak credenza as desk, diffuse morning light. A broad slim desktop display on a simple real silver stand is centered; a navy smartphone on a real little stand is at its left, screen visible. A very small ceramic planter is far right, no people. Camera near frontal, composed as a premium workspace product photograph, not a generic stock office.\nScreen design: one coherent polished LogoBoss AI workspace across devices. Large desktop UI has navy left sidebar with exact brand text \"LogoBoss AI\" near the top, navigation labels \"Overview\", \"Inquiries\", \"Appointment requests\", \"Services\" and \"Status\". Main screen is off-white, titled \"Your workspace\", a clean inquiries table with sparse rows and status chips \"New\", \"In review\", \"Replied\"; beside it a small \"Appointment requests\" panel with two request cards labeled \"Needs reply\". Beneath show three tidy \"Services\" cards with plain short service labels. Smartphone shows the same workspace header \"LogoBoss AI\" and \"Appointment requests\" with one simple request and a \"Review\" button. No contact details or human names. Large legible simple English labels, refined violet buttons, abundant whitespace.\nComposition/framing: wide 3:2 landscape, approximately 1536 by 1024; monitor dominates, whole grounded devices comfortably contained in frame, readable screen hierarchy and authentic realistic reflections.\nStyle/medium: original premium photorealistic product photography, realistic metal, glass and wood; bright off-white/navy blue/violet color palette.\nConstraints: small-business workspace only. No accounting, payroll, invoices, ERP, banking, payment card or full enterprise software UI. No statistical KPI cards, prices, fake testimonials, client names, success metrics, automatically confirmed bookings, dense text/code, floating objects, watermarks or extra captions outside screens. Original illustrative concept.",
+    "edit_prompt": "Use case: text-localization\nEdit target: this premium photorealistic desktop monitor and smartphone product photograph.\nPrimary request: make a narrowly targeted correction to the fictional business-service examples ON THE SCREENS ONLY. The device framing, camera perspective, off-white/navy/violet palette, typography, environment, physical monitor and phone, sidebar, table, cards, chips, and brand text \"LogoBoss AI\" must all stay exactly as they are.\nReplace the three bottom service card headings \"Logo Design\", \"Brand Kit\", \"Social Media Graphics\" with exactly \"Consultation\", \"Web services\", \"Support\". Replace their small descriptions with exactly \"Discuss your request\", \"Website enquiries\", \"Help from your team\".\nIn the inquiries table, replace graphic-design service names with \"Consultation\", \"Web services\", \"Support\", \"General enquiry\" and replace any graphic-design-specific message snippets with generic short enquiry snippets \"New request\", \"Website enquiry\", \"Support request\", \"General enquiry\".\nIn the appointment request cards on BOTH desktop and phone, replace \"Consultation call\" with exactly \"Consultation request\", replace \"Logo Design project\" with \"General enquiry\", and replace \"Brand Kit project\" with \"Project enquiry\".\nEverything else in the photograph must remain unchanged. Keep inquiry statuses New/In review/Replied and appointment status Needs reply. Do not add accounting, payroll, ERP, payments, statistics, prices, testimonials, extra text, real client names, voice-call UI, or automatically confirmed bookings. This is a generic small-business workspace for inquiries, human-reviewed appointment requests, services and status; no graphic design products. Maintain wide 3:2 1536×1024 image.",
+    "mode": "built-in image_gen",
+    "encoding": {
+      "format": "WebP",
+      "quality": 84,
+      "max_width": 1536,
+      "content_edited": false
+    }
+  }
+]

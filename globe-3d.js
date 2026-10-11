@@ -1,18 +1,19 @@
-/* LogoBoss 3D Earth with 30 luminous orbital pearls. No external dependencies. */
+/* LogoBoss 3D Earth with 100 fast, bidirectional luminous connections. */
 (()=>{
 'use strict';
 let canvas=document.getElementById('motionEarth');
 if(!canvas)return;
 const host=canvas.parentElement,pause=document.getElementById('motionPause');
 const reduced=matchMedia('(prefers-reduced-motion: reduce)');
-const SATELLITE_COUNT=30,TAIL_STEPS=12,TAU=Math.PI*2;
+const SATELLITE_COUNT=100,TAIL_STEPS=16,TAU=Math.PI*2;
 const palette=[[85/255,197/255,1],[105/255,126/255,1],[171/255,119/255,1]];
 const satellites=Array.from({length:SATELLITE_COUNT},(_,i)=>({
-  ring:i%3,phase:Math.floor(i/3)/10*TAU+(i%3)*.24,
-  speed:[.00011,-.000092,.000126][i%3],size:.86+(i%5)*.06,hue:i*.37
+  ring:i%3,phase:i/SATELLITE_COUNT*TAU+(i%3)*.24,
+  speed:[.00044,-.00039,.00050][i%3],size:.58+(i%5)*.06,hue:i*.37
 }));
 canvas.dataset.orbitCount=String(SATELLITE_COUNT);
-canvas.dataset.orbitStyle='pearl-trails';
+canvas.dataset.orbitStyle='bidirectional-connections';
+canvas.dataset.connectionCount=String(SATELLITE_COUNT);
 let paused=false,visible=true,frame=0,last=0,angle=.18,time=0,draw;
 function brandColor(phase){
   const p=(Math.sin(phase)*.5+.5)*2,i=Math.min(1,Math.floor(p)),f=p-i,s=f*f*(3-2*f);
@@ -91,6 +92,8 @@ if(gl){
       for(let j=0;j<TAIL_STEPS;j++)tailScales[i*TAIL_STEPS+j]=(.14+.8*(1-(j+1)/TAIL_STEPS))*s.size;
     });
     const pearls=pointMesh(pearlPositions,pearlTints,pearlScales),tails=pointMesh(tailPositions,tailTints,tailScales);
+    const connectionPositions=new Float32Array(SATELLITE_COUNT*2*3);
+    const connections=mesh(connectionPositions,connectionPositions,true);
     function stream(m,positions,tints){
       for(const b of [m.p,m.n]){gl.bindBuffer(gl.ARRAY_BUFFER,b);gl.bufferSubData(gl.ARRAY_BUFFER,0,positions);}
       gl.bindBuffer(gl.ARRAY_BUFFER,m.t);gl.bufferSubData(gl.ARRAY_BUFFER,0,tints);
@@ -100,11 +103,16 @@ if(gl){
         const a=s.phase+time*s.speed,color=brandColor(a+s.hue+time*.00004);
         pearlPositions.set(orbitPoint(a,s.ring),i*3);pearlTints.set(color,i*3);
         for(let j=0;j<TAIL_STEPS;j++){
-          const at=(i*TAIL_STEPS+j)*3,t=a-Math.sign(s.speed)*.14*(j+1)/TAIL_STEPS;
+          const at=(i*TAIL_STEPS+j)*3,t=a-Math.sign(s.speed)*.28*(j+1)/TAIL_STEPS;
           tailPositions.set(orbitPoint(t,s.ring),at);tailTints.set(color,at);
         }
+        const landing=orbitPoint(s.phase*.73+Math.sin(time*.00016+i)*.2,(s.ring+1)%3);
+        const magnitude=Math.hypot(...landing);
+        connectionPositions.set(landing.map(v=>v/magnitude*1.025),i*6);
+        connectionPositions.set(orbitPoint(a,s.ring),i*6+3);
       });
       stream(pearls,pearlPositions,pearlTints);stream(tails,tailPositions,tailTints);
+      for(const b of [connections.p,connections.n]){gl.bindBuffer(gl.ARRAY_BUFFER,b);gl.bufferSubData(gl.ARRAY_BUFFER,0,connectionPositions);}
     }
     gl.enable(gl.DEPTH_TEST);gl.depthFunc(gl.LEQUAL);
     gl.enable(gl.CULL_FACE);gl.cullFace(gl.BACK);gl.frontFace(gl.CW);gl.clearColor(0,0,0,0);
@@ -122,7 +130,7 @@ if(gl){
       gl.depthMask(false);gl.blendFunc(gl.SRC_ALPHA,gl.ONE);emit(atmosphere,2,gl.TRIANGLES);
       gl.blendFunc(gl.SRC_ALPHA,gl.ONE_MINUS_SRC_ALPHA);
       orbitMeshes.forEach((m,k)=>emit(m,3,gl.LINE_STRIP,brandColor(time*.00004+k*1.7)));
-      movePearls();
+      movePearls();emit(connections,3,gl.LINES,[.27,.64,.91]);
       const size=Math.max(7,Math.min(13,rect.width*.016));
       gl.blendFunc(gl.SRC_ALPHA,gl.ONE);
       gl.uniform1f(loc.size,size*.65);emit(tails,6,gl.POINTS);
@@ -170,7 +178,7 @@ if(!draw){
       const radius=Math.max(2.25,w*.0055)*s.size*(.75+Math.max(p[2],0)*.3);
       ctx.save();ctx.globalCompositeOperation='lighter';
       for(let j=TAIL_STEPS;j>=1;j--){
-        const f=1-j/TAIL_STEPS,t=spin(orbitPoint(a-Math.sign(s.speed)*.14*j/TAIL_STEPS,s.ring));
+        const f=1-j/TAIL_STEPS,t=spin(orbitPoint(a-Math.sign(s.speed)*.28*j/TAIL_STEPS,s.ring));
         ctx.fillStyle=rgb(color,.05+f*.2);ctx.beginPath();
         ctx.arc(x+t[0]*r,y-t[1]*r,radius*(.1+f*.55),0,TAU);ctx.fill();
       }
@@ -191,13 +199,18 @@ if(!draw){
       ctx.fillStyle='rgba(100,167,255,'+(.25+z*.7)+')';ctx.beginPath();
       ctx.arc(x+(p[0]*c+p[2]*s)*r,y+p[1]*r,1+z*.6,0,TAU);ctx.fill();
     }
-    rings(true);points.filter(o=>o.p[2]>=0).forEach(pearl);
+    rings(true);
+    points.filter(o=>o.p[2]>=0).forEach(o=>{
+      const end=orbitPoint(o.s.phase*.73+Math.sin(time*.00016+o.s.hue)*.2,(o.s.ring+1)%3),len=Math.hypot(...end),start=spin(end.map(v=>v/len*1.025));
+      if(start[2]>=0){ctx.strokeStyle=rgb(o.color,.16);ctx.lineWidth=.7;ctx.beginPath();ctx.moveTo(x+start[0]*r,y-start[1]*r);ctx.lineTo(x+o.p[0]*r,y-o.p[1]*r);ctx.stroke();}
+      pearl(o);
+    });
   };
 }
 function animate(t){
   frame=0;if(paused||reduced.matches||document.hidden||!visible)return;
   const elapsed=Math.min(t-last,60);
-  if(t-last>=33){time+=elapsed;angle+=elapsed*.00006;last=t;draw();}
+  if(t-last>=33){time+=elapsed;angle+=elapsed*.000085;last=t;draw();}
   frame=requestAnimationFrame(animate);
 }
 function resume(){
@@ -207,7 +220,8 @@ function resume(){
 }
 pause.addEventListener('click',()=>{
   paused=!paused;pause.setAttribute('aria-pressed',String(paused));
-  pause.setAttribute('aria-label',paused?'Resume globe animation':'Pause globe animation');
+  const lang=document.documentElement.lang,words=window.LB_CATALOG?.ui;
+  pause.setAttribute('aria-label',words?.[paused?'resumeGlobe':'pauseGlobe']?.[lang]||(paused?'Resume globe animation':'Pause globe animation'));
   pause.querySelector('span').textContent=paused?'▷':'Ⅱ';
   if(paused){cancelAnimationFrame(frame);frame=0;draw();}else resume();
 });

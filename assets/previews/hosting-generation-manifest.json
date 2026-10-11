@@ -1,0 +1,89 @@
+{
+  "assets": [
+    {
+      "id": "hosting-web",
+      "original_output_path": "/workspace/scratch/66e67ff4fcf2/generated_images/exec-69e10f66-bb47-439c-9440-06e93a8cf235.png",
+      "final_asset_path": "/workspace/scratch/66e67ff4fcf2/logoboss-website/assets/previews/hosting-web.webp",
+      "dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "tool": "built-in image_gen.imagegen",
+      "encoding": {
+        "format": "webp",
+        "quality": 84,
+        "method": 6
+      },
+      "prompt": "Use case: product-mockup. Asset type: premium realistic hosting service product preview for a professional website card.\nPrimary request: a photorealistic laptop displaying a polished modern business webpage, paired with a small physical stack of two compact brushed-metal servers and a clearly legible hosting control panel within the laptop screen.\nScene/backdrop: bright minimal off-white studio desk with soft architectural background, realistic premium product photography.\nSubject: one open laptop three-quarter frontal view, subtle navy laptop display bezel, compact silver server stack beside it. The screen has a visually polished business website preview on one side and simple hosting settings on the other.\nText (verbatim): small concise hosting labels \"Website\", \"SSL\", \"Mail\", \"Storage\". All other website text should be minimal abstract lines, not gibberish blocks or marketing claims.\nStyle: real photograph, crisp materials, natural reflections, accurately constructed devices, calm trustworthy premium finish.\nComposition/framing: horizontal 3:2 aspect ratio, wide generous framing with breathing room around all objects, camera at desk level, the complete laptop and servers in frame.\nLighting/mood: large soft daylight source, bright neutral shadows, off-white, deep navy, restrained cobalt blue and violet screen accents.\nConstraints: no people, no giant floating interface, no data center, no code, no prices, no invented clients, stats, logos or watermarks. The scene must be a distinctive product photo.",
+      "validation": "Visually inspected; subjects, framing and limited UI text meet brief. No active status/checkmarks in forthcoming apps or domains concepts."
+    },
+    {
+      "id": "hosting-wordpress",
+      "original_output_path": "/workspace/scratch/66e67ff4fcf2/generated_images/exec-6f524a89-9522-4ccf-80f9-44120d8e55fe.png",
+      "final_asset_path": "/workspace/scratch/66e67ff4fcf2/logoboss-website/assets/previews/hosting-wordpress.webp",
+      "dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "tool": "built-in image_gen.imagegen",
+      "encoding": {
+        "format": "webp",
+        "quality": 84,
+        "method": 6
+      },
+      "prompt": "Use case: product-mockup. Asset type: premium realistic WordPress website maintenance service product preview for a professional website card.\nPrimary request: a photorealistic desktop monitor showing a clean WordPress-style content publishing editor alongside a tablet showing a maintenance and backup checklist, in an elegant bright home office still-life. This is a general publishing workflow concept, not official WordPress affiliation.\nScene/backdrop: quiet contemporary home office with ivory desk, subtle cream wall, a small neutral ceramic vase, soft morning daylight.\nSubject: large thin silver desktop monitor, compact keyboard and tablet resting in a low stand. On desktop: a polished generic publishing editor with sidebar, large page image placeholder and structured document paragraphs. On tablet: simple maintenance checklist with backup and update rows.\nText (verbatim): only short UI labels \"Editor\", \"Backup\", \"Updates\". No branded WordPress logo, no claim of affiliation.\nStyle: true photorealistic premium editorial still-life, detailed glass and aluminum textures, refined navy blue/violet interface, no synthetic 3D cartoon appearance.\nComposition/framing: horizontal 3:2 aspect ratio, wider side angle with complete monitor, tablet and desk surfaces; generous breathing room around devices.\nLighting/mood: soft bright daylight, clean offwhite palette, minimal navy and violet color accents.\nConstraints: no people, no prices, no code, no fake customer counts, no invented clients, no promotional copy or watermarks. Distinct scene and device arrangement from a laptop/server shot.",
+      "validation": "Visually inspected; subjects, framing and limited UI text meet brief. No active status/checkmarks in forthcoming apps or domains concepts."
+    },
+    {
+      "id": "hosting-apps",
+      "original_output_path": "/workspace/scratch/66e67ff4fcf2/generated_images/exec-a1c6051b-15f1-4939-9828-23c38fc40448.png",
+      "final_asset_path": "/workspace/scratch/66e67ff4fcf2/logoboss-website/assets/previews/hosting-apps.webp",
+      "dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "tool": "built-in image_gen.imagegen",
+      "encoding": {
+        "format": "webp",
+        "quality": 84,
+        "method": 6
+      },
+      "prompt": "Use case: product-mockup. Asset type: premium realistic forthcoming application and bot hosting concept service preview for a professional website card.\nPrimary request: a photorealistic open laptop beside one compact physical mini-server, showing a single small web application interface and a simple application status panel in a calm studio scene. This depicts a forthcoming concept service.\nScene/backdrop: off-white seamless tabletop studio with subtle violet light on background, one dark navy laptop and small matte silver mini-server.\nSubject: laptop screen with one generic clean business assistant app, sparse abstract message rows and a small status panel headed \"Application\"; compact server beside laptop. Screen states should be neutral empty outlines or \"Preview\", not active success checkmarks.\nText (verbatim): \"Application\", \"Preview\". Use minimal other text, readable clean shapes.\nStyle/medium: genuine premium product photography with accurate physical materials, plausible screen reflections, refined professional quality.\nComposition/framing: horizontal 3:2 aspect ratio, wide diagonal view from slightly above desk, generous margins, entire laptop and server in frame. Make this clearly different from a traditional website hosting shot.\nLighting/mood: bright off-white, soft diffuse light, navy interface and controlled electric blue/violet accents.\nConstraints: no games, no gaming objects, no datacenter, no cloud fantasy, no unlimited capability claims, no activated checkmarks, no code, no prices, no invented clients or stats, no logo or watermark.",
+      "validation": "Visually inspected; subjects, framing and limited UI text meet brief. No active status/checkmarks in forthcoming apps or domains concepts."
+    },
+    {
+      "id": "hosting-domains",
+      "original_output_path": "/workspace/scratch/66e67ff4fcf2/generated_images/exec-7e9d7ff1-03d1-4c5a-9788-7e6dc457c64d.png",
+      "final_asset_path": "/workspace/scratch/66e67ff4fcf2/logoboss-website/assets/previews/hosting-domains.webp",
+      "dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "tool": "built-in image_gen.imagegen",
+      "encoding": {
+        "format": "webp",
+        "quality": 84,
+        "method": 6
+      },
+      "prompt": "Use case: product-mockup. Asset type: premium realistic forthcoming domain search and DNS concept service preview for a professional website card.\nPrimary request: a photorealistic slim laptop with a simple domain search/address interface, including a legible browser address bar with \"business.example\", and a clean domain and DNS selection panel. This is an upcoming concept, so no purchased or registered-success cues.\nScene/backdrop: sophisticated bright studio desk, ivory surface, minimal architectural wall with soft shadows; discreet violet translucent glass desk accessory.\nSubject: laptop from a sophisticated side angle with enough visible screen for readable short interface labels. Domain search field and browser address bar read \"business.example\". A DNS section has two or three sparse editable rows and neutral outline selectors, no checkmarks, no active success states.\nText (verbatim): \"business.example\", \"Domain\", \"DNS\", \"Preview\". The reserved example domain is a concept only.\nStyle: realistic premium commercial product photography, precise aluminum, glass and keyboard textures, elegant shallow depth of field but screen still clear.\nComposition/framing: horizontal 3:2 aspect ratio, generous wide margins, entire laptop and a small arc of the desk visible, distinct sophisticated diagonal side-view scene.\nLighting/mood: bright soft neutral daylight, off-white, subtle deep navy blue and violet screen palette.\nConstraints: no real purchased domain, no invented client, no price, no statistics, no promotional claims, no code, no floating UI, no logo or watermark. Avoid activated checkmarks.",
+      "validation": "Visually inspected; subjects, framing and limited UI text meet brief. No active status/checkmarks in forthcoming apps or domains concepts."
+    },
+    {
+      "id": "hosting-email",
+      "original_output_path": "/workspace/scratch/66e67ff4fcf2/generated_images/exec-edca6b88-47dd-49ca-9112-9b4141a6bf43.png",
+      "final_asset_path": "/workspace/scratch/66e67ff4fcf2/logoboss-website/assets/previews/hosting-email.webp",
+      "dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "tool": "built-in image_gen.imagegen",
+      "encoding": {
+        "format": "webp",
+        "quality": 84,
+        "method": 6
+      },
+      "prompt": "Use case: product-mockup. Asset type: premium realistic professional custom-domain business mailbox concept preview for a professional website card.\nPrimary request: a photorealistic desktop monitor displaying one focused business email inbox, paired with smartphone showing the same mail view. Only one custom-domain business mailbox, a calm professional email product, not mass marketing.\nScene/backdrop: bright realistic studio setting, off-white desk, pale neutral background, one restrained navy pen beside a slim keyboard.\nSubject: desktop monitor front-facing at a slight three-quarter angle, smartphone in a low upright stand beside it. On both screens, minimal elegant email interface showing inbox rows as simple clean horizontal lines. A legible mailbox heading reads \"mail@business.example\"; label \"Inbox\". Individual senders and subjects should be abstract minimal lines rather than invented names.\nText (verbatim): \"mail@business.example\", \"Inbox\". Reserved example domain only.\nStyle/medium: premium true-to-life product photograph, accurately shaped devices, realistic glass reflections and aluminum, clean high quality website product preview.\nComposition/framing: horizontal 3:2 aspect ratio, wide generous framing, entire monitor and phone with breathing space, clearly distinct from laptop hosting and home office publishing scenes.\nLighting/mood: bright diffuse studio light, off-white palette with navy and restrained blue/violet interface highlights.\nConstraints: no marketing blasts, no message counts, no unread badges, no stats, no price, no claims, no invented companies or clients, no code, no activated success checkmarks, no logo or watermark.",
+      "validation": "Visually inspected; subjects, framing and limited UI text meet brief. No active status/checkmarks in forthcoming apps or domains concepts."
+    }
+  ]
+}
