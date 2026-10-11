@@ -2,7 +2,9 @@
 
 ## Release status — 2026-10-11
 
-The German/English interface and real model integration are deployed. A dedicated `OPENAI_API_KEY` is now present in Supabase, and the owner approved API usage with a global allowance of 20 requests per fixed 24-hour window. **AI generation is paused pending provider availability and successful DE/EN live checks.** Activation attempts reached the upstream service but did not produce a completed assistant response. The existing authenticated support-ticket service remains the customer handoff.
+The German/English interface and real model integration are deployed. A dedicated `OPENAI_API_KEY` is present in Supabase, and the owner approved API usage with a global allowance of 20 requests per fixed 24-hour window. **AI generation is enabled and real DE/EN responses were verified on 2026-10-11.** Both production POST requests returned HTTP 200 with `demo:false`, the requested language, the Web Hosting price of EUR 8.99 per month and the canonical `https://logobossweb-ai.eu/#offer-hosting-web` link. The public GET returned HTTP 200 with `enabled:true`. These were production API checks; no browser UI test is recorded. The existing authenticated support-ticket service remains the customer handoff.
+
+Earlier activation attempts reached the upstream service but did not produce a completed assistant response. Preserve their history and the existing request counters; failed or timed-out attempts still count toward their fixed request windows.
 
 The existing 20-request approval remains valid; another approval is only needed for a materially different spending scope. Do not copy credentials into this repository or replace a key merely because the provider reports a billing or quota error.
 
@@ -12,14 +14,14 @@ Backend route: `https://ppmefffjhqpmrjnlewoq.supabase.co/functions/v1/ai-chat?sc
 
 The original business-scoped FAQ demo remains separate. The new route cannot select a tenant, read orders/tickets, create bookings or send email.
 
-## Activation
+## Reactivation and troubleshooting
 
-1. The owner selects and approves OpenAI API usage. This is usage-based API billing, not an App Store or phone subscription. Check the owner's actual API account and credits; a ChatGPT login alone is not evidence of usable API credit.
-2. The owner creates a dedicated server API key and enters it in Supabase **Edge Function secrets** as `OPENAI_API_KEY`. Do not put the key in GitHub, chat messages, frontend code, logs, test fixtures or a screenshot.
-3. Set `LB_SUPPORT_AI_DAILY_LIMIT` to the approved number of requests (1–50; default 20). Set `LB_SUPPORT_AI_ENABLED=true` only when API usage is approved and controlled DE/EN live checks can be performed. Adding a key alone does not enable the model.
-4. Confirm a real DE and EN response, then check Soon availability, private-account handoff, language selection and the published data notice. Model-output quality cannot be established by mocked tests. Disable the flag if any activation check fails.
+1. Reuse the existing owner approval for 20 requests per fixed 24-hour window. A materially different spending scope needs separate approval. For billing failures, check the owner's actual API account and credits; a ChatGPT login alone is not evidence of usable API credit.
+2. Keep the dedicated server API key in Supabase **Edge Function secrets** as `OPENAI_API_KEY`. Reuse it unless credential troubleshooting requires an authorized replacement. Do not put the key in GitHub, chat messages, frontend code, logs, test fixtures or a screenshot.
+3. Keep `LB_SUPPORT_AI_DAILY_LIMIT=20` unless the owner approves a different allowance. After a pause, set `LB_SUPPORT_AI_ENABLED=true` only when provider availability has been restored and controlled DE/EN live checks can be performed. Adding a key alone does not enable the model.
+4. After reactivation, confirm a real DE and EN response, then check hosting Soon availability, private-account handoff, language selection and the published data notice. Model-output quality cannot be established by mocked tests. Disable the flag if any activation check fails.
 
-The currently pinned model is `gpt-4.1-mini-2025-04-14` through the Responses API. The public status response only reports configuration readiness; it does not verify API credit, provider health or model access. Therefore a positive status is not a substitute for the controlled live checks. Keep the AI availability badge in `app.html` as Soon until real DE/EN generation succeeds; unrelated hosting Soon badges remain unchanged.
+The currently pinned model is `gpt-4.1-mini-2025-04-14` through the Responses API. The public status response only reports configuration readiness; it does not verify API credit, provider health or model access. Therefore a positive status is not a substitute for the controlled live checks. The AI availability badge in `app.html` now reflects the verified DE/EN activation. Following a future suspension, update that status truthfully and restore Available only after successful real DE/EN checks; unrelated hosting Soon badges remain unchanged.
 
 ## Provider failures
 

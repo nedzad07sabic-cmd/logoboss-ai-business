@@ -1,6 +1,6 @@
 {
-  "version": 4,
-  "status": "configured_disabled_pending_provider_availability",
+  "version": 5,
+  "status": "active_verified_de_en",
   "site": "https://logobossweb-ai.eu",
   "chat_url": "https://logobossweb-ai.eu/#ai-support",
   "provider": "openai",
@@ -9,12 +9,12 @@
     "de",
     "en"
   ],
-  "provider_key_verified": false,
+  "provider_key_verified": true,
   "billing_approval_required_before_new_spend": true,
   "publication": {
     "frontend_prepared": true,
     "backend_prepared": true,
-    "chat_generation_enabled": false,
+    "chat_generation_enabled": true,
     "voice_enabled": false,
     "native_store_publication": false
   },
@@ -80,8 +80,15 @@
   },
   "live_validation": {
     "attempted": true,
-    "successful_generation": false,
+    "successful_generation": true,
+    "verified_on": "2026-10-11",
+    "verified_languages": [
+      "de",
+      "en"
+    ],
+    "verification_method": "production_api_requests",
+    "browser_ui_verified": false,
     "provider_errors_classified": true,
-    "next_step": "Restore provider availability, enable the existing flag, and verify real German and English responses within the existing request allowance."
+    "next_step": "Keep the approved 20-request fixed-24-hour allowance and existing counters. If the provider becomes unavailable, follow the documented failure classification and reactivation checks."
   }
 }
