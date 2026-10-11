@@ -18,6 +18,17 @@ for (const file of ['hosting-checkout-config.js', 'hosting-checkout.js', 'immers
 const click = selector => { assert.ok(d.querySelector(selector), selector); d.querySelector(selector).click(); };
 const ids = ['hosting-web', 'hosting-wordpress', 'hosting-apps', 'hosting-domains', 'hosting-email'];
 const config = w.LOGOBOSS_HOSTING_CONFIG;
+const assertSoon = id => {
+  const card = d.getElementById('offer-' + id), button = card.querySelector('.lb-hosting-request'), status = card.querySelector('.lb-hosting-status');
+  assert.equal(button.tagName, 'BUTTON'); assert.equal(button.type, 'button'); assert.equal(button.disabled, true);
+  assert.equal(button.getAttribute('aria-disabled'), 'true'); assert.equal(button.textContent, 'Soon');
+  assert.equal(button.dataset.lbDe, 'Soon'); assert.equal(button.dataset.lbEn, 'Soon');
+  assert.equal(button.hasAttribute('href'), false); assert.equal(button.hasAttribute('data-hosting-checkout'), false);
+  for (const element of [card, button]) assert.equal([...element.attributes].some(attribute => attribute.name.startsWith('data-inquiry-')), false);
+  assert.equal(card.querySelector('.lb-safe-stage').textContent, 'Soon');
+  assert.equal(status.hidden, true); assert.equal(status.textContent, '');
+  assert.equal(status.dataset.lbDe, ''); assert.equal(status.dataset.lbEn, '');
+};
 for (const [id, pid] of [['hosting-web', '1'], ['hosting-wordpress', '2']]) {
   const url = new URL(w.lbHostingCheckoutUrl(id));
   assert.equal(url.origin, 'https://portal.logobossweb-ai.eu');
@@ -27,14 +38,28 @@ for (const [id, pid] of [['hosting-web', '1'], ['hosting-wordpress', '2']]) {
   assert.equal(url.searchParams.get('language'), 'German');
   assert.equal(new URL(d.querySelector(`#offer-${id} .lb-hosting-request`).href).search, url.search, 'no-JS links use the verified checkout');
 }
-for (const id of ['hosting-apps', 'hosting-domains', 'hosting-email']) assert.equal(w.lbHostingCheckoutUrl(id), null, 'unready products stay on request');
+for (const id of ['hosting-apps', 'hosting-domains', 'hosting-email']) {
+  assert.equal(w.lbHostingCheckoutUrl(id), null, 'unready products remain unavailable');
+  assertSoon(id);
+}
+assert.match(w.lbHostingCheckoutSummary().body, /Soon/);
 assert.equal(d.querySelector('#offer-hosting-email').dataset.price, '16.20');
 assert.equal(d.querySelector('#offer-hosting-email').dataset.period, 'year');
 config.enabled = false;
 w.lbRefreshHostingLinks();
-for (const link of d.querySelectorAll('.lb-hosting-request')) assert.ok(link.href.startsWith('mailto:'));
+for (const id of ids) assertSoon(id);
+for (const language of ['en', 'de']) {
+  w.localStorage.setItem('lb_lang', language);
+  w.dispatchEvent(new w.StorageEvent('storage', { key: 'lb_lang', newValue: language }));
+  for (const id of ids) assertSoon(id);
+}
 config.enabled = true; w.lbRefreshHostingLinks();
 assert.equal(d.querySelectorAll('[data-hosting-checkout]').length, 2);
+for (const id of ['hosting-web', 'hosting-wordpress']) {
+  const link = d.querySelector(`#offer-${id} .lb-hosting-request`);
+  assert.equal(link.tagName, 'A'); assert.equal(link.hasAttribute('disabled'), false); assert.equal(link.hasAttribute('aria-disabled'), false);
+  assert.equal(link.href, w.lbHostingCheckoutUrl(id)); assert.equal(d.querySelector(`#offer-${id} .lb-hosting-status`).hidden, false);
+}
 click('.node-hosting'); assert.equal(d.querySelectorAll('#motionPackagePicker button').length, 5);
 assert.equal(d.getElementById('lbHostingPortal').hidden, false);
 for (const link of d.querySelectorAll('[data-hosting-portal]')) {
@@ -62,6 +87,9 @@ for (const id of ids) {
   assert.equal(url.searchParams.get('language'), 'English'); assert.equal(url.searchParams.get('currency'), '2');
   if (id !== 'hosting-domains') assert.equal(url.searchParams.get('billingcycle'), id === 'hosting-email' ? 'annually' : 'monthly');
   assert.equal(d.querySelector(`#offer-${id} .lb-safe-stage`).textContent, 'ORDER ONLINE');
+  const link = d.querySelector(`#offer-${id} .lb-hosting-request`);
+  assert.equal(link.tagName, 'A'); assert.equal(link.hasAttribute('disabled'), false); assert.equal(link.hasAttribute('aria-disabled'), false);
+  assert.equal(link.href, url.href); assert.equal(d.querySelector(`#offer-${id} .lb-hosting-status`).hidden, false);
 }
 assert.match(d.querySelector('#offer-hosting-email .lb-hosting-status').textContent, /16\.20 billed annually/);
 click('[data-package="hosting-web"]'); assert.match(d.querySelector('#motionSelectedOffer').textContent, /purchase/);
@@ -80,7 +108,7 @@ config.domains.registrationVerified = false; assert.equal(w.lbHostingCheckoutUrl
 config.domains.registrationVerified = true;
 config.domains.orderUrl += '&key=secret'; assert.equal(w.lbHostingCheckoutUrl('hosting-domains'), null);
 config.enabled = false; w.lbRefreshHostingLinks();
-for (const link of d.querySelectorAll('.lb-hosting-request')) assert.ok(link.href.startsWith('mailto:'));
+for (const id of ids) assertSoon(id);
 for (const [category, count] of [['web', 3], ['ai', 2], ['hosting', 1]]) { click(`#motion-tab-${category}`); assert.equal(d.querySelectorAll('.lb-safe-card:not([hidden])').length, count); assert.equal(d.getElementById('lbHostingPortal').hidden, category !== 'hosting'); }
 click('[data-motion-all]'); assert.equal(d.querySelectorAll('.lb-safe-card:not([hidden])').length, 13);
 assert.equal(d.getElementById('lbHostingPortal').hidden, false);
@@ -90,5 +118,5 @@ assert.deepEqual(errors, []);
 for (const file of ['index.html', 'hosting-checkout-config.js', 'hosting-checkout.js', 'immersive-3d.js']) {
   assert.doesNotMatch(fs.readFileSync(path.join(root, file), 'utf8'), /WHMCS-[a-zA-Z0-9]{8,}|\b(?:sk|rk)_(?:live|test)_[a-zA-Z0-9]+/);
 }
-console.log(JSON.stringify({ result: 'passed', liveCheckoutProducts: 2, hostingProducts: 5, featureScenes: scenes, packageCards: 13, checked: ['verified product IDs and EUR', 'static purchase links', 'disabled fallback', 'DE/EN checkout and client portal', 'portal category visibility', 'annual email price', 'monthly/annual cycles', 'portal URL validation', 'domain readiness', 'rollback', '3D navigation', 'public secret scan'] }));
+console.log(JSON.stringify({ result: 'passed', liveCheckoutProducts: 2, hostingProducts: 5, featureScenes: scenes, packageCards: 13, checked: ['verified product IDs and EUR', 'static purchase links', 'disabled Soon controls', 'availability restoration', 'DE/EN checkout and client portal', 'portal category visibility', 'annual email price', 'monthly/annual cycles', 'portal URL validation', 'domain readiness', 'rollback', '3D navigation', 'public secret scan'] }));
 dom.window.close();

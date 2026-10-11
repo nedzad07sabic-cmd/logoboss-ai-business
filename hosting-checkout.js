@@ -52,27 +52,36 @@
       link.href = url.href;
     });
     document.querySelectorAll('.lb-hosting-card').forEach(card => {
-      const id = card.id.replace('offer-', ''), link = card.querySelector('.lb-hosting-request');
+      const id = card.id.replace('offer-', '');
+      let link = card.querySelector('.lb-hosting-request');
       if (!link) return;
-      if (!link.dataset.inquiryHref) {
-        link.dataset.inquiryHref = link.getAttribute('href');
-        link.dataset.inquiryDe = link.dataset.lbDe; link.dataset.inquiryEn = link.dataset.lbEn;
-        const status = card.querySelector('.lb-hosting-status'), stage = card.querySelector('.lb-safe-stage');
-        card.dataset.inquiryStatusDe ||= status.dataset.lbDe; card.dataset.inquiryStatusEn ||= status.dataset.lbEn;
-        card.dataset.inquiryStageDe ||= stage.dataset.lbDe; card.dataset.inquiryStageEn ||= stage.dataset.lbEn;
-      }
       const url = checkout(id), stage = card.querySelector('.lb-safe-stage'), status = card.querySelector('.lb-hosting-status');
+      const tag = url ? 'A' : 'BUTTON';
+      if (link.tagName !== tag) {
+        const replacement = document.createElement(tag.toLowerCase());
+        for (const { name, value } of [...link.attributes]) replacement.setAttribute(name, value);
+        link.replaceWith(replacement);
+        link = replacement;
+      }
+      for (const element of [card, link]) {
+        for (const { name } of [...element.attributes]) {
+          if (name.startsWith('data-inquiry-')) element.removeAttribute(name);
+        }
+      }
       if (!url) {
-        link.href = link.dataset.inquiryHref;
-        translate(link, link.dataset.inquiryDe, link.dataset.inquiryEn);
-        translate(stage, card.dataset.inquiryStageDe, card.dataset.inquiryStageEn);
-        translate(status, card.dataset.inquiryStatusDe, card.dataset.inquiryStatusEn);
-        delete link.dataset.hostingCheckout;
+        for (const name of ['href', 'target', 'rel', 'download', 'ping', 'referrerpolicy', 'data-hosting-checkout', 'aria-label', 'aria-labelledby']) link.removeAttribute(name);
+        link.type = 'button'; link.disabled = true; link.setAttribute('aria-disabled', 'true');
+        translate(link, 'Soon', 'Soon');
+        translate(stage, 'Soon', 'Soon');
+        translate(status, '', '');
+        if (status) status.hidden = true;
         return;
       }
+      link.removeAttribute('type'); link.removeAttribute('disabled'); link.removeAttribute('aria-disabled');
       link.href = url; link.dataset.hostingCheckout = id;
       translate(stage, 'ONLINE BESTELLEN', 'ORDER ONLINE');
       translate(link, id === 'hosting-domains' ? 'Domain prüfen & bestellen →' : 'Paket kaufen →', id === 'hosting-domains' ? 'Check & order a domain →' : 'Buy this package →');
+      if (status) status.hidden = false;
       const annual = id === 'hosting-email';
       const manual = id === 'hosting-apps';
       translate(status,
@@ -88,7 +97,7 @@
     if (!available.length) return null;
     return {
       title: text('HOSTING · SICHER BESTELLEN', 'HOSTING · SECURE CHECKOUT'),
-      body: text('Pakete mit „Paket kaufen“ können Sie sicher im Kundenportal bezahlen. Bestehende Domain erforderlich; Einrichtung nach Zahlung. Pakete auf Anfrage werden vor der Bestellung bestätigt. Domains und AI/API-Verbrauch sind separat.', 'Pay securely in the client portal for packages marked “Buy this package”. An existing domain is required; setup follows payment. Packages on request are confirmed before ordering. Domains and AI/API usage are separate.')
+      body: text('Pakete mit „Paket kaufen“ können Sie sicher im Kundenportal bezahlen. Bestehende Domain erforderlich; Einrichtung nach Zahlung. Noch nicht verfügbare Pakete sind mit „Soon“ gekennzeichnet und können noch nicht bestellt werden. Domains und AI/API-Verbrauch sind separat.', 'Pay securely in the client portal for packages marked “Buy this package”. An existing domain is required; setup follows payment. Unavailable packages are marked “Soon” and cannot be ordered yet. Domains and AI/API usage are separate.')
     };
   };
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', refresh, { once: true }); else refresh();
