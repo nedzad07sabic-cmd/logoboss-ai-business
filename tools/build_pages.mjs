@@ -10,7 +10,7 @@ vm.runInContext(read('catalog-data.js'),context);
 vm.runInContext(read('catalog-experience.js'),context);
 const data=context.window.LB_CATALOG,render=context.window.LB_RENDER;
 const escape=value=>String(value).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const version='20261011-catalog-2';
+const version='20261011-catalog-3';
 const scripts=`<script src="/catalog-data.js?v=${version}" defer></script>\n<script src="/catalog-experience.js?v=${version}" defer></script>`;
 mkdirSync(path.join(dir,'packages'),{recursive:true});
 for(const p of data.packages){
@@ -47,9 +47,9 @@ if(!index.includes('id="lbExperience"')){
   index=index.replace(/<div id="lbFooter">[\s\S]*?<\/footer><\/div>/,'<div id="lbFooter">'+render.footer('de')+'</div>');
 }
 // The legacy order flow stays intact. Checkout is offered directly on package pages.
-index=index.replaceAll('20261011-catalog-1','20261011-catalog-2');
+index=index.replace(/20261011-catalog-\d+/g,version);
 write('index.html',index);
 const sitemap=read('sitemap.xml');
 const additions=data.packages.map(p=>'<url><loc>https://logobossweb-ai.eu/packages/'+p.id+'.html</loc><lastmod>2026-10-11</lastmod></url>').filter(line=>!sitemap.includes(line.match(/<loc>(.*?)<\/loc>/)[1]));
-write('sitemap.xml',sitemap.replace('</urlset>',additions.join('\n')+'\n</urlset>'));
+if(additions.length)write('sitemap.xml',sitemap.replace('</urlset>',additions.join('\n')+'\n</urlset>'));
 console.log(`Built home and ${data.packages.length} package pages.`);
