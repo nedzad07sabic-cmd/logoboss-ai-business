@@ -105,8 +105,6 @@ footer{border-top:1px solid var(--line);padding:36px 0 46px;color:#6f84a5;font-s
 .lb-lang-option .lb-active-dot{width:9px;height:9px;border-radius:50%;background:#16d7bd;opacity:0;box-shadow:0 0 16px rgba(22,215,189,.45)}
 .lb-lang-option.active .lb-active-dot{opacity:1}
 .lb-footer-language{margin-top:22px;display:inline-block}.lb-footer-language .lb-lang-menu{top:auto;bottom:calc(100% + 10px);left:0;right:auto}
-#google_translate_element{position:fixed!important;left:-9999px!important;top:-9999px!important;width:1px!important;height:1px!important;overflow:hidden!important;opacity:0!important;pointer-events:none!important}
-.goog-te-banner-frame.skiptranslate,.goog-te-banner-frame{display:none!important}body{top:0!important}.skiptranslate iframe{visibility:hidden!important}
 
 .lb-paybox{margin:14px 0 4px;padding:15px;border:1px solid rgba(105,185,255,.17);border-radius:14px;background:linear-gradient(145deg,rgba(8,22,47,.92),rgba(7,14,31,.95))}
 .lb-paybox-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:11px}.lb-paybox-head b{font-size:13px;color:#ecf7ff}.lb-paybox-head small{display:block;color:#7189ae;font-size:10px;line-height:1.45;margin-top:4px}
@@ -220,7 +218,8 @@ body{min-width:320px}
 </style>
 
 <style id="lb-pricing-notice-style">.lb-pricing-note{font:500 12px/1.5 system-ui,sans-serif;color:#b7c8e2;text-align:center;padding:8px 16px;background:#0d1b32;border-bottom:1px solid #203656}</style><style id="lb-premium-menu-2026">
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;450;500;550;600;650;700;750;800&family=Manrope:wght@400;500;600;650;700;750;800&display=swap');
+@font-face{font-family:'DM Sans';font-style:normal;font-weight:100 1000;font-display:swap;src:url('/assets/fonts/dm-sans.ttf') format('truetype')}
+@font-face{font-family:Manrope;font-style:normal;font-weight:200 800;font-display:swap;src:url('/assets/fonts/manrope.ttf') format('truetype')}
 body{font-family:'DM Sans',Inter,'Segoe UI',sans-serif;letter-spacing:-.008em}
 h1,h2,h3,h4,.brand,.navlinks,.btn,.lb-menu-card b{font-family:Manrope,'DM Sans',sans-serif;letter-spacing:-.035em}
 .brand{font-size:17px;font-weight:800;gap:10px;white-space:nowrap}.brand-logo{width:40px;height:40px;object-fit:cover;border-radius:11px;flex-shrink:0;box-shadow:0 0 17px rgba(60,137,255,.18)}
@@ -535,7 +534,6 @@ h1,h2,h3,h4,.brand,.navlinks,.btn,.lb-menu-card b{font-family:Manrope,'DM Sans',
 </div></footer>
 
 
-<div id="google_translate_element" class="notranslate" aria-hidden="true"></div>
 
 <div class="order-backdrop" id="orderBackdrop" aria-hidden="true">
   <div class="order-modal" role="dialog" aria-modal="true" aria-labelledby="orderTitle">
@@ -2137,19 +2135,14 @@ renderPlans();renderFilters();renderCatalog();renderMega();renderRequest();rende
 <script id="lb-v16-language-payment">
 (function(){
   const LANGS=[
-    {code:'en',label:'English',short:'EN'},
-    {code:'fr',label:'Français',short:'FR'},
-    {code:'es',label:'Español',short:'ES'},
     {code:'de',label:'Deutsch',short:'DE'},
-    {code:'it',label:'Italiano',short:'IT'},
-    {code:'pt',label:'Português',short:'PT'},
-    {code:'ar',label:'العربية',short:'AR'}
+    {code:'en',label:'English',short:'EN'}
   ];
   const nativeCodes=new Set(['de','en']);
-  const translatedCodes=new Set(['fr','es','it','pt','ar']);
-  let siteLang=localStorage.getItem('lb_site_lang')||localStorage.getItem('lb_lang')||'de';
-  if(!LANGS.some(x=>x.code===siteLang))siteLang='de';
-  let googleReady=false, lastTranslate=0, currentPayment=null;
+  const savedSiteLang=localStorage.getItem('lb_site_lang');
+  const savedNativeLang=localStorage.getItem('lb_lang');
+  let siteLang=nativeCodes.has(savedSiteLang)?savedSiteLang:(nativeCodes.has(savedNativeLang)?savedNativeLang:'de');
+  let currentPayment=null;
 
   const ui={
     de:{pay:'Mit Stripe bezahlen',request:'Nur Anfrage senden',pt:'Sicher bezahlen',ps:'Verfügbare Methoden werden im Stripe Checkout automatisch nach Land, Gerät und Paket angezeigt.',connecting:'Stripe Checkout wird geöffnet …',notReady:'Stripe Checkout ist noch nicht mit dem Live-Konto verbunden. Sie können die Anfrage senden oder uns unter info.logobossai@gmail.com kontaktieren.',error:'Stripe Checkout konnte nicht geöffnet werden. Bitte senden Sie stattdessen die Anfrage.',name:'Name *',company:'Firma / Company',email:'E-Mail *',phone:'Telefon / WhatsApp',country:'Land / Country',note:'Nachricht / Message'},
@@ -2166,7 +2159,7 @@ renderPlans();renderFilters();renderCatalog();renderMega();renderRequest();rende
       const menu=p.querySelector('.lb-lang-menu');
       if(!menu)return;
       menu.innerHTML=LANGS.map(x=>`<button type="button" class="lb-lang-option ${x.code===siteLang?'active':''}" data-site-lang="${x.code}" role="menuitem"><span>${x.label}</span><span class="lb-active-dot"></span></button>`).join('');
-      const cur=p.querySelector('.lb-lang-current'); if(cur)cur.textContent=(LANGS.find(x=>x.code===siteLang)||LANGS[3]).short;
+      const cur=p.querySelector('.lb-lang-current'); if(cur)cur.textContent=(LANGS.find(x=>x.code===siteLang)||LANGS[0]).short;
     });
   }
   function closeMenus(){document.querySelectorAll('[data-lang-picker].open').forEach(p=>{p.classList.remove('open');p.querySelector('.lb-lang-trigger')?.setAttribute('aria-expanded','false')})}
@@ -2178,7 +2171,7 @@ renderPlans();renderFilters();renderCatalog();renderMega();renderRequest();rende
     if(!e.target.closest('[data-lang-picker]'))closeMenus();
   });
 
-  function clearGoogleCookie(){
+  function clearLegacyTranslationCookie(){
     const domains=[location.hostname,'.'+location.hostname];
     domains.forEach(d=>{document.cookie='googtrans=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/;domain='+d});
     document.cookie='googtrans=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/';
@@ -2186,16 +2179,7 @@ renderPlans();renderFilters();renderCatalog();renderMega();renderRequest();rende
   function nativeClick(code){
     const b=document.getElementById(code==='en'?'enBtn':'deBtn');if(b)b.click();
   }
-  function googleSelect(code){
-    const combo=document.querySelector('.goog-te-combo');
-    if(!combo)return false;
-    combo.value=code;combo.dispatchEvent(new Event('change',{bubbles:true}));lastTranslate=Date.now();return true;
-  }
-  function googleSelectRetry(code,tries=24){
-    if(googleSelect(code))return;
-    if(tries>0)setTimeout(()=>googleSelectRetry(code,tries-1),250);
-  }
-  function applyDirection(code){document.documentElement.dir=code==='ar'?'rtl':'ltr';document.documentElement.lang=code}
+  function applyDirection(code){document.documentElement.dir='ltr';document.documentElement.lang=code}
   function applyPaymentUI(){
     const x=ui[siteLang]||ui.en;
     const ids={stripePayBtn:'pay',orderSubmit:'request',paymentTitle:'pt',paymentSub:'ps'};
@@ -2204,37 +2188,11 @@ renderPlans();renderFilters();renderCatalog();renderMega();renderRequest();rende
     Object.entries(ph).forEach(([id,k])=>{const el=document.getElementById(id);if(el)el.placeholder=x[k]});
     const f=document.getElementById('orderLanguageField');if(f)f.value=siteLang;
   }
-  function selectLanguage(code,initial=false){
-    if(!LANGS.some(x=>x.code===code))code='de';
-    const previous=siteLang;siteLang=code;localStorage.setItem('lb_site_lang',code);applyDirection(code);renderMenus();applyPaymentUI();
-    if(nativeCodes.has(code)){
-      localStorage.setItem('lb_lang',code);nativeClick(code);clearGoogleCookie();
-      // Google modifies the DOM in-place. Reload only when returning from an auto-translated language.
-      if(!initial && translatedCodes.has(previous)){setTimeout(()=>location.reload(),80)}
-      return;
-    }
-    localStorage.setItem('lb_lang','de');nativeClick('de');
-    if(googleReady){setTimeout(()=>googleSelectRetry(code),100)}
+  function selectLanguage(code){
+    if(!nativeCodes.has(code))code='de';
+    siteLang=code;localStorage.setItem('lb_site_lang',code);applyDirection(code);renderMenus();applyPaymentUI();
+    localStorage.setItem('lb_lang',code);nativeClick(code);clearLegacyTranslationCookie();
   }
-
-  window.googleTranslateElementInit=function(){
-    try{
-      new google.translate.TranslateElement({pageLanguage:'de',includedLanguages:'en,fr,es,it,pt,ar',autoDisplay:false,multilanguagePage:true},'google_translate_element');
-      googleReady=true;
-      if(translatedCodes.has(siteLang))setTimeout(()=>googleSelectRetry(siteLang),350);
-    }catch(e){}
-  };
-  function loadGoogle(){
-    if(document.querySelector('script[data-lb-google-translate]'))return;
-    const sc=document.createElement('script');sc.src='https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';sc.async=true;sc.dataset.lbGoogleTranslate='1';document.head.appendChild(sc);
-  }
-
-  // Re-apply translation after app-like product views render new DOM.
-  document.addEventListener('click',e=>{
-    if(e.target.closest('[data-open],[data-order-name],[data-home],[data-detail-back]') && translatedCodes.has(siteLang)){
-      setTimeout(()=>{if(Date.now()-lastTranslate>600)googleSelectRetry(siteLang,8)},700);
-    }
-  },true);
 
   // Capture selected package data before the existing order handler runs.
   document.addEventListener('click',e=>{
@@ -2279,9 +2237,9 @@ renderPlans();renderFilters();renderCatalog();renderMega();renderRequest();rende
   });
 
   renderMenus();applyDirection(siteLang);applyPaymentUI();setStripeAvailability('');
-  // Native language first; translated languages use German as the source before Google Translate.
-  if(nativeCodes.has(siteLang)){clearGoogleCookie();localStorage.setItem('lb_lang',siteLang);nativeClick(siteLang)} else {localStorage.setItem('lb_lang','de');nativeClick('de');loadGoogle()}
-  if(nativeCodes.has(siteLang))loadGoogle();
+  // Persist only the supported native languages; migrate older automatic-translation settings.
+  localStorage.setItem('lb_site_lang',siteLang);localStorage.setItem('lb_lang',siteLang);
+  clearLegacyTranslationCookie();nativeClick(siteLang);
 })();
 </script>
 
