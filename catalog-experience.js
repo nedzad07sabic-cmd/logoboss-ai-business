@@ -129,12 +129,27 @@
     const offer=location.hash.match(/^#offer-(.+)$/);
     const p=offer&&data.packages.find(item=>item.id===offer[1]);
     if(p&&!currentPackage) location.replace(packageUrl(p,lang));
+    // The retained app router scrolls its old home view to the top.
+    // Restore only the public section anchor after that router finishes.
+    if(!currentPackage&&!currentGroup&&['#home','#systems','#services'].includes(location.hash)){
+      const id=location.hash==='#home'?'home':'systems';
+      setTimeout(()=>document.getElementById(id)?.scrollIntoView({block:'start',behavior:'auto'}),40);
+    }
   }
   function closeLanguageMenu() {
     const menu=document.getElementById('lbLanguageMenu'),toggle=document.querySelector('.lb-language-toggle');
     if(menu)menu.hidden=true;if(toggle)toggle.setAttribute('aria-expanded','false');
   }
   document.addEventListener('click',e=>{
+    const anchor=e.target.closest('#lbHeader a,#lbExperience a');
+    if(anchor&&!currentPackage&&!currentGroup){
+      const url=new URL(anchor.href,location.href);
+      if(url.origin===location.origin&&url.pathname===location.pathname&&['#home','#systems','#services'].includes(url.hash)){
+        e.preventDefault();history.replaceState(null,'',url);
+        document.getElementById(url.hash==='#home'?'home':'systems')?.scrollIntoView({block:'start',behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});
+        return;
+      }
+    }
     const toggle=e.target.closest('.lb-language-toggle');
     if(toggle){const menu=document.getElementById('lbLanguageMenu');menu.hidden=!menu.hidden;toggle.setAttribute('aria-expanded',String(!menu.hidden));if(!menu.hidden)menu.querySelector('[aria-checked="true"]')?.focus();return;}
     const choice=e.target.closest('[data-catalog-lang]');if(choice){saveLanguage(choice.dataset.catalogLang);return;}
