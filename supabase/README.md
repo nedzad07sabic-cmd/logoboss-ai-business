@@ -59,6 +59,16 @@ After configuring the server, use Stripe's signed endpoint test/delivery tools. 
 
 `ai-chat` is an explicitly labelled FAQ **demo with predefined answers**. It checks that the business and its text-chat module are enabled. It does not call a paid language model and does not send emails. A production customer assistant requires that customer's approved content and configuration.
 
+The 10 October audit removed direct anonymous inserts into conversations/messages and anonymous reads of private assistant instructions. The server chat endpoint still writes with its server role; signed-in tenant members retain their scoped read/manage policies.
+
+## Non-binding package requests
+
+Function: `submit-order`, deployed version 24 on 10 October 2026. It requires a confirmed signed-in account, checks that the request email belongs to that account, applies rate limits and uses the server's eight-package price catalog. A request is stored as `is_test=false`; it does not confirm a Stripe payment or enable product access.
+
+The verified sender domain supplies an admin notification and an informational German/English customer acknowledgment. Reply-to for the customer message is `info.logobossai@gmail.com`. Resend requests use separate event-specific idempotency keys and ten-second timeouts. Notification failures leave the saved inquiry available and return explicit delivery flags; delivery to a real inbox was not exercised in this audit.
+
+Reproducible checks: `node ops/check-order-function.cjs` and `NODE_PATH=<jsdom dependency directory> node ops/check-site.cjs`. Both mock external requests and do not create real accounts, orders, emails or payments. Remaining release limitations are recorded in `ops/final-audit-20261010.md`.
+
 ## Database migrations
 
 The migrations in this directory were applied during the audit. Treat them as the source record; check the project's migration history before applying them again. Customer ownership uses a confirmed Supabase email and database row policies. Public clients never receive a service-role credential.
@@ -66,4 +76,8 @@ The migrations in this directory were applied during the audit. Treat them as th
 ## Search
 
 The sitemap contains the home page and eight DE/EN service pages. Account, checkout-return and demonstration pages have `noindex`. The logo and favicon URLs must remain public and stable. Search indexing and favicon display are controlled by search engines.
+
+# Support centre (10 October 2026)
+
+The `support-tickets` Edge Function and migration `20261010170300_add_private_support_tickets.sql` add private customer tickets, administrator replies, linked order selection, statuses and private attachments. See `../ops/support-release-20261010.md` for the authorization model, notifications, tests and limitations. Deploy the migration before enabling the frontend. The function uses custom JWT verification against Auth and the existing Resend secret; no server keys belong in browser files.
 

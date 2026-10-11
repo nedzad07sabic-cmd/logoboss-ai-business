@@ -43,4 +43,5 @@
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', update, {once:true});
   else update();
+  new MutationObserver(update).observe(document.documentElement, {attributes:true, attributeFilter:['lang']});
 })();

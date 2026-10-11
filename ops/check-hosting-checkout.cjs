@@ -17,9 +17,24 @@ for (const script of d.querySelectorAll('script:not([src])')) {
 for (const file of ['hosting-checkout-config.js', 'hosting-checkout.js', 'immersive-3d.js']) w.eval(fs.readFileSync(path.join(root, file), 'utf8'));
 const click = selector => { assert.ok(d.querySelector(selector), selector); d.querySelector(selector).click(); };
 const ids = ['hosting-web', 'hosting-wordpress', 'hosting-apps', 'hosting-domains', 'hosting-email'];
-for (const id of ids) assert.equal(w.lbHostingCheckoutUrl(id), null, 'unconfigured products do not get a checkout URL');
+const config = w.LOGOBOSS_HOSTING_CONFIG;
+for (const [id, pid] of [['hosting-web', '1'], ['hosting-wordpress', '2']]) {
+  const url = new URL(w.lbHostingCheckoutUrl(id));
+  assert.equal(url.origin, 'https://portal.logobossweb-ai.eu');
+  assert.equal(url.searchParams.get('pid'), pid);
+  assert.equal(url.searchParams.get('billingcycle'), 'monthly');
+  assert.equal(url.searchParams.get('currency'), '1');
+  assert.equal(url.searchParams.get('language'), 'German');
+  assert.equal(new URL(d.querySelector(`#offer-${id} .lb-hosting-request`).href).search, url.search, 'no-JS links use the verified checkout');
+}
+for (const id of ['hosting-apps', 'hosting-domains', 'hosting-email']) assert.equal(w.lbHostingCheckoutUrl(id), null, 'unready products stay on request');
+assert.equal(d.querySelector('#offer-hosting-email').dataset.price, '16.20');
+assert.equal(d.querySelector('#offer-hosting-email').dataset.period, 'year');
+config.enabled = false;
 w.lbRefreshHostingLinks();
 for (const link of d.querySelectorAll('.lb-hosting-request')) assert.ok(link.href.startsWith('mailto:'));
+config.enabled = true; w.lbRefreshHostingLinks();
+assert.equal(d.querySelectorAll('[data-hosting-checkout]').length, 2);
 click('.node-hosting'); assert.equal(d.querySelectorAll('#motionPackagePicker button').length, 5);
 let scenes = 0;
 for (const id of ids) {
@@ -29,7 +44,6 @@ for (const id of ids) {
   for (let i = 0; i < count; i++) { click(`#motionStepList button[data-feature="${i}"]`); assert.ok(d.querySelector('.fx-visual')); scenes++; }
 }
 // Test fixtures only. These IDs and portal URL are not deployed configuration.
-const config = w.LOGOBOSS_HOSTING_CONFIG;
 config.enabled = true; config.portalBaseUrl = 'https://portal.logobossweb-ai.eu/';
 config.verifiedAt = '2026-10-10T12:00:00Z'; config.currencyId = 2;
 for (const [index, id] of ['hosting-web', 'hosting-wordpress', 'hosting-apps', 'hosting-email'].entries()) {
@@ -68,5 +82,5 @@ assert.deepEqual(errors, []);
 for (const file of ['index.html', 'hosting-checkout-config.js', 'hosting-checkout.js', 'immersive-3d.js']) {
   assert.doesNotMatch(fs.readFileSync(path.join(root, file), 'utf8'), /WHMCS-[a-zA-Z0-9]{8,}|\b(?:sk|rk)_(?:live|test)_[a-zA-Z0-9]+/);
 }
-console.log(JSON.stringify({ result: 'passed', hostingProducts: 5, featureScenes: scenes, packageCards: 13, checked: ['disabled fallback', 'DE/EN checkout', 'monthly/annual cycles', 'portal URL validation', 'domain readiness', 'rollback', '3D navigation', 'public secret scan'] }));
+console.log(JSON.stringify({ result: 'passed', liveCheckoutProducts: 2, hostingProducts: 5, featureScenes: scenes, packageCards: 13, checked: ['verified product IDs and EUR', 'static purchase links', 'disabled fallback', 'DE/EN checkout', 'annual email price', 'monthly/annual cycles', 'portal URL validation', 'domain readiness', 'rollback', '3D navigation', 'public secret scan'] }));
 dom.window.close();

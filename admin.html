@@ -71,6 +71,7 @@ dialog::backdrop{background:rgba(0,4,16,.82)}
 <link rel="icon" type="image/png" href="/favicon.png" sizes="96x96">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
+<link rel="stylesheet" href="./support-center.css">
 </head>
 <body>
 <header>
@@ -93,7 +94,7 @@ dialog::backdrop{background:rgba(0,4,16,.82)}
 <section id="dashboard">
 <div class="heading">
 <div><div class="eyebrow">LOGOBOSS · PRIVATNI PREGLED</div><h1>Narudžbe i zahtjevi</h1><p>Pregled zahtjeva spremljenih u Supabase. Prikazane cijene su informativne, bez online plaćanja.</p></div>
-<div class="actions"><button id="refresh" class="ghost">↻ Osvježi</button><button id="export" class="ghost">↓ Izvezi CSV</button></div>
+<div class="actions"><button type="button" class="lb-support-launch" data-lb-support-open>Podrška · Tiketi</button><button id="refresh" class="ghost">↻ Osvježi</button><button id="export" class="ghost">↓ Izvezi CSV</button></div>
 </div>
 <div class="metrics">
 <div class="metric"><small>Ukupno zahtjeva</small><strong id="totalCount">0</strong></div>
@@ -123,6 +124,8 @@ window.addEventListener("DOMContentLoaded",async()=>{
  const $=id=>document.getElementById(id);
  const db=window.supabase?.createClient(API_URL,PUBLIC_KEY,{auth:{persistSession:true,autoRefreshToken:true,detectSessionInUrl:true}});
  if(!db){$("loginStatus").textContent="Biblioteka za prijavu nije učitana. Osvježi stranicu.";return;}
+ const {initSupport}=await import('./support-center.js');
+ initSupport({client:db,admin:true,openAccount:()=>{document.getElementById('adminEmail').focus();}});
  let orders=[],currentId=null;
  const statuses={new:"Novo",contacted:"Kontaktiran",in_progress:"U obradi",completed:"Završeno",cancelled:"Otkazano",test:"Test"};
  const euro=n=>new Intl.NumberFormat("de-DE",{style:"currency",currency:"EUR",maximumFractionDigits:0}).format(Number(n)||0);

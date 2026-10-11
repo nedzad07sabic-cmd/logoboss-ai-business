@@ -53,8 +53,8 @@
         link.dataset.inquiryHref = link.getAttribute('href');
         link.dataset.inquiryDe = link.dataset.lbDe; link.dataset.inquiryEn = link.dataset.lbEn;
         const status = card.querySelector('.lb-hosting-status'), stage = card.querySelector('.lb-safe-stage');
-        card.dataset.inquiryStatusDe = status.dataset.lbDe; card.dataset.inquiryStatusEn = status.dataset.lbEn;
-        card.dataset.inquiryStageDe = stage.dataset.lbDe; card.dataset.inquiryStageEn = stage.dataset.lbEn;
+        card.dataset.inquiryStatusDe ||= status.dataset.lbDe; card.dataset.inquiryStatusEn ||= status.dataset.lbEn;
+        card.dataset.inquiryStageDe ||= stage.dataset.lbDe; card.dataset.inquiryStageEn ||= stage.dataset.lbEn;
       }
       const url = checkout(id), stage = card.querySelector('.lb-safe-stage'), status = card.querySelector('.lb-hosting-status');
       if (!url) {
@@ -71,8 +71,8 @@
       const annual = id === 'hosting-email';
       const manual = id === 'hosting-apps';
       translate(status,
-        annual ? '16,20 € jährlich. Bestellung und sichere Zahlung im Kundenportal; Domain separat.' : manual ? 'Bestellung und sichere Zahlung im Kundenportal. Bereitstellung nach technischer Freigabe.' : 'Bestellung und sichere Zahlung im Kundenportal. Die Aktivierung erfolgt nach bestätigter Zahlung.',
-        annual ? '€16.20 billed annually. Order and pay securely in the client portal; domain separate.' : manual ? 'Order and pay securely in the client portal. Deployment follows technical approval.' : 'Order and pay securely in the client portal. Activation follows confirmed payment.');
+        annual ? '16,20 € jährlich. Bestellung und sichere Zahlung im Kundenportal; Postfach und DNS werden nach Zahlung eingerichtet. Domain separat.' : manual ? 'Nur nach technischer Freigabe bestellen. Bereitstellung nach bestätigter Zahlung.' : 'Bestehende Domain erforderlich. Sicher im Kundenportal bezahlen; Einrichtung nach bestätigter Zahlung.',
+        annual ? '€16.20 billed annually. Pay securely in the client portal; mailbox and DNS setup follow payment. Domain separate.' : manual ? 'Order only after technical approval. Deployment follows confirmed payment.' : 'An existing domain is required. Pay securely in the client portal; setup follows confirmed payment.');
     });
   }
   window.lbHostingCheckoutUrl = checkout;
@@ -83,7 +83,7 @@
     if (!available.length) return null;
     return {
       title: text('HOSTING · SICHER BESTELLEN', 'HOSTING · SECURE CHECKOUT'),
-      body: text('Verfügbare Pakete können Sie im Kundenportal bestellen und bezahlen. Domains und AI/API-Verbrauch sind separat, sofern nicht ausdrücklich enthalten.', 'Order and pay for available packages in the client portal. Domains and AI/API usage are separate unless explicitly included.')
+      body: text('Pakete mit „Paket kaufen“ können Sie sicher im Kundenportal bezahlen. Bestehende Domain erforderlich; Einrichtung nach Zahlung. Pakete auf Anfrage werden vor der Bestellung bestätigt. Domains und AI/API-Verbrauch sind separat.', 'Pay securely in the client portal for packages marked “Buy this package”. An existing domain is required; setup follows payment. Packages on request are confirmed before ordering. Domains and AI/API usage are separate.')
     };
   };
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', refresh, { once: true }); else refresh();
