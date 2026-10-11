@@ -301,6 +301,7 @@ h1,h2,h3,h4,.brand,.navlinks,.btn,.lb-menu-card b{font-family:Manrope,'DM Sans',
 @media(max-width:760px){.nav{gap:5px}.navlinks{margin-left:auto;gap:0}.navlinks a{font-size:11px;padding:8px 6px}.brand>span{font-size:17px}.lb-lang-trigger{padding:8px}.motion-tabs button{padding-left:5px;padding-right:5px;font-size:10px}.motion-tabs button small{font-size:7px}.node-hosting{top:3%;right:20%}.motion-package-picker:has([data-package^="hosting-"]){overflow-x:auto}.motion-package-picker:has([data-package^="hosting-"])>button{flex:1 0 145px}.fx-server-rack{gap:8px;margin:14px 0}.fx-server-unit{padding:9px 12px;gap:10px;box-shadow:0 5px 0 #070e22}.fx-server-unit b{font-size:8px}.fx-server-unit span{font-size:7px}.fx-domain-name{font-size:20px;margin:15px 0}.fx-hosting-seal{height:48px;width:48px;font-size:24px;margin:12px auto}.fx-deploy{margin:20px 0}.fx-deploy span{font-size:10px;padding:10px}}
 </style>
 <link rel="stylesheet" href="./support-center.css">
+<link rel="stylesheet" href="./ai-support.css?v=20261011-text-ai-1">
 </head>
 <body>
 <!-- LogoBoss AI FINAL · Launch-ready design + Stripe test integration -->
@@ -2379,10 +2380,10 @@ renderPlans();renderFilters();renderCatalog();renderMega();renderRequest();rende
 })();
 </script>
 
-<nav id="lb-account-links" aria-label="Customer account"><a href="/app.html" id="lbAppOpen" class="lb-support-launch" aria-label="LogoBoss AI App">App</a><a href="#support" id="lbSupportOpen" class="lb-support-launch" data-lb-support-open aria-haspopup="dialog" aria-controls="lbSupportDialog">Support</a><button type="button" id="lbAccountOpen" aria-haspopup="dialog" aria-controls="lbClientLayer">Mein Konto / Login</button></nav>
+<nav id="lb-account-links" aria-label="Customer account"><button type="button" id="lbAiChatOpen" class="lb-support-launch" aria-haspopup="dialog" aria-controls="lbAiChatDialog">AI Chat</button><a href="#support" id="lbSupportOpen" class="lb-support-launch" data-lb-support-open aria-haspopup="dialog" aria-controls="lbSupportDialog">Support</a><button type="button" id="lbAccountOpen" aria-haspopup="dialog" aria-controls="lbClientLayer">Mein Konto / Login</button></nav>
 <!-- LogoBoss AI client auth + account portal, v2 self-contained, no /portal.html required -->
 <style id="lb-client-auth-css">
-#lb-account-links{flex-wrap:wrap;justify-content:flex-end;max-width:calc(100vw - 36px)}#lbAppOpen::before{content:"↓"}
+#lb-account-links{flex-wrap:wrap;justify-content:flex-end;max-width:calc(100vw - 36px)}#lbAiChatOpen::before{content:"✦"}
 #lb-account-links{position:fixed;bottom:20px;right:18px;z-index:4900}#lbAccountOpen{cursor:pointer;border:1px solid #4678b1;background:linear-gradient(130deg,#132b51,#236dc1);border-radius:15px;color:#fff;padding:13px 17px;font:700 13px Inter,system-ui,sans-serif;box-shadow:0 12px 34px #0009}
 #lbClientBusinessPanel[hidden],#lbClientLayer[hidden],#lbAccountForm[hidden],#lbAccountDashboard[hidden],#lbAuthNotice[hidden],#lbClientCompanyField[hidden],#lbClientPasswordField[hidden],#lbClientConfirmField[hidden],#lbClientAlt[hidden],#lbClientResend[hidden]{display:none!important}
 #lbClientLayer{position:fixed;inset:0;z-index:100100;display:flex;align-items:center;justify-content:center;padding:17px;background:rgba(0,5,19,.87);backdrop-filter:blur(13px);font:14px Inter,system-ui,sans-serif;color:#edf5ff}
@@ -2452,6 +2453,8 @@ html,body{max-width:100%;overflow-x:clip}
 <script type="module" id="lb-client-auth-script">
 import {createClient} from 'https://esm.sh/@supabase/supabase-js@2';
 import {initSupport} from './support-center.js';
+import {initAiSupport} from './ai-support.js?v=20261011-text-ai-1';
+let lbAiSupport=null,lbTicketSupport=null;
 const LB_SUPABASE_URL='https://ppmefffjhqpmrjnlewoq.supabase.co';
 const LB_PUBLIC_KEY='sb_publishable_TcFfVY1GiPZOufw6tQDh1A_vWoS2dsO';
 const lbClient=createClient(LB_SUPABASE_URL,LB_PUBLIC_KEY,{auth:{persistSession:true,autoRefreshToken:true,detectSessionInUrl:true,flowType:'implicit'}});
@@ -2502,7 +2505,7 @@ const txt=()=>({
 function lbNotice(message='',bad=false,good=false){const box=el('lbAuthNotice');box.hidden=!message;box.textContent=message;box.classList.toggle('bad',bad);box.classList.toggle('good',good);}
 function lbSetMode(m){lbMode=m;const t=txt()[m]||txt().login;el('lbClientHeading').textContent=t[0];el('lbClientDescription').textContent=t[1];el('lbClientSubmit').textContent=t[2];el('lbAccountForm').hidden=false;el('lbAccountDashboard').hidden=true;el('lbClientCompanyField').hidden=m!=='signup';el('lbClientEmailField').hidden=m==='update';el('lbClientPasswordField').hidden=m==='forgot';el('lbClientConfirmField').hidden=!['signup','update'].includes(m);el('lbClientAlt').hidden=m==='update';el('lbClientResend').hidden=true;
  el('lbClientEmail').required=m!=='update';el('lbClientPassword').required=m!=='forgot';el('lbClientConfirm').required=['signup','update'].includes(m);el('lbClientPassword').autocomplete=m==='login'?'current-password':'new-password';lbNotice();}
-function lbOpen(mode){const layer=el('lbClientLayer');if(layer.hidden){lbReturnFocus=document.activeElement;lbPreviousOverflow=document.body.style.overflow;document.body.style.overflow='hidden';}layer.hidden=false;layer.setAttribute('aria-hidden','false');if(mode)lbSetMode(mode);else if(lbUser)lbRenderAccount();else lbSetMode('login');setTimeout(()=>{const id=lbMode==='update'?'lbClientPassword':lbUser?'lbClientLogout':'lbClientEmail';el(id)?.focus()},0);}
+function lbOpen(mode){lbAiSupport?.close();if(el('lbSupportDialog')?.open)lbTicketSupport?.close();const layer=el('lbClientLayer');if(layer.hidden){lbReturnFocus=document.activeElement;lbPreviousOverflow=document.body.style.overflow;document.body.style.overflow='hidden';}layer.hidden=false;layer.setAttribute('aria-hidden','false');if(mode)lbSetMode(mode);else if(lbUser)lbRenderAccount();else lbSetMode('login');setTimeout(()=>{const id=lbMode==='update'?'lbClientPassword':lbUser?'lbClientLogout':'lbClientEmail';el(id)?.focus()},0);}
 function lbClose(){el('lbClientLayer').hidden=true;el('lbClientLayer').setAttribute('aria-hidden','true');document.body.style.overflow=lbPreviousOverflow;if(lbReturnFocus?.isConnected)lbReturnFocus.focus();if(location.hash==='#account')history.replaceState(null,'',location.pathname+location.search);}
 function lbEsc(v){return String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
 function lbStatus(v){return ({new:lbTr("Eingegangen","Received"),contacted:lbTr("Kontakt aufgenommen","Contacted"),in_progress:lbTr("In Bearbeitung","In progress"),completed:lbTr("Abgeschlossen","Completed"),cancelled:lbTr("Storniert","Cancelled"),test:'Test'})[v]||v||lbTr("Eingegangen","Received");}
@@ -2654,7 +2657,8 @@ lbApplyLanguage();
  if(lbUser&&lbGetPendingPackage()){lbOpen();}}
  catch(e){console.error('LogoBoss auth init',e);lbLoginInitialized=true;}})();
 
-initSupport({client:lbClient,beforeOpen:()=>{if(!el('lbClientLayer').hidden)lbClose();},openAccount:async()=>{await lbSyncSession();lbOpen();}});
+lbTicketSupport=initSupport({client:lbClient,beforeOpen:()=>{lbAiSupport?.close();if(!el('lbClientLayer').hidden)lbClose();},openAccount:async()=>{await lbSyncSession();lbOpen();}});
+lbAiSupport=initAiSupport({beforeOpen:()=>{if(el('lbSupportDialog')?.open)lbTicketSupport?.close();if(!el('lbClientLayer').hidden)lbClose();},openSupport:()=>lbTicketSupport?.open()});
 </script>
 
 <script id="lb-live-disclosure" defer>

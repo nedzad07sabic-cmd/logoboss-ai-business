@@ -1,0 +1,49 @@
+#lbAiChatDialog{width:min(650px,calc(100vw - 32px));max-width:650px;max-height:calc(100dvh - 32px);margin:auto;padding:0;overflow:auto;overscroll-behavior:contain;border:1px solid #4a6396;border-radius:25px;color:#eaf4ff;background:radial-gradient(ellipse at 95% 0,#263e6e88,transparent 55%),#080f23;box-shadow:0 30px 120px #000c;font:14px/1.6 Inter,system-ui,sans-serif;text-align:left;color-scheme:dark;isolation:isolate}
+#lbAiChatDialog::backdrop{background:#020819d9;backdrop-filter:blur(10px)}
+#lbAiChatDialog *{box-sizing:border-box}
+#lbAiChatDialog [hidden]{display:none!important}
+#lbAiChatDialog button,#lbAiChatDialog textarea{font:inherit}
+#lbAiChatDialog button,#lbAiChatDialog a{touch-action:manipulation}
+#lbAiChatDialog button{cursor:pointer}
+#lbAiChatDialog button:disabled{cursor:not-allowed;opacity:.5}
+#lbAiChatDialog :focus-visible{outline:2px solid #71e5ff;outline-offset:3px}
+#lbAiChatDialog a{color:#9de9ff;text-underline-offset:3px}
+.lb-ai-top{display:flex;justify-content:space-between;align-items:center;gap:14px;padding:15px 24px;border-bottom:1px solid #94baff22;position:sticky;top:0;z-index:2;background:#0b142cf5;backdrop-filter:blur(12px)}
+.lb-ai-brand{display:flex;align-items:center;gap:9px;font-size:18px;font-weight:800;letter-spacing:-.03em}
+.lb-ai-badge{display:inline-flex;align-items:center;justify-content:center;border:1px solid #5acbfa66;border-radius:7px;padding:1px 7px;background:#14365d;color:#93edff;font-size:11px;letter-spacing:.06em}
+.lb-ai-close{width:42px;height:42px;display:grid;place-items:center;padding:0;border:1px solid #6b7fab88;border-radius:11px;background:#1b2a48;color:#fff;font-size:25px!important;line-height:1}
+.lb-ai-body{padding:23px 25px 25px}
+#lbAiChatTitle{margin:0 0 10px;color:#fff;font-size:clamp(23px,4vw,31px);font-weight:800;letter-spacing:-.04em;line-height:1.2}
+.lb-ai-intro{margin:0 0 20px;color:#b6c8e4;line-height:1.65}
+.lb-ai-languages{display:flex;flex-wrap:wrap;gap:9px;min-width:0;margin:0 0 15px;padding:0;border:0}
+.lb-ai-languages legend{padding:0 0 8px;color:#c4dcf7;font-size:12px;font-weight:600}
+.lb-ai-languages button{min-height:44px;border:1px solid #4e6390;border-radius:11px;padding:9px 20px;background:#14233f;color:#dbeaff;font-weight:600!important}
+.lb-ai-languages button[aria-pressed="true"]{border-color:#83d9ff;background:linear-gradient(125deg,#19508b,#42347b);color:#fff;box-shadow:inset 0 1px 0 #d4edff33}
+.lb-ai-status-row{display:flex;flex-wrap:wrap;align-items:center;gap:9px;margin:0 0 16px;padding:11px 14px;border:1px solid #527aaa66;border-radius:13px;background:#14254388}
+.lb-ai-status{flex:1 1 230px;margin:0;color:#badefa;font-size:12px;line-height:1.65}
+.lb-ai-status-error{color:#ffd7df}
+.lb-ai-button{display:inline-flex;justify-content:center;align-items:center;min-height:43px;gap:7px;padding:9px 15px;border:1px solid #5978aa;border-radius:11px;background:#172c4d;color:#eaf7ff!important;line-height:1.5;text-decoration:none;font-weight:600!important}
+.lb-ai-recheck{min-height:39px;padding:7px 11px;font-size:12px!important}
+.lb-ai-log{max-height:310px;max-height:min(36dvh,360px);min-height:80px;overflow:auto;overscroll-behavior:contain;padding:3px 5px 3px 0;margin:0 0 18px;scrollbar-color:#45649b #101b31}
+.lb-ai-message{padding:13px 15px;border:1px solid #3e568477;border-radius:14px;background:#11213c;margin:0 0 10px;overflow-wrap:anywhere}
+.lb-ai-message:last-child{margin-bottom:0}
+.lb-ai-user{margin-left:30px;border-color:#567baf66;background:#173354}
+.lb-ai-assistant{margin-right:15px;background:linear-gradient(125deg,#142744,#252040);border-color:#7e80b466}
+.lb-ai-message-name{display:block;color:#a9cafe;font-size:11px;font-weight:600;letter-spacing:.02em}
+.lb-ai-message p{margin:6px 0 0;white-space:pre-wrap;color:#edf3ff;line-height:1.65}
+.lb-ai-message-links{display:flex;flex-wrap:wrap;gap:7px 14px;list-style:none;margin:12px 0 0;padding:0;font-size:12px}
+.lb-ai-message-links a{display:inline-block;padding:4px 0}
+.lb-ai-form{display:flex;flex-direction:column;gap:8px}
+.lb-ai-form label{color:#c5d9f6;font-size:13px;font-weight:600}
+#lbAiChatDialog #lbAiChatMessage{display:block;min-width:0;width:100%;min-height:96px;max-height:210px;resize:vertical;padding:12px 14px;border:1px solid #4e6799;border-radius:12px;background:#0b1930;color:#eef7ff;line-height:1.65;font-size:16px}
+#lbAiChatMessage::placeholder{color:#a0b0cc;opacity:1}
+#lbAiChatMessage:disabled{opacity:.6;cursor:not-allowed}
+.lb-ai-compose-actions{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.lb-ai-count{color:#9eafd0;font-size:11px}
+.lb-ai-send{min-width:110px;background:linear-gradient(120deg,#2269b8,#5949ca);border-color:#8294ed;box-shadow:inset 0 1px 0 #d4edff33}
+.lb-ai-privacy{margin:13px 0 18px;color:#a6b8d4;font-size:11px;line-height:1.7}
+.lb-ai-footer{display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:14px;padding-top:17px;border-top:1px solid #46639666}
+.lb-ai-footer p{margin:0 0 9px;color:#b7c9e6;font-size:12px}
+.lb-ai-privacy-link{padding:10px 0;font-size:12px}
+@media(max-width:620px){#lbAiChatDialog{width:calc(100vw - 14px);max-height:calc(100dvh - 14px);border-radius:19px}.lb-ai-top{padding:11px 17px}.lb-ai-body{padding:20px 18px}.lb-ai-intro{font-size:13px}.lb-ai-user{margin-left:18px}.lb-ai-assistant{margin-right:8px}.lb-ai-log{max-height:32dvh}.lb-ai-message{padding:12px}.lb-ai-privacy{font-size:11px}.lb-ai-footer{align-items:flex-start}}
+@media(prefers-reduced-transparency:reduce){#lbAiChatDialog::backdrop{background:#020819f2;backdrop-filter:none}.lb-ai-top{background:#0b142c;backdrop-filter:none}}

@@ -1,4 +1,5 @@
 import "jsr:@supabase/functions-js/edge-runtime.d.ts";
+import {handleSupportAiRequest} from "./support-ai.mjs";
 const origins=new Set(["https://logobossweb-ai.eu","https://www.logobossweb-ai.eu","https://nedzad07sabic-cmd.github.io"]);
 const respond=(body:unknown,status=200,origin:string|null=null)=>new Response(JSON.stringify(body),{status,headers:{"Content-Type":"application/json","Cache-Control":"no-store",...(origin&&origins.has(origin)?{"Access-Control-Allow-Origin":origin}:{})}});
 const cut=(x:unknown,n:number)=>String(x??"").trim().slice(0,n);
@@ -15,6 +16,7 @@ function replyFor(message:string,lang:string){
  return de?"Dies ist eine Demo mit vordefinierten LogoBoss-AI-Antworten zu Websites, Textchat, Automatisierung und Company OS. Ein Assistent für Ihr Unternehmen benötigt eigene freigegebene Inhalte und Einrichtung.":"This demo uses predefined LogoBoss AI answers about websites, text chat, automation and Company OS. An assistant for your business needs its own approved content and setup.";
 }
 Deno.serve(async(req:Request)=>{
+ if(new URL(req.url).searchParams.get("scope")==="logoboss-support")return handleSupportAiRequest(req);
  const origin=req.headers.get("origin");
  if(origin&&!origins.has(origin))return respond({error:"Origin not allowed"},403);
  if(req.method==="OPTIONS")return new Response(null,{status:204,headers:{"Access-Control-Allow-Origin":origin||"https://logobossweb-ai.eu","Access-Control-Allow-Headers":"content-type","Access-Control-Allow-Methods":"POST,OPTIONS"}});
@@ -72,4 +74,5 @@ Deno.serve(async(req:Request)=>{
   return respond({conversation_id,reply,demo:true},200,origin);
  }catch(e){console.error("ai-chat error",e instanceof Error?e.message:String(e));return respond({error:"unavailable"},500,origin);}
 });
+
 
