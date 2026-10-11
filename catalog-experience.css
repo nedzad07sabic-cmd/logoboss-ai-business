@@ -20,7 +20,7 @@ body.lb-catalog-page:before,body.lb-catalog-page:after{display:none!important}
 .lb-catalog-page .lb-header{background:#ffffffed;border-bottom:1px solid var(--lb-line);backdrop-filter:blur(15px)}
 .lb-catalog-page #lbHeader{position:sticky;top:0;z-index:5000}
 .lb-catalog-page .lb-header-inner{height:82px;display:flex;align-items:center;gap:34px}
-.lb-catalog-page .lb-wordmark{display:inline-flex;align-items:center;gap:7px;font-family:LBManrope,Arial,sans-serif;font-size:22px;letter-spacing:-.8px;font-weight:800;white-space:nowrap}
+.lb-catalog-page .lb-wordmark{display:inline-flex;align-items:center;gap:7px;font-family:LBManrope,Arial,sans-serif;font-size:22px;letter-spacing:-.8px;font-weight:800;white-space:nowrap;direction:ltr}
 .lb-catalog-page .lb-wordmark b{color:var(--lb-blue)}
 .lb-catalog-page .lb-logo-icon{display:grid;place-items:center;width:32px;height:34px;margin-inline-end:3px;background:linear-gradient(145deg,#386be3,#8862cc);border-radius:10px;color:#fff}
 .lb-catalog-page .lb-logo-icon svg{width:21px}
@@ -48,11 +48,11 @@ body.lb-catalog-page:before,body.lb-catalog-page:after{display:none!important}
 .lb-catalog-page .lb-text-link{font-weight:700;font-size:14px;color:#304a71;text-decoration:underline;text-underline-offset:5px;line-height:1.5}
 .lb-catalog-page .lb-hero-copy>small{display:block;font-size:13px;color:var(--lb-muted);margin-top:19px}
 .lb-catalog-page .lb-hero-visual{position:relative;padding-bottom:54px}
-.lb-catalog-page .lb-globe{height:395px;position:relative;background:radial-gradient(ellipse at 25% 10%,#4670a2,#172f59 52%,#30285b);border-radius:24px;overflow:hidden;box-shadow:0 24px 65px #20365916}
-.lb-catalog-page .lb-globe canvas{position:absolute;width:100%;height:100%;inset:0}
-.lb-catalog-page .lb-globe-caption{position:absolute;top:22px;left:24px;font-size:10px;letter-spacing:2px;color:#ccdff8}
-.lb-catalog-page .lb-globe-pause{position:absolute;inset-inline-end:18px;top:15px;border:1px solid #a8bad24d;background:#1d3660b3;color:#fff;border-radius:8px;width:44px;min-height:44px;font-size:14px}
-.lb-catalog-page .lb-hero-preview{position:absolute;bottom:0;inset-inline-start:-25px;inset-inline-end:28px;display:flex;gap:19px;align-items:center;border:1px solid var(--lb-line);background:#fff;border-radius:15px;padding:14px;box-shadow:0 15px 40px #182d4b15}
+.lb-catalog-page .lb-globe{height:395px;position:relative;isolation:isolate;z-index:0;background:radial-gradient(ellipse at 25% 10%,#4670a2,#172f59 52%,#30285b);border-radius:24px;overflow:hidden;box-shadow:0 24px 65px #20365916}
+.lb-catalog-page .lb-globe #motionEarth{position:absolute;width:100%;height:100%;inset:0;z-index:0}
+.lb-catalog-page .lb-globe-caption{position:absolute;top:22px;left:24px;font-size:10px;letter-spacing:2px;color:#ccdff8;z-index:1}
+.lb-catalog-page .lb-globe-pause{position:absolute;inset-inline-end:18px;top:15px;border:1px solid #a8bad24d;background:#1d3660b3;color:#fff;border-radius:8px;width:44px;min-height:44px;font-size:14px;z-index:2}
+.lb-catalog-page .lb-hero-preview{position:absolute;z-index:1;bottom:0;inset-inline-start:-25px;inset-inline-end:28px;display:flex;gap:19px;align-items:center;border:1px solid var(--lb-line);background:#fff;border-radius:15px;padding:14px;box-shadow:0 15px 40px #182d4b15}
 .lb-catalog-page .lb-hero-preview img{width:102px;height:112px;object-fit:cover;border-radius:9px;object-position:50% 30%}
 .lb-catalog-page .lb-hero-preview b{display:block;font-size:17px;line-height:1.4;margin-top:7px}
 .lb-catalog-page .lb-hero-preview p{font-size:13px;color:var(--lb-muted);margin:4px 0 0}
