@@ -89,4 +89,15 @@ def apply_redesign(data):
         data['languages'].extend([dict(code='it',name='Italiano',locale='it-IT'),dict(code='pt',name='Português',locale='pt-PT')])
         order=['de','en','fr','es','it','pt','ar','bs']
         data['languages'].sort(key=lambda item:order.index(item['code']))
+    extras={
+      'restaurantHero':['Gutes Essen. Gute Gesellschaft.','Good food. Great company.','Buena comida. Buena compañía.','Bonne cuisine. Bons moments.','طعام لذيذ ورفقة رائعة.','Dobro došli za naš stol.','Buon cibo. Buona compagnia.','Boa comida. Boa companhia.'],
+      'rooms':['Zimmer','Rooms','Habitaciones','Chambres','الغرف','Sobe','Camere','Quartos'],
+      'menu':['Speisekarte','Menu','Carta','Carte','قائمة الطعام','Jelovnik','Menu','Ementa'],
+      'location':['Standort','Location','Ubicación','Situation','الموقع','Lokacija','Posizione','Localização'],
+      'requestStay':['Aufenthalt anfragen','Enquire about a stay','Consultar una estancia','Demander un séjour','استفسر عن إقامة','Pošalji upit za boravak','Richiedi un soggiorno','Pedir informações sobre uma estadia'],
+      'requestTable':['Tisch anfragen','Request a table','Solicitar una mesa','Demander une table','اطلب طاولة','Pošalji upit za stol','Richiedi un tavolo','Pedir uma mesa'],
+      'hotelIntro':['Entdecken Sie unser Haus und fragen Sie Ihren gewünschten Aufenthalt an. Unser Team bestätigt die Verfügbarkeit persönlich.','Explore our hotel and enquire about your preferred stay. Our team confirms availability personally.','Descubre nuestro hotel y consulta la estancia que deseas. Nuestro equipo confirma la disponibilidad personalmente.','Découvrez notre hôtel et demandez le séjour souhaité. Notre équipe confirme personnellement la disponibilité.','اكتشف فندقنا واستفسر عن الإقامة التي تفضلها. يؤكد فريقنا التوفر شخصياً.','Upoznajte naš hotel i pošaljite upit za željeni boravak. Naš tim lično potvrđuje dostupnost.','Scopri il nostro hotel e richiedi il soggiorno desiderato. Il nostro team conferma personalmente la disponibilità.','Conheça o nosso hotel e peça informações sobre a estadia pretendida. A nossa equipa confirma pessoalmente a disponibilidade.'],
+      'restaurantIntro':['Lernen Sie unsere Küche kennen und fragen Sie einen Tisch an. Unser Team bestätigt Ihren Wunsch persönlich.','Discover our menu and request a table. Our team confirms your request personally.','Descubre nuestra carta y solicita una mesa. Nuestro equipo confirma tu solicitud personalmente.','Découvrez notre carte et demandez une table. Notre équipe confirme personnellement votre demande.','اكتشف قائمتنا واطلب طاولة. يؤكد فريقنا طلبك شخصياً.','Pogledajte naš jelovnik i pošaljite upit za stol. Naš tim lično potvrđuje vaš zahtjev.','Scopri il nostro menu e richiedi un tavolo. Il nostro team conferma personalmente la richiesta.','Conheça a nossa ementa e peça uma mesa. A nossa equipa confirma pessoalmente o pedido.']
+    }
+    for key,values in extras.items():data['ui'][key]=dict(zip(['de','en','es','fr','ar','bs','it','pt'],values))
     return data

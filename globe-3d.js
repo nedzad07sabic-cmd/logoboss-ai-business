@@ -155,7 +155,7 @@ if(!draw){
     const rect=canvas.getBoundingClientRect(),w=rect.width,h=rect.height,dpr=Math.min(devicePixelRatio||1,1.75);
     if(!w||!h)return;
     canvas.width=w*dpr;canvas.height=h*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);
-    const r=w*.37,x=w/2,y=h/2;
+    const r=Math.min(w,h)*.37,x=w/2,y=h/2;
     const points=satellites.map(s=>{
       const a=s.phase+time*s.speed,p=spin(orbitPoint(a,s.ring));
       return{s,a,p,color:brandColor(a+s.hue+time*.00004)};
@@ -175,7 +175,7 @@ if(!draw){
     }
     function pearl(o){
       const {s,a,p,color}=o,px=x+p[0]*r,py=y-p[1]*r;
-      const radius=Math.max(2.25,w*.0055)*s.size*(.75+Math.max(p[2],0)*.3);
+      const radius=Math.max(2.25,Math.min(w,h)*.0055)*s.size*(.75+Math.max(p[2],0)*.3);
       ctx.save();ctx.globalCompositeOperation='lighter';
       for(let j=TAIL_STEPS;j>=1;j--){
         const f=1-j/TAIL_STEPS,t=spin(orbitPoint(a-Math.sign(s.speed)*.28*j/TAIL_STEPS,s.ring));

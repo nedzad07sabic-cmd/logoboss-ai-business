@@ -6,20 +6,23 @@
   const t=(k,l)=>d.ui[k]?.[l]||d.ui[k]?.de||k;
   const types=['hotel','salon','restaurant','workshop','clinic','consulting'];
   const states=new Map();
+  const viewsFor=p=>p.group==='web'&&p.id!=='digital-start'?['desktop','phone','workspace']:['desktop','phone'];
   function clean(raw,p){
     const name=String(raw?.name||'').trim().slice(0,80)||'Example Studio';
     const type=types.includes(raw?.type)?raw.type:p.businessType;
     const city=String(raw?.city||'').trim().slice(0,80);
     const color=/^#[0-9a-f]{6}$/i.test(raw?.color||'')?raw.color:'#285dce';
-    const views=p.id==='digital-start'?['desktop','phone']:['desktop','phone','workspace'];
-    const view=views.includes(raw?.view)?raw.view:(['web','hosting'].includes(p.group)?'desktop':'workspace');
+    const views=viewsFor(p);
+    const view=views.includes(raw?.view)?raw.view:'desktop';
     return {name,type,city,color,view,tab:['inbox','appointments','services'].includes(raw?.tab)?raw.tab:'inbox',progress:!!raw?.progress,chat:!!raw?.chat,handoff:!!raw?.handoff};
   }
   const domain=s=>(s.name.normalize('NFKD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'').slice(0,32)||'business')+'.example';
   function website(p,l,s){
     const hospitality=['hotel','restaurant'].includes(s.type);
-    const action=p.id==='digital-start'?'sampleContact':p.group==='web'?'requestTime':'sampleAction';
-    return '<div class="lb-custom-site"><div class="lb-custom-nav"><b>'+esc(s.name)+'</b><span>'+esc(t('services',l))+' <i aria-hidden="true">/</i> '+esc(t('contact',l))+'</span></div><div class="lb-custom-hero"><div><span class="lb-custom-eyebrow">'+esc(t(s.type,l))+(s.city?' · '+esc(s.city):'')+'</span><h3>'+esc(t(hospitality?'hospitalityHero':'serviceHero',l))+'</h3><p>'+esc(t(p.id==='digital-start'?'sampleContactCopy':'sampleCopy',l))+'</p><button type="button" data-preview-action="request" class="lb-custom-cta">'+esc(t(action,l))+' <span aria-hidden="true">↗</span></button></div><img src="/assets/business/'+s.type+'.webp" width="1000" height="667" alt="'+esc(t(s.type,l))+'" loading="lazy"></div><div class="lb-custom-services">'+['services','contact','teamFollowup'].map((k,i)=>'<div><span>0'+(i+1)+'</span><b>'+esc(t(k,l))+'</b></div>').join('')+'</div>'+(p.group==='ai'?'<div class="lb-custom-chat-teaser"><b>'+esc(s.name)+' · AI</b><p>'+esc(t('chatReply',l))+'</p><button type="button" data-preview-action="chat">'+esc(t('chatTry',l))+' →</button></div>':'')+'<div class="lb-custom-foot"><b>'+esc(s.name)+'</b><span>'+esc(s.city||t('contact',l))+'</span></div></div>';
+    const action=p.id==='digital-start'?'sampleContact':s.type==='hotel'?'requestStay':s.type==='restaurant'?'requestTable':p.group==='web'?'requestTime':'sampleAction';
+    const primary=s.type==='hotel'?'rooms':s.type==='restaurant'?'menu':'services';
+    const intro=p.id==='digital-start'?'sampleContactCopy':s.type==='hotel'?'hotelIntro':s.type==='restaurant'?'restaurantIntro':'sampleCopy';
+    return '<div class="lb-custom-site"><div class="lb-custom-nav"><b>'+esc(s.name)+'</b><span>'+esc(t(primary,l))+' <i aria-hidden="true">/</i> '+esc(t('contact',l))+'</span></div><div class="lb-custom-hero"><div><span class="lb-custom-eyebrow">'+esc(t(s.type,l))+(s.city?' · '+esc(s.city):'')+'</span><h3>'+esc(t(s.type==='restaurant'?'restaurantHero':hospitality?'hospitalityHero':'serviceHero',l))+'</h3><p>'+esc(t(intro,l))+'</p><button type="button" data-preview-action="request" class="lb-custom-cta">'+esc(t(action,l))+' <span aria-hidden="true">↗</span></button></div><img src="/assets/business/'+s.type+'.webp" width="1000" height="667" alt="'+esc(t(s.type,l))+'" loading="lazy"></div><div class="lb-custom-services">'+[primary,'location','contact'].map((k,i)=>'<div><span>0'+(i+1)+'</span><b>'+esc(t(k,l))+'</b></div>').join('')+'</div>'+(p.group==='ai'?'<div class="lb-custom-chat-teaser"><b>'+esc(s.name)+' · AI</b><p>'+esc(t('chatReply',l))+'</p><button type="button" data-preview-action="chat">'+esc(t('chatTry',l))+' →</button></div>':'')+'<div class="lb-custom-foot"><b>'+esc(s.name)+'</b><span>'+esc(s.city||t('contact',l))+'</span></div></div>';
   }
   function table(p,l,s){
     const service=s.tab==='services',appointment=s.tab==='appointments';
@@ -40,10 +43,10 @@
   }
   function panel(p,l,raw){
     const s=clean(raw,p);
-    const views=p.id==='digital-start'?['desktop','phone']:['desktop','phone','workspace'];
+    const views=viewsFor(p);
     const websiteView=s.view!=='workspace';
     // A hosting service supplies infrastructure; it does not include a newly designed website.
-    const site=p.group==='hosting'?workspace(p,l,s):website(p,l,s);
+    const site=p.group==='web'?website(p,l,s):workspace(p,l,s);
     return '<div class="lb-personal-preview" style="--preview-accent:'+s.color+'"><div class="lb-preview-top"><b>'+esc(t('previewReady',l))+'</b><div role="group" aria-label="'+esc(t('example',l))+'">'+views.map(v=>'<button type="button" data-preview-view="'+v+'" aria-pressed="'+(s.view===v)+'">'+esc(t(v==='desktop'?'previewDesktop':v==='phone'?'previewPhone':'previewWorkspace',l))+'</button>').join('')+'</div></div><div class="lb-preview-device '+(s.view==='phone'?'is-phone':'')+'"><div class="lb-browser-bar"><span aria-hidden="true">● ● ●</span><bdi>'+esc(domain(s))+'</bdi><span>'+esc(t('demo',l))+'</span></div>'+(websiteView?site:workspace(p,l,s))+'</div><p class="lb-preview-result" role="status" aria-live="polite">'+esc(t(s.progress?(p.group==='automation'?'workflowDone':'demoNote'):s.handoff?'handoffReply':s.chat?'demoNote':'personalDemoNote',l))+'</p></div>';
   }
   function builder(p,l){
@@ -73,6 +76,8 @@
     if(action==='handoff')state.handoff=true;
     update(o,state);
     if(action==='request')o.holder.querySelector('.lb-preview-result').textContent=t(o.p.id==='digital-start'?'sampleContactSent':'sampleSent',language());
-    if(button.dataset.previewView||button.dataset.previewTab)o.holder.querySelector('[data-preview-view="'+state.view+'"]')?.focus();
+    if(button.dataset.previewView)o.holder.querySelector('[data-preview-view="'+state.view+'"]')?.focus();
+    else if(button.dataset.previewTab)o.holder.querySelector('[data-preview-tab="'+state.tab+'"]')?.focus();
+    else if(action)o.holder.querySelector('[data-preview-action="'+action+'"]')?.focus();
   });
 })(typeof window!=='undefined'?window:globalThis);

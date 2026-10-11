@@ -68,6 +68,9 @@ assert.ok(preview.panel(d.packages.find(p=>p.id==='ai-business'),'en',{}).includ
 assert.ok(!preview.panel(d.packages.find(p=>p.id==='ai-business'),'en',{}).includes('data-preview-action="handoff"'));
 assert.ok(preview.panel(d.packages.find(p=>p.id==='ai-pro'),'en',{}).includes('data-preview-action="handoff"'));
 assert.ok(!read('package-preview.js').includes('fetch('));
+for(const p of d.packages.filter(p=>p.group!=='web'))assert.ok(!preview.panel(p,'en',{view:'desktop'}).includes('class="lb-custom-site"'),'a workspace or hosting package must not imply an included website');
+assert.ok(hotel.includes(esc(d.ui.rooms.bs)));assert.ok(hotel.includes(esc(d.ui.hotelIntro.bs)));
+assert.ok(read('globe-3d.js').includes('const r=Math.min(w,h)*.37'),'globe fallback must fit both dimensions');
 assert.equal(new Set(d.packages.map(p=>p.visual)).size,13);
 assert.ok(read('globe-3d.js').includes('SATELLITE_COUNT=100'));
 assert.ok(read('globe-3d.js').includes('speed:[.00044,-.00039,.00050]'));
