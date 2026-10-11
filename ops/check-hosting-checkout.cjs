@@ -44,7 +44,7 @@ for (const link of d.querySelectorAll('[data-hosting-portal]')) {
 let scenes = 0;
 for (const id of ids) {
   click(`[data-package="${id}"]`);
-  assert.equal(d.querySelectorAll('.lb-safe-card:not([hidden])').length, 5);
+  assert.deepEqual(Array.from(d.querySelectorAll('.lb-safe-card:not([hidden])'), card => card.id), ['offer-' + id]);
   const count = d.querySelectorAll('#motionStepList button').length;
   for (let i = 0; i < count; i++) { click(`#motionStepList button[data-feature="${i}"]`); assert.ok(d.querySelector('.fx-visual')); scenes++; }
 }
@@ -81,7 +81,7 @@ config.domains.registrationVerified = true;
 config.domains.orderUrl += '&key=secret'; assert.equal(w.lbHostingCheckoutUrl('hosting-domains'), null);
 config.enabled = false; w.lbRefreshHostingLinks();
 for (const link of d.querySelectorAll('.lb-hosting-request')) assert.ok(link.href.startsWith('mailto:'));
-for (const [category, count] of [['web', 3], ['ai', 2], ['hosting', 5]]) { click(`#motion-tab-${category}`); assert.equal(d.querySelectorAll('.lb-safe-card:not([hidden])').length, count); assert.equal(d.getElementById('lbHostingPortal').hidden, category !== 'hosting'); }
+for (const [category, count] of [['web', 3], ['ai', 2], ['hosting', 1]]) { click(`#motion-tab-${category}`); assert.equal(d.querySelectorAll('.lb-safe-card:not([hidden])').length, count); assert.equal(d.getElementById('lbHostingPortal').hidden, category !== 'hosting'); }
 click('[data-motion-all]'); assert.equal(d.querySelectorAll('.lb-safe-card:not([hidden])').length, 13);
 assert.equal(d.getElementById('lbHostingPortal').hidden, false);
 assert.doesNotMatch(d.querySelector('.lb-safe-alert').textContent, /email inquiries only|nur unverbindlich per E-Mail/i);

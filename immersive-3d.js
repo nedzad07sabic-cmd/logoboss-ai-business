@@ -128,14 +128,16 @@ function visual(feature){
 }
 function filterOffers(){
  let count=0;
- for(const p of packages){const visible=allOffers||p.category===category;p.card.hidden=!visible;if(visible)count++;}
- const name=categories[category].label;
+ const selectedHosting=category==='hosting'&&!allOffers;
+ for(const p of packages){const visible=allOffers||(p.category===category&&(!selectedHosting||p.id===selected.id));p.card.hidden=!visible;if(visible)count++;}
+ const name=selectedHosting?selected.name:categories[category].label;
  document.getElementById('services').dataset.offerCategory=allOffers?'all':category;
  const hostingPortal=document.getElementById('lbHostingPortal');if(hostingPortal)hostingPortal.hidden=!(allOffers||category==='hosting');
- const intro=document.querySelector('.lb-safe-head>p');intro.textContent=category==='hosting'&&!allOffers?t('Webhosting und WordPress können Sie direkt bestellen. Für Apps, Domains und Geschäfts-E-Mail stimmen wir Verfügbarkeit und Einrichtung vor der Bestellung ab.','Order web hosting and WordPress directly. For apps, domains and business email, we confirm availability and setup before ordering.'):t(intro.dataset.lbDe,intro.dataset.lbEn);
+ const intro=document.querySelector('.lb-safe-head>p'),description=selectedHosting?selected.card.querySelector('p[data-lb-de][data-lb-en]'):intro;
+ intro.textContent=t(description.dataset.lbDe,description.dataset.lbEn);
  document.querySelector('.lb-safe-grid').dataset.visibleCount=String(count);
  document.getElementById('lbSellableHeading').textContent=allOffers?t(packages.length+' Pakete. Ein klarer Leistungsumfang.',packages.length+' packages. Clear deliverables.'):name+' · '+count+' '+t(count===1?'Paket':'Pakete',count===1?'package':'packages');
- document.getElementById('motionOfferFilterLabel').textContent=allOffers?t('ALLE BEREICHE','ALL AREAS'):name.toUpperCase()+' · '+t('PASSENDE PAKETE','MATCHING PACKAGES');
+ document.getElementById('motionOfferFilterLabel').textContent=allOffers?t('ALLE BEREICHE','ALL AREAS'):name.toUpperCase()+' · '+t(selectedHosting?'AUSGEWÄHLTES PAKET':'PASSENDE PAKETE',selectedHosting?'SELECTED PACKAGE':'MATCHING PACKAGES');
 }
 function picker(){
  const offerLink=document.getElementById('motionSelectedOffer');offerLink.textContent=selected.category==='hosting'&&!window.lbHostingReady?.(selected.id)?t('Umfang & Anfrage ansehen ↗','View scope & inquiry ↗'):t('Umfang & Kauf ansehen ↗','View scope & purchase ↗');
