@@ -1,6 +1,6 @@
 {
-  "version": 3,
-  "status": "implemented_disabled_pending_api_key_and_usage_approval",
+  "version": 4,
+  "status": "configured_disabled_pending_provider_availability",
   "site": "https://logobossweb-ai.eu",
   "chat_url": "https://logobossweb-ai.eu/#ai-support",
   "provider": "openai",
@@ -71,5 +71,17 @@
     "https://developers.openai.com/api/docs/models/gpt-4.1-mini",
     "https://developers.openai.com/api/docs/guides/structured-outputs",
     "https://developers.openai.com/api/docs/guides/your-data"
-  ]
+  ],
+  "provider_key_present": true,
+  "usage_approval": {
+    "approved": true,
+    "global_requests_per_fixed_24_hours": 20,
+    "approved_on": "2026-10-11"
+  },
+  "live_validation": {
+    "attempted": true,
+    "successful_generation": false,
+    "provider_errors_classified": true,
+    "next_step": "Restore provider availability, enable the existing flag, and verify real German and English responses within the existing request allowance."
+  }
 }

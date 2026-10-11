@@ -10,13 +10,13 @@ const baseEnv={LB_SUPPORT_AI_ENABLED:'true',OPENAI_API_KEY:'unit-test-provider-k
 const payload=(extra={})=>({scope:'logoboss-support',language:'en',message:'What does Web Hosting cost?',history:[],...extra});
 const request=(body=payload(),method='POST',origin=site)=>new Request(ENDPOINT,{method,headers:{origin,'content-type':'application/json','x-forwarded-for':'192.0.2.1'},...(method==='POST'?{body:JSON.stringify(body)}:{})});
 const success=(answer='Web Hosting costs EUR 8.99 per month.',links=['hosting-web'])=>({status:'completed',output:[{type:'message',role:'assistant',content:[{type:'output_text',text:JSON.stringify({answer,link_ids:links})}]}]});
-function harness({env={},quota=true,provider=success(),providerStatus=200}={}){
-  const calls=[];const settings={...baseEnv,...env};
+function harness({env={},quota=true,provider=success(),providerStatus=200,providerRaw}={}){
+  const calls=[];const settings={...baseEnv,...env};let quotaIndex=0;
   return {calls,options:{env:name=>settings[name],fetcher:async(url,init)=>{
     calls.push({url,init,body:JSON.parse(init.body)});
     return url.endsWith('/rpc/lb_check_order_rate_limit')
-      ?new Response(JSON.stringify(quota),{status:200})
-      :new Response(JSON.stringify(provider),{status:providerStatus});
+      ?new Response(JSON.stringify(Array.isArray(quota)?quota[quotaIndex++]:quota),{status:200})
+      :new Response(providerRaw??JSON.stringify(provider),{status:providerStatus});
   }}};
 }
 
@@ -58,8 +58,19 @@ test('A rate limit or broken rate response blocks paid inference',async()=>{
   for(const [quota,status] of [[false,429],[null,503],['true',503]]){
     const h=harness({quota});const r=await handleSupportAiRequest(request(),h.options);
     assert.equal(r.status,status);assert.equal(h.calls.length,1);
+    assert.deepEqual(await r.json(),{error:quota===false?'rate_limited':'unavailable'});
     assert.ok(h.calls.every(c=>c.url.endsWith('/rpc/lb_check_order_rate_limit')));
   }
+});
+
+test('The unchanged 20-per-day gate returns local rate_limited without calling the provider',async()=>{
+  const h=harness({quota:[true,false]});
+  const r=await handleSupportAiRequest(request(),h.options);
+  assert.equal(r.status,429);assert.deepEqual(await r.json(),{error:'rate_limited'});
+  assert.equal(h.calls.length,2);
+  assert.ok(h.calls.every(c=>c.url.endsWith('/rpc/lb_check_order_rate_limit')));
+  assert.deepEqual(h.calls.map(c=>[c.body.p_limit,c.body.p_window_seconds]),[[10,3600],[20,86400]]);
+  assert.equal(h.calls.filter(c=>c.url==='https://api.openai.com/v1/responses').length,0);
 });
 
 test('The timeout cancels an unfinished request body before quota or provider calls',async()=>{
@@ -101,8 +112,8 @@ test('History is bounded by whole messages and contains only permitted fields',a
 
 test('Provider errors, partial and malformed replies never become a fake assistant answer',async()=>{
   for(const [provider,providerStatus,status] of [
-    [{error:{message:'RAW_PRIVATE_PROVIDER_ERROR'}},401,502],
-    [{error:{message:'RAW_PRIVATE_PROVIDER_ERROR'}},429,429],
+    [{error:{message:'RAW_PRIVATE_PROVIDER_ERROR'}},401,503],
+    [{error:{message:'RAW_PRIVATE_PROVIDER_ERROR'}},429,503],
     [{...success(),status:'incomplete'},200,502],
     [{status:'completed',output:[]},200,502],
     [{status:'completed',output:[{type:'message',role:'assistant',content:[{type:'output_text',text:'not JSON'}]}]},200,502]
@@ -112,6 +123,63 @@ test('Provider errors, partial and malformed replies never become a fake assista
     assert.ok(!JSON.stringify(result).includes('RAW_PRIVATE_PROVIDER_ERROR'));
     assert.equal(h.calls.length,3,'never automatically retry the model');
   }
+});
+
+const privateProviderMarkers=[
+  'RAW_PRIVATE_PROVIDER_ERROR','resp-private-unit-id','req-private-unit-id',
+  'org-private-unit-id','proj-private-unit-id','arbitrary_private_provider_code',
+  baseEnv.OPENAI_API_KEY,baseEnv.SUPABASE_SERVICE_ROLE_KEY
+];
+const privateProviderError=fields=>({
+  id:'resp-private-unit-id',request_id:'req-private-unit-id',
+  error:{message:privateProviderMarkers.join(' '),organization:'org-private-unit-id',project:'proj-private-unit-id',
+    api_key:baseEnv.OPENAI_API_KEY,service_key:baseEnv.SUPABASE_SERVICE_ROLE_KEY,...fields}
+});
+
+for(const [name,providerStatus,fields,status,error] of [
+  ['credit balance before generic quota type',429,{code:'credit_balance_exhausted',type:'insufficient_quota'},503,'provider_credit_exhausted'],
+  ['organization spend before generic quota type',429,{code:'organization_spend_limit_exceeded',type:'insufficient_quota'},503,'provider_organization_spend_limit'],
+  ['project spend before generic quota type',429,{code:'project_spend_limit_exceeded',type:'insufficient_quota'},503,'provider_project_spend_limit'],
+  ['organization usage before generic quota type',429,{code:'organization_usage_limit_exceeded',type:'insufficient_quota'},503,'provider_usage_limit'],
+  ['insufficient quota code',429,{code:'insufficient_quota'},503,'provider_quota_exhausted'],
+  ['insufficient quota type',429,{code:'arbitrary_private_provider_code',type:'insufficient_quota'},503,'provider_quota_exhausted'],
+  ['usage limit code',429,{code:'usage_limit_exceeded'},503,'provider_quota_exhausted'],
+  ['hard billing limit code',429,{code:'billing_hard_limit_reached'},503,'provider_quota_exhausted'],
+  ['known rate limit code',429,{code:'rate_limit_exceeded'},429,'provider_rate_limited'],
+  ['known slow down code',429,{code:'slow_down'},429,'provider_rate_limited'],
+  ['known rate limit type',429,{code:'arbitrary_private_provider_code',type:'rate_limit_error'},429,'provider_rate_limited'],
+  ['unknown code and type',429,{code:'arbitrary_private_provider_code',type:'unknown_private_type'},503,'provider_unavailable'],
+  ['missing code and type',429,{},503,'provider_unavailable'],
+  ['non-string code and type',429,{code:{private:'arbitrary_private_provider_code'},type:['rate_limit_error']},503,'provider_unavailable'],
+  ['prototype-like code',429,{code:'__proto__'},503,'provider_unavailable'],
+  ['authentication failure',401,{code:'arbitrary_private_provider_code'},503,'provider_auth_failed'],
+  ['access failure',403,{code:'arbitrary_private_provider_code'},503,'provider_access_denied'],
+  ['other client failure remains unavailable',400,{code:'arbitrary_private_provider_code'},502,'unavailable'],
+  ['other server failure remains unavailable',500,{code:'arbitrary_private_provider_code'},502,'unavailable']
+])test('Provider '+name+' is classified safely without retry',async()=>{
+  const h=harness({provider:privateProviderError(fields),providerStatus});
+  const r=await handleSupportAiRequest(request(),h.options);
+  assert.equal(r.status,status);
+  const result=await r.json();assert.deepEqual(result,{error});
+  const exposed=JSON.stringify({body:result,headers:[...r.headers]});
+  for(const marker of privateProviderMarkers)assert.ok(!exposed.includes(marker),'private provider detail must not leave the handler');
+  assert.equal(h.calls.length,3);
+  assert.deepEqual(h.calls.slice(0,2).map(c=>[c.body.p_limit,c.body.p_window_seconds]),[[10,3600],[20,86400]]);
+  assert.ok(h.calls.slice(0,2).every(c=>c.url.endsWith('/rpc/lb_check_order_rate_limit')));
+  assert.equal(h.calls.filter(c=>c.url==='https://api.openai.com/v1/responses').length,1,'one paid model attempt, no retry');
+});
+
+for(const [name,providerRaw] of [
+  ['invalid JSON','not JSON: '+privateProviderMarkers.join(' ')],
+  ['null payload','null'],
+  ['missing error object',JSON.stringify({id:'resp-private-unit-id',message:privateProviderMarkers.join(' ')})]
+])test('Provider 429 with '+name+' is unavailable rather than inferred throttling',async()=>{
+  const h=harness({providerStatus:429,providerRaw});
+  const r=await handleSupportAiRequest(request(),h.options);
+  assert.equal(r.status,503);assert.deepEqual(await r.json(),{error:'provider_unavailable'});
+  assert.equal(h.calls.length,3);
+  assert.equal(h.calls.filter(c=>c.url==='https://api.openai.com/v1/responses').length,1);
+  assert.deepEqual(h.calls.slice(0,2).map(c=>[c.body.p_limit,c.body.p_window_seconds]),[[10,3600],[20,86400]]);
 });
 
 test('Public knowledge matches all currently published offer-card prices and availability',async()=>{

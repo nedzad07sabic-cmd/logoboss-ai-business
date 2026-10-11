@@ -2,7 +2,9 @@
 
 ## Release status — 2026-10-11
 
-The German/English interface and real model integration are prepared. **AI generation is disabled.** No OpenAI key or approved inference budget was available, and no paid model call was made. The existing authenticated support-ticket service remains the customer handoff.
+The German/English interface and real model integration are deployed. A dedicated `OPENAI_API_KEY` is now present in Supabase, and the owner approved API usage with a global allowance of 20 requests per fixed 24-hour window. **AI generation is paused pending provider availability and successful DE/EN live checks.** Activation attempts reached the upstream service but did not produce a completed assistant response. The existing authenticated support-ticket service remains the customer handoff.
+
+The existing 20-request approval remains valid; another approval is only needed for a materially different spending scope. Do not copy credentials into this repository or replace a key merely because the provider reports a billing or quota error.
 
 Public route: `https://logobossweb-ai.eu/#ai-support`.
 
@@ -17,7 +19,25 @@ The original business-scoped FAQ demo remains separate. The new route cannot sel
 3. Set `LB_SUPPORT_AI_DAILY_LIMIT` to the approved number of requests (1–50; default 20). Set `LB_SUPPORT_AI_ENABLED=true` only when API usage is approved and controlled DE/EN live checks can be performed. Adding a key alone does not enable the model.
 4. Confirm a real DE and EN response, then check Soon availability, private-account handoff, language selection and the published data notice. Model-output quality cannot be established by mocked tests. Disable the flag if any activation check fails.
 
-The currently pinned model is `gpt-4.1-mini-2025-04-14` through the Responses API. The public status response only reports configuration readiness; it does not verify API credit, provider health or model access. Therefore a positive status is not a substitute for the controlled live checks.
+The currently pinned model is `gpt-4.1-mini-2025-04-14` through the Responses API. The public status response only reports configuration readiness; it does not verify API credit, provider health or model access. Therefore a positive status is not a substitute for the controlled live checks. Keep the AI availability badge in `app.html` as Soon until real DE/EN generation succeeds; unrelated hosting Soon badges remain unchanged.
+
+## Provider failures
+
+Only fixed machine codes leave the handler. Raw provider messages, account IDs, keys and customer text are neither returned nor logged. Specific provider error codes take precedence over a broader `insufficient_quota` type.
+
+| Response code | Meaning and next action |
+| --- | --- |
+| `rate_limited` (429) | The site's atomic request allowance rejected the request. Wait for its existing window; do not reset counters or increase the approved limit to make tests pass. |
+| `provider_rate_limited` (429) | The provider explicitly reported a temporary request/ramp-rate limit. Pace requests; do not infer a need to buy credit. |
+| `provider_credit_exhausted` (503) | The provider reported an exhausted prepaid credit balance. Review the owner's API billing account before another live attempt. |
+| `provider_organization_spend_limit` / `provider_project_spend_limit` (503) | Review the applicable enforced spend limit. Do not automatically raise or remove it. |
+| `provider_usage_limit` / `provider_quota_exhausted` (503) | Review the provider usage allowance or billing/credit state. Repeated requests cannot repair this condition. |
+| `provider_auth_failed` / `provider_access_denied` (503) | Review the key, project, organization and permitted access without exposing credentials. |
+| `provider_unavailable` (503) | Unrecognized or malformed provider 429; no billing/rate cause is inferred. |
+
+Ordinary provider failures and malformed/incomplete model output remain unavailable responses. There is no fake answer or automatic retry. The client preserves the visitor's text and offers the existing Support route. Operational tools may retry HTTP failures independently, so live attempts must remain few and all counters must be preserved.
+
+Official guidance: [OpenAI error codes](https://developers.openai.com/api/docs/guides/error-codes), [API billing](https://platform.openai.com/settings/organization/billing), and [API limits](https://platform.openai.com/settings/organization/limits).
 
 ## Limits and data handling
 

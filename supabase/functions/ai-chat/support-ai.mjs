@@ -126,6 +126,30 @@ async function reserveRequest(req,cfg,fetcher,signal){
   }
 }
 
+async function providerFailure(response){
+  // Keep billing/access failures distinct from the site's own request allowance.
+  // Only fixed codes leave this handler; never expose or log a raw provider body.
+  let error;
+  try{error=(await response.json())?.error;}catch{error=null;}
+  const code=typeof error?.code==='string'?error.code:'';
+  const type=typeof error?.type==='string'?error.type:'';
+  if(response.status===401)return new SupportError('provider_auth_failed',503);
+  if(response.status===403)return new SupportError('provider_access_denied',503);
+  if(response.status!==429)return new SupportError('unavailable',502);
+  const billingCodes={
+    credit_balance_exhausted:'provider_credit_exhausted',
+    organization_spend_limit_exceeded:'provider_organization_spend_limit',
+    project_spend_limit_exceeded:'provider_project_spend_limit',
+    organization_usage_limit_exceeded:'provider_usage_limit'
+  };
+  if(Object.hasOwn(billingCodes,code))return new SupportError(billingCodes[code],503);
+  if(['insufficient_quota','usage_limit_exceeded','billing_hard_limit_reached'].includes(code)||type==='insufficient_quota')
+    return new SupportError('provider_quota_exhausted',503);
+  if(['rate_limit_exceeded','slow_down'].includes(code)||type==='rate_limit_error')
+    return new SupportError('provider_rate_limited',429);
+  return new SupportError('provider_unavailable',503);
+}
+
 function outputFor(data,language){
   if(!data||data.status!=='completed'||!Array.isArray(data.output))throw new SupportError('unavailable',502);
   const texts=data.output.filter(x=>x?.type==='message'&&x.role==='assistant')
@@ -161,7 +185,7 @@ export async function handleSupportAiRequest(req,options={}){
     const response=await fetcher(API_URL,{method:'POST',headers:{
       'Content-Type':'application/json',Authorization:'Bearer '+cfg.apiKey
     },body:JSON.stringify(requestFor(input)),signal:controller.signal});
-    if(!response.ok)throw new SupportError(response.status===429?'rate_limited':'unavailable',response.status===429?429:502);
+    if(!response.ok)throw await providerFailure(response);
     const data=await response.json();
     return reply(outputFor(data,input.language),200,origin);
   }catch(error){
