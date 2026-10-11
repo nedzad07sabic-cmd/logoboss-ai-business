@@ -38,7 +38,7 @@ for(const language of d.languages){
  const home=r.home(lang);assert.equal((home.match(/data-orbit-package=/g)||[]).length,13);assert.equal((home.match(/class="lb-orbit-group /g)||[]).length,5);
  assert.ok(!home.includes('€')&&!home.includes('lb-card-price')&&!home.includes('lb-package-card')&&!home.includes('assets/workspace'),'home must contain only the brand and linked orbit icons');
  for(const p of d.packages)assert.ok(home.includes('href="'+r.packageUrl(p,lang)+'"'));
- assert.ok(!r.header(lang).includes('lb-language-toggle'));assert.ok(r.header(lang).includes('/logo-boss.svg'));
+ assert.ok(!r.header(lang).includes('lb-language-toggle'));assert.ok(!r.header(lang).includes('/logo-boss.svg'));
  assert.equal((r.footer(lang).match(/role="menuitemradio"/g)||[]).length,8);
  for(const g of Object.values(d.groups)){
    const category=r.categoryPage(g,lang);assert.equal((category.match(/class="lb-package-card"/g)||[]).length,d.packages.filter(p=>p.group===g.id).length);assert.ok(existsSync(path.join(dir,'systems',g.id+'.html')));
