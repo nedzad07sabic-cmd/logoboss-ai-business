@@ -2,7 +2,7 @@
 window.LOGOBOSS_HOSTING_CONFIG = {
   enabled: true,
   portalBaseUrl: 'https://portal.logobossweb-ai.eu/',
-  verifiedAt: '2026-10-11T08:35:20Z',
+  verifiedAt: '2026-10-11T09:00:02Z',
   currencyId: 1,
   products: {
     'hosting-web': { enabled: true, productId: 1, billingCycle: 'monthly', activation: 'after-payment' },

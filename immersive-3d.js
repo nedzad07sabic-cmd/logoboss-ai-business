@@ -130,6 +130,7 @@ function filterOffers(){
  let count=0;
  for(const p of packages){const visible=allOffers||p.category===category;p.card.hidden=!visible;if(visible)count++;}
  const name=categories[category].label;
+ const hostingPortal=document.getElementById('lbHostingPortal');if(hostingPortal)hostingPortal.hidden=!(allOffers||category==='hosting');
  const intro=document.querySelector('.lb-safe-head>p');intro.textContent=category==='hosting'&&!allOffers?t('Webhosting und WordPress können Sie direkt bestellen. Für Apps, Domains und Geschäfts-E-Mail stimmen wir Verfügbarkeit und Einrichtung vor der Bestellung ab.','Order web hosting and WordPress directly. For apps, domains and business email, we confirm availability and setup before ordering.'):t(intro.dataset.lbDe,intro.dataset.lbEn);
  document.querySelector('.lb-safe-grid').dataset.visibleCount=String(count);
  document.getElementById('lbSellableHeading').textContent=allOffers?t(packages.length+' Pakete. Ein klarer Leistungsumfang.',packages.length+' packages. Clear deliverables.'):name+' · '+count+' '+t(count===1?'Paket':'Pakete',count===1?'package':'packages');

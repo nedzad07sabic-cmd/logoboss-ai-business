@@ -17,6 +17,8 @@ WHMCS runs at https://portal.logobossweb-ai.eu/. EUR is currency ID 1. The exist
 
 Business Email displays the actual agreed annual total, including in the 3D selector. It is not linked to the incorrect WHMCS monthly charge.
 
+The hosting category and all-packages view show a matching blue/violet client-portal panel. It directs customers to the account created during hosting checkout for orders, invoices and services, with DE/EN portal links. The general package notice accurately distinguishes online purchase buttons from inquiry offers. Inquiry-only cards explain their respective setup/availability steps without exposing backend configuration details.
+
 ## Fresh verification
 
 - Public HTTPS requests to the portal and product routes succeed.
@@ -32,7 +34,7 @@ Business Email displays the actual agreed annual total, including in the 3D sele
 
 ## Remaining setup
 
-1. In Business Email pricing, enable the annual EUR cycle at 16.20 with a zero setup fee and disable the erroneous 16.20 monthly cycle. Verify the public annual product feed and a fresh anonymous order summary. Then enable hosting-email in hosting-checkout-config.js and publish the matching annual static checkout link. The browser allowed secure sign-in and read-only access but blocked editing after native credential delivery; no WHMCS pricing change was made during this release.
+1. In Business Email pricing, enable the annual EUR cycle at 16.20 with a zero setup fee and disable the erroneous 16.20 monthly cycle. Verify the public annual product feed and a fresh anonymous order summary. Then enable hosting-email in hosting-checkout-config.js and publish the matching annual static checkout link. Secure sign-in and a subsequent manual sign-in/password-confirmation attempt succeeded, but browser credential protection continued to block editing. The owner deferred manual correction and authorized publishing everything currently ready; no WHMCS pricing change was made.
 2. Confirm Apps & Bots runtime, resources and a working deployment before enabling direct paid checkout. Keep AI/API consumption separate.
 3. Configure and test domain availability, registrar fulfillment and annual prices before enabling domain checkout. No domain registrations, transfers, renewals or paid add-ons were activated.
 4. Verify a disposable hosting account can actually be provisioned, then validate failed/pending/successful payment handling in an isolated test environment. A gateway form or connection test does not establish payment/provisioning correctness.

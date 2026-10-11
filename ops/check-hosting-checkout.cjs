@@ -36,6 +36,11 @@ for (const link of d.querySelectorAll('.lb-hosting-request')) assert.ok(link.hre
 config.enabled = true; w.lbRefreshHostingLinks();
 assert.equal(d.querySelectorAll('[data-hosting-checkout]').length, 2);
 click('.node-hosting'); assert.equal(d.querySelectorAll('#motionPackagePicker button').length, 5);
+assert.equal(d.getElementById('lbHostingPortal').hidden, false);
+for (const link of d.querySelectorAll('[data-hosting-portal]')) {
+  const url = new URL(link.href); assert.equal(url.origin, 'https://portal.logobossweb-ai.eu');
+  assert.equal(url.pathname, '/clientarea.php'); assert.equal(url.searchParams.get('language'), 'German');
+}
 let scenes = 0;
 for (const id of ids) {
   click(`[data-package="${id}"]`);
@@ -51,6 +56,7 @@ for (const [index, id] of ['hosting-web', 'hosting-wordpress', 'hosting-apps', '
 }
 config.domains = { enabled: true, lookupVerified: true, registrationVerified: true, orderUrl: 'https://portal.logobossweb-ai.eu/cart.php?a=add&domain=register' };
 w.localStorage.setItem('lb_lang', 'en'); w.lbRefreshHostingLinks();
+for (const link of d.querySelectorAll('[data-hosting-portal]')) assert.equal(new URL(link.href).searchParams.get('language'), 'English');
 for (const id of ids) {
   const url = new URL(w.lbHostingCheckoutUrl(id)); assert.equal(url.origin, 'https://portal.logobossweb-ai.eu');
   assert.equal(url.searchParams.get('language'), 'English'); assert.equal(url.searchParams.get('currency'), '2');
@@ -75,12 +81,14 @@ config.domains.registrationVerified = true;
 config.domains.orderUrl += '&key=secret'; assert.equal(w.lbHostingCheckoutUrl('hosting-domains'), null);
 config.enabled = false; w.lbRefreshHostingLinks();
 for (const link of d.querySelectorAll('.lb-hosting-request')) assert.ok(link.href.startsWith('mailto:'));
-for (const [category, count] of [['web', 3], ['ai', 2], ['hosting', 5]]) { click(`#motion-tab-${category}`); assert.equal(d.querySelectorAll('.lb-safe-card:not([hidden])').length, count); }
+for (const [category, count] of [['web', 3], ['ai', 2], ['hosting', 5]]) { click(`#motion-tab-${category}`); assert.equal(d.querySelectorAll('.lb-safe-card:not([hidden])').length, count); assert.equal(d.getElementById('lbHostingPortal').hidden, category !== 'hosting'); }
 click('[data-motion-all]'); assert.equal(d.querySelectorAll('.lb-safe-card:not([hidden])').length, 13);
+assert.equal(d.getElementById('lbHostingPortal').hidden, false);
+assert.doesNotMatch(d.querySelector('.lb-safe-alert').textContent, /email inquiries only|nur unverbindlich per E-Mail/i);
 click('[data-home]'); assert.equal(d.querySelector('#homeView').classList.contains('hidden'), false);
 assert.deepEqual(errors, []);
 for (const file of ['index.html', 'hosting-checkout-config.js', 'hosting-checkout.js', 'immersive-3d.js']) {
   assert.doesNotMatch(fs.readFileSync(path.join(root, file), 'utf8'), /WHMCS-[a-zA-Z0-9]{8,}|\b(?:sk|rk)_(?:live|test)_[a-zA-Z0-9]+/);
 }
-console.log(JSON.stringify({ result: 'passed', liveCheckoutProducts: 2, hostingProducts: 5, featureScenes: scenes, packageCards: 13, checked: ['verified product IDs and EUR', 'static purchase links', 'disabled fallback', 'DE/EN checkout', 'annual email price', 'monthly/annual cycles', 'portal URL validation', 'domain readiness', 'rollback', '3D navigation', 'public secret scan'] }));
+console.log(JSON.stringify({ result: 'passed', liveCheckoutProducts: 2, hostingProducts: 5, featureScenes: scenes, packageCards: 13, checked: ['verified product IDs and EUR', 'static purchase links', 'disabled fallback', 'DE/EN checkout and client portal', 'portal category visibility', 'annual email price', 'monthly/annual cycles', 'portal URL validation', 'domain readiness', 'rollback', '3D navigation', 'public secret scan'] }));
 dom.window.close();

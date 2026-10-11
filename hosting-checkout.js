@@ -46,6 +46,11 @@
     element.dataset.lbDe = de; element.dataset.lbEn = en; element.textContent = text(de, en);
   }
   function refresh() {
+    document.querySelectorAll('[data-hosting-portal]').forEach(link => {
+      const url = new URL('clientarea.php', 'https://portal.logobossweb-ai.eu/');
+      url.searchParams.set('language', lang() === 'en' ? 'English' : 'German');
+      link.href = url.href;
+    });
     document.querySelectorAll('.lb-hosting-card').forEach(card => {
       const id = card.id.replace('offer-', ''), link = card.querySelector('.lb-hosting-request');
       if (!link) return;
