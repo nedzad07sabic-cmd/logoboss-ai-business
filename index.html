@@ -2540,6 +2540,7 @@ const lbOrderForm=el('newOrderForm');if(lbOrderForm)lbOrderForm.addEventListener
  const r=await fetch(LB_SUPABASE_URL+'/functions/v1/submit-order',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json','Authorization':'Bearer '+session.access_token,'apikey':LB_PUBLIC_KEY},body:JSON.stringify(payload)});
  const response=await r.json().catch(()=>({}));if(!r.ok||!response.success)throw Error(response.error||lbTr("Anfrage konnte nicht gesendet werden.","The request could not be sent."));
  el('paymentStatus').textContent=(response.is_test?lbTr("Interne Testanfrage gespeichert. Nummer: ","Internal test request saved. Number: "):lbTr("Anfrage gespeichert. Nummer: ","Request saved. Number: "))+(response.order?.id||'–')+lbTr(". Öffnen Sie „Mein Konto“, um den Status zu sehen.",". Open “My account” to view the status.");el('paymentStatus').classList.add('show');el('paymentStatus').classList.remove('error');
+ window.lbGoogleAdsTrackLead?.(response);
  lbForgetPendingPackage();
  await lbClient.rpc('lb_claim_my_orders');
  }catch(err){el('paymentStatus').textContent=err.message||lbTr("Anfrage fehlgeschlagen.","Request failed.");el('paymentStatus').classList.add('show','error');}
@@ -2638,7 +2639,7 @@ window.addEventListener('DOMContentLoaded',()=>{
 </script>
 <script src="/catalog-data.js?v=20261011-catalog-8" defer></script>
 <script src="/package-preview.js?v=20261011-catalog-8" defer></script>
-<script src="/catalog-experience.js?v=20261011-catalog-8" defer></script>
+<script src="/catalog-experience.js?v=20261012-ads-1" defer></script>
 <script src="./earth-points.js?v=20261009-motion-2" defer></script>
 <script src="./globe-3d.js?v=20261011-catalog-8" defer></script>
 <script src="./hosting-checkout-config.js?v=20261011-buy-3" defer></script>

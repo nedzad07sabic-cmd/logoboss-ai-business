@@ -1,3 +1,156 @@
+/* LogoBoss Google Ads: consent-controlled measurement of saved inquiries. */
+(function (root) {
+  'use strict';
+  if (!root.document || root.lbGoogleAdsMeasurement) return;
+  const doc = root.document;
+  const TAG = 'AW-18507281653';
+  const DESTINATION = TAG + '/DwHpCOSjoJkdEPXp-vhE';
+  const CHOICE_KEY = 'lb_ads_consent_v1';
+  const LEADS_KEY = 'lb_ads_saved_leads_v1';
+  const MAX_AGE = 180 * 24 * 60 * 60 * 1000;
+  const seen = new Set();
+  let granted = false, loaded = false, banner, settings;
+  function readChoice() {
+    try {
+      const value = JSON.parse(root.localStorage.getItem(CHOICE_KEY));
+      const age = Date.now() - value?.at;
+      return value?.version === 1 && typeof value.ads === 'boolean' &&
+        Number.isFinite(age) && age >= 0 && age < MAX_AGE ? value : null;
+    } catch (_) { return null; }
+  }
+  function language() {
+    try {
+      const requested = new URL(root.location.href).searchParams.get('lang');
+      if (requested === 'de' || requested === 'en') return requested;
+      return root.localStorage.getItem('lb_lang') === 'en' ? 'en' : 'de';
+    }
+    catch (_) { return doc.documentElement.lang === 'en' ? 'en' : 'de'; }
+  }
+  function cleanPage() {
+    const url = new URL(root.location.href);
+    const safe = new URLSearchParams();
+    for (const key of ['gclid', 'gbraid', 'wbraid', 'lang', 'system', 'package', 'plan', 'request']) {
+      if (url.searchParams.has(key)) safe.set(key, url.searchParams.get(key));
+    }
+    return url.origin + url.pathname + (safe.size ? '?' + safe.toString() : '');
+  }
+  root.dataLayer = root.dataLayer || [];
+  root.gtag = root.gtag || function () { root.dataLayer.push(arguments); };
+  const denied = {ad_storage: 'denied', ad_user_data: 'denied',
+    ad_personalization: 'denied', analytics_storage: 'denied'};
+  root.gtag('consent', 'default', denied);
+  function enable() {
+    granted = true;
+    root.gtag('consent', 'update', {...denied, ad_storage: 'granted', ad_user_data: 'granted'});
+    if (loaded) return;
+    loaded = true;
+    root.gtag('js', new Date());
+    root.gtag('config', TAG, {allow_ad_personalization_signals: false,
+      page_location: cleanPage(), page_referrer: doc.referrer ? doc.referrer.split(/[?#]/)[0] : ''});
+    const script = doc.createElement('script');
+    script.id = 'lb-google-ads-tag';
+    script.async = true;
+    script.src = 'https://www.googletagmanager.com/gtag/js?id=' + TAG;
+    doc.head.appendChild(script);
+  }
+  function forgetAdsCookies() {
+    const names = doc.cookie.split(';').map(s => s.trim().split('=')[0]).filter(s => /^_gcl_/.test(s));
+    const hosts = root.location.hostname.split('.');
+    const domains = [null];
+    for (let i = 0; i < hosts.length - 1; i++) domains.push(hosts.slice(i).join('.'));
+    names.forEach(name => domains.forEach(domain => {
+      doc.cookie = name + '=; Max-Age=0; path=/' + (domain ? '; domain=' + domain : '') + '; SameSite=Lax';
+    }));
+    seen.clear();
+    try { root.sessionStorage.removeItem(LEADS_KEY); } catch (_) {}
+  }
+  function choose(ads) {
+    try { root.localStorage.setItem(CHOICE_KEY, JSON.stringify({version: 1, ads, at: Date.now()})); } catch (_) {}
+    if (banner) banner.hidden = true;
+    if (ads) { enable(); return; }
+    granted = false;
+    root.gtag('consent', 'update', denied);
+    forgetAdsCookies();
+    // Reload after withdrawal so the previously allowed library is no longer loaded.
+    if (loaded) root.location.reload();
+  }
+  function trackLead(response) {
+    try {
+      if (!granted || response?.success !== true || response.is_test || response.order?.is_test) return false;
+      const id = response.order?.id;
+      if ((typeof id !== 'string' && typeof id !== 'number') || !String(id).trim()) return false;
+      const key = String(id);
+      let stored = [];
+      try {
+        const value = JSON.parse(root.sessionStorage.getItem(LEADS_KEY) || '[]');
+        if (Array.isArray(value)) stored = value.filter(s => typeof s === 'string').slice(-50);
+      } catch (_) {}
+      if (seen.has(key) || stored.includes(key)) return false;
+      root.gtag('event', 'conversion', {send_to: DESTINATION, transaction_id: key,
+        page_location: cleanPage()});
+      seen.add(key);
+      try { root.sessionStorage.setItem(LEADS_KEY, JSON.stringify([...stored, key].slice(-50))); } catch (_) {}
+      return true;
+    } catch (_) { return false; }
+  }
+  const text = {
+    de: {title: 'Werbeerfolg messen', body: 'Dürfen wir Google Ads verwenden, um zu messen, ob unsere Anzeigen zu einer Anfrage führen? Google erhält dabei technische Besuchsdaten und kann Werbe-Cookies speichern. Nur mit Ihrer Einwilligung; keine personalisierte Werbung.',
+      yes: 'Messung erlauben', no: 'Nur notwendige Funktionen', privacy: 'Datenschutz', settings: 'Datenschutz-Einstellungen'},
+    en: {title: 'Measure advertising results', body: 'May we use Google Ads to measure whether our ads lead to an inquiry? Google receives technical visit data and may store advertising cookies. Only with your consent; no personalized advertising.',
+      yes: 'Allow measurement', no: 'Necessary functions only', privacy: 'Privacy notice', settings: 'Privacy settings'}
+  };
+  function refresh() {
+    if (!banner) return;
+    const t = text[language()];
+    for (const key of ['title', 'body', 'yes', 'no', 'privacy']) banner.querySelector('[data-lb-ads="' + key + '"]').textContent = t[key];
+    settings.textContent = t.settings;
+    banner.lang = language();
+  }
+  function openSettings() {
+    if (!banner) return;
+    refresh();
+    banner.hidden = false;
+    banner.querySelector('[data-lb-ads="no"]').focus();
+  }
+  root.lbGoogleAdsMeasurement = {openSettings, choose};
+  root.lbGoogleAdsTrackLead = trackLead;
+  function mount() {
+    const style = doc.createElement('style');
+    style.id = 'lb-ads-consent-style';
+    style.textContent = '#lbAdsConsent[hidden]{display:none!important}#lbAdsConsent{position:fixed;z-index:12000;left:16px;right:16px;bottom:max(16px,env(safe-area-inset-bottom));width:min(680px,calc(100% - 32px));margin:0 auto;padding:20px;border:1px solid #385375;border-radius:18px;background:#09162d;color:#f4f8ff;box-shadow:0 16px 65px #0009;font:14px/1.5 system-ui,sans-serif}#lbAdsConsent h2{font:700 18px/1.3 system-ui,sans-serif;margin:0 0 8px}#lbAdsConsent p{margin:0 0 14px;color:#c1d0e6}#lbAdsConsent .lb-ads-actions{display:flex;gap:9px;flex-wrap:wrap}#lbAdsConsent button{flex:1;min-width:190px;padding:12px 14px;border:1px solid #6f8eb4;border-radius:10px;background:#142b4b;color:#fff;font:600 14px/1.3 system-ui,sans-serif;cursor:pointer}#lbAdsConsent button:hover{background:#1f3a61}#lbAdsConsent button:focus-visible,#lbAdsSettings:focus-visible{outline:3px solid #64e4ff;outline-offset:3px}#lbAdsConsent a{display:inline-block;color:#9de6ff;margin-top:12px;font-size:12px}#lbAdsSettings{position:fixed;z-index:900;left:12px;bottom:max(10px,env(safe-area-inset-bottom));border:1px solid #385375;border-radius:9px;padding:6px 9px;background:#09162de8;color:#bdcfe8;font:11px/1.3 system-ui,sans-serif;cursor:pointer}@media(max-width:420px){#lbAdsConsent{padding:16px;max-height:80vh;overflow:auto}#lbAdsConsent button{min-width:100%;flex-basis:100%}}';
+    doc.head.appendChild(style);
+    banner = doc.createElement('section');
+    banner.id = 'lbAdsConsent';
+    banner.setAttribute('role', 'region');
+    banner.setAttribute('aria-labelledby', 'lbAdsConsentTitle');
+    banner.hidden = true;
+    banner.innerHTML = '<h2 id="lbAdsConsentTitle" data-lb-ads="title"></h2><p data-lb-ads="body"></p><div class="lb-ads-actions"><button type="button" data-lb-ads="no"></button><button type="button" data-lb-ads="yes"></button></div><a href="/datenschutz.html" data-lb-ads="privacy"></a>';
+    settings = doc.createElement('button');
+    settings.id = 'lbAdsSettings';
+    settings.type = 'button';
+    settings.setAttribute('aria-controls', 'lbAdsConsent');
+    settings.addEventListener('click', openSettings);
+    banner.querySelector('[data-lb-ads="no"]').addEventListener('click', () => choose(false));
+    banner.querySelector('[data-lb-ads="yes"]').addEventListener('click', () => choose(true));
+    doc.body.appendChild(banner);
+    doc.body.appendChild(settings);
+    refresh();
+    const choice = readChoice();
+    if (!choice || new URL(root.location.href).searchParams.get('consent') === 'settings') banner.hidden = false;
+  }
+  const initial = readChoice();
+  if (initial?.ads) enable();
+  if (doc.readyState === 'loading') doc.addEventListener('DOMContentLoaded', mount, {once: true});
+  else mount();
+  doc.addEventListener('lb:catalog-language', refresh);
+  root.addEventListener('storage', event => {
+    if (event.key !== CHOICE_KEY) return;
+    const choice = readChoice();
+    if (choice?.ads) { enable(); if (banner) banner.hidden = true; }
+    else { granted = false; root.gtag('consent', 'update', denied); forgetAdsCookies(); if (loaded) root.location.reload(); else if (banner) banner.hidden = Boolean(choice); }
+  });
+})(typeof window !== 'undefined' ? window : globalThis);
+
 /* Public catalog. Existing auth, orders and support remain in index.html. */
 (function (root) {
   'use strict';
